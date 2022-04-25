@@ -1,0 +1,378 @@
+
+\section{Causality and Global Hyperbolicity}
+In this first section we will establish which points in a Lorentzian manifold can be connected by timelike or lightlike paths under which circumstances. 
+
+We will take $(M,g)$ to be a time-oriented Lorentzian manifold. First we will set up some basic causality structure:
+\begin{definition}
+We write
+\begin{enumerate}
+    \item $p\ll q$ if $p\neq q$ and there exist a future-pointing timelike curve from $p$ to $q$,
+    \item $p<q$ if $p\neq q$ and there exist a future-pointing causal curve from $p$ to $q$,
+    \item $p\leq q$ if $p=q$ or $p<q$.
+\end{enumerate}
+We then define the \emph{chronological future} and \emph{causal future} of a point $p\in M$ as
+\begin{align*}
+    I^+(p) &\coloneqq \{q\in M \mid p\ll q\}\\
+    J^+(p) &\coloneqq \{q\in M \mid p\leq q\}.
+\end{align*}
+
+We can extend these definitions to arbitrary sets by setting $I^+(A)\coloneqq\bigcup_{p\in A}I^+(p)$ and $J^+(A)$ analogously.
+\end{definition}
+
+Note that in the Minkowski case $\R^n_1$ the set $I^+(p)$ is open and $J^+(p)=\overline{I^+(p)}$ is closed. Furthermore $I^+(p)$ resp. $J^+(p)$ is the set of all $q\in R^n_1$ such that $\overrightarrow{pq}$ is timelike resp. causal.
+We will see that under sufficient conditions the first of the above facts also hold in the general case.
+
+\begin{corollary}
+If $x\ll y$ and $y\leq z$ or $x\leq y$ and $y\ll z$, then $x\ll z$.
+\end{corollary}
+\begin{proof}
+This follows immediately from proposition \ref{prop:geosmoothing}
+\end{proof}
+
+Let $\U \subset M$ be an open set. Then the \emph{intrinsic} causality relations in $\U$ imply the ones in $M$. In particular, if we denote by $I^+(A,\U)$ the chronological future in $\U$ of the set $A\subset\U$, we have that $I^+(A,\U) \subset I^+(A)\cap \U$.
+
+With this in mind we will now consider the case of a convex set $\cc$:
+\begin{lemma}\label{lem:convtopo}
+Let $\cc$ be a convex open set in $M$, then
+\begin{enumerate}[label={\textnormal{(\arabic*)}}]
+    \item For $p\neq q$ in $\cc$, $q\in J^+(p,\cc) \iff \overrightarrow{pq}$ is future-pointing causal.
+    \item $I^+(p,\cc)$ is open in $\cc$ (hence also in $M$).
+    \item $J^+(p,\cc)$ is the closure in $\cc$ of $I^+(p,\cc)$.
+    \item The relation $\leq$ is closed on $\cc$, i.e. if $p_n \to p$ and $q_n \to q$ with all points in $\cc$ then $q_n\in J^+(p_n,\cc)$ for all $n$ implies $q\in J^+(p,\cc)$.
+    \item A causal curve $\alpha$ contained in a compact $K\subset\cc$ is continuously extendable. 
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Properties (1-3) follow from the fact that the convex open set $\cc$ is via the exponential map everywhere diffeomorphic to the tangent space $T_pM\simeq \R^n_1$ and thus the properties of the minkovski space also apply here.
+
+To prove (4) we first note that by (1) we have that $q_n\in J^+(p_n,\cc)$ implies $\overrightarrow{p_nq_n}$ is future-pointing causal. Now by \ref{lem:deltasmooth} $(p_n,q_n)\mapsto\overrightarrow{p_nq_n}$ is continuous and thus $\overrightarrow{pq}$ is also future-pointing causal. Fact (4) then follows from again applying property (1). 
+
+To prove (5) we suppose that the domain of $\alpha$ is $[0,B)$ where $B<\infty$. As $K$ is compact there exist a sequence $s_i\to B$ such that $\alpha(s_i)$ converges to a point $p\in K$. We must now prove that for any sequence $t_i\to B$ such that $\alpha(t_i)\to q$ we have $p=q$. Assume by contradiction that $p\neq q$. By possibly taking subsequences we can achieve that $s_i \le t_i \le s_{i+1}$.
+Then since $\alpha$ is causal we get  $\alpha(s_i)\le \alpha(t_i) \le \alpha(s_{i+1})$ and thus $\alpha(t_i) \in J^+(\alpha(s_i),\cc)$ and $\alpha(s_{i+1}) \in J^+(\alpha(t_i),\cc)$. By (4) we now have $q\in J^+(p,\cc)$ and $p\in J^+(q,\cc)$ which by (1) implies that $\overrightarrow{pq}$ is at the same time, future and past pointing, a contradiction.
+\end{proof}
+
+(2) can be generalized:
+
+\begin{lemma}
+The relation $\ll$ is open; that is if $p\ll q$ there exist neighborhoods $\U,\V$ of $p$ and $q$ respectively such that for any $p'\in \U$ and $q'\in \V$ we still have $p\ll q$.
+\end{lemma}
+\begin{proof}
+Let $\sigma$ be a timelike curve from $p$ to $q$. Let $\cc$ be a convex open neighborhood of $q$ and $q^-$ a point on $\sigma$ which comes before $q$ and still lies in $\cc$. Then $I^+(q^-,\cc)$ is also an open neighborhood of $q$. If we proceed analogously for $p$ with $p^+$ and $\cc'$. Then we get that $I^-(p^+,\cc')$ and $I^+(q^-,\cc)$ are the neighborhoods we were looking for.
+\end{proof}
+
+Note that this lemma implies that $I^+(A)$ is open for any set $A$.
+
+We can now further develop the topology of causality:
+\begin{lemma}
+For $A \subset M$ we have that:
+\begin{enumerate}[label={\textnormal{(\arabic*)}}]
+    \item $\operatorname{int} J^+(A)=I^+(A)$
+    \item $J^+(A)\subset\overline{I^+(A)}$ with equality iff $J^+(A)$ is closed.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+To prove (1) we first note that $I^+(A)$ is open as remarked above. Also $I^+(A)\subset J^+(A)$ by definition. Now if $q\in \operatorname{int}J^+(A)$, then for a convex neighborhood $\cc$ of $q$, $I^-(q,\cc)$ contains a point of $J^+(A)$. Hence $q\in I^+J^+(A) = I^+(A)$.
+
+Now to prove part (2): The equality assertion is clear, as $I^+(A)\subset J^+(A)$. Note that is suffices to consider only the case where $A=\{p\}$, since the general case then follows from
+\[
+\bigcup_{p\in A}J^+(p) \subset \bigcup_{p\in A}\overline{I^+(p)} \subset \overline{\bigcup_{p\in A}I^+(p)}.
+\]
+Let us thus consider the case of $\overline{I^+(p)}$. Clearly $p\in \overline{I^+(p)}$. Thus we only need to consider $p<q$. Let $\sigma$ be a causal path from $p$ to $q$. Let $\cc$ be a convex neighborhood of $q$ and $q^-$ a point lying on $\gamma$ in $\cc$. Now by lemma \ref{lem:convtopo}, $q^-\in J^+(p)$ and $I^+(J^+(p))=I^+(p)$ we have 
+\[
+q\in J^+(q^-,\cc) = \overline{I^+(q^-,\cc)} \subset \overline{I^+(J^+(p))} = \overline{I^+(p)}.
+\]
+\end{proof}
+
+\subsection{Strong Causality}
+
+\begin{definition}[Strong Causality Condition]\label{def:scc}
+We say that the \emph{strong causality condition} holds at $p\in M$ if for any given neighborhood $\U$ of $p$ there exists a neighborhood $\V \subset \U$ of $p$ such that any causal curve with endpoints in $\V$ lies entirely within $\U$.
+\end{definition}
+Intuitively this condition states that any causal curve which starts arbitrarily close to $p$ and leaves some fixed neighborhood cannot return arbitrarily close to $p$. In particular this rules out closed causal loops.
+
+The following lemma is in line with this intuition:
+\begin{lemma}\label{lem:leavescompact}
+Suppose the strong causality condition holds on a compact subset $K$ of $M$. If $\alpha$ is a future-inextendable causal curve that starts in $K$, then $\alpha$ eventually permanently leaves $K$. That is, there exists a $s>0$ such that $\alpha(t)\notin K$ for all $t\geq s$.
+\end{lemma}
+\begin{proof}
+Assume that the conclusion is false. Thus if the domain of $\alpha$ is $[0,B)$ for $B\leq \infty$, by the compactness of $K$, there exists a sequence $s_i\to B$ such that $\alpha(s_i)\to p\in K$. Since $\alpha$ has no future endpoint there must be some other sequence $t_j\to B$ such that $\alpha(t_j)$ does not converge to $p$. After taking further subsequences we can assume that some neighborhood $\U$ of $p$ contains no $\alpha(t_j)$ and the sequences are alternating, i.e. $s_1<t_1<s_2<t_2<s_3<\dots$. But now the curves $\alpha\rvert_{[s_k,s_{k+1}}$ always leave the neighborhood $\U$ but return arbitrarily close and thus violated the strong causality condition.
+\end{proof}
+
+Under these conditions there exists a very useful lemma for constructing geodesics joining some $p<q$.
+\begin{lemma}\label{lem:geodconstr}
+Suppose the strong causality condition holds on a compact subset $K\subset M$. Let $(\alpha_n)$ be a sequence of future-pointing causal curve segments in $K$ such that $\alpha_n(0) \to p$ and $\alpha_n(1)\to q\neq p$. Then there exists a future-pointing causal broken geodesic $\gamma$ from $p$ to $q$ and a subsequence $(\alpha_m)$ of $(\alpha_n)$ such that $\lim_{m\to\infty} L(\alpha_m) \leq L(\gamma)$.
+\end{lemma}
+This lemma is proven by leveraging the existence of quasi-limits together with the fact that given the strong causality condition, future inextendable curves must eventually leave a compact set $K$ permanently. This proof can be found in detail in \cite[Lemma 14.14]{oneill}.
+
+\subsection{Time Separation Function}
+There is a natural way to generalize the notion of the separation of points $p\leq q$ in $\R^n_1$ to an arbitrary Lorentzian manifold $M$.
+\begin{definition}[Time Separation]
+Let $p,q\in M$, we define the \emph{time separation} $\tau(p,q)$ from $p$ to $q$ as
+\[
+\tau(p,q)\coloneqq \sup \{L(\alpha) \mid \alpha \text{ is a future-pointing causal curve segment from }p \text{ to }q\}.
+\]
+\end{definition}
+We have $\tau(p,q) = \infty$ if the length is unbounded and $\tau(p,q)=0$ if the separation is spacelike, i.e. $q\notin J^+(p)$.
+Note that for any causal path $\alpha$ the function $s\mapsto \tau(\alpha(0),\alpha(s))$ is monotonously increasing.
+
+\begin{lemma}
+\begin{enumerate}[label={\textnormal{(\arabic*)}}]
+    \item $\tau(p,q)>0$ iff $p\ll q$.
+    \item Reverse triangle inequality: If $p\leq q\leq r$, then $\tau(p,q)+\tau(q,r)\leq \tau(p,r)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(1) If $\tau(p,q)>0$ there exists a future-pointing causal curve $\alpha$ from $p$ to $q$ with $L(\alpha)>0$. Thus $\alpha$ cannot be a null pregeodesic. By proposition \ref{prop:geosmoothing} there now exists a timelike curve from $p$ to $q$. The converse follows immediately from the definition.
+
+(2) If there are future-pointing causal curves from $p$ to $q$ and $q$ to $r$ we can pick causal curves $\alpha$ from $p$ to $q$ and $\beta$ from $q$ to $r$ such that, for an arbitrarily small $\delta>0$
+\[
+L(\alpha) \ge \tau(p,q)-\delta/2, \quad L(\beta) \ge \tau(q,r)-\delta/2.
+\]
+We then have 
+\[
+\tau(p,r) \ge L(\alpha+\beta) = L(\alpha) + L(\beta) \ge \tau(p,q) + \tau(q,r) - \delta
+\] for any $\delta>0$, as required.
+If there is no future-pointing causal path from WLOG $p$ to $q$ then $\tau(p,q)=0$ and the result follows immediately.
+\end{proof}
+
+\begin{lemma}
+The time separation function $\tau:M\times M \to [0,\infty]$ is lower semicontinuous.
+\end{lemma}
+\begin{proof}
+If $\tau(p,q)=0$ there is nothing to prove. Suppose $q\in I^+(p)$ and $0<\tau(p,q)<\infty$.
+
+Given $\delta>0$ we must find neighborhoods $\U,\V$ such that for all $p'\in\U, q'\in\V$ we have $\tau(p',q') > \tau(p,q) - \delta$.
+
+Let $\alpha$ be a timelike curve from $p$ to $q$ with $L(\alpha)>\tau(p,q)-\delta/3$. Let $\cc$ be a convex neighborhood of $q$ and $q^-$ on $\alpha$ and in $\cc$. Since in convex neighborhoods the map $q'\mapsto L(\sigma_{q^-q'})$, where $\sigma_{q^-q'}$ is the radial geodesic, is continuous there exists a neighborhood $\V$ of $q$ such that for all $q'\in \V$ we have $L(\sigma_{q^-q'})>L(\sigma_{q^-q})-\delta/3$.
+
+By analogous argument we get that there exists a $p^+$ and neighborhood $\U$ of $p$ such that for all $p'\in \U$ we have $L(\sigma_{p'p^+})>L(\sigma_{pp^+})-\delta/3$.
+
+Putting this together and using the fact that $L(\sigma_{q^-q})\ge L(\alpha\rvert_{[q^-,q]})$, resp $L(\sigma_{pp^+})\ge L(\alpha\rvert_{[p,p^+]})$ we have 
+\begin{align*}
+\tau(p',q') &\ge L(\sigma_{p'p^+})+L(\alpha\rvert_{\left[p^+,q^-\right]})+L(\sigma_{q^-q'}) \\
+&>L(\sigma_{pp^+}) -\delta/3 + L(\alpha\rvert_{\left[p^+,q^-\right]}) + L(\sigma_{q^-q}) - \delta/3 \\
+&\ge L(\alpha\rvert_{[p,p^+]}) -\delta/3 + L(\alpha\rvert_{\left[p^+,q^-\right]}) + L(\alpha\rvert_{[q^-,q]}) - \delta/3\\ 
+&= L(\alpha) - 2\delta/3 > \tau(p,q) - \delta
+\end{align*}
+as required.
+\end{proof}
+
+\subsection{Globally Hyperbolic Manifolds}
+It is convenient to define 
+\[
+J(p,q) \coloneqq J^+(p) \cap J^-(q)
+\]
+Note that any future-pointing causal path from $p$ to $q$ must be contained in $J(p,q)$.
+
+We can now give a powerful condition as to when the supremal path of $\tau(p,q)$ is actually achieved:
+
+\begin{proposition}\label{prop:maximalgeo}
+For $p<q$, if the set $J(p,q)$ is compact and the strong causality condition holds on it, then there is a causal geodesic from $p$ to $q$ of length $\tau(p,q)$.
+\end{proposition}
+\begin{proof}
+Let $(\alpha_n)$ be a sequence of future-pointing curve segments from $p$ to $q$ whose lengths converge to $\tau(p,q)$ (the existence of such a sequence is guaranteed as $\tau(p,q)$ is the supremum of such curves). These curves are all in $J(p,q)$ which is compact. Hence, by lemma \ref{lem:geodconstr}, there exists a broken causal geodesic $\gamma$ with 
+\[
+\tau(p,q) = \lim_{n \to \infty} L(\alpha_n) \leq L(\gamma) \leq \tau(p,q).
+\]
+But now, if $\gamma$ were to have any actual breaks, by corollary \ref{cor:geoismax} there would exist a longer curve, which is a contradiction.
+\end{proof}
+Note that this implies in particular that $\tau(p,q)$ is always finite if $J(p,q)$ is compact.
+
+This motivates the following definitions:
+\begin{definition}[Globally Hyperbolic]
+A subset $\mathcal{H}\subset M$ is called \emph{globally hyperbolic} if (1) the strong causality conditions holds and (2) for all $p,q\in \mathcal{H}$ with $p<q$, $J(p,q)$ is compact.
+\end{definition}
+
+\begin{definition}
+Let $\gamma:[0,T]$ be a causal geodesic from $p=\gamma(0)$ to $q=\gamma(T)$. We call $\gamma$ \emph{maximal} if we have $L(\gamma)=\tau(p,q)$ and hence $L(\gamma\rvert_{[0,t]}) = \tau(p,\gamma(t))$ for all $0\leq t \leq T$.
+\end{definition}
+
+\begin{lemma}\label{lem:tsfcont}
+If $\U$ is globally hyperbolic open set, then the time separation function $\tau:\U\times\U\to [0,\infty)$ is continuous.
+\end{lemma}
+\begin{proof}
+We know from a previous lemma that $\tau$ is always lower semicontinuous. Suppose, for contradiction, that is is not upper semicontinuous at $(p,q)$, i.e. there exists a number $\delta>0$ and sequences $p_n\to p$ and $q_n\to q$ such that $\tau(p_n,q_n) \ge \tau(p,q) + \delta$ for all $n$.
+
+Since $\tau(p_n,q_n)>0$, there exists a causal curve $\alpha_n$ from $p_n$ to $q_n$ such that $L(\alpha_n)>\tau(p_n,q_n) - 1/n$. Because $\U$ is open it contains also the slightly earlier resp. later points $p^-\ll p$, $q^+\gg q$. As $I^+(p^-)$ resp. $I^-(q^+)$ are open neighborhoods of $p$ resp. $q$, $p_n$ and $q_n$ are eventually contained in them and we can WLOG assume that they always are. It follows that the curves $\alpha_n$ are all contained in the compact set $J(p^-,q^+)$. Now we can apply lemma \ref{lem:geodconstr} to obtain a broken geodesic $\gamma$ from $p=\lim p_n$ to $q=\lim q_n$ with 
+\[
+L(\gamma) \ge \lim_{n\to\infty} L(\alpha_n) \ge \lim_{n\to\infty}\tau(p_n,q_n) \ge \tau(p,q) + \delta.
+\]
+But since $\delta$ itself is a curve from $p$ to $q$ this is a contradiction.
+\end{proof}
+
+\begin{lemma}
+If $\U\subset M$ is a globally hyperbolic open set, then the causality relation $\leq$ is closed on $\U$.
+\end{lemma}
+\begin{proof}
+We again have to show that if $p_n\to p$ and $q_n\to q$ with all points in $\U$ and $p_n \leq q_n$ for all $n$, then also $p\leq q$.
+
+If $p=q$ the result follows immediately. We can thus assume $p\neq q$ and $p_n<q_q$ for all $n$. Let $\alpha_n$ then be a causal curve from $p_n$ to $q_n$. As in the preceding proof, all $\alpha$ are in $J(p^-,q^+)$ and by lemma $\ref{lem:geodconstr}$, there exists a causal curve $\gamma$ from $p$ to $q$. This implies $p<q$.
+\end{proof}
+
+\begin{remark}\label{rmk:causalitysummary}
+We can now summarize the results from this section for the case where $(M,g)$ is a globally hyperbolic Lorentzian manifold:
+
+For any $p\in M$, $I^\pm(p)$ is open and $J^\pm(p)$ is closed with $\operatorname{int} J^\pm(p) = I^\pm(p)$ and $\overline{I^\pm(p)}=J^\pm(p)$.
+
+For the time separation function we can say the following:
+\begin{enumerate}[label={\textnormal{(\arabic*)}}]
+    \item $\tau(p,q)>0$ iff $p\ll q$.
+    \item $\tau(x,y)$ satisfies the \emph{reverse triangle inequality}:
+    \[
+    \tau(x,y) + \tau(y,z) \leq \tau(x,z) \quad \text{ for }x\leq y\leq z.
+    \]
+    \item $(x,y)\mapsto \tau(x,y)$ is continuous in $M\times M$.
+    \item For $x<y$ there exists a causal geodesic $\gamma$ from $x$ to $y$ such that $L(\gamma)=\tau(x,y)$.
+\end{enumerate}
+
+\end{remark}
+
+
+\subsection{Light Cones}
+
+
+\begin{definition}[Light Cones]
+Let 
+\[
+L_pM \coloneqq \{ v\in T_pM\setminus\{0\} \mid \ip{v,v}=0 \}
+\]
+be the set of null vectors at $p\in M$. We can split $L_pM$ into $L^+_pM$ and $L^-_pM$ the future- and past-pointing null vectors. Furthermore we can define the bundle $LV\coloneqq\bigcup_{p\in V}L_pV\subset TM$.
+
+We now define the \emph{future light cone} of $p\in M$ to be 
+\[
+\flc_p \coloneqq \exp_p(L^+_pM) \cup \{p\}.
+\]
+$\mathcal{L}^-_p$ is defined analogously.
+\end{definition}
+Note that for $p\in M$ we have $\mc{L^+}_p\subset J^+(p)$ and $\mc{L^+}_p\supset J^+(p)\setminus I^+(p)$ if $M$ is globally hyperbolic.
+
+
+
+\subsection{Null Cut Points}
+To better understand the behavior of null geodesics we will introduce so called \emph{cut points} which intuitively are the points where a null geodesic stops being maximal. Such cut points are the product of curvature as in the minkovski case there are none.
+
+For $(p,v)\in TM$ with $v\neq 0$ let $\mathcal{T}(x,v)\in(0,\infty]$ be the maximal value for which $\gamma_v:[0,\mathcal{T}(x,v))$ is defined.
+
+\begin{definition}[Cut Locus Function and Cut Points]\label{def:cutpoint}
+For $(p,v)\in L^+M$ we define the \emph{cut locus function}
+\[
+\rho(p,v)\coloneqq\sup\{s\in[0,\mathcal{T}(p,v)) \mid \tau(x,\gamma_v(s))=0\}.
+\]
+The points $x_1=\gamma_v(t_1), x_2=\gamma_v(t_2), t_1<t_2 \in [0,t_0]$ are called \emph{cut points} on $\gamma_v([0,t_0])$ if $t_2-t_1 = \rho(x_1,v_1)$ for $v_1 = \gamma'_v(t_1)$. In particular, the point $p(x,v) = \gamma_v(s)\rvert_{s=\rho(x,v)}$, if it exists, is called the \emph{first cut point} on the geodesic $\gamma_v$.
+\end{definition}
+
+\begin{lemma}
+Let $p<q\in M$. Suppose there are two distinct future-pointed null geodesics $\alpha:[0,a)\to M, \beta:[0,b)\to M$ from $p=\alpha(0)=\beta(0)$ through $q=\alpha(1)=\beta(1)$. Then both geodesics have a cut point in $[0,1]$, i.e. $q$ comes on or after the first cut point.
+\end{lemma}
+\begin{proof}
+We will show that for any $s\in (1,a)$ we have $\tau(p,\alpha(s))>0$ since this implies that $\alpha$ must have a cut point at or before $1$. Let $\gamma=\beta\rvert_{[0,1]}+\alpha\rvert_{(1,a)}$ be the broken null geodesic obtained by traveling from $p$ to $q$ on $\beta$ and then continuing on $\alpha$. Thus for any $s\in(1,a)$, $\gamma\rvert_{[0,s]}$ is a broken null geodesic and by proposition \ref{prop:geosmoothing} there exists a timelike curve from $p$ to $\gamma(s)=\alpha(s)$ which implies $\tau(p,\alpha(t))>0$ as required.
+
+The proof for $\beta$ follows analogously.
+\end{proof}
+
+
+
+\begin{lemma}\label{lem:cutlemma}
+Let now $(M,g)$ be globally hyperbolic, and let $p<q\in M$ with $\tau(p,q)=0$. Assume that $p_n\to p$ and $q_n \to q$ with $p_n\leq q_n$. Let $\gamma_n$ be maximal geodesics joining $p_n$ to $q_n$ with initial direction $v_n$. Then the set $(v_n)$ has a limit $w$ and $\gamma_w$ is a maximal null geodesic from $p$ to $q$. 
+\end{lemma}
+\begin{proof}
+As in the proof of lemma \ref{lem:tsfcont} there exist $p^-\ll p$ $q^+\gg q$ such that $p_n,q_n,\gamma_n$ all lie in $J(p^-,q^+)$ which is compact. By lemma \ref{lem:geodconstr} there exists a future-pointing broken geodesic $\lambda$ which is the quasi-limit of $\gamma_n$ (see \cite[Def. 14.7]{oneill}). Thus there exists a convex neighborhood $\cc$ of $p$ and a sequence $s_n$ such that $\lim_{n\to\infty} x_n\coloneqq\gamma_n(s_n)\to x=\lambda(s) \in \cc$ and $\gamma_n\rvert_{[0,s_n]}\in \cc$. Note that since $\gamma_n$ is a maximal geodesic we have that $\gamma_n\rvert_{[0,s_n]}$ is the unique radial geodesic from $p_n$ to $x_n$ and we have $v_n=\gamma_n'(0) = \overrightarrow{p_nx_n}$. Now by lemma \ref{lem:convtopo} $(p',q')\to \overrightarrow{p'q'}$ is continuous and we thus have that 
+\[
+\lim_{n\to \infty}v_n = \lim_{n\to \infty}\overrightarrow{p_nx_n} = \overrightarrow{px} =: w.
+\]
+By construction, see \cite[Lemma 14.14]{oneill}, $\lambda\rvert_{[0,s]}$ is the radial geodesic in $\cc$ from $p$ to $x$ and thus also $\lambda'(0) =\overrightarrow{px}= w$.
+
+It remains to show that $\lambda$ is an actual unbroken geodesic. But since $L(\lambda)\leq \tau(p,q) = 0$ it follows from proposition \ref{prop:geosmoothing} that $\lambda$ must be smooth null geodesic.
+
+Thus also $\lambda = \gamma_w$ since $\lambda$ is a geodesic with initial velocity $w$.
+\end{proof}
+
+
+\begin{theorem}[Cut Point Characterization]
+Let $(M,g)$ be globally hyperbolic.
+Then for $(x,p)\in L^+M$, $p(x,v)$ is either the first conjugate point on $\gamma_v$ or the first point on $\gamma_v$ where there exists another null geodesic $\gamma_w$ from $x$ to $p(x,v)$ where $v \neq cw$.
+\end{theorem}
+\begin{proof}
+Let $q=p(x,v)=\gamma_v(t)$ be the first cut point on the null geodesic $\gamma_v$. Let furthermore $t_n\to t$ be a monotonously decreasing sequence such that $\gamma_v(t_n)$ is well defined for all $n$. Now since $M$ is globally hyperbolic there exist maximal geodesics $\gamma_n$ from $p$ to $q_n\coloneqq\gamma_v(t_n)$. Note that since $q=\gamma_v(t)$ is the first cut point of $\gamma_v$ we have $\tau(p,\gamma_v(t_n))>0$ for all $n$. But since $\gamma_v$ is a null geodesic, it has zero length and cannot be maximal up until any of the $t_n$. Thus $\gamma_n$ cannot equal $\gamma_v$ and in particular $v_n\coloneqq\gamma_n'(0)\neq v$ for all $n$. We can apply the previous lemma to obtain a geodesic $\gamma_w$ and a null vector $w$ such that $v_n\to w$ and $\gamma_w$ is a maximal geodesic from $p$ to $q$. 
+
+Now we can distinguish to cases:
+If $v\neq w$ there exist two distinct maximal geodesics, namely $\gamma_v$ and $\gamma_w$ joining $p$ and $q$.
+
+If however, $v=w$ we can view $\gamma_n$ as a variation of $\gamma_v$ through geodesics starting at $p$ which additionally satisfy that the limiting variation at $q$ is zero (since the $q_n$ converge to $q$). $q$ is thus a conjugate point of $\gamma_v$.
+\end{proof}
+
+\begin{proposition}
+For $(M,g)$ globally hyperbolic, $\rho(p,v)$ is lower semicontinuous.
+\end{proposition}
+\begin{proof}It suffices to prove that if $(p_n,v_n)\to(p,v)$ in $TM$ and $\rho(p_n,v_n)\to A$ in $\R \cup \{\infty\}$, then $\rho(p,v)\leq A$. If $A=\infty$ there is nothing to prove we will thus assume that $A<\infty$. We further assume $\rho(p,v)>A$ to derive a contradiction.
+
+We can choose a $\delta>0$ such that $A+\delta<\rho(p,v)$ and $q\coloneqq\gamma_v(A+\delta)$ exists.
+We define $b_n = \rho(p_n,v_n)+\delta$ and can force for $n$ large enough $b_n<\rho(p,v)$ and $\gamma_n\coloneqq\gamma_{v_n}$ defined past $b_n$. We then denote $q_n = \gamma_n(b_n)$.  
+
+Since $b_n>\rho(p_n,v_n)$, $\gamma_n$ cannot be maximal from $p_n$ to $q_n$. 
+Now, since M is globally hyperbolic, by \ref{prop:maximalgeo} we can find maximal null geodesics $\sigma_n$ from $p_n$ to $q_n$ with initial velocity $w_n$. By \ref{lem:cutlemma} $w_n\to w$ with $\gamma_w$ a maximal null geodesic from $p$ to $q$. 
+
+Since $q$ cannot be conjugate point (because this would make it a cut point) we cannot have $w_n\to w = v$. Thus we must have $w\neq v$, but this implies that there are two distinct maximal geodesics from $p$ to $q$, namely $\gamma_v$ and $\gamma_w$, thus $q=\gamma:v(A+\delta)$ must be a cut point of $\gamma_v$. This implies that $\rho(p,v)\leq A + \delta$, which is a contradiction since we assumed $A+\delta<\rho(p,v)$.
+\end{proof}
+
+
+
+\subsection{Conformal Structure}
+\begin{definition}[Conformal Diffeomorphism]
+A map $\Psi:(M_1,g_1)\to(M_2,g_2)$ is called a \emph{conformal diffeomorphism} or \emph{homothety} if $\Psi:M_1\to M_2$ is a diffeomorphism and $\Psi^*g_2=e^{2\Omega}g_1$ where $\Omega\in C(M_1)$ and nowhere zero.
+
+We further say that $\Psi:V_1\to V_2$ \emph{preserves causality} if $x<y$ implies $\Psi(x)<\Psi(y)$.
+\end{definition}
+
+It can be calculated that the connections $D$ on $M_1$ and $\widetilde{D}$ on $M_2$ are related by the following equation:
+\begin{align}
+    \widetilde{D}_{\Psi_*X}\Psi_*Y = f_*D_XY + X(\Omega)\Psi_*Y + Y(\Omega)\Psi
+\end{align}
+
+\begin{proposition} $\gamma:I\to M_1$ is a null geodesic if, and only if $\sigma\coloneqq\Psi\circ\gamma$ is also a null geodesic. 
+\end{proposition}
+\begin{proof}
+By the symmetry of the situation (i.e. $\Psi^{-1}$ is also a conformal diffeomorphism) is suffices to show only one direction.
+Suppose now $\gamma:I\to M_1$ is a null geodesic on $M_1$ and $\sigma=\Psi\circ\gamma$. 
+By the previous equation we have 
+\[
+\widetilde{D}_{\sigma'}\sigma'(t) = 2\gamma'(t)(\Omega)\sigma'(t).
+\]
+We can now reparameterize $\sigma$  such that $2\gamma'(t)(\Omega)$ is always zero and $\sigma$ is a null geodesic as desired.
+\end{proof}
+
+The following proposition asserts that the conformal data of a metric can be reconstructed from knowledge of the null cones:
+\begin{proposition}\label{prop:metricfromnullcone}
+Let $M$ be a smooth manifold of dimension $n\geq 3$ with Lorentzian metrics $g$ and $h$. Suppose that for any $v\in TM$ we have $g(v,v)=0$ iff $h(v,v)=0$. Then there exists a smooth nowhere zero function $\Omega\in C(M)$ such that $g = e^{2\Omega}h$.
+\end{proposition}
+\begin{proof}
+The proof follows from the fact that the nullcones are given by systems of quadratic equations and some linear algebra. It can be found in more detailed form at \cite[Theorem 2.3]{beem}
+\end{proof}
+
+We can see that even the cut locus is conserved under conformal transformation:
+\begin{proposition}
+Let $\gamma:[0,a)\to (M_1,g_1)$ be a null geodesic with first cut point $q=\gamma(t_0)$. Then $q'=\Psi(q)$ is the first null cut point of $p'=\Psi(p)$ along the null pregeodesic $\Psi\circ\gamma$.
+\end{proposition}
+\begin{proof}
+We can WLOG (since $\Psi$ either causal or anti-causal and the proof of the anti-causal case is analogous) assume that $\Psi$ is causal and $\gamma$ is future-pointing. $\Psi\circ\gamma$ is thus also a future-pointed pre-geodesic which can be reparameterized to a null geodesic $\sigma$ with $p'=\sigma(0)$ and $q'=\sigma(t_1)$. We will denote by $\tau_j$ the time separation function on $M_j$.
+
+We first show that $\tau_2(p',\sigma(t))=0$ for $t\in [0,t_1]$, i.e. that $q'$, if it is a cut point, is indeed the first cut point. To obtain a contradiction we assume that there exists a $t\in [0,t_1]$ with $\tau_2(p',\sigma(t))>0$. We my thus find a future-pointing causal curve $\beta$ from $p'$ to $\sigma(t)$ with $L_{g_2}(\beta)>0$. Now $\Psi^{-1}\circ \beta$ is a future-directed causal curve in $M_1$ from $p$ to $\Psi^{-1}(\sigma(t))$ with $L_{g_1}(\Psi^{-1}\circ\beta)>0$. But since $t\leq t_1$ we have $\Psi^{-1}(\sigma(t) = \gamma(t_2)$ with $t_2\in [0,t_0]$ and thus $\tau_1(p,\gamma(t_2))>0$. This would mean that $\gamma$ has a cut point at $t_2$, before $t_0$ which is a contradiction.
+
+We will now show that $\tau_2(q',\sigma(t)) > 0$ for any $t>t_1$, as this would make $q'=\sigma(t_1)$ a future cut point of $p$ along $\sigma$ as required.
+Let thus $t>t_1$. There exists a $t_2>t_0$ such that $\Psi^{-1}(\sigma(t))=\gamma(t_2)$. Now since $\gamma(t_2)$ lies past the first cut point of $\gamma$, we have $\tau_1(p,\gamma(t_2))>0$ and there exists a future-pointing causal curve $\alpha$ in $M_1$ with $L_{g_1}(\alpha)>0$. Now $\Psi\circ\alpha$ is also a future-pointing causal curve from $p'$ to $\sigma(t)$ with $L_{g_2}(\Psi\circ\alpha)>0$ and thus $\tau_2(p',\sigma(t)) \ge L_{g_2}(\Psi\circ\alpha)>0$ as required.
+\end{proof}
+
+
+
+
+\subsection{Short Cut Argument}
+
+\begin{theorem}
+Let $(M,g)$ be globally hyperbolic and $p<q$ in $M$, then there exists a future-pointed null geodesic $\gamma:[0,a)\to M$ from $p=\gamma(0)$ to $q=\gamma(t_0)$ and we have $\tau(p,q) = 0$ if and only if $\gamma$ has no cut points in $[0,t_0)$.
+\end{theorem}
+\begin{proof}
+The existence of $\gamma$ is assured by proposition \ref{prop:maximalgeo}. Now suppose we have $\tau(p,q)>0$ by the continuity of $\tau$ there must be a cut point $\gamma(t)$ before $q$, i.e. $t<t_0$. Suppose on the other hand that $\gamma$ has a cut point $\gamma(t)$ with $t<t_0$. Then by the definition of cut points we must have $\tau(p,q)>0$ as $t<t_0$.
+\end{proof}
+
+We can apply this theorem to the case of a path from $p$ to $q$ which is the union of the future pointing light-like pregeodesics $\gamma_{p,v}([0,t_0])$ and $\gamma_{x_1,w}([0,t_1])$ where $x_1=\gamma_{p,v}(t_0), q=\gamma_{x_1,w}(t_1)$. Let $\zeta = \gamma'_{p,v}(t_0)$. If there are no $c>0$ such that $\zeta=cw$ or equivalently, the union of these two paths is not also a light-like pregeodesic, then we have $\tau(p,q)>0$. By \ref{rmk:causalitysummary}, this implies that there exists a time-like geodesic from $p$ to $q$ and thus $\tau(p,q)>0$.
+This is called a \emph{short-cut argument}.

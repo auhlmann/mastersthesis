@@ -1,0 +1,386 @@
+\section{Baby Case}
+((Name for cut point which is not conj point))
+((Quotient direction set up to rescaling or restrict to unit length vectors))
+((Null geodesics intersect backwards cone exactly once))
+\begin{theorem}[Baby Case]\label{thm:babycase}
+Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ two points in $M_j$ we denote $K_j = J(p_j^-,p_j^+) \setminus I^-(p^+_j)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exist a conformal diffeomorphism $\Phi:K_1\to K_2$ and that none of the past null geodesics starting at $p_j^+$ have a cut point in $K_j$. 
+
+Now let $V_j$ be open sets such that $\overline{V_j}\subset \operatorname{int} J(p_j^-,p_j^+)$ is compact. We assume that no null geodesic starting in $V_j$ has a conjugate point on $K_j$. 
+
+Then, if 
+\[
+\widetilde{\Phi}(\mc{P}_{K_1}(V_1)) = \mc{P}_{K_2}(V_2)
+\]
+there exists a conformal diffeomorphism $\Phi:V_1\to V_2$ that preserves causality.
+\end{theorem}
+
+\subsection{Preliminary Constructions}
+((Intro))
+\begin{lemma}\label{lem:Kcharact}
+Let $(M,g), K, V, p^+,p^-$ be as in the statement of theorem \ref{thm:babycase} (we suppress the indices to simplify notation) then the following holds:
+\begin{enumerate}[label={\textnormal{(\arabic*)}}]
+\item $(J^-(p^+)\setminus I^-(p^+)) \cap K = \mc{L}^-_{p^+} \cap K$ and thus $K = \mc{L}^-_{p^+} \cap J^+(p^-)$.
+\item There exists a surjective smooth map $\Psi:S^n\times[0,1]\to K$ such that the curves $t\mapsto\Psi(v,t), v\in S^n$ are null geodesics and \[\Psi(S^n\times\{1\}) = \{p^+\}, \quad \Psi(S^n\times\{0\}) = (J^-(p^+)\setminus I^-(p^+)) \cap J^+(p^-)\]
+\item There exist $0<t_-<t_+<1$ such that the restriction $\Psi\rvert_{S^n\times[t_-,t_+]}$ is a diffeomorphism onto its image and that for all $v \in S^n$, we have 
+\[
+\Psi(v,t_-) \notin \bigcup_{p\in \overline{V}} J^+(p), \quad \Psi(v,t_+) \in \bigcap_{p\in \overline{V}} J^+(p)
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+((Overhaul))
+As we have no cut point in $J(p_1^-,p_1^+)$, the exponential map at $p_1^+$ is a diffeomorphism onto $J(p_1^-,p_1^+)$. Thus the preimage $\exp^{-1}_{p_1^+}(R)$ of the smooth submanifold
+\[
+    R = (J^-(p_j^+)\setminus I^-(p_j^+)) \cap (J^+(p_j^-)\setminus I^+(p_j^-)) = \mc{L}^-_{p_1^+} \cap \mc{L}^+_{p_1^-}
+\]
+is a smooth submanifold of $L^-_{p^+_1}M$. We then let $\mc{A}=R$ and denote by $\mu_a(s) = \gamma_{p_1^+,a}(1-s)$ for $a\in R$. It is then easily checked that this parameterization satisfies all requirements and we are done.
+\end{proof}
+
+Note that this implies that $K$ is a smooth $n$-dimensional submanifold of $M$ at any point away from its boundary. We will often treat $K$ itself as a submanifold when it is clear that we are working away from the boundary. This is almost always the case since any light cone originating in $\overline{V}$ will intersect $K$ in $\Psi(S^n\times(t_-,t_+))\subset K$.
+
+The next proposition allows us to endow $K$ with a number of \enquote{laboratory frames} we will use to conveniently describe the light cone observations on $K$.
+\begin{proposition}[Laboratory Frames]
+Let $(M_j,g_j), K_j, V_j, p_j^+,p_j^-, \Phi$ be as in the statement of theorem \ref{thm:babycase}
+Then there exists a family of future pointing, null geodesics $\mu_a^{(1)}:[0,1]\to K_1$ indexed by $a\in \mathcal{A}$ where $\mathcal{A}$ is a metric space. Furthermore we can require the map $[0,1]\times\mathcal{A}\to K_1; (s,a)\mapsto \mu^{(1)}_a(s)$ to be open ((almost, needed?)) and continuous. If we then take $\mu^{(2)}_a\coloneqq\Phi(\mu^{(1)}_a)$ we can achieve
+\begin{equation}\label{eq:frameunion}
+K_j = \bigcup_{a\in \mathcal{A}}\mu^{(j)}_a([0,1]).
+\end{equation}
+\end{proposition}
+\begin{proof}
+((TODO))
+\end{proof}
+
+\begin{remark}\label{rmk:data}To simplify notation we will continue with the construction on just one Lorentzian manifold $(M,g)$ of dimension $1+n$ and assume that we are given the following data to construct the required conformal diffeomorphism ((explain better)) from theorem \ref{thm:babycase}.
+
+\begin{enumerate}
+    \item A the quasi-manifold $K$,
+    \item the conformal class of $g\rvert_K$ (but not only restricted to tangent vectors in $K$ ((i think??)) ),
+    \item the paths $\mu_a:[0,1]\to K, a\in \mathcal{A}$,
+    \item the set $\mathcal{P}_K(V)$ where $V$ is open and $\overline{V}\subset \operatorname{int} J(p^-,p^+)$ is compact.
+\end{enumerate}
+Note that these data are invariant under conformal diffeomorphism, and any map we construct from it will thus also be invariant. We also remark that $\overline{V}\subset \operatorname{int} J(p^-,p^+)$ implies that $q\notin K$ for any $q\in \overline{V}$. ((Also mention that any light observation must lie in $[t_-,t_+]$)).
+\end{remark}
+
+\subsubsection{Geometry of Light Observation Sets}
+
+
+
+\begin{lemma}\label{prop:transversality}
+For any $q\in \overline{V}$ the restriction of the exponential map to null vectors $\exp_q:L^+_qM\to M$ is \emph{transverse} to $K$, i.e. for all $w\in L^+_qM$ such that $\gamma_{q,w}(1) = p\in K$ we have $\gamma'_{q,w}(1)\notin T_pK$.
+\end{lemma}
+\begin{proof}((Update proof))
+Suppose that there exists a $q\in \overline{V}$ and a $w\in L^+_qM$ such that with $v:=\gamma_{q,w}(1)\in L_pK$. Now, by definition of $\DP(q)$ we have $\exp_p(-v) = q\in V$. Also since $v\in L_pK$ there exists a $w\in L^-_{p^+}M$ and a $t\in \R_{>0}$ such that $\gamma_{p^+,w}(t) = p$ and $\gamma'_{p^+,w}(t) = -v$. This implies that $\gamma_{p^+,w}(t+1) = q \in V$. We thus have $q \in \mc{L^-}_{p^+}$. Furthermore we note that $q\in J^+(p^-)$ since $\overline{V}\subset \operatorname{int}J(p^-,p^+)$.
+Thus by \ref{lem:Kcharact}(1) we have that $q\in K$. But this is a contradiction to the fact that $q\notin K$.
+\end{proof}
+
+
+\begin{lemma}[Direction Reconstruction]\label{lem:dirreconstr}
+((Adjust formulation))
+Let $p\in K$ then there exists an isomorphism $\Phi$ between the space $\mc{S}$ of linear spacelike hypersurfaces $S\subset T_pK$ and the space $\mc{V}$ of rays $\R_+V\subset T_pM$ along future-directed outward facing null vectors, given by the mapping $S\in \mc{S}$ to the unique future-directed outward pointing null ray $\Phi(S)$ contained in $S^\perp$. The inverse map is given by $\mc{V}\ni \R_+V \mapsto T_pK \cap V^\perp\in \mc{S}$.
+
+Moreover there exists an isomorphism between $\mc{S}$ and the space $\mc{N}$ of linear null hypersurfaces $N\subset T_pM$ which contain a future-directed outward pointing null vector given by $\mc{S}\mapsto S\oplus \operatorname{span} \Phi(S)\in \mc{N}$.
+\end{lemma}
+\begin{proof}
+((Works same as in timelike boundary case))
+\end{proof}
+
+\begin{definition}[Observation Preimage]
+For any $q\in \overline{V}$ with light observation set $\mc{P}_K(q)\subset K$ we define the \emph{observation preimage} $L^K_qM$ to be the preimage of $K$ under the exponential map restricted to $L^+_qM$, i.e. 
+\begin{align*}
+    L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K) \subset L^+_qM
+\end{align*}
+\end{definition}
+\begin{lemma}\label{lem:preimage}
+For any $q\in \overline{V}$, $L^K_qM$ is a $n-1$-dimensional submanifold of $T_pM$ and $\exp_q:L^K_qM\to \mc{P}_K(q)$ is a local diffeomorphism ((onto its image)).
+\end{lemma}
+\begin{proof}
+((For first part use transversality. Use the fact that we have no conj points on $K$ for the second part))
+\end{proof}
+
+
+
+\begin{proposition}
+For any $q\in \overline{V}$, $\mc{P}_K(q)$ is locally the the finite union of transversal dimension $n-1$ submanifolds.
+\end{proposition}
+\begin{proof}
+To prove this we will first show that for any $p\in \mc{P}_K(q)$, $\pi^{-1}(p)\cap \DP(q)$ only contains finitely many elements, i.e. $p$ can only be hit by finitely many light rays originating at $q$:
+
+Let $q\in \overline{V}$ and $v\in L^+_qM$ such that $p=\exp_q(v)$. Since we required that $p\in K$ cannot be a conjugate point of $q$, $\exp_q$ must be a local diffeomorphism around $v$. This means that there exist open sets $v\in\mc{O}_v\subset T_qM, p\in \mc{U}_v\subset M$ such that $\exp_q:\mc{O}_v\to \mc{U}_v$ is a diffeomorphism. But this means that there cannot exist another $v'\in \mc{O}_v$ with $\exp_q(v')=p$. We now restrict ourselves only to null \emph{directions} at $q$ i.e. the quotient $L^+_qM/\R_+ \simeq S^{n-1}$. Since any null vector $v$ with $\exp_q(v)=p$ has an open neighborhood where no other vector can have this property, the set of null \emph{directions} in $S^{n-1}$ which hit $p$ is discrete and thus finite because $S^{n-1}$ is compact. Because we only have finitely many null directions which hit $p$, $\pi^{-1}(p)\cap \DP(q)$ can only have finitely many elements, as desired.
+
+Let now $v_1,\dots,v_n\in L^+_qM$ be these finitely many vectors with $\exp_q(v_i)=p$. As $p$ cannot be a conjugate point there exists a neighborhood $d$
+$\exp_q$ is a local diffeomophs
+
+Next we will prove that the restricted canonical projection $\pi:\DP(q)\to \mc{P}_K(q)$ is locally diffeomorphic. Since any $(p,v)\in \DP(q)$ has an open neighborhood where there exists no $(p,v'\neq v)$ we can construct a smooth local inverse to $\pi$ by attaching the appropriate direction vector.
+
+((finish + transversality))
+\end{proof}
+
+\begin{definition}[Regular Point]
+We call a point $p\in \mc{P}_K(q)$ \emph{regular} if there exists an open neighborhood $\mc{O}\subset M$ of $p$ such that $\mc{O}\cap \mc{P}_K(q)$ is a submanifold.
+\end{definition}
+
+
+\begin{corollary}((Maybe false)) The subset of non-cut points is dense in $\mc{P}_K(q)$.
+\end{corollary}
+\begin{proof}
+It suffices to show that for every cut point $p\in \mc{P}_K(q)$, every relatively open neighborhood $\mc{O}\subset\mc{P}_K(q)$ contains a non-cut point.
+\end{proof}
+
+
+
+\begin{proposition}
+$\DP(q)$ is diffeomorphic to $S^{n-1}$ ((Probably not necessary)).
+\end{proposition}
+\begin{proof}
+((TODO))
+\end{proof}
+
+\subsubsection{Observation Time Functions}
+\begin{definition}[Observation Time Function]\label{def:observationtime}
+For $a\in \ca$ the \emph{observation time function} 
+is defined as 
+\begin{align*}
+    f_a:\overline{V}&\to [0,1]\\
+    q&\mapsto\inf(\{s\in [0,1] \mid \mu_a(s)\in J^+(q)\}\cup \{1\}).
+\end{align*}
+Moreover, let $\mc{E}_a(q)\coloneqq\mu_a(f_a(q))\in M$ be the earliest point where $\mu_a$ sees light from $q$.
+\end{definition}
+
+\begin{lemma}\label{lem:observationtime}
+Let $a\in \ca$ and $q \in \overline{V}$. Then
+\begin{enumerate}[label={\textnormal{(\arabic*)}}]
+    \item It holds that $t_-\leq f_a(q) \leq t_+$.
+    \item We have $\mc{E}_a(q)\in J^+(q)$ and $\tau(q,\mc{E}_a(q))=0$. Moreover the function $s\mapsto\tau(q,\mu_a(s))$ is continuous, non-decreasing on $[0,1]$ and strictly increasing on $[f_a(q),1]$.
+    \item Let $p\in K$. Then $p=\mc{E}_a(q)$ with some $a\in \ca$ if and only if $p\in \mathcal{P}_K(q)$ and $\tau(p,q)=0$. Furthermore, these are equivalent to the fact that there are $v\in L^+_qM$ and $t\in[0,\rho(q,v)]$ such that $p=\gamma_{q,v}(t)$.
+    \item The function $q\mapsto f_a(q)$ is continuous on $\overline{V}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Let $a\in \mc{A}$ and $q\in \overline{V}$.
+
+We begin by showing (1): By lemma \ref{lem:Kcharact}(3) we have that
+$\mu_a(t_-)\notin J^+(q)$ and $\mu_a(t_+)\in J^+(q)$. The second part immediately yields $f_a(q) \leq t_+$ as $f_a(q)$ is the infimum over all observation times. For the first part we assume by contradiction that there were to exist a $t_{-2}<t_-$ with $\mu_a(t_{-2})\in J^+(q)$. This allows us to construct a causal path from $q$ to $\mu_a(t_-)$ by joining the causal path from $q\to \mu_a(t_{-2})$ and the null geodesic $\mu_a$ from $t_{-2}$ to $t_-$. Since this would imply that $\mu_a(t_-)\in J^+(q)$ this is a contradiction and $f_a(q)$ must be bigger than $t_-$ proving (1).
+
+(2)
+By the definition of the infimum we can find a sequence $t_n\searrow f_a(q)$ such that for all $t_n$ we have $\mu_a(t_n)\in J^+(q)$. Now since $t\mapsto \mu_a(t)$ is continuous we have that $\mu_a(t_n)\to \mu_a(f_a(q)) = \mc{E}_a(q)$. Since $J^+(q)$ is closed this yields $\mc{E}_a(q)\in J^+(q)$. 
+
+For the second part we assume by contradiction that $\tau(q,\mc{E}_a(q)) > 0$. Since this means that a timelike path from $q$ to $\mc{E}_a(q)$ exists we have $\mc{E}_a(q)\in I^+(q)$. Then, since $I^+(q)$ is open we can find a $t<f_a(q)$ such that $\mu_a(t)\in I^+(q) \subset J^+(q)$. This is a contradiction since $f_a(q)$ is the infimum over such $t$.
+
+To show that $s\mapsto \tau(q,\mu_a(s))$ is continuous and non-decreasing on $[0,1]$ we first note that it is the composition of two continuous functions. Non-decreasing then follows from the reverse triangle inequality together with the fact that $\mu_a$ is a null path.
+
+Finally to show that $s\mapsto \tau(q,\mu_a(s))$ is strictly increasing in $[f_a(q),1]$ we let $f_a\leq t_1<t_2\leq 1$. Now by ((REF)) there exists a causal geodesic $\gamma_1:[0,1]\to M$ with $\gamma_1(0)=q$ and $\gamma_1(1)=\mu_a(t_1)$ such that $L(\gamma_1)=\tau(p,\mu_a(t_1))$. 
+If we then connect $\gamma_1$ to $\mu_a\rvert_{[t_1,t_2]}$ we get a path $\gamma_2$ connecting $q$ to $\mu_a(t_2)$ which has length $L(\gamma_2) = L(\gamma_1)$ as $\mu_a$ is a null geodesic. Next we argue that $\gamma_2$ must have a break at the connecting point, i.e. $\gamma_1'(1) \neq c\mu_a'(t_1)$ for any $c\in \R_+$. If $\gamma_1$ is timelike this observation is trivial as $\mu_a$ is lightlike. If however, $\gamma_1$ is lightlike (which is exactly the case if $t_1=f_a(1)$), this fact follows from the transversality of light cone observations as noted in proposition \ref{prop:trans}. This means that $\gamma_2$ is a broken causal geodesic, which by ((REF)) implies that there exists a strictly longer timelike path $\gamma_3$ connecting the endpoints and we get
+\[
+\tau(q,\mu_a(t_2)) \geq L(\gamma_3) > L(\gamma_2) = L(\gamma_1) = \tau(q,\mu_a(t_1)).
+\]
+
+Next to prove (3):
+To prove the fist direction we assume that $p=\mc{E}_a(q)$ for some $a\in \mc{A}$. Now by (2) we have $\mc{E}_a(q) \in J^+(q)$ and $\tau(q,\mc{E}_a(q))=\tau(q,p)=0$. But now, by ((REF)) there exists a null geodesic from $q$ to $p$ which means $p\in \mc{P}_K(q)$. 
+
+For the other direction we let $p\in \mc{P}_K(q)$ with $\tau(q,p)=0$. Now let $a\in \mc{A}$ such that $p=\mu_a(t)$ for some $t\in [0,1]$. We then assume by contradiction that $\mc{E}_a(q) \neq p$, i.e. $f_a(q) < t$. But by (2) we have that $s\mapsto\tau(q,\mu_a(s))$ is strictly increasing after $f_a(q)$ which is in contradiction with $\tau(q,p)=0$.
+
+The other equivalence follows the definition of $\mc{P}_K(q)$ together with the definition of cut points.
+
+Finally we prove (4):
+Let $q_i\to q$ in $\overline{V}$, let $t_i = f_a(q_i)$ and $t=f_a(q)$. Since $\tau$ is continuous, for any $\varepsilon>0$ we have $\lim_{j\to \infty} \tau(q_j,\mu_a(t+\varepsilon)) = \tau(q,\mu_a(t+\varepsilon)) > 0$. Thus for $j$ big enough we have $\tau(q_i,\mu_a(t+\varepsilon)>0$. But by (3) this implies that $a$ must have observed $q_i$ before $t+\varepsilon$ i.e. $f_a(q_i)<t+\varepsilon = f_a(q) + \varepsilon$. As $\varepsilon$ was arbitrary we get $\limsup_{j\to \infty} t_j \leq t$.
+
+We assume now that $\liminf_{j\to \infty} t_j=t'<t$. Let $(t_i)$ be a convergent subsequence such that $f_a(q_i) = t_i \to t' < f_a(q)$. Now by the continuity of $\tau$ and $\mu_a$ we have 
+\[
+0=\tau(q_i,\mu_a(f_a(q_i)))\to \tau(q,\mu_a(t')).
+\]
+Furthermore by ((REF)) $\mu(s_i)\in J^+(q_i)$ for all $i$ implies $\mu(s')\in J^+(q)$. But now we have $\mu(s')\in \mc{P}_K(q)$ and $\tau(q,\mu_a(s'))=0$ which by (3) implies that $\mu_a(s') = \mc{E}_a(q) = \mu_a(f_a(q))$. But this is a contradiction as $s'<f_a(q)$. ((More in-detail?))
+\end{proof}
+
+By (3) of the above lemma, for any $q\in \overline{V}$ and $a\in \ca$ we have $\mc{E}_a(q)\in \P_K(q)$. Since $\P_K(q)\subset J^+(q)$, we can see using definition \ref{def:observationtime} that the set of earliest observations $\P_K(q)$ and the path $\mu_a$ completely determine the functions
+\begin{align}\label{eq:observationtimerestated}
+    f_a(q) = \min \{ s\in [-1,1] \mid \mu_a(s)\in \P_U(q) \}, \quad \mc{E}_a(q) = \mu_a(f_a(q))
+\end{align}
+
+
+\subsubsection{Set of earliest observations}
+\begin{definition}[Set of earliest observations]
+For $q\in \overline{V}$ we define
+\begin{alignat*}{2}
+    \mathcal{D}_K(q) &=\; &\{(p,v)\in L^+K \mid &(p,v) = (\gamma_{q,w}(t),\gamma'_{q,w}(t)) \\
+    &&&\text{ where } w\in L_q^+M, 0\leq t \leq \rho(q,w)\},\\
+    \mathcal{D}^{reg}_K(q) &=\; &\{(p,v)\in L^+K \mid &(p,v) = (\gamma_{q,w}(t),\gamma'_{q,w}(t)) \\
+    &&&\text{ where } w\in L_q^+M, 0 < t < \rho(q,w)\},
+\end{alignat*}
+We say that $\mathcal{D}_K(q)$ is the \emph{direction set} of $q$ and $\mathcal{D}^{reg}_K(q)$ is the \emph{regular direction set} of $q$.
+
+Let $\mc{E}_U(q) = \pi(\mathcal{D}_U(q))$ and $\mc{E}^{reg}_U(q) = \pi(\mathcal{D}^{reg}_U(q))$, where $\pi:TU\to U$ is the canonical projection. We say that $\mc{E}_U(q)$ is the set of earliest observations and $\mc{E}{reg}_U(q)$ is the set of earliest regular observations of $q$ in $U$. We denote the collection of earliest observation sets by $\mc{E}_U(V) = \{ \mc{E}_U(q) \mid q\in V\}$.
+\end{definition}
+
+Note that $\mc{E}_U(q) = \{ \mc{E}_a(q) \mid a\in \ca \}$.
+
+\begin{proposition}\label{prop:submanifolds}
+For any $q\in \overline{V}$ it holds that
+\begin{enumerate}[label={\textnormal{(\arabic*)}}]
+    \item $\mc{E}_K(q)$ fails to be a submanifold exactly at cut points,
+    \item $\mc{E}^{reg}_K(q)$ is a $n-1$-dimensional nonempty spacelike submanifold of $K$ which is open relative to $\mc{P}_K(q)$ and has $\overline{\mc{E}^{reg}_K(q)} = \mc{E}_K(q)$ and,
+    \item $\mc{D}^{reg}_K$ is a nonempty submanifold of $\overrightarrow{K}:=\pi^{-1}(K)$ ((...)) which is open 
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+We begin by proving (1):
+
+Let $p$
+
+\end{proof}
+
+Note that since $\mc{E}^{reg}_K(q)$ is exactly $\mc{E}_K(q)$ without the cut points, it is also the collection of all points where $\mc{E}_K(q)$ is locally a submanifold.
+
+\begin{proposition} For any $q\in \overline{V}$, $\mc{E}{reg}_K(q)\subset K$ and $\mathcal{D}^{reg}_K(q)\subset TU$ are smooth submanifolds of dimension $n-1$ ((D has dim $n$)).
+\end{proposition}
+\begin{proof}
+((TODO))
+
+
+We will focus our attention to the case of $\mc{E}{reg}_U(q)$ as the argument for  $\mathcal{D}^{reg}_U(q)$ is analogous
+Note first that $\mc{E}{reg}_U(q)$ can be rewritten as 
+\[
+    \{\exp_q(w) \mid  w\in L^+_qM \text{ with } 1<\rho(q,w)\}.
+\]
+Next by lower semi-continuity of $\rho$ we get that $R=\{w\in L^+_qM \mid 1<\rho(q,w)$ is an open set and thus a dimension $(n-1)$ submanifold (this is because $L^+_qM$ itself is of dimension $(n-1)$). But since $\rho(q,w)$ describes where $\exp_q$ first fails to be a diffeomorphism we get that the surjection $\exp_p:R\to \mc{E}{reg}_U(q)$ is a diffeomorphism. Thus, since $R$ was a manifold of dimension $(n-1)$, $\mc{E}{reg}_U(q)$ is also a manifold and has the required dimension.
+\end{proof}
+
+Finally in this section we will prove
+\begin{proposition}\label{prop:seocharact}
+Let $q\in \overline{V}$, then 
+\begin{equation*}
+    \mc{E}_K(q) = \{ p \in \P_K(q) \mid \text{there are no $p'\in \P_K(q)$ such that $p' < p$} \}.
+\end{equation*}
+\end{proposition}
+\begin{proof}
+((Still True?))
+For the left inclusion assume $p\in \mc{E}_U(q)$, i.e. there exists an $a\in \ca$ such that $\mc{E}_a(q)=p$. Then lemma \ref{lem:observationtime}(3) immediately yields, $p\in \P_U(q)$ and  $\tau(q,p)=0$. Now suppose there were a $p'\in \P_U(q)$ with $p'\ll p$. By as $\P_U(q)\subset J^+(q)$ we have $q\leq p'$, then as $p'\ll p$ we get $q\ll p$. But this would imply $\tau(p,q)>0$, a contradiction.
+
+For the other direction we assume we have $p \in \P_U(q)$ such that there are no $p'\in\P_U(q)$ such that $p'\ll p$. Again by lemma \ref{lem:observationtime}(3) we only need to prove that $\tau(p,q)=0$. Suppose that $\tau(p,q)>0$. By equation \ref{eq:frameunion} there exists an $a\in \ca$ and a $s\in [-1,1]$ such that $\mu_a(s) = p$. Now since $\tau(p,q)>0$, we must have $s > f_a(q)$. But then $\mc{E}_a(q) = \mu_a(f_a(q)) \ll  \mu_a(s)$, since $\mu_a$ is timelike, which is a contradiction.
+\end{proof}
+Thus $\mc{E}_U(q)$ truly deserves to be called the \enquote{set of earliest observations}.
+
+\subsection{Constructive Solution of the Inverse Problem}
+ 
+((Intro))
+
+\subsubsection{Reconstruction ...}
+
+
+\begin{lemma}
+Thing with dir set reconstruction
+Also intersection is spacelike somewhere
+\end{lemma}
+
+\begin{proposition}
+((Given data))
+The light observations $\mc{P}_K(q)$ uniquely determines the light \emph{direction} observation set $\mc{C}_K(q)$ and the set of earliest observations $\mc{E}_K(q)$.
+\end{proposition}
+\begin{proof}
+2nd part: from formula
+
+1st part: from lemma + only finite nonconj cut points + we can parameterize $\mc{P}_K(q)$ by a spacelike submanifold of the forwards lightcone
+\end{proof}
+
+\begin{proposition}
+((Given data))
+Given the light direction observation set $\mc{P}_K(q)$ and the set of earliest observations $\mc{E}_K(q)$, we can determine the sets $\mc{E}{reg}_K(q), \mc{D}_K(q)$ and $\mc{D}^{reg}_K(q)$.
+\end{proposition}
+\begin{proof}
+((Take $\pi^-1(\mc{E}_K(q))\cap \mc{C}_K(q)$ for $\mc{D}_U(q)$, then remove all cut points (in this case points with equal $p$ but different $v$) in $\mc{D}_U(q)$ to obtain $\mc{D}^{reg}_K(q)$ and project again))
+\end{proof}
+
+\subsubsection{Construction of $V$ as a topological manifold}
+((Intro))
+
+Next we aim to reconstruct the topological and differential data of $V$. To that end we define the following functions.
+
+For $q\in \overline{V}$ we define the function $F_q:\ca\to\R$ by $a\mapsto f_a(q)$. We can then define the function 
+\begin{align*}
+    \mathcal{F}:\overline{V} &\to \R^\mathcal{A}\\
+    q&\mapsto F_q
+\end{align*} mapping a $q\in \overline{V}$ to the function $F_q:\ca\to\R$. We endow the set $\R^\mathcal{A} = \{f:\ca\to \R\}$ with the product topology.
+
+((...))
+
+We begin by establishing the topological structure:
+\begin{lemma}\label{lem:Fhomeo}
+(($V$ or $\overline{V}$?))
+The map $\mathcal{F}:V\to\mathcal{F}(V)$ is a homeomorphism.
+\end{lemma}
+\begin{proof}
+((Works the same, use direction set reconstruction))
+\end{proof}
+
+
+\subsubsection{Construction of $V$ as a smooth manifold}
+Having established the topological structure of $V$ we next aim to establish coordinates on $\F(V)$ near any $\F(q)$ that make $\F(V)$ diffeomorphic to $V$.
+
+\begin{definition}[Coordinates on $V$]
+We first define 
+\[
+    \mc{Z} = \{(q,p)\in V\times K \mid p\in \mc{E}_U^{reg}(q)\}.
+\] 
+Then for every $(q,p)\in \mc{Z}$ there is a unique $w\in L^+_qM$ such that $\gamma_{q,w}(1)=p$ and $\rho(q,w)>1$. Existence follows from lemma \ref{lem:observationtime} while uniqueness follows from the fact that $p\in \mc{E}_U^{reg}(q)$ and thus cannot be a cut point. 
+We can then define the map
+\begin{align*}
+    \Theta:\mc{Z}&\mapsto L^+V\\
+    (q,p)&\mapsto (q,w)
+\end{align*}
+Note that this map is injective.
+Below we will $\mc{W}_\varepsilon(q_0,w_0)\subset TM$ be a $\varepsilon$-neighborhood of $(q_0,w_0)$ with respect to the Sasaki-metric induced on $TM$ by $g^+$.
+\end{definition}
+
+\begin{lemma}
+Let $(q_0,p_0)\in \mc{Z}$ and $(q_0,w_0)=\Theta(q_0,p_0)$. When $\varepsilon>0$ is small enough the map 
+\begin{align*}
+    X:\mc{W}_\varepsilon(q_0,w_0) &\to M\times M\\
+    (q,w) &\mapsto (q,\exp_q(w))
+\end{align*}
+is open and defines a diffeomorphism $X:\mc{W}_\varepsilon(q_0,w_0)\to \U_\varepsilon(q_0,p_0) \coloneqq X(\mc{W}_\varepsilon(q_0,w_0))$. When $\varepsilon$ is small enough, $\Theta$ coincides in $\mc{Z}\cap \U_\varepsilon(q_0,p_0)$ with the inverse map of $X$. Moreover $\mc{Z}$ is a $(2n-1)$-dimensional manifold and the map $\Theta:\mc{Z}\to L^+M$ is smooth.
+\end{lemma}
+\begin{proof}
+((Works the same with minor adjustments?))
+\end{proof}
+
+((Explain what we're doing now))
+
+\begin{proposition}\label{prop:observationtimecoordinates}
+Let $q\in \overline{V}$ and $(q_0,p_j)\in \mc{Z}, j=1,\dots, n$ and $w_j\in L^+_{q_0}M$ such that $\gamma_{q_0,w_j}(1) = p_j$. Assume that $w_j, j=1,\dots, n$ are linearly independent. Then, if $a_j\in A$ and $\overrightarrow{a} = (a_j)^n_{j=1}$ are such that $p_j\in \mu_{a_j}$, there is a neighborhood $V_1\subset M$ of $q_0$ such that the corresponding observation time functions 
+\[
+\mathbf{f}_{\overrightarrow{a}}(q) = (f_{a_j}(q))^n_{j=1}
+\]
+define smooth coordinates on $V_1$. Moreover $\nabla f_{a_j}\rvert_{q_0}$, i.e. gradient of $f_{a_j}$ with respect to $q$ at $q_0$, satisfies $\nabla f_{a_j}\rvert_{q_0} = c_jw_j$ for some $c_j\neq 0$.
+\end{proposition}
+\begin{proof}
+((Works almost the same, maybe clarify implicit function theorem stuff))
+\end{proof}
+
+\begin{definition}[Observation Coordinates]
+Let $\widehat{q}=\F(q)\in \widehat{V}$ and $\aa = (a_j)^n_{j=1}\subset \ca^n$ with $p_j = \mc{E}_{a_j}(q)$ such that $p_j\in \mc{E}_U^{reg}(q)$ for all $j=1,\dots,n$. Let $s_{a_j} = f_{a_j} \circ \mathcal{F}^{-1}$ and $\mathbf{s}_{\overrightarrow{a}}=\mathbf{f}_{\overrightarrow{a}}\circ\mc{F}^{-1}$. Let $W\subset\widehat{V}$ be an open neighborhood of $\widehat{q}$. We say that $(W,\mathbf{s}_\aa)$ are $C^0$-observation coordinates around $\widehat{q}$ if the map $\mathbf{s}_\aa:W\to \R^n$ is open and injective. Also we say that $(W,\mathbf{s}_\aa)$ are $C^\infty$-observation coordinates around $\widehat{q}$ if $\mathbf{s}_{\overrightarrow{a}}\circ\mc{F}:\mc{F}^{-1}(W)\to \R^n$ are smooth local coordinates on $V\subset M$.
+\end{definition}
+Note that by the invariance of domain theorem, the above $\mathbf{s}_{\overrightarrow{a}}:W\to \R^n$ is open if it is injective.
+Although for a given $\overrightarrow{a}\in \ca^n$ there might be several sets $W$ for which $(W,\mathbf{s}_{\overrightarrow{a}})$ form $C^0$-observation coordinates to clarify the notation we will sometimes denote the coordinates $(W,\mathbf{s}_{\overrightarrow{a}})$ as $(W_{\overrightarrow{a}},\mathbf{s}_{\overrightarrow{a}})$. 
+
+We will consider $\mc{F}(V)$ a topological space and denote $\mc{F}(V)=\widehat{V}$. We denote the points of this manifold by $\widehat{q}=\mc{F}(q)$. Next we construct a differentiable structure on $\widehat{V}$ that is compatible with that of $V$ and makes $\F$ a diffeomorphism.
+
+\begin{proposition}\label{prop:findsmoothcoords}
+Let  $\widehat{q}\in \widehat{V}$. 
+Then there exist $C^\infty$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}$.
+
+Furthermore, given the data from \ref{rmk:data} we can determine all $C^0$-observation coordinates around $\widehat{q}$.
+
+Finally given any $C^0$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}$, the data \ref{rmk:data}, allows us to determine whether they are $C^\infty$-observation coordinates around $\widehat{q}$.
+\end{proposition}
+\begin{proof}
+((Works the same way))
+\end{proof}
+
+\subsubsection{Construction of the conformal type of the metric}
+We will denote by $\widehat{g}=\F_*g$ the metric on $\widehat{V}=\F$ that makes $\F:V\to \widehat{V}$ an isometry. Next we will show that the set $\F(V)$, the paths $\mu_a$ and the conformal class of the metric on $U$ determine the conformal class of $\widehat{g}$ on $\widehat{V}$.
+
+\begin{lemma}\label{lem:constructmetric}
+The data given in \ref{rmk:data} determine a metric $G$ on $\widehat{V}=\F(V)$ that is conformal to $\widehat{g}$ and a time orientation on $\widehat{V}$ that makes $\F:V\to \widehat{V}$ a causality preserving map.
+\end{lemma}
+\begin{proof}
+((Works the same))
+\end{proof}

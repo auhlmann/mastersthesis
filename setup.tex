@@ -1,0 +1,120 @@
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{imakeidx}
+\usepackage{setspace}
+\usepackage{appendix}
+\usepackage{pdfpages}
+\makeindex
+
+
+\usepackage{mathtools}  
+\usepackage{tabulary}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{extarrows}
+\usepackage[none]{hyphenat}
+\usepackage{geometry}
+\geometry{a4paper}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{quiver}
+\usepackage{csquotes}
+\restylefloat{table}
+
+\usepackage[arrow, matrix, curve]{xy}
+
+%\usepackage[parfill]{parskip}
+
+\usepackage[backend=biber,style=alphabetic,natbib=true]{biblatex}
+
+\usepackage[final]{microtype}
+
+
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newlength\mylenA
+
+\newcommand*\xoverline[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+
+\newcommand*\productop{\mathbin{\Pi}}
+\newcommand\at[2]{\left.#1\right|_{#2}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\diag}{diag}
+%\DeclareMathOperator{\ker}{ker}
+\DeclareMathOperator{\ima}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\Nor}{Nor}
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imaginary}{Im}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\cconv}{\overline{conv}}
+\DeclareMathOperator{\divergence}{div}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Symm}{Symm}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Rcal}{\mathcal{R}}
+
+
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{plain}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{plain}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{non-example}[theorem]{Non-Example}
+\theoremstyle{plain}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{remark}
+\newtheorem{terminology}[theorem]{Terminology}
+\theoremstyle{definition}
+\newtheorem{construction}[theorem]{Construction}
+\theoremstyle{definition}
+\newtheorem{proposition-definition}[theorem]{Proposition-Definition}
+\theoremstyle{definition}
+\newtheorem{fazit}[theorem]{Fazit}

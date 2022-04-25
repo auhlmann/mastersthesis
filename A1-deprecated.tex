@@ -1,0 +1,46 @@
+\begin{definition}[Light Direction Observation Set]
+For $q \in V$ we define the \emph{light direction observation set}
+\begin{equation*}
+    \DP(q) = \{(p,v) \in L^+M \mid p=\gamma_{q,w}(1)\in K, v=\gamma'_{q,w}(1)\in L^+_pM, w\in L^+_qV\}
+\end{equation*}
+\end{definition}
+
+\begin{proposition}\label{prop:trans}
+Let $q\in V$ then the following holds: 
+\begin{enumerate}[label={\textnormal{(\arabic*)}}]
+    \item For any $(p,v) \in \DP(q)$ we have $v\notin L_pK$.
+    \item $\DP(q)$ is a smooth submanifold of $TM$ of dimension $n-1$.
+    \item $\mc{P}_K(q)$ is the image of $\DP(q)$ under the canonical projection $\pi:TM\to M$. The points where this projection fails to be injective are the points where two null geodesics originating at $q$ meet $K$ at different angles.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+We begin by proving $(1)$: Suppose that there exists a $(p,v) \in \DP(q)$ with $v\in L_pK$. Now, by definition of $\DP(q)$ we have $\exp_p(-v) = q\in V$. Also since $v\in L_pK$ there exists a $w\in L^-_{p^+}M$ and a $t\in \R_{>0}$ such that $\gamma_{p^+,w}(t) = p$ and $\gamma'_{p^+,w}(t) = -v$. This implies that $\gamma_{p^+,w}(t+1) = q \in V$. We thus have $q \in \mc{L^-}_{p^+}$. Furthermore we note that $q\in J^+(p^-)$ since $\overline{V}\subset \operatorname{int}J(p^-,p^+)$.
+Thus by \ref{lem:Kcharact}(1) we have that $q\in K$. But this is a contradiction to the fact that $q\notin K$.
+
+For part $(2)$ we begin by establishing some facts about $\DL$. We know by ((PROP)) that any null geodesic starting at $q$ must leave $J(p^-,p^+)$ in finite time. Since the domain of definition of $\exp_q$ is open there exists an open subset $U\subset L^+_qM$ which contains all vectors $v$ such that $\exp_q(v)\in K$. Now, 
+\begin{align*}
+    \widehat{\exp}_q: U &\to L:=\widehat{\exp}_q(U) \subset \DL \\
+    v &\mapsto (\gamma_{q,v}(1),\gamma'_{q,v}(1))
+\end{align*}
+is a diffeomorphism. Smoothness of $\widehat{\exp}_q$ follows from the smoothness of the exponential map. Furthermore the map
+\begin{align*}
+    TM &\to TM \\
+    (p,v) &\mapsto (\gamma_{p,v}(-1),\gamma'_{p,v}(-1))
+\end{align*}
+is a smooth inverse which makes $\widehat{\exp}_q$ a diffeomorphism.
+
+Now because $\widehat{\exp}_q$ is a diffeomorphism and $U$ is a open subset of $L^+_qM$ which makes it a submanifold of dimension $n$, the image $L=\widehat{\exp}_q(U)$ is also a smooth submanifold of $TM$ with dimension $n$. Note that $TM$ is of dimension $2n+2$ and $L$ thus has codimension $n+2$.
+
+Let now $\overrightarrow{K}:=\pi^{-1}(K)\subset TM$. If we treat $K$ as a submanifold (which we can after removing $p^+$) we see that $\overrightarrow{K}$ is also a submanifold of $TM$ with codimension $1$.
+
+Next, we claim that $\overrightarrow{K}$ and $L$ are transversal and their intersection is exactly $\DP(q)$. The second part follows immediately from the definition of $\DP(q)$ together with the fact that, by construction, $U$ contains all vectors whose exponential lies in $K$. 
+
+For the first part we must show that for any $(p,v)\in \overrightarrow{K} \cap L$ we have $T_{(p,v)}TM = T_{(p,v)}\overrightarrow{K} + T_{(p,v)}L$. 
+We first note that $\overrightarrow{K}$ contains the entire vertical bundle. Thus we only need to prove that $K$ is transversal to $\pi(L)\subset \mc{L}^+_q$. But this follows from (1). This implies that $\DP(q)$ is a submanifold of $TM$ of codimension $n+3$, i.e. dimension $n-1$.
+
+Finally we prove (3): The fact that $\mc{P}_K(q) = \pi( \DP(q))$ follows immediately from the definition of $\DP(q)$. By the definition of $\pi$ we get the second part.
+\end{proof}
+
+\begin{lemma}
+Let $q\in \overline{V}$ and 
+\end{lemma}
