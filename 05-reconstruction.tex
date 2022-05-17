@@ -1,5 +1,31 @@
+\section{Null Conjugate Points}
+
+\begin{definition}[Null Conjugate Point]
+    Let $\gamma_{q,w}:[0,b]\to M$ be a null geodesic. We then call $p=\gamma_{q,w}(b)$ a \emph{null conjugate point} if there exists a nontrivial variation $\x:[0,b]\times(-\varepsilon,\varepsilon) \to M$ of $\gamma_{q,w}$ through null geodesics such that $\x_v(b,0)=0$.
+\end{definition}
+
+We have the following useful characterization:
+\begin{proposition}
+    Let $\gamma_{q,w}:[0,b]\to M$ be a null geodesic. Then $p=\gamma_{q,w}(b)$ is a null conjugate point if and only if $\exp_q:L_qM\to M$ is singular at $bw$, i.e. if there exists a nonzero $\xi\in T_{bw}(L_qM)$ such that $d\exp_q(\xi)=0$.
+\end{proposition}
+\begin{proof}
+    We begin by proving the backwards direction and to that end assume that there exist a nonzero $\xi\in T_{bw}(L_qM)$ such that $d\exp_q(\xi)=0$. By the construction of the tangent space there thus exists a non-constant path $\xi:(-\varepsilon,\varepsilon)\to L_qM$ with $\xi(0)=bw$. This allows us to construct the variation $\x(u,v)=\exp_q(\frac{u}{b}\xi(v))$ which has $\x(t,0)=\gamma_{q,w}(t)$ and is a variation through null geodesics. Finally we have $\x_v(b,0)=d\exp_q(\xi)=0$ by the chain rule.
+
+    For the other direction we first note that by definition $\x(u,v)=\exp_q(u\x_u(0,v))$ and $\x_u(0,v)\in L_qM$ as $\x$ is a variation through \emph{null} geodesics. 
+    Now again by the chain rule we have $0=\x_v(b,0) = d\exp_q\rvert_{bw} \circ \frac{d}{dv}(bx_u(0,v))\rvert_{v=0}$. But since $\xi := \frac{d}{dv}(bx_u(0,v))\rvert_{v=0} \in T_{bw}(L_qM)$ we are done.
+\end{proof}
+
+Null conjugate points are also conformal invariants:
+\begin{proposition}
+    Let $\Phi:(M,g)\to (N,h)$ be a conformal diffeomorphism and $\gamma:[0,b]\to M$ a null geodesic. Then $\gamma(b)$ is a null conjugate point of $\gamma$ if and only if $\Psi(\gamma(b))$ is a null conjugate point of $\Psi \circ \gamma$.
+\end{proposition}
+\begin{proof}
+    ((Cite relevant prop))
+    Because of the symmetry of the situation we only need to prove one direction and suppose that $\gamma(b)$ is a null conjugate point of $\gamma$. We thus have a variation $\x$ of $\gamma$ through null geodesics. But since $\Phi$ maps null geodesics to null geodesics, $\Phi\circ \x$ is a variation of $\Phi \circ \gamma$ through null geodesics in $N$, which implies that $\Phi(\gamma(b))$ is a null conjugate point of $\Phi \circ \gamma$.
+\end{proof}
+
 \section{Reconstruction from null cone observations}
-((Null geodesics intersect backwards cone exactly once))
+
 \begin{theorem}[Baby Case]\label{thm:babycase}
 Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ two points in $M_j$ we denote $K_j = J(p_j^-,p_j^+) \setminus I^-(p^+_j)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exist a conformal diffeomorphism $\Phi:K_1\to K_2$ and that none of the past null geodesics starting at $p_j^+$ have a cut point in $K_j$. 
 
@@ -15,15 +41,15 @@ there exists a conformal diffeomorphism $\Phi:V_1\to V_2$ that preserves causali
 \subsection{Preliminary Constructions}
 ((Intro))
 \begin{lemma}\label{lem:Kcharact}
-Let $(M,g), K, V, p^+,p^-$ be as in the statement of theorem \ref{thm:babycase} (we suppress the indices to simplify notation) then the following holds:
-\begin{enumerate}[label={\textnormal{(\arabic*)}}]
-\item $(J^-(p^+)\setminus I^-(p^+)) \cap K = \mc{L}^-_{p^+} \cap K$ and thus $K = \mc{L}^-_{p^+} \cap J^+(p^-)$.
-\item There exists a surjective smooth map $\Psi:S^n\times[0,1] \to K$ such that the curves $t\mapsto\Psi(v,t), v\in S^n$ are null geodesics and \[\Psi(S^n\times\{1\}) = \{p^+\}, \quad \Psi(S^n\times\{0\}) = (J^-(p^+)\setminus I^-(p^+)) \cap J^+(p^-)\]
-\item There exist $0<t_-<t_+<1$ such that the restriction $\Psi\rvert_{S^n\times[t_-,t_+]}$ is a diffeomorphism onto its image and that for all $v \in S^n$, we have 
-\[
-\Psi(v,t_-) \notin \bigcup_{p\in \overline{V}} J^+(p), \quad \Psi(v,t_+) \in \bigcap_{p\in \overline{V}} J^+(p)
-\]
-\end{enumerate}
+    Let $(M,g), K, V, p^+,p^-$ be as in the statement of theorem \ref{thm:babycase} (we suppress the indices to simplify notation) then the following holds:
+    \begin{enumerate}[label={\textnormal{(\arabic*)}}]
+        \item $(J^-(p^+)\setminus I^-(p^+)) \cap K = \mc{L}^-_{p^+} \cap K$ and thus $K = \mc{L}^-_{p^+} \cap J^+(p^-)$.
+        \item There exists a surjective smooth map $\Psi:S^n\times[0,1] \to K$ such that the curves $t\mapsto\Psi(v,t), v\in S^n$ are null geodesics and \[\Psi(S^n\times\{1\}) = \{p^+\}, \quad \Psi(S^n\times\{0\}) = (J^-(p^+)\setminus I^-(p^+)) \cap J^+(p^-)\]
+        \item There exist $0<t_-<t_+<1$ such that the restriction $\Psi\rvert_{S^n\times[t_-,t_+]}$ is a diffeomorphism onto its image and that for all $v \in S^n$, we have 
+        \[
+        \Psi(v,t_-) \notin \bigcup_{q\in \overline{V}} J^+(q), \quad \Psi(v,t_+) \in \bigcap_{q\in \overline{V}} J^+(q).
+        \]
+    \end{enumerate}
 \end{lemma}
 \begin{proof}
 ((Overhaul))
@@ -56,7 +82,7 @@ K_j = \bigcup_{a\in \mathcal{A}}\mu^{(j)}_a([0,1]).
     \item the paths $\mu_a:[0,1]\to K, a\in \mathcal{A}$,
     \item the set $\mathcal{P}_K(V)$ where $V$ is open and $\overline{V}\subset \operatorname{int} J(p^-,p^+)$ is compact.
 \end{enumerate}
-Note that these data are invariant under conformal diffeomorphism, and any map we construct from it will thus also be invariant. We also remark that $\overline{V}\subset \operatorname{int} J(p^-,p^+)$ implies that $q\notin K$ for any $q\in \overline{V}$. ((Also mention that any light observation must lie in $[t_-,t_+]$)).
+Note that these data are invariant under conformal diffeomorphism, and any map we construct from it will thus also be invariant. We also remark that $\overline{V}\subset \operatorname{int} J(p^-,p^+)$ implies that $q\notin K$ for any $q\in \overline{V}$. 
 \end{remark}
 
 \subsubsection{Geometry of Light Observation Sets}
@@ -94,7 +120,7 @@ Moreover there exists an isomorphism between $\mc{S}$ and the space $\mc{N}$ of 
 \begin{proof}
     Let $p\in K$, and $S\subset T_pK$ be a spacelike hyperplane. The orthogonal complement $S^\perp\subset T_pM$ then is a two-dimensional lorentzian subspace. There thus exist four light rays $V,-V,W,-W$ in $S^\perp$. Since $T_pK=v^\perp$ for some future-pointing null vector $v\in T_pK$, we have $v\in S^\perp$ and can WLOG assume $V=v$. This leaves $W$ as the unique future-pointing outward null ray which is perpendicular to $S$, and we can thus set $\Phi(S)=W$.
 
-    For the other we let $0\neq V\in T_pM$ be an outward future-pointing null vector. In particular this means that $V\notin T_pK$. Thus $S=V^perp\cap T_pK$ is a spacelike hyperplane in $T_pK$ which satisfies $S=\Phi^{-1}(V)$. ((... do isomorphism fun?))
+    For the other we let $0\neq V\in T_pM$ be an outward future-pointing null vector. In particular this means that $V\notin T_pK$. Thus $S=V^\perp\cap T_pK$ is a spacelike hyperplane in $T_pK$ which satisfies $S=\Phi^{-1}(V)$. ((... do isomorphism fun?))
 
     For the final claim we note that ((... Why iso?))
 \end{proof}
@@ -111,9 +137,9 @@ For any $q\in \overline{V}$, the observation preimage $L^K_qM$ is a $n-1$-dimens
 Furthermore, for any $w\in L^K_qM$ there exist a relatively open neighborhood $\mc{W}\subset L^K_qM$ such that $\exp_q:\mc{W}\to \exp_q(\mc{W})\subset \mc{P}_K(q)$ is a diffeomorphism.
 \end{lemma}
 \begin{proof}
-    By lemma \ref{prop:transversality}, $exp_q:L^+_qM\to M$ is transverse to $K$ (here we treat $L^+_qM$ and $K$ as submanifolds as the points where they fail to be submanifolds can be removed without impacting the proof). Thus by the preimage lemma $ L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K)$ is a $n-1$-dimensional submanifold of $L^+_qM$.
+    By lemma \ref{prop:transversality}, $\exp_q:L^+_qM\to M$ is transverse to $K$ (here we treat $L^+_qM$ and $K$ as submanifolds as the points where they fail to be submanifolds can be removed without impacting the proof). Thus by the preimage lemma $ L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K)$ is a $n-1$-dimensional submanifold of $L^+_qM$.
 
-    For the second part let $w\in L^K_qM$, since $p:=\exp_q(w)\in K$ and we assumed that such a $p$ cannot be a conjugate point, we know that $\exp_q:T_qM\to M$ has an invertible differential at $w$. Thus, by the implicit function theorem, there exists an open neighborhood $\mc{W}'\subset T_qM$ of $w$ such that $\exp_q:\mc{W}'\to \exp_q(\mc{W}')$ is a diffeomorphism. If we then restrict $\exp_q$ to $\mc{W}:=\mc{W}' \cap L^K_qM$ the map is still a diffeomorphism as desired.
+    For the second part let $w\in L^K_qM$, since $p:=\exp_q(w)\in K$ and we assumed that such a $p$ cannot be a null conjugate point, we know that $\exp_q:L_qM\to M$ has an invertible differential at $w$. Thus, by the implicit function theorem, there exists an open neighborhood $\mc{W}'\subset L_qM$ of $w$ such that $\exp_q:\mc{W}'\to \exp_q(\mc{W}')$ is a diffeomorphism. If we then restrict $\exp_q$ to $\mc{W}:=\mc{W}' \cap L^K_qM$ the map is still a diffeomorphism as desired.
 \end{proof}
 
 \begin{lemma}\label{lem:finitevecs}
@@ -122,7 +148,7 @@ Furthermore, for any $w\in L^K_qM$ there exist a relatively open neighborhood $\
 \begin{proof}
     ((Overhaul))
 
-    Let $q\in \overline{V}$ and $v\in L^+_qM$ such that $p=\exp_q(v)$. Since we required that $p\in K$ cannot be a conjugate point of $q$, $\exp_q$ must be a local diffeomorphism around $v$. This means that there exist open sets $v\in\mc{O}_v\subset T_qM, p\in \mc{U}_v\subset M$ such that $\exp_q:\mc{O}_v\to \mc{U}_v$ is a diffeomorphism. But this means that there cannot exist another $v'\in \mc{O}_v$ with $\exp_q(v')=p$. We now restrict ourselves only to null \emph{directions} at $q$ i.e. the quotient $L^+_qM/\R_+ \simeq S^{n-1}$. Since any null vector $v$ with $\exp_q(v)=p$ has an open neighborhood where no other vector can have this property, the set of null \emph{directions} in $S^{n-1}$ which hit $p$ is discrete and thus finite because $S^{n-1}$ is compact. Because we only have finitely many null directions which hit $p$, $\pi^{-1}(p)\cap \DP(q)$ can only have finitely many elements, as desired.
+    Let $q\in \overline{V}$ and $v\in L^+_qM$ such that $p=\exp_q(v)$. Since we required that $p\in K$ cannot be a null conjugate point of $q$, $\exp_q$ must be a local diffeomorphism around $v$. This means that there exist open sets $v\in\mc{O}_v\subset L_qM, p\in \mc{U}_v\subset M$ such that $\exp_q:\mc{O}_v\to \mc{U}_v$ is a diffeomorphism. But this means that there cannot exist another $v'\in \mc{O}_v$ with $\exp_q(v')=p$. We now restrict ourselves only to null \emph{directions} at $q$ i.e. the quotient $L^+_qM/\R_+ \simeq S^{n-1}$. Since any null vector $v$ with $\exp_q(v)=p$ has an open neighborhood where no other vector can have this property, the set of null \emph{directions} in $S^{n-1}$ which hit $p$ is discrete and thus finite because $S^{n-1}$ is compact. Because we only have finitely many null directions which hit $p$, $\pi^{-1}(p)\cap \DP(q)$ can only have finitely many elements, as desired.
 \end{proof}
 
 
@@ -234,8 +260,8 @@ Note that $\mc{E}_U(q) = \{ \mc{E}_a(q) \mid a\in \ca \}$.
 \begin{proposition}\label{prop:submanifolds}
 For any $q\in \overline{V}$ it holds that
 \begin{enumerate}[label={\textnormal{(\arabic*)}}]
-    \item $\mc{E}_K(q)$ fails to be a submanifold exactly at cut points,
     \item $\mc{E}^{reg}_K(q)$ is a $n-1$-dimensional nonempty spacelike submanifold of $K$ which is open relative to $\mc{P}_K(q)$ and has $\overline{\mc{E}^{reg}_K(q)} = \mc{E}_K(q)$ and,
+    \item $\mc{E}_K(q)$ fails to be a submanifold exactly at cut points,
     \item $\mc{D}^{reg}_K$ is a nonempty submanifold of $\overrightarrow{K}:=\pi^{-1}(K)$ ((...)) which is open 
 \end{enumerate}
 \end{proposition}
