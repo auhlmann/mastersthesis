@@ -1,0 +1,126 @@
+\chapter{Interior Reconstruction}
+\section{Constructive Solution of the Inverse Problem}
+ 
+((Intro))
+
+\subsubsection{Reconstruction ...}
+
+
+\begin{lemma}
+Thing with dir set reconstruction
+Also intersection is spacelike somewhere
+\end{lemma}
+
+\begin{proposition}
+((Given data))
+The light observations $\mc{P}_K(q)$ uniquely determines the light \emph{direction} observation set $\mc{C}_K(q)$ and the set of earliest observations $\mc{E}_K(q)$.
+\end{proposition}
+\begin{proof}
+2nd part: from formula
+
+1st part: from lemma + only finite nonconj cut points + we can parameterize $\mc{P}_K(q)$ by a spacelike submanifold of the forwards lightcone
+\end{proof}
+
+\begin{proposition}
+((Given data))
+Given the light direction observation set $\mc{P}_K(q)$ and the set of earliest observations $\mc{E}_K(q)$, we can determine the sets $\mc{E}{reg}_K(q), \mc{D}_K(q)$ and $\mc{D}^{reg}_K(q)$.
+\end{proposition}
+\begin{proof}
+((Take $\pi^-1(\mc{E}_K(q))\cap \mc{C}_K(q)$ for $\mc{D}_U(q)$, then remove all cut points (in this case points with equal $p$ but different $v$) in $\mc{D}_U(q)$ to obtain $\mc{D}^{reg}_K(q)$ and project again))
+\end{proof}
+
+\subsubsection{Construction of $V$ as a topological manifold}
+((Intro))
+
+Next we aim to reconstruct the topological and differential data of $V$. To that end we define the following functions.
+
+For $q\in \overline{V}$ we define the function $F_q:\ca\to\R$ by $a\mapsto f_a(q)$. We can then define the function 
+\begin{align*}
+    \mathcal{F}:\overline{V} &\to \R^\mathcal{A}\\
+    q&\mapsto F_q
+\end{align*} mapping a $q\in \overline{V}$ to the function $F_q:\ca\to\R$. We endow the set $\R^\mathcal{A} = \{f:\ca\to \R\}$ with the product topology.
+
+((...))
+
+We begin by establishing the topological structure:
+\begin{lemma}\label{lem:Fhomeo}
+(($V$ or $\overline{V}$?))
+The map $\mathcal{F}:V\to\mathcal{F}(V)$ is a homeomorphism.
+\end{lemma}
+\begin{proof}
+((Works the same, use direction set reconstruction))
+\end{proof}
+
+
+\subsubsection{Construction of $V$ as a smooth manifold}
+Having established the topological structure of $V$ we next aim to establish coordinates on $\F(V)$ near any $\F(q)$ that make $\F(V)$ diffeomorphic to $V$.
+
+\begin{definition}[Coordinates on $V$]
+We first define 
+\[
+    \mc{Z} = \{(q,p)\in V\times K \mid p\in \mc{E}_U^{reg}(q)\}.
+\] 
+Then for every $(q,p)\in \mc{Z}$ there is a unique $w\in L^+_qM$ such that $\gamma_{q,w}(1)=p$ and $\rho(q,w)>1$. Existence follows from lemma \ref{lem:observationtime} while uniqueness follows from the fact that $p\in \mc{E}_U^{reg}(q)$ and thus cannot be a cut point. 
+We can then define the map
+\begin{align*}
+    \Theta:\mc{Z}&\mapsto L^+V\\
+    (q,p)&\mapsto (q,w)
+\end{align*}
+Note that this map is injective.
+Below we will $\mc{W}_\varepsilon(q_0,w_0)\subset TM$ be a $\varepsilon$-neighborhood of $(q_0,w_0)$ with respect to the Sasaki-metric induced on $TM$ by $g^+$.
+\end{definition}
+
+\begin{lemma}
+Let $(q_0,p_0)\in \mc{Z}$ and $(q_0,w_0)=\Theta(q_0,p_0)$. When $\varepsilon>0$ is small enough the map 
+\begin{align*}
+    X:\mc{W}_\varepsilon(q_0,w_0) &\to M\times M\\
+    (q,w) &\mapsto (q,\exp_q(w))
+\end{align*}
+is open and defines a diffeomorphism $X:\mc{W}_\varepsilon(q_0,w_0)\to \U_\varepsilon(q_0,p_0) \coloneqq X(\mc{W}_\varepsilon(q_0,w_0))$. When $\varepsilon$ is small enough, $\Theta$ coincides in $\mc{Z}\cap \U_\varepsilon(q_0,p_0)$ with the inverse map of $X$. Moreover $\mc{Z}$ is a $(2n-1)$-dimensional manifold and the map $\Theta:\mc{Z}\to L^+M$ is smooth.
+\end{lemma}
+\begin{proof}
+((Works the same with minor adjustments?))
+\end{proof}
+
+((Explain what we're doing now))
+
+\begin{proposition}\label{prop:observationtimecoordinates}
+Let $q\in \overline{V}$ and $(q_0,p_j)\in \mc{Z}, j=1,\dots, n$ and $w_j\in L^+_{q_0}M$ such that $\gamma_{q_0,w_j}(1) = p_j$. Assume that $w_j, j=1,\dots, n$ are linearly independent. Then, if $a_j\in A$ and $\overrightarrow{a} = (a_j)^n_{j=1}$ are such that $p_j\in \mu_{a_j}$, there is a neighborhood $V_1\subset M$ of $q_0$ such that the corresponding observation time functions 
+\[
+\mathbf{f}_{\overrightarrow{a}}(q) = (f_{a_j}(q))^n_{j=1}
+\]
+define smooth coordinates on $V_1$. Moreover $\nabla f_{a_j}\rvert_{q_0}$, i.e. gradient of $f_{a_j}$ with respect to $q$ at $q_0$, satisfies $\nabla f_{a_j}\rvert_{q_0} = c_jw_j$ for some $c_j\neq 0$.
+\end{proposition}
+\begin{proof}
+((Works almost the same, maybe clarify implicit function theorem stuff))
+\end{proof}
+
+\begin{definition}[Observation Coordinates]
+Let $\widehat{q}=\F(q)\in \widehat{V}$ and $\aa = (a_j)^n_{j=1}\subset \ca^n$ with $p_j = \mc{E}_{a_j}(q)$ such that $p_j\in \mc{E}_U^{reg}(q)$ for all $j=1,\dots,n$. Let $s_{a_j} = f_{a_j} \circ \mathcal{F}^{-1}$ and $\mathbf{s}_{\overrightarrow{a}}=\mathbf{f}_{\overrightarrow{a}}\circ\mc{F}^{-1}$. Let $W\subset\widehat{V}$ be an open neighborhood of $\widehat{q}$. We say that $(W,\mathbf{s}_\aa)$ are $C^0$-observation coordinates around $\widehat{q}$ if the map $\mathbf{s}_\aa:W\to \R^n$ is open and injective. Also we say that $(W,\mathbf{s}_\aa)$ are $C^\infty$-observation coordinates around $\widehat{q}$ if $\mathbf{s}_{\overrightarrow{a}}\circ\mc{F}:\mc{F}^{-1}(W)\to \R^n$ are smooth local coordinates on $V\subset M$.
+\end{definition}
+Note that by the invariance of domain theorem, the above $\mathbf{s}_{\overrightarrow{a}}:W\to \R^n$ is open if it is injective.
+Although for a given $\overrightarrow{a}\in \ca^n$ there might be several sets $W$ for which $(W,\mathbf{s}_{\overrightarrow{a}})$ form $C^0$-observation coordinates to clarify the notation we will sometimes denote the coordinates $(W,\mathbf{s}_{\overrightarrow{a}})$ as $(W_{\overrightarrow{a}},\mathbf{s}_{\overrightarrow{a}})$. 
+
+We will consider $\mc{F}(V)$ a topological space and denote $\mc{F}(V)=\widehat{V}$. We denote the points of this manifold by $\widehat{q}=\mc{F}(q)$. Next we construct a differentiable structure on $\widehat{V}$ that is compatible with that of $V$ and makes $\F$ a diffeomorphism.
+
+\begin{proposition}\label{prop:findsmoothcoords}
+Let  $\widehat{q}\in \widehat{V}$. 
+Then there exist $C^\infty$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}$.
+
+Furthermore, given the data from \ref{rmk:data} we can determine all $C^0$-observation coordinates around $\widehat{q}$.
+
+Finally given any $C^0$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}$, the data \ref{rmk:data}, allows us to determine whether they are $C^\infty$-observation coordinates around $\widehat{q}$.
+\end{proposition}
+\begin{proof}
+((Works the same way))
+\end{proof}
+
+\subsubsection{Construction of the conformal type of the metric}
+We will denote by $\widehat{g}=\F_*g$ the metric on $\widehat{V}=\F$ that makes $\F:V\to \widehat{V}$ an isometry. Next we will show that the set $\F(V)$, the paths $\mu_a$ and the conformal class of the metric on $U$ determine the conformal class of $\widehat{g}$ on $\widehat{V}$.
+
+\begin{lemma}\label{lem:constructmetric}
+The data given in \ref{rmk:data} determine a metric $G$ on $\widehat{V}=\F(V)$ that is conformal to $\widehat{g}$ and a time orientation on $\widehat{V}$ that makes $\F:V\to \widehat{V}$ a causality preserving map.
+\end{lemma}
+\begin{proof}
+((Works the same))
+\end{proof}

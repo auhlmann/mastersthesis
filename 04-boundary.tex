@@ -1,0 +1,55 @@
+\chapter{Boundary Reconstruction}
+
+\section{Setting}
+
+In this section we will examine how we can extend our reconstruction result to the case where the observed set $V$ is no longer contained within the interior of $J(p^-,p^+)$ but is now allowed to extend up to the boundary. In other words we want to recover the conformal structure of $J(p^-,p^+)$ from light cone observations made on the future null boundary $K = J(p^-,p^+) \setminus I^-(p^+)$.
+
+This setting is complicated by the fact that as $q\in J(p^-,p^+)$ approaches the boundary, the light observation $\mc{P}_K(q)$ get increasingly warped and is degenerate if $q$ is in the boundary. 
+
+
+\begin{theorem}[Boundary Reconstruction]\label{thm:boundaryreconstr}
+    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ two points in $M_j$ we denote $K_j = J(p_j^-,p_j^+) \setminus I^-(p^+_j)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exist a conformal diffeomorphism $\Phi:K_1\to K_2$ and that none of the past null geodesics starting at $p_j^+$ have a cut point in $K_j$. 
+
+    Now let $V_j\subset J(p_j^-,p_j^+)$. We assume that no null geodesic starting in $V_j$ has a conjugate point on $K_j$. 
+
+    Then, if 
+    \[
+    \widetilde{\Phi}(\mc{P}_{K_1}(V_1)) = \mc{P}_{K_2}(V_2)
+    \]
+    there exists a homeomorphism $\Phi:V_1\to V_2$.((conformal diffeomorphism $\Phi:V_1\to V_2$ that preserves causality))
+\end{theorem}
+
+\begin{remark}
+    ((Move this to intro))
+    We will again prove the previous theorem by working on just one globally hyperbolic Lorentzian manifold $(M,g)$ with $p^\pm,V,K$ as above. We show that given the following data we can reconstruct the topology of $V$:
+
+    \begin{enumerate}[label={\textnormal{(\arabic*)}}]
+        \item The smooth manifold (with edge) $K$,
+        \item the conformal class of $g\rvert_K$,
+        \item the set $\P_K(V)$.
+    \end{enumerate}
+\end{remark}
+
+\section{Preliminaries}
+To extend the reconstruction up to the edge of $\jp$ we need to introduce some new concepts.
+
+\begin{definition}[Unique minimum domain]\label{def:uniquemindomain}
+   We define the \emph{unique minimum domain} $D\subset \jp$ to be 
+   \begin{equation}
+        D:=\{q\in \jp \mid F_q\text{ has a unique minimum}\}.
+   \end{equation} 
+\end{definition}
+
+
+\begin{lemma}\label{lem:firstcount}
+    Let $A$ be a first-countable topological space and $P:A\to \{\text{false},\text{true}\}$ a property defined for all points $a\in A$. Suppose now that for any converging sequence $a_n\to a_0\in A$ there exists a $N\in N$ such that $P(a_n)$ is true for all $n\ge N$.
+    
+    Then there exists an open neighborhood $O\in A$ of $a_0$ such that $P(a)$ is true for all $a\in O$.
+\end{lemma}
+
+\begin{lemma}\label{lem:unifconvoncompact}
+    Let $(A,d_A),(B,d_B),(C,d_C)$ be metric spaces with $A,B$ compact. Let $f:A\times B\to C$ be a continuous functions and denote $f_a:B\to C;b\mapsto f_a(b):=f(a,b)$ for $a\in A$. Let $a_n\to a_0 \in A$ as $n\to\infty$ be a convergent sequence.
+
+    Then $f_{a_n}\to f_{a_0}$ uniformly as $n\to \infty$.
+\end{lemma}
+
