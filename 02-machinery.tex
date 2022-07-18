@@ -33,11 +33,11 @@ From now on $(M,g), K, V, p^+,p^-$ be as in theorem \ref{thm:intreconstr} (we su
 \begin{lemma}\label{lem:Kcharact}
     We have:
     \begin{enumerate}[label={\textnormal{(\arabic*)}}]
-        \item $(J^-(p^+)\setminus I^-(p^+)) \cap K = \mc{L}^-_{p^+} \cap K$ and thus $K = \mc{L}^-_{p^+} \cap J^+(p^-)$.
+        \item $K=\jp\setminus I^-(p^+)$,
         \item There exists a surjective smooth map $\Theta:S^{n-1}\times[0,1] \to K$ such that the curves $\mu_a:=t\mapsto\Theta(a,t), a\in S^n$ are null geodesics, 
-        \[\Theta(S^{n-1}\times\{1\}) = \{p^+\}, \quad R:=\Theta(S^{n-1}\times\{0\}) = (J^-(p^+)\setminus I^-(p^+)) \cap J^+(p^-)\]
+        \[\Theta(S^{n-1}\times\{1\}) = \{p^+\}, \quad R:=\Theta(S^{n-1}\times\{0\}) = K \setminus I^+(p^-)\]
         and $\Theta:S^{n-1}\times[0,1)\to K\setminus p^+$ is a diffeomorphism.
-        \item $\mc{L}^-_{p^+}\cap \interior{\jp} = \emptyset$ and $\mc{L}^-_{p} \cap \interior{\jp} = \emptyset \quad \forall p\in R$.
+        \item $\mc{L}^-_{p^+}\cap V = \emptyset$ and $\mc{L}^-_{p} \cap V = \emptyset \quad \forall p\in R$.
         % \item There exist $0<t_-<t_+<1$ such that the restriction $\Psi\rvert_{S^n\times[t_-,t_+]}$ is a diffeomorphism onto its image and that for all $v \in S^n$, we have 
         % \[
         % \Psi(v,t_-) \notin \bigcup_{q\in \overline{V}} J^+(q), \quad \Psi(v,t_+) \in \bigcap_{q\in \overline{V}} J^+(q).
@@ -45,22 +45,44 @@ From now on $(M,g), K, V, p^+,p^-$ be as in theorem \ref{thm:intreconstr} (we su
     \end{enumerate}
 \end{lemma}
 \begin{proof}
-(1) follows immediately from the fact that no past-pointing null geodesic starting at $p^+$ has a cut point in $K$.
+(1) We first rewrite $\jp\setminus I^-(p^+)=(J^-(p^+)\setminus I^-(p^+))\cap J^+(p^-)$ and immediately get $(J^-(p^+)\setminus I^-(p^+))\cap J^+(p^-)\subset \mc{L}^-_{p^+}\cap J^+(p^-)=K$ as $J^-(p^+)\setminus I^-(p^+)\subset \mc{L}^-_{p^+}$. For the other inclusion we note that by assumption for $p\in K$ we have $\tau(p,p^+)=0$ and $p\in \mc{L}_{p^-}^-$. This implies $p\in J^-(p^+)\setminus I^-(p^+)$. Furthermore $p\in K$ also implies $p\in J^+(p^-)$. Putting this together we get $p\in (J^-(p^+)\setminus I^-(p^+))\cap J^+(p^-)$ proving the equality.
 
-For (2) we first note that again, because no past-pointing null geodesic starting at $p^+$ has a cut point in $K$, $exp_{p^+}:exp_{p^+}^{-1}(K)\subset L^-_{p^+}M\to K$ is a diffeomorphism away from $0$. We can smoothly parametrize $exp_{p^+}^{-1}(K)$ to obtain $\Phi:S^{n-1}\times[0,1]\to K$ satisfying (2) ((elaborate))
+For (2) we first note that $p^-\notin K$ because $p^+\gg p^-$ implies $\tau(p^-,p^+)>0$ which would make $p^-$ a cut point were it in $K$, violating our assumption. Thus also $p^-\notin \mc{L}^-(p^+)$. This implies that $\mc{L}^-_{p^+}$ and $\mc{L}^+_{p^-}$ are transversal.
 
-Finally we prove (3): As $\interior{\jp} = I(p^-,p^+)$, $p\in \mc{L}^-_{p^+}\cap \interior{\jp}$ would imply there exists a timelike path from $p to p^+$. Thus $p$ cannot be in $K$. Now either 
-
-((Overhaul))
-As we have no cut point in $J(p_1^-,p_1^+)$, the exponential map at $p_1^+$ is a diffeomorphism onto $J(p_1^-,p_1^+)$. Thus the preimage $\exp^{-1}_{p_1^+}(R)$ of the smooth submanifold
+Next we note that the exponential map
 \[
-    R = (J^-(p_j^+)\setminus I^-(p_j^+)) \cap (J^+(p_j^-)\setminus I^+(p_j^-)) = \mc{L}^-_{p_1^+} \cap \mc{L}^+_{p_1^-}
+    \exp_{p^+}:L^-_{p^+}M \simeq \sn \times \R_+ \to \mc{L}^-_{p^+}
 \]
-is a smooth submanifold of $L^-_{p^+_1}M$. We then let $\mc{A}=R$ and denote by $\mu_a(s) = \gamma_{p_1^+,a}(1-s)$ for $a\in R$. It is then easily checked that this parameterization satisfies all requirements and we are done.
+is smooth and surjective. 
+
+We now aim to construct a smooth surjecive map $\theta:\sn \times [0,1] \to \exp^{-1}_{p^+}(K)$ which is a diffeomorphism on $\sn \times [0,1)$. To that end we look at the set of \emph{unit null directions} 
+\[
+    CL^-_{p^+}M:=\{v\in L^-_{p^+}M \mid \lVert v \rVert_{g^+}=1\}\simeq \sn
+\] 
+for some riemannian metric $g^+$ on $M$. By ((Leavescompact)) for a given null direction $v \in CL^-_{p^+}M$ there exists a $s_v>0$ such that $\gamma_{p^+,v}(s_v) \in J^+(p^-)$ but $\gamma_{p^+,v}(s') \notin J^+(p^-)$ for all $s'>s_v$. Furthermore for any $s'\le s_\mu$ we have $\gamma_{p^+,v}(s')\in J^+(p^-)$ because we can append the lightlike path from $p^-$ to $\gamma_{p^+,v}(s_v)\in J^+(p^-)$ to $\gamma_{p^+,v}\rvert_{[s',s_v]}$ and get a lightlike path from $p^-$ to $\gamma_{p^+,v}(s')$. We also have $\gamma_{p^+,v}(t_v)\notin I^+(p^-)$ because $I^+(p^-)$ is open which would imply the existence of a $t'>t_v$ such that $\gamma_{p^+,v}(t')\in I^+(p^-)\subset J^+(p^-)$ violating the maximality of $t_v$. Finally, because $\exp_{p^+}$ is transverse to $\mc{L}^+_{p^-}$, $exp_{p^+}^-1(\mc{L}^+_{p^-})$ is a smooth submanifold of $L^-_{p^+}M$, by lemma \ref{lem:transmap}. This implies that the map that $v\mapsto t_v$ is smooth.
+
+We now define 
+\begin{align*}
+    \theta:\sn\times[0,1] &\to \exp^{-1}_{p^+}(K)\\
+    (v,t)&\mapsto (1-t)s_vv
+\end{align*}
+where we used $CL^-_{p^+}\simeq\sn$ to identify $v\in \sn$ with the corresponding $v\in CL^-_{p^+}$.
+Using the results from the above paragraph it follows that $\theta$ is well-defined and has the desired properties. 
+
+We now set $\Theta:=\exp_{p^+}\circ \; \theta$, which satisfies all properties in (2) and are done with this part.
+
+Finally, for part $(3)$ we assume there exists a $p\in \mc{L}^-_{p^+}\cap V$. Recall that $V\subset \interior{\jp}=I^+(p^-)\cap I^-(p^+)$. We thus have $p\in I^+(p^-)\subset J^+(p^-)$, which together with $p\in \mc{L}^-_{p^+}$ implies $p\in K$. But now we have $p\in I^-(p^+)$ and $p\in K$, a contradiction to (1).
+
+Now we assume that there exists a $p_0\in R$ and $p\in \mc{L}^-_{p_0}\cap V$. Any $p_0\in R$ must be in $\mc{L}^\pm_{p^-}$. If $p\in \mc{L}^-_{p^-}$ it cannot be in $I^+(p^-)$. Thus $p\in \mc{L}^+_{p^-}$. Furthermore we have $p\in I^-(p^+)\subset J^-(p^+)$ and $\tau(p^-,p)>0$ because $p\in I^+(p^-)$. But this implies that $p^-$ has a cut point in $\mc{L}^+_{p^-}\cap J^-(p^+)$. A contradiction because $p^-$ and $p^+$ were assumed to be suitable.
 \end{proof}
 
 Note that this implies that $K$ is a smooth $n$-dimensional submanifold of $M$ at any point away from its boundary. We will often treat $K$ itself as a submanifold when it is clear that we are working away from the boundary. This is often the case as by (3) no null geodesic originating from the interior of $\jp$ can reach $p^+$ or $R$, i.e. the boundary of $K$.
 
+Furthermore by the properties of $\Theta$ we have 
+\begin{align}
+    \mu_a([0,1])\cap \mu_{a'}([0,1]) &= \{p^+\} \text{ for } a\neq a'\in \sn \text{ and }\\
+    \bigcup_{a\in \sn}\mu_a([0,1]) &= K
+\end{align}
 % The next proposition allows us to endow $K$ with a number of \enquote{laboratory frames} we will use to conveniently describe the light cone observations on $K$.
 % \begin{proposition}[Laboratory Frames]
 % Let $(M_j,g_j), K_j, V_j, p_j^+,p_j^-, \Phi$ be as in the statement of theorem \ref{thm:babycase}
@@ -88,94 +110,174 @@ Note that this implies that $K$ is a smooth $n$-dimensional submanifold of $M$ a
 
 
 \begin{lemma}\label{prop:transversality}
-For any $q\in \overline{V}$ the restriction of the exponential map to null vectors $\exp_q:L^+_qM\to M$ is \emph{transverse} to $K$, i.e. for all $w\in L^+_qM$ such that $\gamma_{q,w}(1) = p\in K$ we have $\gamma'_{q,w}(1)\notin T_pK$.
+For any $q\in V$ the restriction of the exponential map to null vectors $\exp_q:L^+_qM\to M$ is \emph{transverse} to $K$, i.e. for all $w\in L^+_qM$ such that $\gamma_{q,w}(1) = p\in K$ we have $\gamma'_{q,w}(1)\notin T_pK$.
 \end{lemma}
 \begin{proof}
-    We first establish that $\mc{L}^-_{p^+} \cap \overline{V} = \emptyset$. By remark \ref{rmk:data} we have $\overline{V}\cap K = \emptyset$. By lemma \ref{lem:Kcharact}(1) we know that $K=\mc{L}^-_{p^+}\cap J^+(p^-)$. This means any intersection of $\overline{V}$ and $\mc{L}^-_{p^+}$ must occur in $\mc{L}^-_{p^+} \setminus J^+(p^-)$. But since $\overline{V}$ lies entirely within $J^+(p^-)$ this is also impossible and $\mc{L}^-_{p^+} \cap \overline{V}$ must be empty. 
+    In order to achieve a contradiction we assume that there exists a $q\in V$ and a $w\in L^+_qM$ such that with $v:=\gamma_{q,w}(1)\in L_pK$.
+    Since $K$ is generated by backwards null geodesics originating at $p^+$ there exists a $u\in L^-_{p^+}M$ such that there exists a $t\in \R_+$ with $\gamma_{p^+,u}(t)=p, \gamma'_{p^+,u}(t)=-v$. We can thus obtain an unbroken past-pointing null geodesic from $p^+$ to $q$ by connecting $\gamma_{p^+,u}$ and $\gamma_{p,-v}$. But this implies that $q\in \mc{L}^-_{p^+}$ which is a contradiction to \ref{lem:Kcharact}(3).
 
-    In order to achieve a contradiction we now assume that there exists a $q\in \overline{V}$ and a $w\in L^+_qM$ such that with $v:=\gamma_{q,w}(1)\in L_pK$.
-    Since $K$ is generated by backwards null geodesics originating at $p^+$ there exists a $u\in L^-_{p^+}M$ such that there exists a $t\in \R_+$ with $\gamma_{p^+,u}(t)=p, \gamma'_{p^+,u}(t)=-v$. We can thus obtain an unbroken past-pointing null geodesic from $p^+$ to $q$ by connecting $\gamma_{p^+,u}$ and $\gamma_{p,-v}$. But this implies that $q\in \mc{L}^-_{p^+}$ which is a contradiction to our previous fact.
-
-    Finally we prove that this implies that $\exp_q:L^+_qM\to M$ is transverse to $K$, i.e. we need to prove that for every $w\in L^+_qM$ with $\exp_q(w)=p\in K$ we have 
+    We now prove that this implies that $\exp_q:L^+_qM\to M$ is transverse to $K$. We need to show that for every $w\in L^+_qM$ with $\exp_q(w)=p\in K$ we have 
     \[
         \im(d\exp_q\rvert_w) \oplus T_pK = T_pM.
     \]
     As $T_pK$ is a null hypersurface we only need to prove that $\im(d\exp_q\rvert_w)$ contains a null vector which is not a multiple of the null vector $v\in T_pK$ generating $T_pK = v^\perp$. But by the properties of the exponential map, $\im(d\exp_q\rvert_w)$ contains $v' = \gamma'_{q,w}(1) \in T_pM$. And since we just proved that $v'\notin T_pK$, $v+v'$ must be a timelike vector and $\im(d\exp_q\rvert_w) \oplus T_pK = T_pM$, as desired.
 \end{proof}
 
-\begin{lemma}\label{lem:hitsonce}
-    For $q\in \overline{V}$ and $w\in L^+_qM$ there exists exactly one $t\in (0,\infty)$ such that $\gamma_{q,w}(t)\in K$.
-\end{lemma}
-\begin{proof}
-    Let $q\in \overline{V}$ and $w\in L^+_qM$, by ((Leavescompact)) any geodesic starting in the compact set $J(p^-,p^+)$ must eventually leave it, intersecting the boundary. Thus there exists at least one $t\in (0,\infty)$ with $p=\gamma_{q,w}(t)\in K$. ((Do compactness argument?)) We WLOG assume that $t$ is the smallest such value. Now, by the previous lemma, we have $\gamma'_{q,w}(t) \notin T_pK$. ((But now we are outside $J^-(p^+)$))
-\end{proof}
 
+This lemma closely resembles lemma 2.5 in \cite{hintzpaper} with only minor adjustments to adapt it to our case. It is reproduced here for the sake of completeness.
+This lemma will allow us to reconstruct the direction of incoming light rays at point in $\mc{P}_K(q)$ which will locally correspond to the spacelike hypersurface.
 \begin{lemma}[Direction Reconstruction]\label{lem:dirreconstr}
-    ((Iso = Bijection))
-Let $p\in K$ then there exists an isomorphism $\Phi$ between the space $\mc{S}$ of spacelike hyperplanes $S\subset T_pK$ and the space $\mc{V}$ of rays $\R_+V\subset T_pM$ along future-directed outward facing null vectors, given by the mapping $S\in \mc{S}$ to the unique future-directed outward pointing null ray $\Phi(S)$ contained in $S^\perp$. The inverse map is given by $\mc{V}\ni \R_+V \mapsto T_pK \cap V^\perp\in \mc{S}$.
+Let $p\in K$ then there exists a bijection $\Phi$ between the space $\mc{S}$ of spacelike hyperplanes $S\subset T_pK$ and the space $\mc{V}$ of rays $\R_+V\subset T_pM$ along future-directed outward facing null vectors, given by the mapping $S\in \mc{S}$ to the unique future-directed outward pointing null ray $\Phi(S)$ contained in $S^\perp$. The inverse map is given by $\mc{V}\ni \R_+V \mapsto T_pK \cap V^\perp\in \mc{S}$.
 
-Moreover there exists an isomorphism between $\mc{S}$ and the space $\mc{N}$ of linear null hypersurfaces $N\subset T_pM$ which contain a future-directed outward pointing null vector given by $\mc{S}\mapsto S\oplus \operatorname{span} \Phi(S)\in \mc{N}$.
+Moreover there exists a bijection between $\mc{S}$ and the space $\mc{N}$ of linear null hypersurfaces $N\subset T_pM$ which contain a future-directed outward pointing null vector given by $\mc{S}\ni S\mapsto S\oplus \operatorname{span} \Phi(S)\in \mc{N}$.
 \end{lemma}
 \begin{proof}
-    Let $p\in K$, and $S\subset T_pK$ be a spacelike hyperplane. The orthogonal complement $S^\perp\subset T_pM$ then is a two-dimensional lorentzian subspace. There thus exist four light rays $V,-V,W,-W$ in $S^\perp$. Since $T_pK=v^\perp$ for some future-pointing null vector $v\in T_pK$, we have $v\in S^\perp$ and can WLOG assume $V=v$. This leaves $W$ as the unique future-pointing outward null ray which is perpendicular to $S$, and we can thus set $\Phi(S)=W$.
+    Let $p\in K$, and $S\subset T_pK$ be a spacelike hyperplane. The orthogonal complement $S^\perp\subset T_pM$ then is a two-dimensional lorentzian subspace. Hence there exist four light rays which are multiples of the vectors $V,-V,W,-W$ in $S^\perp$, where we WLOG assume that $V$ and $W$ are future-pointing. Since $T_pK=v^\perp$ for some future-pointing null vector $v\in T_pK$, we have $v\in S^\perp$ and can WLOG assume $\R_+W=\R_+v$, i.e. $\R_+W$ is the ray pointing along the null hypersurface $K$. This leaves $\R_+V$ as the unique future-pointing outward null ray which is perpendicular to $S$, and we can thus set $\Phi(S)=\R_+V$.
 
-    For the second part, we let $0\neq V\in T_pM$ be an outward future-pointing null vector. In particular this means that $V\notin T_pK$. Thus $S=V^\perp\cap T_pK$ is a spacelike hyperplane in $T_pK$ which satisfies $S=\Phi^{-1}(V)$. ((... do isomorphism fun?))
+    For to prove $\Phi$ is a bijection, we let $0\neq V\in T_pM$ be an outward future-pointing null vector. In particular this means that $V\notin T_pK$. Thus $S=V^\perp\cap T_pK$ is a spacelike hyperplane in $T_pK$ which satisfies $S=\Phi^{-1}(V)$.
 
-    For the final claim we note that ((... Why iso?))
+    For the last claim we note that the map $\mc{N}\ni N \mapsto N^\perp \cap L^+_pM \in \mc{V}$ maps a null hypersurface $N$ to the unique ray along a future-pointing outward null generator of $N$. The inverse of this map is given by $\mc{V}\ni \R_+V\mapsto V^\perp \in \mc{N}$. Composition of these maps with $\Phi$ yields the desired bijection $\mc{N}\to \mc{S}$.
 \end{proof}
+
+\begin{lemma}\label{lem:hitsonce}
+    For $q\in V$ and $w\in L^+_qM$ there exists exactly one $t_w\in (0,\infty)$ such that $\gamma_{q,w}(t_w)\in K$.
+\end{lemma}
+\begin{proof}
+    Let $q\in V$ and $w\in L^+_qM$, by ((Leavescompact)) any geodesic starting in the compact set $J(p^-,p^+)$ must eventually leave it, intersecting the boundary. As $K$ is the future boundary of $\jp$ there exists at least one $t_w\in (0,\infty)$ with $p=\gamma_{q,w}(t_w)\in K$. We now show $\gamma_{q,w}(t')\notin K$ for any other $t'\neq t_w$.
+
+    First let us consider the case $t'<t_w$. We can then append $\gamma_{q,w}\rvert_{[t',t_w]}$ to the path $\mu_a\rvert_{[s,1]}$, whre $a\in \sn, s\in [0,1]$ such that $\mu_a(s)=p$, to get a broken lightlike path from $\gamma_{q,w}(t')$ to $p^+$. The fact that this path must be broken follows from the transversality proven in the previous lemma. But the existence of this broken path implies $\tau(\gamma_{q,w}(t'),p^+)>0$ and thus $\gamma_{q,w}(t')\in I^-(p^+)$. But as $K=\jp\setminus I^-(p^+)$ we have $\gamma_{q,w}(t')\notin K$
+
+    Conversely we now assume $t'>t_w$. Again by the transversality of $\gamma_{q,w}$ to $K$ we get that for $t'-t_w>\varepsilon>0$ small enough we have $\gamma_{q,w}(t_w+\varepsilon)\notin \jp=J^+(p^-)\cap J^-(p^+)$ because $K$ is the future boundary of $\jp$. As any point on $\gamma_{q,w}$ is in $J^+(p^-)$ we must have have $\gamma_{q,w}(t_w+\varepsilon) \notin J^-(p^+)$, i.e. there exists no lightlike path from $\gamma_{q,w}(t_w+\varepsilon)$ to $p^+$. But if $\gamma_{q,w}(t')\in J^-(p^+)$ there exists a path $\sigma$ from $\gamma_{q,w}(t')$ to $p^+$ and we could construct a lightlike path from $\gamma_{q,w}(t_w+\varepsilon)$ to $p^+$ by appending $\gamma_{q,w}\rvert_{[t_w+\varepsilon,t']}$ to  $\sigma$, a contradiction. We thus have $\gamma_{q,w}(t')\notin J^-(p^+)\supset\jp\supset K$, completing the proof.
+\end{proof}
+
 
 \begin{definition}[Observation Preimage]
-For any $q\in \interior{\jp}$ with light observation set $\mc{P}_K(q)\subset K$ we define the \emph{observation preimage} $L^K_qM$ to be the preimage of $K$ under the exponential map restricted to $L^+_qM$, i.e. 
+For any $q\in V$ with light observation set $\mc{P}_K(q)\subset K$ we define the \emph{observation preimage} $L^K_qM$ to be the preimage of $K$ under the exponential map restricted to $L^+_qM$, i.e. 
 \begin{align*}
     L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K) \subset L^+_qM
 \end{align*}
 \end{definition}
 \begin{lemma}\label{lem:preimage}
-For any $q\in \interior{\jp}$, the observation preimage $L^K_qM$ is a $n-1$-dimensional submanifold of $T_pM$. 
+For any $q\in V$, the observation preimage $L^K_qM$ is a $n-1$-dimensional submanifold of $L^+_qM$. 
 
-Furthermore, for any $w\in L^K_qM$ there exist a relatively open neighborhood $\mc{W}\subset L^K_qM$ such that $\exp_q:\mc{W}\to \exp_q(\mc{W})\subset \mc{P}_K(q)$ is a diffeomorphism.
+Furthermore, for any $w\in L^K_qM$ there exist a relatively open neighborhood $O_w\subset L^K_qM$ such that $\exp_q:O_w\to U_w:=\exp_q(O_w)\subset \mc{P}_K(q)$ is a diffeomorphism.
 \end{lemma}
 \begin{proof}
-    By lemma \ref{prop:transversality}, $\exp_q:L^+_qM\to M$ is transverse to $K$ (here we treat $L^+_qM$ and $K$ as submanifolds as the points where they fail to be submanifolds can be removed without impacting the proof). Thus by the preimage lemma $ L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K)$ is a $n-1$-dimensional submanifold of $L^+_qM$.
+    By lemma \ref{prop:transversality}, $\exp_q:L^+_qM\to M$ is transverse to $K$ (here we treat $L^+_qM$ and $K$ as submanifolds, because by lemma \ref{lem:Kcharact}(3) we can disregard the boundary points). Thus by the preimage lemma \ref{lem:transmap} $ L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K)$ is a $n-1$-dimensional submanifold of $L^+_qM$.
 
-    For the second part let $w\in L^K_qM$, since $p:=\exp_q(w)\in K$ and we assumed that such a $p$ cannot be a null conjugate point, we know that $\exp_q:L_qM\to M$ has an invertible differential at $w$. Thus, by the implicit function theorem, there exists an open neighborhood $\mc{W}'\subset L_qM$ of $w$ such that $\exp_q:\mc{W}'\to \exp_q(\mc{W}')$ is a diffeomorphism. If we then restrict $\exp_q$ to $\mc{W}:=\mc{W}' \cap L^K_qM$ the map is still a diffeomorphism as desired.
+    For the second part let $w\in L^K_qM$, since $p:=\exp_q(w)\in K$ and we assumed that such a $p$ cannot be a null conjugate point, we know that $\exp_q:L^+_qM\to M$ has an invertible differential at $w$. Thus, by the implicit function theorem, there exists an open neighborhood $O_w'\subset L^+_qM$ of $w$ such that $\exp_q:O_w'\to \exp_q(O_w')$ is a diffeomorphism. If we then restrict $\exp_q$ to $O_w:=O_w' \cap L^K_qM$ the map is still a diffeomorphism as desired.
+\end{proof}
+Note that by the invariance of domain theorem $U_w$ is an open submanifold of $\mc{P}_K(q)$
+
+\begin{corollary}\label{cor:lksn}
+    The map 
+    \begin{align*}
+        \sn \simeq CL^+_qM &\to L^K_qM\\
+        w &\mapsto t_ww
+    \end{align*}
+    where $t_w$ is as in \ref{lem:hitsonce}, is a diffeomorphism.
+\end{corollary}
+\begin{proof}
+    This result follows immediately from lemma \ref{lem:hitsonce} together with the fact that since $K$ is (away from its boundary) a smooth submanifold, the map $w\mapsto t_w$ is smooth.
 \end{proof}
 
 \begin{lemma}\label{lem:finitevecs}
-    Let $q\in \interior{\jp}$ and $p\in \mc{P}_K(q)$ then there exist only finitely many $v_1,\dots,v_n\in L^K_qM$ such that $\exp_q(v_i)=p$. Furthermore for any neighborhood $W\subset L^K_qM$ of $v_1,\dots,v_n$, there exists a neighborhood $U\subset \mc{P}_K(q)$ of $p$ such that $\exp^{-1}_q(U) \cap L^+_qM \subset W$. 
+    Let $q\in V$ and $p\in \mc{P}_K(q)$ then there exist only finitely many $w_1,\dots,w_N\in L^K_qM$ such that $\exp_q(w_i)=p$. Furthermore for $O_{w_i}$ as in the previous lemma such that $\exp_q:O_{w_i}\to U_{w_i}$ is a diffeomorphism, there exists an open neighborhood $U\subset \mc{P}_K(q)$ of $p$ such that 
+    \[
+        \exp^{-1}_{q}(U)\cap L^K_qM \subset \bigcup_{i=1}^N O_{w_i}
+    \]
+    
+    %for any neighborhood $W\subset L^K_qM$ of $v_1,\dots,v_n$, there exists a %neighborhood $U\subset \mc{P}_K(q)$ of $p$ such that $\exp^{-1}_q(U) \cap L^+_qM %\subset W$. 
 \end{lemma}
 \begin{proof}
-    ((Overhaul))
+    Note that the previous corollary immediately yields that $L^K_qM$ is compact.
+    Let $q\in V$, $p\in \mc{P}$. We first remark that, by the previous lemma, for any $w\in \exp^{-1}_q(p) \cap L^K_qM$ there exist open neighborhoods $w\in O_w\subset L^K_qM$ and $p\in U_w=\exp_q(O_w)\subset \mc{P}_K(q)$ making $\exp_q:O_w\to U_w$ a diffeomorphism.
 
-    Let $q\in \overline{V}$ and $v\in L^+_qM$ such that $p=\exp_q(v)$. Since we required that $p\in K$ cannot be a null conjugate point of $q$, $\exp_q$ must be a local diffeomorphism around $v$. This means that there exist open sets $v\in\mc{O}_v\subset L_qM, p\in \mc{U}_v\subset M$ such that $\exp_q:\mc{O}_v\to \mc{U}_v$ is a diffeomorphism. But this means that there cannot exist another $v'\in \mc{O}_v$ with $\exp_q(v')=p$. We now restrict ourselves only to null \emph{directions} at $q$ i.e. the quotient $L^+_qM/\R_+ \simeq S^{n-1}$. Since any null vector $v$ with $\exp_q(v)=p$ has an open neighborhood where no other vector can have this property, the set of null \emph{directions} in $S^{n-1}$ which hit $p$ is discrete and thus finite because $S^{n-1}$ is compact. Because we only have finitely many null directions which hit $p$, $\pi^{-1}(p)\cap \DP(q)$ can only have finitely many elements, as desired.
+    To show that there can only be finitely many $w\in L^K_qM$ with $\exp_q(w)=p$ we let
+    \[
+        C:=\exp_q^{-1}(p)\cap L^K_qM.
+    \] 
+    As $M$ is hausdorff, ${p}$ is closed and because $\exp_q$ is continuous, so is $C$. Now $C\subset L^K_qM$ is a closed subset of a compact space, making $C$ itself compact as well. Now the family $\{O_w \mid w\in \exp^{-1}_q(p)\cap L^K_qM\}$ is an open cover of $C$. But because $C$ is compact there must exist a finite subcover such that 
+    \[
+        C\subset O:= \bigcup_{i=1}^N O_{w_i}.
+    \]
+    We can now make some observations: By definition, for any $w\in L^K_qM\setminus C$ we have $\exp_q(w)\neq p$. And as $\exp_q$ is a diffeomorphism on $O_{w_i}$ for all $i=1,\dots, N$, it must be injective and we get $\exp^{-1}_q(p)\cap O_{w_i}=\{w_i\}$. We thus have 
+    \[
+        \exp_q^{-1}(p) \cap O = \{w_1,\dots, w_N\}.
+    \]
+    Furthermore, as $C\subset O$ for any $p\in L^K_qM\setminus O \subset L^K_qM \setminus C$ we still have $\exp_q(w)\neq p$. In other words: 
+    \[
+        \exp_q^{-1}(p)\cap L^K_qM\setminus O=\emptyset.
+    \]
+    Putting these two observations together we get 
+    \[
+        \exp_q^{-1}(p)\cap L^K_qM = \{w_1,\dots, w_N\},
+    \]
+    as desired.
+
+    To show the second part we denote
+    \[
+        L^\times := L^K_qM \setminus O \quad \text{ and have } L^\times \cap \exp^{-1}_q(p) = \emptyset.
+    \]
+    Note that $L^\times$ is a closed and thus compact subset of $L^K_q$. We then endow $M$ with an arbitrary metric $d$ compatible with its topology. 
+    This lets us define the continuous function 
+    \begin{align*}
+        g:L^\times &\to \R\\
+        w &\mapsto d(\exp_q(w),p).
+    \end{align*}
+    Because $L^\times \cap \exp^{-1}_q(p) = \emptyset$ we have $g(w)>0$ for all $w\in L^\times$. But now, as $L^\times$ is compact there exists a $\varepsilon>0$ such that $g(w)=d(\exp_q(w),p)>\varepsilon$ for all $w\in L^\times$. We can now choose
+    \[
+        U := B_\varepsilon(p) \cap \mc{P}_K(q)
+    \] and get an open neighborhood of $p$ in $\mc{P}_K(q)$ with $\exp^{-1}(U)\cap L^\times = \emptyset$. But this means 
+    \[
+        \exp^{-1}_q(U) \cap L^K_qM = O = \bigcup_{i=1}^N O_{w_i}
+    \]
+    completing the proof.
+
+    \newpage
 \end{proof}
 
 
 We can immediately put these lemmas to use and prove this proposition characterizing the light observation set.
 \begin{proposition}\label{prop:unionmanif}
-Let $q\in \interior{\jp}$ and $p\in \mc{P}_K(q)$. There exists a neighborhood $\mc{O}$ of $p$, a positive integer $N$ and $N$ pairwise transversal, spacelike,  codimension 1 submanifolds $\mc{V}_i\subset K$ such that $\mc{P}_K(q) \cap \mc{O} = \bigcup_{i=1}^N \mc{V}_i$ and $p\in \mc{V}_i$ for $i={1,\dots, N}$.
+Let $q\in V$ and $p\in \mc{P}_K(q)$. There exists an open neighborhood $p\in U\subset \mc{P}_K(q)$, a positive integer $N$ and $N$ pairwise transversal, spacelike, codimension 1 submanifolds $\mc{U}_i\subset K$ such that $\mc{P}_K(q) \cap U = \bigcup_{i=1}^N \mc{U}_i$ and $p\in \mc{U}_i$ for $i={1,\dots, N}$.
 \end{proposition}
 \begin{proof}
-    Let $q\in \overline{V}$ and $p\in \mc{P}_K(q)$. By the previous lemma we know that there can only be finitely many $w_1,\dots,w_n\in L^K_qM$ with $\exp_q(w_i)=p$. 
+    Let $q\in V$ and $p\in \mc{P}_K(q)$. By the previous lemma we know that there can only be finitely many $w_1,\dots,w_n\in L^K_qM$ with $\exp_q(w_i)=p$. 
 
-    By lemma \ref{lem:preimage}, for each $w_i$ there exists a neighborhood $\mc{W}_i\subset L^K_qM$ of $w_i$ such that $\exp_q:\mc{W}_i\to \mc{V}_i:=\exp_q(\mc{W}_i)$ is a diffeomorphism. Thus $\mc{V}_i\subset \mc{P}_K(q)$ is a submanifold of $K$ and we have $\bigcup_{i=1}^N\mc{V}_i\subset \mc{P}_K(q)$. 
+    By lemma \ref{lem:preimage}, for each $w_i$ there exists a neighborhood $O_{w_i}\subset L^K_qM$ of $w_i$ such that $\exp_q:O_{w_i}\to U_{w_i}:=\exp_q(O_{w_i})$ is a diffeomorphism. Thus $U_{w_i}\subset \mc{P}_K(q)$ is a codimension 1 submanifold of $K$ and we have $\bigcup_{i=1}^N U_{w_i}\subset \mc{P}_K(q)$.
 
-    Now we use the second part of the previous lemma to obtain an open neighborhood $\mc{O}\subset \mc{P}_K(q)$ of $p$, such that $\exp_q^{-1}(\mc{O})\cap L^+_qM\subset \bigcup_{i=1}^N \mc{W}_i$. Thus any point $p\in \mc{P}_K(q) \cap \mc{O}$ is contained in some $\mc{V}_i$ and we have $\bigcup_{i=1}^N\mc{V}_i \supset \mc{P}_K(q)\cap \mc{O}$. After possibly shrinking some $\mc{W}_i$ we get equality.
+    Now we use the second part of the previous lemma to obtain an open neighborhood $U\subset \mc{P}_K(q)$ of $p$, such that $\exp_q^{-1}(U)\cap L^K_qM\subset \bigcup_{i=1}^N O_{w_i}$. Thus any point $p\in \mc{P}_K(q) \cap U$ is contained in some $\mc{V}_i$ and we have $\bigcup_{i=1}^N U_{w_i} \supset \mc{P}_K(q)\cap U$. 
+    We then define 
+    \[
+        \U_i := U \cap U_{w_i}
+    \] and have 
+    \[
+        \bigcup_{i=1}^N \,\U_i = \mc{P}_K(q)\cap U
+    \] as desired. Furthermore, because $U$ is an open neighborhood of $p$, $\U_i$ is still a codimension 1 submanifold of $K$ and $p\in \U_i$.
 
-    The fact that each $\mc{V}_i$ is spacelike follows as it can be written as the intersection of two transversal null hypersurfaces, $\mc{L}^+_q$ and $K$.
+    We show that $\U_i$ is spacelike. To that end let $p\in \U_i$. Note that we have $\U_i\subset K$ and $\U_i\subset U_{w_i}' = \exp_q(O_{w_i}')$, where $w_i\in O_{w_i}' \subset L^+_qM$ is an open neighborhood of $w_i$ in $L^+_qM$ such that on $O_{w_i}'$, $exp_q$ is a diffeomorphism onto its image. Both $K$ and $U_{w_i}'$ are null hypersurfaces around $p$ but by proposition \ref{prop:transversality} they are transversal and thus cannot be generated by the same null rays. Thus $T_p\,\U_i = T_pK \cap T_pU_{w_i}'$ can only contain spacelike vectors.
 
-    Finally to prove that they are transversal at $p$, we assume by contradiction that there exist $i\neq j$ such that $T_p\mc{V}_i=T_p\mc{V}_j$. But by lemma \ref{lem:dirreconstr} this would imply that $v_i = c*v_j$ for a $c\in \R_+$, where $v_i = \gamma'(1)_{q,w_i}$. Thus we would have $w_i = w_j$, a contradiction.
+    Finally to prove that they are transversal at $p$, we assume by contradiction that there exist $i\neq j$ such that $T_p\,\U_i=T_p\,\U_j$. But by lemma \ref{lem:dirreconstr} this would imply that $v_i = c*v_j$ for a $c\in \R_+$, where $v_i = \gamma'(1)_{q,w_i}$. This would imply $w_i = w_j$, a contradiction.
 \end{proof}
 
 \begin{definition}[Regular Point]
-We call a point $p\in \mc{P}_K(q)$ \emph{regular} if there exists an open neighborhood $\mc{O}\subset M$ of $p$ such that $\mc{O}\cap \mc{P}_K(q)$ is a submanifold.
+We call a point $p\in \mc{P}_K(q)$ \emph{regular} if there exists an open neighborhood $\mc{U}\subset M$ of $p$ such that $\mc{U}\cap \mc{P}_K(q)$ is a submanifold.
 \end{definition}
+Note that $p\in \mc{P}_K(q)$ if and only if $N=1$ for $p$ in the previous proposition.
 
 
 \begin{corollary}The subset of regular points is open and dense in $\mc{P}_K(q)$.
 \end{corollary}
 \begin{proof}
-It suffices to show that for every cut point $p\in \mc{P}_K(q)$, every relatively open neighborhood $\mc{O}\subset\mc{P}_K(q)$ contains a regular point. By the previous proposition, for $\mc{O}$ small enough we have $\mc{P}_K(q)\cap \mc{O} = \bigcup_{i=1}^N\mc{V}_i$, where $\mc{V}_i$ are pairwise transversal. This means their intersection is of lower dimension and we can find a $p'\in \mc{V}_i$ for some $i\in 1,\dots,N$ such that $p'\notin \mc{V}_j$ for $j\neq i$. Thus we can find an open neighborhood $\mc{O}'$ around $p'$ such that $\mc{O}'\cap \mc{P}_K(q)\subset \mc{V}_i$ which means $p'$ is a regular point, as desired.
+The fact that it is open follows immediately from the definition: Let $p\in \mc{P}_K(q)$ be regular. There thus exists an open neighborhood $p\in \mc{U}\subset M$ such that $\U \cap \mc{P}_K(q)$ is a submanifold. But now for every point $p'\in \U\cap\mc{P}_K(q)$, $\mc{U}$ also makes $p'$ a regular point making $\U\cap\mc{P}_K(q)$ an open neighborhood of regular points of $p$. Thus every regular point has an open neighborhood of regular points making the set of regular points itself open.
+
+To prove the set of regular points is dense in $\pq$ we to show that for every point $p\in \mc{P}_K(q)$, every relatively open neighborhood $U'\subset\mc{P}_K(q)$ contains a regular point. By the previous proposition, for $U'$ small enough we have $\mc{P}_K(q)\cap U' = \bigcup_{i=1}^N\,\U_i$, where $\U_i$ are pairwise transversal. This means their intersection is of lower dimension and 
+\[
+    \U_i \setminus \bigcup_{j\neq i}\, \U_j \quad \text{ is open and nonempty for every }i=1,\dots N.
+\]
+((Give name and close to $p$))
+and we can find a $p'\in \mc{V}_i$ for some $i\in 1,\dots,N$ such that $p'\notin \mc{V}_j$ for $j\neq i$. Thus we can find an open neighborhood $\mc{O}'$ around $p'$ such that $\mc{O}'\cap \mc{P}_K(q)\subset \mc{V}_i$ which means $p'$ is a regular point, as desired.
 \end{proof}
 
 \subsection{Observation Time Functions}

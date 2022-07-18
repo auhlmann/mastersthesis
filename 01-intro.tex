@@ -3,10 +3,14 @@
 \section{Main Results}
 ((Introduce Notation etc.))
 
+\begin{definition}[Suitable]
+    We call $p^-\ll p^+\in M$ \emph{suitable} if $p^+$ has no past cut points in $\mc{L}^-_{p^+}\cap J^+(p^-)$ and $p^-$ has no future cut points in $\mc{L}^+_{p^-}\cap J^-(p^+)$.
+\end{definition}
+
 \begin{theorem}[Interior Reconstruction]\label{thm:intreconstr}
-    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ two points in $M_j$ we denote $K_j = J(p_j^-,p_j^+) \setminus I^-(p^+_j)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exists a conformal diffeomorphism $\Phi:K_1\to K_2$ and that none of the past null geodesics starting at $p_j^+$ have a cut point in $K_j$. 
+    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ \emph{suitable} in $M_j$ we denote $K_j = \mc{L}^-_{p_j^+} \cap J^+(p_j^-)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exists a conformal diffeomorphism $\Phi:K_1\to K_2$. 
     
-    Now let $V_j\subset\operatorname{int} J(p_j^-,p_j^+)$ be open sets. We assume that no null geodesic starting in $V_j$ has a null conjugate point on $K_j$. 
+    Now let $V_j\subset\interior{J(p_j^-,p_j^+)}$ be open sets. We assume that no null geodesic starting in $V_j$ has a null conjugate point on $K_j$. 
     
     Then, if 
     \[
@@ -17,7 +21,7 @@
 
 
 \begin{theorem}[Boundary Reconstruction]\label{thm:bdreconstr}
-    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ two points in $M_j$ we denote $K_j = J(p_j^-,p_j^+) \setminus I^-(p^+_j)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exists a conformal diffeomorphism $\Phi:K_1\to K_2$ and that none of the past null geodesics starting at $p_j^+$ have a cut point in $K_j$. 
+    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ \emph{suitable} in $M_j$ we denote $K_j = \mc{L}^-_{p_j^+} \cap J^+(p_j^-)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exists a conformal diffeomorphism $\Phi:K_1\to K_2$. 
     
     Now let $V_j\subset J(p_j^-,p_j^+) \setminus p_j^+$ be open sets. We assume that no null geodesic starting in $V_j$ has a null conjugate point on $K_j$. 
     
