@@ -37,7 +37,7 @@ From now on $(M,g), K, V, p^+,p^-$ be as in theorem \ref{thm:intreconstr} (we su
         \item There exists a surjective smooth map $\Theta:S^{n-1}\times[0,1] \to K$ such that the curves $\mu_a:=t\mapsto\Theta(a,t), a\in S^n$ are null geodesics, 
         \[\Theta(S^{n-1}\times\{1\}) = \{p^+\}, \quad R:=\Theta(S^{n-1}\times\{0\}) = K \setminus I^+(p^-)\]
         and $\Theta:S^{n-1}\times[0,1)\to K\setminus p^+$ is a diffeomorphism.
-        \item $\mc{L}^-_{p^+}\cap V = \emptyset$ and $\mc{L}^-_{p} \cap V = \emptyset \quad \forall p\in R$.
+        \item $\mc{L}^-_{p^+}\cap V = \emptyset$ and $\mc{L}^-_{p_0} \cap V = J^-(p_0) \cap V = \emptyset \quad \forall p_0\in R$.
         % \item There exist $0<t_-<t_+<1$ such that the restriction $\Psi\rvert_{S^n\times[t_-,t_+]}$ is a diffeomorphism onto its image and that for all $v \in S^n$, we have 
         % \[
         % \Psi(v,t_-) \notin \bigcup_{q\in \overline{V}} J^+(q), \quad \Psi(v,t_+) \in \bigcap_{q\in \overline{V}} J^+(q).
@@ -73,7 +73,9 @@ We now set $\Theta:=\exp_{p^+}\circ \; \theta$, which satisfies all properties i
 
 Finally, for part $(3)$ we assume there exists a $p\in \mc{L}^-_{p^+}\cap V$. Recall that $V\subset \interior{\jp}=I^+(p^-)\cap I^-(p^+)$. We thus have $p\in I^+(p^-)\subset J^+(p^-)$, which together with $p\in \mc{L}^-_{p^+}$ implies $p\in K$. But now we have $p\in I^-(p^+)$ and $p\in K$, a contradiction to (1).
 
-Now we assume that there exists a $p_0\in R$ and $p\in \mc{L}^-_{p_0}\cap V$. Any $p_0\in R$ must be in $\mc{L}^\pm_{p^-}$. If $p\in \mc{L}^-_{p^-}$ it cannot be in $I^+(p^-)$. Thus $p\in \mc{L}^+_{p^-}$. Furthermore we have $p\in I^-(p^+)\subset J^-(p^+)$ and $\tau(p^-,p)>0$ because $p\in I^+(p^-)$. But this implies that $p^-$ has a cut point in $\mc{L}^+_{p^-}\cap J^-(p^+)$. A contradiction because $p^-$ and $p^+$ were assumed to be suitable.
+Now we assume that there exists a $p_0\in R$ and $p\in J^-(p_0)\cap V$. Because $V\subset I^+(p^-)$ there exists a timelike path from $p^-$ to $p$. Because $p\in J^-(p_0)$ as well we can construct a timelike path ((REF)) from $p^-$ to $p_0$ implying $p_0\in I^+(p^-)$. But because $p\in R=K\setminus I^+(p^-)$ this is a contradiction. $\mc{L}^-_{p_0} \subset J^-(p_0)$ yields the second equality.
+
+% Any $p_0\in R$ must be in $\mc{L}^+_{p^-}$. If $p\in \mc{L}^-_{p^-}$ it cannot be in $I^+(p^-)$. Thus $p\in \mc{L}^+_{p^-}$. Furthermore we have $p\in I^-(p^+)\subset J^-(p^+)$ and $\tau(p^-,p)>0$ because $p\in I^+(p^-)$. But this implies that $p^-$ has a cut point in $\mc{L}^+_{p^-}\cap J^-(p^+)$. A contradiction because $p^-$ and $p^+$ were assumed to be suitable.
 \end{proof}
 
 Note that this implies that $K$ is a smooth $n$-dimensional submanifold of $M$ at any point away from its boundary. We will often treat $K$ itself as a submanifold when it is clear that we are working away from the boundary. This is often the case as by (3) no null geodesic originating from the interior of $\jp$ can reach $p^+$ or $R$, i.e. the boundary of $K$.
@@ -292,7 +294,7 @@ Moreover, let $\mc{E}_a(q)\coloneqq\mu_a(f_a(q))\in M$ be the earliest point whe
 \end{definition}
 
 \begin{lemma}\label{lem:observationtime}
-Let $a\in \sn$ and $q \in \interior{\jp}$. Then
+Let $a\in \sn$ and $q \in V$. Then
 \begin{enumerate}[label={\textnormal{(\arabic*)}}]
     \item It holds that $f_a(q)\in (0,1)$.
     \item We have $\mc{E}_a(q)\in J^+(q)$ and $\tau(q,\mc{E}_a(q))=0$. Moreover the function $s\mapsto\tau(q,\mu_a(s))$ is continuous, non-decreasing on $[0,1]$ and strictly increasing on $[f_a(q),1]$.
@@ -300,9 +302,15 @@ Let $a\in \sn$ and $q \in \interior{\jp}$. Then
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-Let $a\in \mc{A}$ and $q\in \overline{V}$.
+Let $a\in \mc{A}$ and $q\in V$.
 
-We begin by showing (1): By lemma \ref{lem:Kcharact}(3) we have that
+We begin by showing (1): 
+Because $q\in V \subset \interior{\jp} = I^+(p^-)\cap I^-(p^+)$ we have $q\in I^-(p^+)$ and conversely $p^+\in I^+(q)$. By ((REF)) we know that $I^+(q)$ is open and thus it forms an open neighborhood of $p^+$. But as $\mu_a$ is a continuous path with $\mu_a(1)=p^+$ there must exist a $t<1$ such that $\mu_a(t)\in I^+(q)\subset J^+(q)$. Hence we have $f_a(q)<1$.
+
+To show $f_a(q)>0$ we assume $f_a(q)=0$ to achieve a contradiction. We thus have $0=\inf \{s\in [0,1] \mid \mu_a(s)\in J^+(q)\}$. There thus exists a convergent sequence $s_n\to 0$ as $n\to \infty$ such that $\mu_a(s_n)\in J^+(q)$ for all $n$. But because $\mu_a$ is continuous and $J^+(q)$ closed we have $\mu_a(0)\in J^+(q)$. This implies that there exists a lightlike future-pointing geodesic from $q$ to  
+
+\newpage
+By lemma \ref{lem:Kcharact}(3) we have that
 $\mu_a(t_-)\notin J^+(q)$ and $\mu_a(t_+)\in J^+(q)$. The second part immediately yields $f_a(q) \leq t_+$ as $f_a(q)$ is the infimum over all observation times. For the first part we assume by contradiction that there were to exist a $t_{-2}<t_-$ with $\mu_a(t_{-2})\in J^+(q)$. This allows us to construct a causal path from $q$ to $\mu_a(t_-)$ by joining the causal path from $q\to \mu_a(t_{-2})$ and the null geodesic $\mu_a$ from $t_{-2}$ to $t_-$. Since this would imply that $\mu_a(t_-)\in J^+(q)$ this is a contradiction and $f_a(q)$ must be bigger than $t_-$ proving (1).
 
 (2)
@@ -324,15 +332,6 @@ To prove the fist direction we assume that $p=\mc{E}_a(q)$ for some $a\in \mc{A}
 For the other direction we let $p\in \mc{P}_K(q)$ with $\tau(q,p)=0$. Now let $a\in \mc{A}$ such that $p=\mu_a(t)$ for some $t\in [0,1]$. We then assume by contradiction that $\mc{E}_a(q) \neq p$, i.e. $f_a(q) < t$. But by (2) we have that $s\mapsto\tau(q,\mu_a(s))$ is strictly increasing after $f_a(q)$ which is in contradiction with $\tau(q,p)=0$.
 
 The other equivalence follows the definition of $\mc{P}_K(q)$ together with the definition of cut points.
-
-Finally we prove (4):
-Let $q_i\to q$ in $\overline{V}$, let $t_i = f_a(q_i)$ and $t=f_a(q)$. Since $\tau$ is continuous, for any $\varepsilon>0$ we have $\lim_{j\to \infty} \tau(q_j,\mu_a(t+\varepsilon)) = \tau(q,\mu_a(t+\varepsilon)) > 0$. Thus for $i$ big enough we have $\tau(q_i,\mu_a(t+\varepsilon))>0$. But by (3) this implies that $a$ must have observed $q_i$ before $t+\varepsilon$ i.e. $f_a(q_i)<t+\varepsilon = f_a(q) + \varepsilon$. As $\varepsilon$ was arbitrary we get $\limsup_{j\to \infty} t_j \leq t$.
-
-We assume now that $\liminf_{i\to \infty} t_i=t'<t$. Let $(t_i)$ be a convergent subsequence such that $f_a(q_i) = t_i \to t' < f_a(q)$. Now by the continuity of $\tau$ and $\mu_a$ we have 
-\[
-0=\tau(q_i,\mu_a(f_a(q_i)))\to \tau(q,\mu_a(t')).
-\]
-Furthermore by ((REF)) $\mu(s_i)\in J^+(q_i)$ for all $i$ implies $\mu(s')\in J^+(q)$. But now we have $\mu(s')\in \mc{P}_K(q)$ and $\tau(q,\mu_a(s'))=0$ which by (3) implies that $\mu_a(s') = \mc{E}_a(q) = \mu_a(f_a(q))$. But this is a contradiction as $s'<f_a(q)$. ((More in-detail?))
 \end{proof}
 
 By (3) of the above lemma, for any $q\in \overline{V}$ and $a\in \ca$ we have $\mc{E}_a(q)\in \P_K(q)$. Since $\P_K(q)\subset J^+(q)$, we can see using definition \ref{def:observationtime} that the set of earliest observations $\P_K(q)$ and the path $\mu_a$ completely determine the functions
@@ -340,18 +339,27 @@ By (3) of the above lemma, for any $q\in \overline{V}$ and $a\in \ca$ we have $\
     f_a(q) = \min \{ s\in [-1,1] \mid \mu_a(s)\in \P_U(q) \}, \quad \mc{E}_a(q) = \mu_a(f_a(q))
 \end{align}
 
-\begin{lemma}\label{lem:qcont} Let $a\in \sn$. Then the function $q\mapsto f_a(q)$ is continuous on $\interior{\jp}$.
+\begin{lemma}\label{lem:qcont} Let $a\in \sn$. Then the function $q\mapsto f_a(q)$ is continuous on $V$.
 \end{lemma}
+\begin{proof}
+    Let $q_i\to q$ in $\overline{V}$, let $t_i = f_a(q_i)$ and $t=f_a(q)$. Since $\tau$ is continuous, for any $\varepsilon>0$ we have $\lim_{j\to \infty} \tau(q_j,\mu_a(t+\varepsilon)) = \tau(q,\mu_a(t+\varepsilon)) > 0$. Thus for $i$ big enough we have $\tau(q_i,\mu_a(t+\varepsilon))>0$. But by (3) this implies that $a$ must have observed $q_i$ before $t+\varepsilon$ i.e. $f_a(q_i)<t+\varepsilon = f_a(q) + \varepsilon$. As $\varepsilon$ was arbitrary we get $\limsup_{j\to \infty} t_j \leq t$.
 
-\begin{lemma}\label{lem:acont} Let $q\in \interior{\jp}$. Then the function $a\mapsto f_a(q)$ is continuous on $\sn$.
+    We assume now that $\liminf_{i\to \infty} t_i=t'<t$. Let $(t_i)$ be a convergent subsequence such that $f_a(q_i) = t_i \to t' < f_a(q)$. Now by the continuity of $\tau$ and $\mu_a$ we have 
+    \[
+    0=\tau(q_i,\mu_a(f_a(q_i)))\to \tau(q,\mu_a(t')).
+    \]
+    Furthermore by ((REF)) $\mu(s_i)\in J^+(q_i)$ for all $i$ implies $\mu(s')\in J^+(q)$. But now we have $\mu(s')\in \mc{P}_K(q)$ and $\tau(q,\mu_a(s'))=0$ which by (3) implies that $\mu_a(s') = \mc{E}_a(q) = \mu_a(f_a(q))$. But this is a contradiction as $s'<f_a(q)$. ((More in-detail?))
+\end{proof}
+
+\begin{lemma}\label{lem:acont} Let $q\in V$. Then the function $a\mapsto f_a(q)$ is continuous on $\sn$.
 \end{lemma}
 
 \begin{corollary}\label{cor:fcont} 
-    The map $f:\interior{\jp}\times\sn\to\R; (q,a)\mapsto f_a(q)$ is continuous.
+    The map $f:V\times\sn\to\R; (q,a)\mapsto f_a(q)$ is continuous.
 \end{corollary}
 
 \begin{proposition}\label{cor:funif}
-    If $q_n \to q_0\in \interior{\jp}$ as $n\to \infty$ and we denote $F_q:\sn\to\R;a\mapsto f_a(q)$. Then $F_{q_n}\to F_{q_0}$ uniformly over $\sn$ as $n\to \infty$.
+    If $q_n \to q_0\in V$ as $n\to \infty$ and we denote $F_q:\sn\to\R;a\mapsto f_a(q)$. Then $F_{q_n}\to F_{q_0}$ uniformly over $\sn$ as $n\to \infty$.
 \end{proposition}
 
 \begin{proposition}\label{prop:finj}
