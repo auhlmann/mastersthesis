@@ -1,18 +1,7 @@
 \chapter{Interior Reconstruction}
+
 \section{Topology Reconstruction}
- 
-\begin{lemma}
-Thing with dir set reconstruction
-Also intersection is spacelike somewhere
-\end{lemma}
-
-
-
-
-\subsubsection{Construction of $V$ as a topological manifold}
-((Intro))
-
-Next we aim to reconstruct the topological and differential data of $V$. To that end we define the following functions.
+We aim to reconstruct the topological and differential data of $V$. To that end we define the following functions.
 
 For $q\in V$ we define the function $F_q:\sn\to\R$ by $a\mapsto f_a(q)$. We can then define the function 
 \begin{align*}
@@ -21,12 +10,46 @@ For $q\in V$ we define the function $F_q:\sn\to\R$ by $a\mapsto f_a(q)$. We can 
 \end{align*} mapping a $q\in V$ to the function $F_q:\sn\to\R$. $(C(\sn),d_{\infty})$ is the space of continuous functions from $\sn$ to $\R$, together with the metric $d_\infty(f,g)=\max_{a\in \sn} \rvert f(a)-g(a) \lvert$.
 
 The following proposition establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology wrt. the topology induced by $d_\infty$ on $C(\sn)$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
-\begin{lemma}\label{lem:Fhomeo}
-The map $\mathcal{F}:V\to\mathcal{F}(V)$ is a homeomorphism.
+((Explain that data allows us to determine $d_\infty$ ))
+\begin{lemma}\label{lem:Fprop}
+The map $\mathcal{F}:V\to\widehat{V}:=\mathcal{F}(V)$ is a well-defined continuous and injective.
 \end{lemma}
 \begin{proof}
-((Works the same, use direction set reconstruction))
+First of all $\F:V\to (C(\sn),d_\infty)$ is well-defined by proposition \ref{prop:fcont}, i.e. for any $q\in V$, $F_q=f(q,\cdot)$ is continuous on $\sn$.
+
+Because the topology induced on $C(\sn)$ by $d_\infty$ is uniform convergence, proposition \ref{prop:funif} implies that $\mc{F}$ is continuous.
+
+Finally injectivity follows from the fact that for any $q,q'\in V$ we have $\F(q)=\F(q')\implies F_q = F_{q'} \implies \ee(q) = \ee(q')$ which implies $q = q'$ by proposition \ref{prop:einj}.
 \end{proof}
+
+However there is still some work required to show that also $\F^{-1}$ is continous on $\widehat{V}$:
+\begin{proposition}\label{prop:frevcont} Let 
+    $(q_n)_{n=1}^{\infty}$ be a sequence in $V$ and $q_0\in V$ such that $F_{q_n}\to F_{q_0}$ uniformly then $q_n \to q_0$ as $n\to \infty$.
+\end{proposition}
+\begin{proof}
+    Let $(q_n)_{n=1}^\infty, q_0 \in V$ such that $F_{q_n}\to F_{q_0}$ uniformly. Note that because $\F$ is injective the choice of $q_n$ for $F_{q_n}=\F(q_n)$ is unambigous.
+
+    Let $t_0 = \max_{a\in \sn} F_{q_0}(a)$, because $q_0\in V$, lemma \ref{lem:Kcharact}(3) implies that $t_0<1$. Hence there exists an $\varepsilon>0$ such that $t':=t_0 + \varepsilon < 1$. And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n:=\max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
+
+    We now define 
+    \[
+        C_{t'}:=\{q\in \jp \mid \max_{a\in \sn} F_q(q)\leq t'\}   
+    \] and after removing the first $N$ elements of $(q_n)_{n=1}^\infty$ we may assume $q_n, q_0\in C_{t'}$.
+
+    We now show that $C_{t'}\subset \jp$ is closed: Let $p_n \to p_0 \in \jp$ with $p_n \in C_{t'}$. We must have $p_0\in \interior{\jp}$ because otherwise $\max_{a\in \sn} F_{p_n}(a)\to 1 > t'$. Because $p_n, p_0$ does not necessarily lie in $V$ we but we still want to use all the machinery we built up so far we now look at $V_0:= \interior{\jp}$. We can do this because all results were stated in terms of any arbitrary $V\subset \interior{\jp}$ which includes the case $V_0 = \interior{\jp}$. We then apply proposition \ref{prop:funif} to $V_0$, to get $F_{p_n} \to F_{p_0}$ uniformly. This in turn implies $\max_{a\in \sn}F_{p_n} \to \max_{a\in \sn}F_{p_0}$ and because $p_n\in C_{t'}$ we have $\max_{a\in \sn}F_{p_n}\leq t'$ for all $n$ and hence also $\max_{a\in \sn}F_{p_0}\leq t'$. This proves $p_0\in C_{t'}$ making $C_{t'}$ closed.
+
+    Now $C_{t'}$ is a closed subset of a compact space and thus itself compact. Again using $V_0$ and the previous lemma we get that $\F:V_0 \to \F(V_0)$ is well-defined continuous and injective. We can then restrict $\F$ to $C_{t'}$ and all these properties are preserved. But now $\F:C_{t'}\to \F(C_{t'})$ is a continuous, injective map from a compact space to a hausdorff space, making it a homeomorphism. 
+    
+    Because $q_n,q_0\in C_{t'}$ for all $n$, we have $F_{q_n}=\F(q_n)\to F_{q_0} = \F(q_0)\in \F(C_{t'})$. Using that $\F^{-1}$ continuous on $\F(C_{t'})$ we get
+    \[
+        q_n = \mc{F}^{-1}(F_{q_n}) \to \mc{F}^{-1}(F_{q_0}) = q_0,
+    \] as desired.
+\end{proof}
+
+And we get:
+\begin{corollary}
+    $\F:V\to \widehat{V}$ is a homeomorphism.
+\end{corollary}
 
 
 \section{Smooth Reconstruction}

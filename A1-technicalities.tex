@@ -4,3 +4,32 @@
     Let $f:M\to N$ be a smooth map transverse to the submanifold $L\subset N$ of codimension $k$ and $f^{-1}(L)$ is nonempty.
     Then $f^{-1}(L)$ is a codimension $k$ submanifold of $M$.
 \end{lemma}
+
+
+\begin{lemma}\label{lem:unifconvoncompact}
+    Let $(X,d_X),(Y,d_Y),(Z,d_Z)$ be compact metric spaces. Let $f:X\times Y\to Z$ be a continuous functions and denote $f_x:Y\to Z;y\mapsto f_x(y):=f(x,y)$ for $x\in X$. Let $x_n\to x_0 \in X$ as $n\to\infty$ be a convergent sequence.
+
+    Then $f_{x_n}\to f_{x_0}$ uniformly as $n\to \infty$.
+\end{lemma}
+\begin{proof}
+    Let $x_n\to x_0\in X$ be a convergent sequence. We want to show that for any $\varepsilon > 0$ there exists a $N\in \N$ such that for all $n \ge N$ we have 
+    \[
+        max_{y\in Y} d_Z(f_{x_n}(y),f_{x_0}(y))<\varepsilon.
+    \]
+    To that end let $\varepsilon>0$. Then because $X$ and $Y$ are compact, we can use the Heine-Cantor theorem to get a $\delta>0$ such that 
+    \[
+        d_X(x_1,x_2)<\delta \wedge d_Y(y_1,y_2)<\delta \implies d_Z(f_{x_1}(y_1),f_{x_2}(x_2))<\varepsilon.
+    \]
+
+    Now if $N\in \N$ such that $d_X(x_n,x_0)<\delta \; \forall n\ge N$ and $y\in Y$ arbitrary we have 
+    $d_X(x_n,x_0)<\delta \wedge d_Y(y,y)<\delta$ which implies $d_Z(f_{x_n}(y),f_{x_0}(y))<\varepsilon$. Because $y\in Y$ was arbitrary we also get $max_{y\in Y} d_Z(f_{x_n}(y),f_{x_0}(y))<\varepsilon$ and the proof is complete.
+\end{proof}
+
+
+\begin{lemma}\label{lem:firstcount}
+    Let $A$ be a first-countable topological space and $P:A\to \{\text{false},\text{true}\}$ a property defined for all points $a\in A$. Suppose now that for any converging sequence $a_n\to a_0\in A$ there exists a $N\in N$ such that $P(a_n)$ is true for all $n\ge N$.
+    
+    Then there exists an open neighborhood $O\in A$ of $a_0$ such that $P(a)$ is true for all $a\in O$.
+\end{lemma}
+
+

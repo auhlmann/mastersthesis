@@ -1,5 +1,5 @@
-
-\section{Causality and Global Hyperbolicity}
+\chapter{Causality and Global Hyperbolicity}
+\section{Causal Relations}
 In this first section we will establish which points in a Lorentzian manifold can be connected by timelike or lightlike paths under which circumstances. 
 
 We will take $(M,g)$ to be a time-oriented Lorentzian manifold. First we will set up some basic causality structure:
@@ -83,7 +83,7 @@ q\in J^+(q^-,\cc) = \overline{I^+(q^-,\cc)} \subset \overline{I^+(J^+(p))} = \ov
 \]
 \end{proof}
 
-\subsection{Strong Causality}
+\section{Causality Conditions}
 
 \begin{definition}[Strong Causality Condition]\label{def:scc}
 We say that the \emph{strong causality condition} holds at $p\in M$ if for any given neighborhood $\U$ of $p$ there exists a neighborhood $\V \subset \U$ of $p$ such that any causal curve with endpoints in $\V$ lies entirely within $\U$.
@@ -104,7 +104,7 @@ Suppose the strong causality condition holds on a compact subset $K\subset M$. L
 \end{lemma}
 This lemma is proven by leveraging the existence of quasi-limits together with the fact that given the strong causality condition, future inextendable curves must eventually leave a compact set $K$ permanently. This proof can be found in detail in \cite[Lemma 14.14]{oneill}.
 
-\subsection{Time Separation Function}
+\section{Time Separation Function}
 There is a natural way to generalize the notion of the separation of points $p\leq q$ in $\R^n_1$ to an arbitrary Lorentzian manifold $M$.
 \begin{definition}[Time Separation]
 Let $p,q\in M$, we define the \emph{time separation} $\tau(p,q)$ from $p$ to $q$ as
@@ -157,7 +157,7 @@ Putting this together and using the fact that $L(\sigma_{q^-q})\ge L(\alpha\rver
 as required.
 \end{proof}
 
-\subsection{Globally Hyperbolic Manifolds}
+\section{Globally Hyperbolic Manifolds}
 It is convenient to define 
 \[
 J(p,q) \coloneqq J^+(p) \cap J^-(q)
@@ -228,7 +228,7 @@ For the time separation function we can say the following:
 \end{remark}
 
 
-\subsection{Light Cones}
+\section{Light Cones}
 
 
 \begin{definition}[Light Cones]
@@ -288,7 +288,7 @@ Thus also $\lambda = \gamma_w$ since $\lambda$ is a geodesic with initial veloci
 \end{proof}
 
 
-\begin{theorem}[Cut Point Characterization]
+\begin{theorem}[Cut Point Characterization]\label{thm:cutpointcharact}
 Let $(M,g)$ be globally hyperbolic.
 Then for $(x,p)\in L^+M$, $p(x,v)$ is either the first conjugate point on $\gamma_v$ or the first point on $\gamma_v$ where there exists another null geodesic $\gamma_w$ from $x$ to $p(x,v)$ where $v \neq cw$.
 \end{theorem}
@@ -301,7 +301,7 @@ If $v\neq w$ there exist two distinct maximal geodesics, namely $\gamma_v$ and $
 If however, $v=w$ we can view $\gamma_n$ as a variation of $\gamma_v$ through geodesics starting at $p$ which additionally satisfy that the limiting variation at $q$ is zero (since the $q_n$ converge to $q$). $q$ is thus a conjugate point of $\gamma_v$.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prop:rhosemicont}
 For $(M,g)$ globally hyperbolic, $\rho(p,v)$ is lower semicontinuous.
 \end{proposition}
 \begin{proof}It suffices to prove that if $(p_n,v_n)\to(p,v)$ in $TM$ and $\rho(p_n,v_n)\to A$ in $\R \cup \{\infty\}$, then $\rho(p,v)\leq A$. If $A=\infty$ there is nothing to prove we will thus assume that $A<\infty$. We further assume $\rho(p,v)>A$ to derive a contradiction.
@@ -317,7 +317,7 @@ Since $q$ cannot be conjugate point (because this would make it a cut point) we 
 
 
 
-\subsection{Conformal Structure}
+\section{Conformal Structure}
 \begin{definition}[Conformal Diffeomorphism]
 A map $\Psi:(M_1,g_1)\to(M_2,g_2)$ is called a \emph{conformal diffeomorphism} or \emph{homothety} if $\Psi:M_1\to M_2$ is a diffeomorphism and $\Psi^*g_2=e^{2\Omega}g_1$ where $\Omega\in C(M_1)$ and nowhere zero.
 
@@ -362,10 +362,7 @@ We will now show that $\tau_2(q',\sigma(t)) > 0$ for any $t>t_1$, as this would 
 Let thus $t>t_1$. There exists a $t_2>t_0$ such that $\Psi^{-1}(\sigma(t))=\gamma(t_2)$. Now since $\gamma(t_2)$ lies past the first cut point of $\gamma$, we have $\tau_1(p,\gamma(t_2))>0$ and there exists a future-pointing causal curve $\alpha$ in $M_1$ with $L_{g_1}(\alpha)>0$. Now $\Psi\circ\alpha$ is also a future-pointing causal curve from $p'$ to $\sigma(t)$ with $L_{g_2}(\Psi\circ\alpha)>0$ and thus $\tau_2(p',\sigma(t)) \ge L_{g_2}(\Psi\circ\alpha)>0$ as required.
 \end{proof}
 
-
-
-
-\subsection{Short Cut Argument}
+\section{Short Cut Argument}
 
 \begin{theorem}
 Let $(M,g)$ be globally hyperbolic and $p<q$ in $M$, then there exists a future-pointed null geodesic $\gamma:[0,a)\to M$ from $p=\gamma(0)$ to $q=\gamma(t_0)$ and we have $\tau(p,q) = 0$ if and only if $\gamma$ has no cut points in $[0,t_0)$.
