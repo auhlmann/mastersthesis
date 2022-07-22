@@ -1,6 +1,7 @@
 \chapter{Geometric Preliminaries}
 
 \section{Null Conjugate Points}
+((TODO Connection to cut points))
 ((Leave this here?))
 \begin{definition}[Null Conjugate Point]
     Let $\gamma_{q,w}:[0,b]\to M$ be a null geodesic. We then call $p=\gamma_{q,w}(b)$ a \emph{null conjugate point} if there exists a nontrivial variation $\x:[0,b]\times(-\varepsilon,\varepsilon) \to M$ of $\gamma_{q,w}$ through null geodesics such that $\x_v(b,0)=0$.
@@ -123,7 +124,7 @@ And finally we can see that we can construct the map $\Theta$ and thus the geode
 \subsection{Geometry of Light Observation Sets}
 
 
-\begin{lemma}\label{prop:transversality}
+\begin{lemma}\label{lem:transversality}
 For any $q\in V$ the restriction of the exponential map to null vectors $\exp_q:L^+_qM\to M$ is \emph{transverse} to $K$, i.e. for all $w\in L^+_qM$ such that $\gamma_{q,w}(1) = p\in K$ we have $\gamma'_{q,w}(1)\notin T_pK$.
 \end{lemma}
 \begin{proof}
@@ -470,7 +471,7 @@ Let $p\in \mc{E}_K(q)$ be a cut point, then by proposition \ref{prop:unionmanif}
 
 Moving on to (4), the fact fact that $\mc{E}^{reg}_K(q)$ is dense in  $\mc{E}_K(q)$ follows by an argument which is analogous to the one used in the proof of corollary \ref{cor:opendense}. To show that it is relatively open in $\mc{E}_K(q)$ we use that $\mc{E}^{reg}_K(q) = \mc{E}_K(q) \cap \mc{W}$ with $\mc{W}$ open in $\mc{L}^+_q$.
 
-Finall the proof of (5) is analogous to (2) with the difference in submanifold dimension originating from the face that for any $(p,v)\in \mc{D}^{reg}_K(q)$ we also have $(p,cv)\in \mc{D}^{reg}_K(q)$ for all $c\in \R_+$ (explain more).
+Finally the proof of (5) is analogous to (2) with the difference in submanifold dimension originating from the face that for any $(p,v)\in \mc{D}^{reg}_K(q)$ we also have $(p,cv)\in \mc{D}^{reg}_K(q)$ for all $c\in \R_+$ (explain more).
 \end{proof}
 
 Note that since $\mc{E}^{reg}_K(q)$ is exactly $\mc{E}_K(q)$ without the cut points, it is also the collection of all points where $\mc{E}_K(q)$ is locally a submanifold.
@@ -491,7 +492,7 @@ Thus $\mc{E}_K(q)$ truly deserves to be called the \enquote{set of earliest obse
 \subsection{Observation Reconstruction}
 
 \begin{proposition}\label{prop:obsreconstr}
-    Given the data outlined in remark \ref{rmk:data} we can uniquely determine $\mc{E}_K(q)$ and $\mc{E}^{reg}_K(q)$, as well as $\mc{E}_K(q)$ and $\mc{E}^{reg}_K(q)$.
+    Given the data outlined in remark \ref{rmk:data} we can uniquely determine $\mc{E}_K(q)$ and $\mc{E}^{reg}_K(q)$, as well as $\mc{D}_K(q)$ and $\mc{D}^{reg}_K(q)$.
 \end{proposition}
 \begin{proof}
     What we want to show is that given $K$, the conformal class of $g\rvert_{K}$ and the set $\{\pq \mid q\in V\}$ we can reconstruct the sets stated above. Note that as described in \ref{lem:Kcharact} ((Move to own remark?)) this data allows us to construct $\Theta:\sn \times [0,1]\to K$ and $\mu_a$.
@@ -525,8 +526,3 @@ Note that we can adapt this proof to show that $\ee(q)$ uniquely determines $\er
     Now $\gamma_{p_i,-v_i}$ are two past-pointing null geodesics going from $p_i$ through $q$ and $q'$. Hence there either exists a null geodesic from $q$ to $q'$ or from $q'$ to $q$. We will WLOG assume $q'\in J^+(q)$. 
     Now there must exist $t_1, t_2 \in (0,1)$ such that $\gamma_{q,w_i}(t_i)=q'$. But this would make $q'$ a cut point of $q$ which is impossible as we assumed $p_i\in \er(q)$.
 \end{proof}
-
-\subsection{Observation Time Properties}
-((Move to later))
-Let again $F_q:\sn \to [0,1]; a \mapsto f_a(q)$. We now show
-
