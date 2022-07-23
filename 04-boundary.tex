@@ -34,10 +34,44 @@ This setting is complicated by the fact that as $q\in J(p^-,p^+)$ approaches the
 To extend the reconstruction up to the edge of $\jp$ we need to introduce some new concepts.
 
 \begin{definition}[Unique minimum domain]\label{def:uniquemindomain}
-   We define the \emph{unique minimum domain} $D\subset \jp$ to be 
-   \begin{equation}
+    We define the \emph{unique minimum domain} $D\subset \jp$ to be 
+    \begin{equation}
         D:=\{q\in \jp \mid F_q\text{ has a unique minimum}\}.
-   \end{equation} 
+    \end{equation}
+
+    We will often describe this minimum with 
+    \[
+        (a_q,t_q)=(\argmin_{a\in \sn} F_q, \min_{a\in \sn} F_q).
+    \]
 \end{definition}
 
+\begin{remark}
+    To account for the fact that we now also need to reconstruct points $q\in K$ which lie on be boundary we will introduce a second type of coordinates on $D$ related to the unique minimum.
+    
+    Let $V\subset \jp\setminus \{p^+\}$. As we saw in the previous chapter we can reconstruct $V\cap \interior{\jp}$. In this chapter we will show that we can also reconstruct $V\cap D$. Furthermore we will show that $D$ is open and $D\cup \interior{\jp} = \jp  \setminus \{p^+\}$. We can then combine this to reconstruct all of $V$.
+\end{remark}
+
+
+\begin{definition}[Constant observation time domain] For some $t_0\in (0,1)$ we define the \emph{constant observation time domain} as 
+\begin{equation}
+    T_{t_0} = \{p\in K \mid p=\mu_a(t_0), a\in \sn\} = \Theta(\sn\times \{t_0\}) \subset K.
+\end{equation}
+Note that because $\Theta$ is a diffeomorphism on $\sn \times (0,1)$ and by definition, $T_{t_0}$ is a $n-1$ dimensional spacelike submanifold of $K$. 
+Thus for every $a\in \sn$ we can use lemma \ref{lem:dirreconstr} to find the unique future-pointing outward null ray $\R_+\nu_a$ such that $T_{\Theta(a,t_0)}T_{t_0} = \nu_a^\perp \cap T_{\Theta(a,t_0)}K$.
+\end{definition}
+
+\begin{lemma}
+    Let $q\in V\cap D$ with minimum $(a_q,t_q)$ and $p_q:=\Theta(a_q,t_q)$. Then we have $p_q\in \er(q)$. And if we let $w_q\in L^K_qM$ be the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)=\nu_{a_q}$.
+\end{lemma}
+\begin{proof}
+    Note that we have $t_q = f_{a_q}(q)$ and thus 
+    \[
+        p_q = \Theta(a_q,t_q)=\mu_{a_q}(t_q) = \mu_{a_q}(f_{a_q}(q)) = \mc{E}_{a_q}(q)\in \pq,
+    \] proving that there exists a $w_q\in L^K_qM$ such that $p_q = \gamma_{q,w_q}(1)$. 
+
+    Now we need to show that indeed $p_q\in \er(q)$.
+    We recall that by prop \ref{prop:unionmanif} there exists an open neighborhood $p_q\in U\subset M$ such that $\mc{P}_K(q)\cap U$ is the union of $N$ pairwise transversal, spacelike, dimension $n-1$ submanifolds $\mc{V}_i$. Because $t_q$ is the minimum of $F_q$ we must have $T_{p_q}{\mc{V}_i} = T_{p_q}{T_{t_q}}$ for all $i=1,\dots N$. But because the manifolds must be pairwise transversal, we must have $N=1$, implying that $p_q$ is a regular point. Together with $p_q\in \ee(q)$ this yields $p_q \in \er(q)$.
+
+    Finally $\gamma'_{q,w_q}(1)=\nu_{a_q}$ follows from the fact that $T_{p_q}{\mc{V}_1} = T_{p_q}{T_{t_q}}$.
+\end{proof}
 
