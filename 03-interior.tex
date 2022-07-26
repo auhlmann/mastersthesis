@@ -3,75 +3,121 @@
 \section{Construction of the topology}
 We aim to reconstruct the topological and differential data of $V$. To that end we define the following functions.
 
-For $q\in V$ we define the function $F_q:\sn\to\R$ by $a\mapsto f_a(q)$. We can then define the function 
-\begin{align*}
-    \mathcal{F}:V &\to (C(\sn),d_{\infty})\\
-    q&\mapsto F_q
-\end{align*} mapping a $q\in V$ to the function $F_q:\sn\to\R$. $(C(\sn),d_{\infty})$ is the space of continuous functions from $\sn$ to $\R$, together with the metric $d_\infty(f,g)=\max_{a\in \sn} \rvert f(a)-g(a) \lvert$.
+For $q\in V$ we define the function $F_q:\sn\to\R$ by $a\mapsto f_a(q)$ as in the previous chapter. We let $\mc{C}^\infty(\sn)$ be the space of continuous function $F:\sn\to [0,1]$ which are smooth on a dense open set in $\sn$. We can then endow this space with the metric 
+\[
+    d(F,G):= d_\infty(F,G) + \int_{\sn} \lVert dF_a - dG_a \rVert_{g_\sn}da,
+\] where $d_\infty(F,G):=\max_{a\in \sn}\lvert F(a)-G(a)\rvert$.
+Note that by definition of $\mc{C}^\infty(\sn)$ the subset of $\sn$ where $F$ or $G$ are not smooth is a null set, making the integral well-defined.
 
-The following proposition establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology wrt. the topology induced by $d_\infty$ on $C(\sn)$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
+We can then define the function 
+\begin{align*}
+    \mathcal{F}:V &\to (\mc{C}^\infty, d)\\
+    q&\mapsto F_q
+\end{align*} mapping a $q\in V$ to the function $F_q:\sn\to\R$. 
+
+The following argument establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology wrt. the topology induced by $d$ on $\mc{C}^\infty$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
 ((Explain that data allows us to determine $d_\infty$ ))
 \begin{lemma}\label{lem:Fprop}
 The map $\mathcal{F}:V\to\widehat{V}:=\mathcal{F}(V)$ is a well-defined continuous and injective.
 \end{lemma}
 \begin{proof}
-First of all $\F:V\to (C(\sn),d_\infty)$ is well-defined by proposition \ref{prop:fcont}, i.e. for any $q\in V$, $F_q=f(q,\cdot)$ is continuous on $\sn$.
+First of all we show that $\F:V\to (\mc{C}^\infty,d)$ is well-defined. Let $q\in V$, then $F_q$ is continuous by proposition \ref{prop:fcont}, and smooth on a dense open set (namely $\areg(q)$) by proposition \ref{prop:fsmooth}.
 
-Because the topology induced on $C(\sn)$ by $d_\infty$ is uniform convergence, proposition \ref{prop:funif} implies that $\mc{F}$ is continuous.
+To prove that $\F$ is continuous we let $q_n\to q_0 \in V$. By proposition \ref{prop:funif} $F_{q_n}\to F_{q_0}$ uniformly and thus $d_\infty(F_{q_n},F_{q_0})\to 0$. Now we need to show that 
+\[
+    \int_{\sn} \lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da \to 0.
+\]
+To that end let $\varepsilon>0$ and $\delta_1$ such that $\cl{B_{\delta_1}(q_0)}\subset V$. Because $q_n\to q_0$, after possibly discarding finitely many $q_n$ we may assume $q_n \in B_{\delta_1}(q_0)$. 
+Because $\left.dF_{q}\right\rvert_a$ is bounded on $D_{\delta_1}$ by proposition \ref{prop:dfbounded} there exists a $c>0$ such that $\lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}<c$ for all $n\in \N$ and $a\in \areg(q_n)\cap \areg(q_0)$. 
 
-Finally injectivity follows from the fact that for any $q,q'\in V$ we have $\F(q)=\F(q')\implies F_q = F_{q'} \implies \ee(q) = \ee(q')$ which implies $q = q'$ by proposition \ref{prop:einj}.
+On the other hand because $\areg(q_0)$ is dense and open in $\sn$ we have $\int_{\areg(q_0)}da=\int_{\sn}da$. Hence we can find an open set $A\in \sn$ such that $\cl{A}\subset \areg(q_0)$ and 
+\[
+    \int_{\sn \setminus \cl{A}}da< \frac{\varepsilon}{2c}.
+\]
+Applying proposition \ref{prop:dfunifconv} to $A$ yields a $N\in \N$ such that for all $n\ge N$ we have $F_{q_n}\rvert_{\cl{A}}$ smooth and $\left\lVert dF_{q_n}\rvert_{a} - dF_{q_0}\rvert_{a}\right\rVert_{g_{\sn}}<\frac{\varepsilon}{2}$ for all $a\in \cl{A}$.
+
+We can now write 
+\begin{align*}
+    \int_\sn \lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da &= \int_{\sn\setminus\cl{A}}\lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da\\ &+ \int_{\cl{A}}\lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da\\
+    &<\varepsilon
+\end{align*} because 
+\begin{align*}
+    \int_{\sn\setminus\cl{A}}\lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da \leq \int_{\sn \setminus \cl{A}}cda &< \frac{\varepsilon}{2} \quad \text{ and}\\
+    \int_{\cl{A}}\lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da < \int_{\cl{A}}\frac{\varepsilon}{2}da &\leq \frac{\varepsilon}{2}.
+\end{align*}
+Because $\varepsilon>0$ was arbitrary we get $\int_{\sn} \lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da \to 0$ and thus $d(F_{q_n},F_{q_0})\to 0$ proving $\F$ is continous.
+
+Finally, injectivity follows from the fact that for any $q,q'\in V$ we have $\F(q)=\F(q')\implies F_q = F_{q'} \implies \ee(q) = \ee(q')$ which implies $q = q'$ by proposition \ref{prop:einj}.
 \end{proof}
 
-However there is still some work required to show that also $\F^{-1}$ is continous on $\widehat{V}$:
-\begin{proposition}\label{prop:frevcont}((TODO FIX)) Let 
-    $(q_n)_{n=1}^{\infty}$ be a sequence in $V$ and $q_0\in V$ such that $F_{q_n}\to F_{q_0}$ uniformly then $q_n \to q_0$ as $n\to \infty$.
-\end{proposition}
+However there is still some work required to show that $\F^{-1}$ is continuous on $\widehat{V}$:
+\begin{lemma}\label{prop:frevcont} Let $F_n \to F_0$ in $\widehat{V}$ then $q_n:=\F^{-1}(F_n) \to q_0:=\F^{-1}(F_0)$.
+\end{lemma}
 \begin{proof}
-    Let $(q_n)_{n=1}^\infty, q_0 \in V$ such that $F_{q_n}\to F_{q_0}$ uniformly. Note that because $\F$ is injective the choice of $q_n$ for $F_{q_n}=\F(q_n)$ is unambigous.
+    Note that by the previous result $\F:V\to \widehat{V}$ is a bijection and thus $q_n$ and $q_0$ are well defined and we have $F_n = F_{q_n}$ resp. $F_0 = F_{q_0}$. We now aim to find $a_1,a_2\in \areg(q_0)$ such that $dF_{q_n}\rvert_{a_i}\to dF_{q_0}\rvert_{a_i}$, allowing us to apply proposition \ref{prop:dfconvimplqconv}: Let for some set $S\subset \sn$ we let $\mu(S):= \int_{S}da$ be the standard set measure and $S^c = \sn \setminus S$ the complement.
 
-    Let $t_0 = \max_{a\in \sn} F_{q_0}(a)$, because $q_0\in V$, lemma \ref{lem:Kcharact}(3) implies that $t_0<1$. Hence there exists an $\varepsilon>0$ such that $t':=t_0 + \varepsilon < 1$. And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n:=\max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
-
-    We now define 
+    Let \[
+        A:=\areg(q_0) \cap \bigcap_{n=1}^{\infty}\areg(q_n)
+    \] and
     \[
-        C_{t'}:=\{q\in \jp \mid \max_{a\in \sn} F_q(q)\leq t'\}   
-    \] and after removing the first $N$ elements of $(q_n)_{n=1}^\infty$ we may assume $q_n, q_0\in C_{t'}$.
-
-    We now show that $C_{t'}\subset \jp$ is closed: Let $p_n \to p_0 \in \jp$ with $p_n \in C_{t'}$. We must have $p_0\in \interior{\jp}$ because otherwise $\max_{a\in \sn} F_{p_n}(a)\to 1 > t'$. 
-    We then apply proposition \ref{prop:funif} to $V_0$, to get $F_{p_n} \to F_{p_0}$ uniformly. This in turn implies $\max_{a\in \sn}F_{p_n} \to \max_{a\in \sn}F_{p_0}$ and because $p_n\in C_{t'}$ we have $\max_{a\in \sn}F_{p_n}\leq t'$ for all $n$ and hence also $\max_{a\in \sn}F_{p_0}\leq t'$. This proves $p_0\in C_{t'}$ making $C_{t'}$ closed.
-
-    Now $C_{t'}$ is a closed subset of a compact space and thus itself compact. Again using $V_0$ and the previous lemma we get that $\F:V_0 \to \F(V_0)$ is well-defined continuous and injective. We can then restrict $\F$ to $C_{t'}$ and all these properties are preserved. But now $\F:C_{t'}\to \F(C_{t'})$ is a continuous, injective map from a compact space to a hausdorff space, making it a homeomorphism. 
-    
-    Because $q_n,q_0\in C_{t'}$ for all $n$, we have $F_{q_n}=\F(q_n)\to F_{q_0} = \F(q_0)\in \F(C_{t'})$. Using that $\F^{-1}$ continuous on $\F(C_{t'})$ we get
+        C = A^c, \quad C_n = \areg(q_n)^c, \quad C_0 = \areg(q_n)^c.
+    \]
+    Because $\mu(\areg(q_n))=\mu(\areg(q_0))=\mu(\sn)<\infty$, we have $\mu(C_n)=\mu(C_0)=0$. This yields 
     \[
-        q_n = \mc{F}^{-1}(F_{q_n}) \to \mc{F}^{-1}(F_{q_0}) = q_0,
-    \] as desired.
+        \mu(C)= \mu\left(C_0 \cup \bigcup_{n=1}^{\infty}C_n\right) \leq \mu(C_0) + \sum_{n=1}^\infty \mu(C_n) = 0
+    \] and thus $\mu(A)=\mu(\sn)-\mu(C)=\mu(\sn)>0$.
+
+    We then define the set of \emph{stragglers} as 
+    \[
+        S(A):=\{a\in A \mid \lim_{n\to \infty} dF_{q_n}\rvert_a \neq dF_{q_0}\rvert_a\}.
+    \] Because $F_{q_n}\to F_{q_0}$ with respect to $d$ we must have $\int_{\sn} \lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da \to 0$ which implies $\mu(S(A))=0$. But now we have $\mu(A\setminus S(A)) > 0$ which implies that there exist two $a_1,a_2\in A\setminus S(A)$. By definition $F_{q_n}$ is smooth at $a_i$ for all $n\in \N$ and $dF_{q_n}\rvert_{a_i} \to dF_{q_0}\rvert_{a_i}$. Now we can apply proposition \ref{prop:dfconvimplqconv} and get $q_n\to q_0$ as desired.
 \end{proof}
+% \begin{proof}
+%     Let $(q_n)_{n=1}^\infty, q_0 \in V$ such that $F_{q_n}\to F_{q_0}$ uniformly. Note that because $\F$ is injective the choice of $q_n$ for $F_{q_n}=\F(q_n)$ is unambigous.
 
-\begin{proof}
-    Let $(q_n)_{n=1}^\infty, q_0 \in V$ such that $F_{q_n}\to F_{q_0}$ uniformly. Note that because $\F$ is injective the choice of $q_n$ for $F_{q_n}=\F(q_n)$ is unambigous.
+%     Let $t_0 = \max_{a\in \sn} F_{q_0}(a)$, because $q_0\in V$, lemma \ref{lem:Kcharact}(3) implies that $t_0<1$. Hence there exists an $\varepsilon>0$ such that $t':=t_0 + \varepsilon < 1$. And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n:=\max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
 
-    Let $t_0 = \max_{a\in \sn} F_{q_0}(a)$, because $q_0\in V$, lemma \ref{lem:Kcharact}(3) implies that $t_0<1$. Hence there exists an $t'$ such that $t_0 < t' < 1$. Now we endow $M$ with and arbitrary metric compatible with the topology and let $\varepsilon>0$ such that $\overline{B_\varepsilon(q_0)}\subset V$
+%     We now define 
+%     \[
+%         C_{t'}:=\{q\in \jp \mid \max_{a\in \sn} F_q(q)\leq t'\}   
+%     \] and after removing the first $N$ elements of $(q_n)_{n=1}^\infty$ we may assume $q_n, q_0\in C_{t'}$.
+
+%     We now show that $C_{t'}\subset \jp$ is closed: Let $p_n \to p_0 \in \jp$ with $p_n \in C_{t'}$. We must have $p_0\in \interior{\jp}$ because otherwise $\max_{a\in \sn} F_{p_n}(a)\to 1 > t'$. 
+%     We then apply proposition \ref{prop:funif} to $V_0$, to get $F_{p_n} \to F_{p_0}$ uniformly. This in turn implies $\max_{a\in \sn}F_{p_n} \to \max_{a\in \sn}F_{p_0}$ and because $p_n\in C_{t'}$ we have $\max_{a\in \sn}F_{p_n}\leq t'$ for all $n$ and hence also $\max_{a\in \sn}F_{p_0}\leq t'$. This proves $p_0\in C_{t'}$ making $C_{t'}$ closed.
+
+%     Now $C_{t'}$ is a closed subset of a compact space and thus itself compact. Again using $V_0$ and the previous lemma we get that $\F:V_0 \to \F(V_0)$ is well-defined continuous and injective. We can then restrict $\F$ to $C_{t'}$ and all these properties are preserved. But now $\F:C_{t'}\to \F(C_{t'})$ is a continuous, injective map from a compact space to a hausdorff space, making it a homeomorphism. 
     
-    % And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n:=\max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
+%     Because $q_n,q_0\in C_{t'}$ for all $n$, we have $F_{q_n}=\F(q_n)\to F_{q_0} = \F(q_0)\in \F(C_{t'})$. Using that $\F^{-1}$ continuous on $\F(C_{t'})$ we get
+%     \[
+%         q_n = \mc{F}^{-1}(F_{q_n}) \to \mc{F}^{-1}(F_{q_0}) = q_0,
+%     \] as desired.
+% \end{proof}
 
-    We now define 
-    \[
-        C_{t'}:=\{q\in \overline{B_\varepsilon(q_0)} \mid \max_{a\in \sn} F_q(a)\leq t'\}   
-    \] 
+% \begin{proof}
+%     Let $(q_n)_{n=1}^\infty, q_0 \in V$ such that $F_{q_n}\to F_{q_0}$ uniformly. Note that because $\F$ is injective the choice of $q_n$ for $F_{q_n}=\F(q_n)$ is unambigous.
+
+%     Let $t_0 = \max_{a\in \sn} F_{q_0}(a)$, because $q_0\in V$, lemma \ref{lem:Kcharact}(3) implies that $t_0<1$. Hence there exists an $t'$ such that $t_0 < t' < 1$. Now we endow $M$ with and arbitrary metric compatible with the topology and let $\varepsilon>0$ such that $\overline{B_\varepsilon(q_0)}\subset V$
     
-    % and after removing the first $N$ elements of $(q_n)_{n=1}^\infty$ we may assume $q_n, q_0\in C_{t'}$.
+%     % And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n:=\max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
 
-    We now show that $C_{t'}\subset V$ is closed in $\jp$ and thus compact: Let $p_n \to p_0 \in \jp$ with $p_n \in C_{t'}$. Because $p_n\in \overline{B_\varepsilon(q_0)}$ is closed, we have $p_0\in \overline{B_\varepsilon(q_0)}\subset V \subset \ijp$.
-    We then apply proposition \ref{prop:funif}, to get $F_{p_n} \to F_{p_0}$ uniformly. This in turn implies $\max_{a\in \sn}F_{p_n} \to \max_{a\in \sn}F_{p_0}$ and because $p_n\in C_{t'}$ we have $\max_{a\in \sn}F_{p_n}\leq t'$ for all $n$ and hence also $\max_{a\in \sn}F_{p_0}\leq t'$. This proves $p_0\in C_{t'}$ making $C_{t'}$ closed.
-
-    Now $C_{t'}$ is a closed subset of a compact space and thus itself compact. Using the previous lemma we get that $\F:C_{t'} \to \F(C_{t'})$ is well-defined continuous and injective. But now $\F:C_{t'}\to \F(C_{t'})$ is a continuous, injective map from a compact space to a hausdorff space, making it a homeomorphism. 
+%     We now define 
+%     \[
+%         C_{t'}:=\{q\in \overline{B_\varepsilon(q_0)} \mid \max_{a\in \sn} F_q(a)\leq t'\}   
+%     \] 
     
-    Furthermore 
-    Because $q_n,q_0\in C_{t'}$ for all $n$, we have $F_{q_n}=\F(q_n)\to F_{q_0} = \F(q_0)\in \F(C_{t'})$. Using that $\F^{-1}$ continuous on $\F(C_{t'})$ we get
-    \[
-        q_n = \mc{F}^{-1}(F_{q_n}) \to \mc{F}^{-1}(F_{q_0}) = q_0,
-    \] as desired.
-\end{proof}
+%     % and after removing the first $N$ elements of $(q_n)_{n=1}^\infty$ we may assume $q_n, q_0\in C_{t'}$.
+
+%     We now show that $C_{t'}\subset V$ is closed in $\jp$ and thus compact: Let $p_n \to p_0 \in \jp$ with $p_n \in C_{t'}$. Because $p_n\in \overline{B_\varepsilon(q_0)}$ is closed, we have $p_0\in \overline{B_\varepsilon(q_0)}\subset V \subset \ijp$.
+%     We then apply proposition \ref{prop:funif}, to get $F_{p_n} \to F_{p_0}$ uniformly. This in turn implies $\max_{a\in \sn}F_{p_n} \to \max_{a\in \sn}F_{p_0}$ and because $p_n\in C_{t'}$ we have $\max_{a\in \sn}F_{p_n}\leq t'$ for all $n$ and hence also $\max_{a\in \sn}F_{p_0}\leq t'$. This proves $p_0\in C_{t'}$ making $C_{t'}$ closed.
+
+%     Now $C_{t'}$ is a closed subset of a compact space and thus itself compact. Using the previous lemma we get that $\F:C_{t'} \to \F(C_{t'})$ is well-defined continuous and injective. But now $\F:C_{t'}\to \F(C_{t'})$ is a continuous, injective map from a compact space to a hausdorff space, making it a homeomorphism. 
+    
+%     Furthermore 
+%     Because $q_n,q_0\in C_{t'}$ for all $n$, we have $F_{q_n}=\F(q_n)\to F_{q_0} = \F(q_0)\in \F(C_{t'})$. Using that $\F^{-1}$ continuous on $\F(C_{t'})$ we get
+%     \[
+%         q_n = \mc{F}^{-1}(F_{q_n}) \to \mc{F}^{-1}(F_{q_0}) = q_0,
+%     \] as desired.
+% \end{proof}
 
 And we get:
 \begin{corollary}\label{cor:Fhomeo}

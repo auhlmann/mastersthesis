@@ -52,16 +52,16 @@ To extend the reconstruction up to the edge of $\jp$ we need to introduce some n
 \end{remark}
 
 
-\begin{definition}[Constant observation time domain] For some $t_0\in (0,1)$ we define the \emph{constant observation time domain} as 
+\begin{definition}[Constant observation time domain]\label{def:constobstime} For some $t_0\in (0,1)$ we define the \emph{constant observation time domain} as 
 \begin{equation}
     T_{t_0} = \{p\in K \mid p=\mu_a(t_0), a\in \sn\} = \Theta(\sn\times \{t_0\}) \subset K.
 \end{equation}
 Note that because $\Theta$ is a diffeomorphism on $\sn \times (0,1)$ and by definition, $T_{t_0}$ is a $n-1$ dimensional spacelike submanifold of $K$. 
-Thus for every $a\in \sn$ we can use lemma \ref{lem:dirreconstr} to find the unique future-pointing outward null ray $\R_+\nu_a$ such that $T_{\Theta(a,t_0)}T_{t_0} = \nu_a^\perp \cap T_{\Theta(a,t_0)}K$.
+Thus for every $a\in \sn$ we can use lemma \ref{lem:dirreconstr} to find the unique future-pointing outward null ray $\R_+\nu_{a,t_0}\in L^+_{\Theta(a,t_0)}M$ such that $T_{\Theta(a,t_0)}T_{t_0} = \nu_{a,t_0}^\perp \cap T_{\Theta(a,t_0)}K$.
 \end{definition}
 
-\begin{lemma}
-    Let $q\in V\cap D$ with minimum $(a_q,t_q)$ and $p_q:=\Theta(a_q,t_q)$. Then we have $p_q\in \er(q)$. And if we let $w_q\in L^K_qM$ be the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)=\nu_{a_q}$.
+\begin{lemma}\label{lem:amin} ((Rewrite to local minimum))
+    Let $q\in V\cap D$ with minimum $(a_q,t_q)$ and $p_q:=\mu_{a_q}(t_q)$. Then we have $p_q\in \er(q)$ and $v(q,p_q)\in \R_+\nu_{a_q,t_q}$, i.e. if $w_q\in L^K_qM$ is the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)\in \R_+\nu_{a_q,t_q}$.
 \end{lemma}
 \begin{proof}
     Note that we have $t_q = f_{a_q}(q)$ and thus 
@@ -72,6 +72,81 @@ Thus for every $a\in \sn$ we can use lemma \ref{lem:dirreconstr} to find the uni
     Now we need to show that indeed $p_q\in \er(q)$.
     We recall that by prop \ref{prop:unionmanif} there exists an open neighborhood $p_q\in U\subset M$ such that $\mc{P}_K(q)\cap U$ is the union of $N$ pairwise transversal, spacelike, dimension $n-1$ submanifolds $\mc{V}_i$. Because $t_q$ is the minimum of $F_q$ we must have $T_{p_q}{\mc{V}_i} = T_{p_q}{T_{t_q}}$ for all $i=1,\dots N$. But because the manifolds must be pairwise transversal, we must have $N=1$, implying that $p_q$ is a regular point. Together with $p_q\in \ee(q)$ this yields $p_q \in \er(q)$.
 
-    Finally $\gamma'_{q,w_q}(1)=\nu_{a_q}$ follows from the fact that $T_{p_q}{\mc{V}_1} = T_{p_q}{T_{t_q}}$.
+    Finally $\gamma'_{q,w_q}(1)=\nu_{a_q,t_q}$ follows from the fact that $T_{p_q}{\mc{V}_1} = T_{p_q}{T_{t_q}}$.
 \end{proof}
 
+\begin{lemma}
+    For $q_0=\mu_{a_0}(t_0)\in K$ we have 
+    \begin{equation*}
+        F_{q_0}(a) = 
+        \begin{cases*}
+            t_0 & if $a=a_0$ \\
+            1 & otherwise
+        \end{cases*}
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    We begin with the case $a=a_0$ then $F_{q_0}(a_0)=t_0$ follows immediately from the definition of $f_{a_0}(q_0)$. Note that this also covers the case where $q_0=p^+$. For the case where $a\neq a_0$ and $q_0\neq p^+$ we suppose that $F_{q_0}(a)=f_a(q_0)<1$ by contradiction. Then we have $\tau(q_0,\mc{E}_a(q_0))=0$ which implies that there exists a null geodesic $\gamma$ with $\gamma(0)=q_0$ and $p:=\mc{E}_a(q_0)=\gamma(1)$. If $\gamma'(1)=\mu'_a(f_a(q_n))$ we would have $q_0\in \mu_a([0,1)) \cap \mu_{a_0}([0,1))$ which is a contradiction to lemma \ref{lem:Kcharact}. We must thus have $\gamma'(1)\neq\mu'_a(f_a(q_n))$ but this means there exists a broken null geodesic from $q_0$ to $p^+$ which is also a contradiction because $q_0\in K$ by assumption and $K\cap I^-(p^+)=\emptyset$ by lemma \ref{lem:Kcharact}.
+\end{proof}
+
+\begin{lemma}
+    Let $q_n\in V\to q_0=\mu_{a_0}(t_0)\in K\setminus{p^+}$ and $A\subset \sn$ an open neighborhood of $a_0$ then we have $F_{q_n}\rvert_{\sn\setminus A} \to 1$ uniformly.
+\end{lemma}
+\begin{proof}
+    Because any $q_n$ can either lie in the boundary $K$ or in the interior $\interior{\jp}$ we can instead look at the subsequences $(q_n)_{n=1}^\infty \cap K$, $(q_n)_{n=1}^\infty \cap \interior{\jp}$. If we can prove that both subsequences converge to $q_0$ then we have also proven that $q_n$ itself converges to $q_0$. 
+
+    Hence let now $q_n \to q_0\in K\setminus p^+$ with $q_n=\mu_{a_n}(t_n) \in K\setminus p^+$. We then have $a_n\to a_0$ and thus $a_n \in A$ for all $n\ge N$ for some $N\in N$. But by the previous lemma this implies that $F_{q_n}\rvert_{\sn\setminus A} = F_{q_0}\rvert_{\sn\setminus A} = 1$ and we are done.
+
+    For the other part $q_n \to q_0\in K\setminus p^+$ with $q_n \in \interior{\jp}$.
+    We suppose by contradiction that there exists a $\varepsilon>0$ such that for all $N\in \N$ there exists a $n\ge N$ and a $a\in \sn\setminus A$ such that $f_a(q_n)<1-\varepsilon$. We can thus construct a sequence $a_k, q_k$ such that $f_{a_k}(q_k)<1-\varepsilon$ for all $k\in \N$. Because $f$ is bounded and $\sn$ compact there exists a convergent subsequence $a_j,q_j$ such that $t_j:=f_{a_j}(q_j)\to t'\leq 1-\varepsilon$ and $a_j \to a'\in \sn\A$ and $q_j\to q_0$. Now we have $\mu_{a_j}(t_j) = \Theta(a_j,t_j) \to \Theta(a',t')=\mu_{a'}(t')$ and 
+    \[
+        0 = \lim_{j\to \infty}\tau(q_j,\mc{E}_{a_j}(q_j)) = \lim_{j\to \infty}\tau(q_j,\mu_{a_j}(t_j)) = \tau(q_0,\mu_{a'}(t')).
+    \]
+    Furthermore because $\mu_{a_j}(t_j)=\mc{E}_{a_j}(q_j)$ we have $\mu_{a_j}(t_j)\in J^+(q_j)$. By ((REF)) this implies $\mu_{a'}(t')\in J^+(q_0)$. But this together with $\tau(q_0,\mu_{a'}(t'))$ implies that $\mu_{a'}(t')=\mc{E}_{a'}(q_0)$ and $f_{a'}(q_0)=t'<1-\varepsilon$. Finally because $a_0\in A$ and $a'\in \sn\setminus A$ we have $a'\neq a_0$ and $f_{a'}(q_0)\neq 1$, a contradiction to the previous lemma.
+\end{proof}
+
+\begin{lemma}\label{lem:unifconvawayfrommin}
+    Let $q_n\to q_0=\Theta(a_0,t_0)\in K\setminus p^+$. Then 
+    \[
+        \lim_{n\to \infty} \min_{a \in \sn} F_{q_n}(a) \ge t_0.
+    \]
+\end{lemma}
+\begin{proof}
+    Recall the lorentzian splitting theorem $(M,g)$ is isometric to the product $(\R\times V,-dt^2 \oplus h)$ where $(V,h)$ is a complete riemannian manifold. We denote $T:M\to \R$ for the projection onto the timelike component.
+
+    By lemma \ref{lem:Kcharact}(2) we have $T(t)=T(\mu_a(t))$ is independent of $a\in \sn$ and strictly increasing in $t$. We can thus obtain a continuous strictly increasing inverse $\mc{T}:\R \to [0,1]$. Because $q_n\to q_0$ and $T$ is continuous we have $T(q_n)\to T(q_0)$. Because $T$ increases along lightlike geodesics we must also have $T(\mc{E}_a(q))>T(q_n)$ for all $a\in \sn$. 
+
+    This yields $\lim_{n\to \infty} \min_{a\in \sn}T(\mc{E}_a(q_n)) \ge T(q_0)$. And we can apply $\mc{T}$ on both sides to get
+    \[
+        \lim_{n\to \infty} \min_{a\in \sn}F_{q_n}(a) \ge t_0
+    \] after using $\mc{T}(T(\mc{E}_a(q_n))) = F_{q_n}(a)$ and $\mc{T}(T(q_0))=t_0$.
+\end{proof}
+
+\newpage
+
+\begin{proposition}
+    Let $q_n\to q_0=\mu_{a_0}(t_0)\in K\setminus p^+$ then there exists a $\varepsilon>0$ and a $N\in \N$ such that for all $n\ge N$, $F_{q_n}$ has a unique minimum $a_n$ and $a_n\to a_0$.
+\end{proposition}
+\begin{proof}
+    First of all we let $O\subset M$ be a open convex neighborhood of $q_0$. Because $q_n \to q_0$ there exists a $N_1$ such that $n\ge N$ implies $q_n \in O$.
+
+    If we endow $M$ with a riemannian metric and for $a\in \sn, t\in [0,1]$ let $\nu_{a,t}\in CL^+_{a,t}M$ be the unique outward future pointing null vector orthogonal to $T_t$ at $a$ with $\lVert \nu_{a,t} \rVert_{g^+}=1$, as in definition \ref{def:constobstime}. Then we can define the map 
+    \begin{align*}
+        x^{-1}:\R_+\times [0,1] \times \sn &\to M \\
+        (c,a,t)&\mapsto \exp_{\Theta(a,t)}(-c\nu_{a,t})
+    \end{align*} which is smooth because $\nu_{a,t}$ varies smoothly in $(a,t)$, $x^{-1}$. We have $x^{-1}(0,a_0,t_0)=q_0$ and it is easy to check that it has invertible differential at $(0,a_0,t_0)$. Therefore there exists a $\varepsilon>0$ such that $x^{-1}:B_\varepsilon(0)\cap \R_+ \times B_\varepsilon(a_0) \times B_\varepsilon(t_0) \to O_\varepsilon$ is a diffeomorphism. Because $-\mu_{a,t}$ is inward pointing we have $O_\varepsilon\subset \jp$ for $\varepsilon>0$ small enough. In this case, by the invariance of domain theorem, $O_\varepsilon\subset \jp$ is a relatively open neighborhood of $q_0$. After possibly again reducing $\varepsilon>0$ we can get $O_\varepsilon\subset O$. Finally after further reducing $\varepsilon$, we can achieve that no two rays intersect in $O_\varepsilon$, i.e. 
+    \[
+        \gamma_{\nu_{a_1,t_1}} \cap \gamma_{\nu_{a_2,t_2}} \cap O_\varepsilon=\emptyset \quad  \text{for all } a_1,a_2\in B_\varepsilon(a_0), t_1,t_2 \in B_\varepsilon(t_0).
+    \]
+    This possible because around $\Theta(a_0,t_0)$, $K$ is a smooth submanifold.
+    Thus there exists a $N_2\in \N$ such that $n\ge N_2$ implies $q_n\in O_\varepsilon\subset O$.
+    
+    Let now $q_n = x^{-1}(c_n,a_n,t_n)$. We now want to show that there exists a $N_3\ge N_2$ such that for all $n\ge N_3$, $F_{q_n}$ must have a global minimum in $B_\varepsilon(a_0)$. First of all because $q_n \in \interior{\jp}$, $F_{q_n}$ is a continuous function an a compact set. There must thus exists at least one $a'_n\in \sn$ such that $t'_n := F_{q_n}(a'_n) \leq F_{q_n}(a)$ for all $a\in \sn$. Note that because $t'_n$ is a minimum, the same argument as in lemma \ref{lem:amin} yields that $\Theta(a'_n,t_n')\in \er(q_n)$ and $v(q_n,\Theta(a'_n,t_n')) \in \R_+\nu_{a_n',t_n'}$.
+    
+    Next we want to show that if $n$ is big enough, any such $a_n'$ must lie in $B_\varepsilon(a_0)$. To that end we first note that  $\Theta(t_n,a_n)\in \er(q_n)\subset \mc{P}_K(q_n)$ because we are in a convex neighborhood. This implies $F_{q_n}(a_n)=t_n$. Because $t_n\in B_\varepsilon(t_0)$ we know that $t'_n\leq t_n < t_0+\varepsilon < 1$. By lemma \ref{lem:unifconvawayfrommin} we can then find a $N_3\in \N$ such that $n\ge N_3$ implies $F_{q_n}(a)>t_0+\varepsilon$ for all $a\in \sn \setminus B_\varepsilon(a_0)$. But this means that $F_{q_n}$ cannot have a minimum outside of $B_\varepsilon(a_0)$.
+
+    Next we want to show that $a_n'=a_n$ and $t_n'=t_n$ implying $F_{q_n}$ has a unique minimum.
+    We $a_n'\in B_\varepsilon(a_0)$ for $n\ge N_3$. By the previous lemma there exists a $N_4$ such that $t'_n=min_{a\in \sn} F_{q_n}(a) > t_0-\varepsilon$ for all $n\ge N$. Comining this with $t_n'\leq t_n < t_0+\varepsilon$ we have $t_n'\in B_\varepsilon(t_0)$. Now $\gamma_{\nu_{a_n,t_n}}$ and $\gamma_{\nu_{a_n',t_n'}}$ both contain $q_n\in O_\varepsilon$ this is a contradiction if $a_n\neq a_n'$ or $t_n'\neq t_n$. 
+
+    Finally $a_n\to a_0$ follows from the fact that $x^{-1}$ is a diffeomorphism and thus has a continuous inverse.
+\end{proof}
