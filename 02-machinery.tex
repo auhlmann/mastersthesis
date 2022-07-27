@@ -42,20 +42,13 @@ Null conjugate points are also conformal invariants:
 \end{remark}
 
 \subsection{Parameterization of Observations}
-
-((More))
-By the lorentzian splitting theorem $(M,g)$ is isometric to the product $(\R\times V,-dt^2 \oplus h)$ where $(V,h)$ is a complete riemannian manifold. We will denote $T:M\to \R$ the projection onto the first component.
-
 \begin{lemma}\label{lem:Kcharact}
     We have:
     \begin{enumerate}[label={\textnormal{(\arabic*)}}]
         \item $K=\jp\setminus I^-(p^+)$,
         \item There exists a surjective smooth map $\Theta:S^{n-1}\times[0,1] \to K$ such that the curves $\mu_a:=t\mapsto\Theta(a,t), a\in S^n$ are null geodesics, 
-        \[\Theta(S^{n-1}\times\{1\}) = \{p^+\}, \quad R:=\Theta(S^{n-1}\times\{0\}) = K \setminus I^+(p^-),\]
-        $\Theta:S^{n-1}\times[0,1)\to K\setminus p^+$ is a diffeomorphism, and 
-        \[
-            T(t):= T(\Theta(a,t)) \text{ in independent of }a\in \sn.
-        \]
+        \[\Theta(S^{n-1}\times\{1\}) = \{p^+\}, \quad R:=\Theta(S^{n-1}\times\{0\}) = K \setminus I^+(p^-),\] and
+        $\Theta:S^{n-1}\times[0,1)\to K\setminus p^+$ is a diffeomorphism
         \item $\mc{L}^-_{p^+}\cap \ijp = \emptyset$ and\\ $\mc{L}^-_{p_0} \cap \ijp = J^-(p_0) \cap \ijp = \emptyset \quad \forall p_0\in R$.
         % \item There exist $0<t_-<t_+<1$ such that the restriction $\Psi\rvert_{S^n\times[t_-,t_+]}$ is a diffeomorphism onto its image and that for all $v \in S^n$, we have 
         % \[
@@ -74,7 +67,6 @@ Next we note that the exponential map
 \]
 is smooth and surjective. 
 
-((Include Splitting Stuff))
 We now aim to construct a smooth surjecive map $\theta:\sn \times [0,1] \to \exp^{-1}_{p^+}(K)$ which is a diffeomorphism on $\sn \times [0,1)$. To that end we look at the set of \emph{unit null directions} 
 \[
     CL^-_{p^+}M:=\{v\in L^-_{p^+}M \mid \lVert v \rVert_{g^+}=1\}\simeq \sn
