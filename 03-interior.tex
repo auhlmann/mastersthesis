@@ -18,7 +18,7 @@ We can then define the function
 The following argument establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology wrt. the topology induced by $d$ on $\mc{C}^\infty$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
 ((Explain that data allows us to determine $d_\infty$ ))
 \begin{lemma}\label{lem:Fprop}
-The map $\mathcal{F}:V\to\widehat{V}:=\mathcal{F}(V)$ is a well-defined continuous and injective.
+The map $\mathcal{F}:V\to\widehat{V}:=\mathcal{F}(V)$ is a well-defined continuous and bijective.
 \end{lemma}
 \begin{proof}
 First of all we show that $\F:V\to (\mc{C}^\infty,d)$ is well-defined. Let $q\in V$, then $F_q$ is continuous by proposition \ref{prop:fcont}, and smooth on a dense open set (namely $\areg(q)$) by proposition \ref{prop:fsmooth}.
@@ -51,7 +51,7 @@ Finally, injectivity follows from the fact that for any $q,q'\in V$ we have $\F(
 \end{proof}
 
 However there is still some work required to show that $\F^{-1}$ is continuous on $\widehat{V}$:
-\begin{lemma}\label{prop:frevcont} Let $F_n \to F_0$ in $\widehat{V}$ then $q_n:=\F^{-1}(F_n) \to q_0:=\F^{-1}(F_0)$.
+\begin{lemma}\label{lem:frevcont} Let $F_n \to F_0$ in $\widehat{V}$ then $q_n:=\F^{-1}(F_n) \to q_0:=\F^{-1}(F_0)$.
 \end{lemma}
 \begin{proof}
     Note that by the previous result $\F:V\to \widehat{V}$ is a bijection and thus $q_n$ and $q_0$ are well defined and we have $F_n = F_{q_n}$ resp. $F_0 = F_{q_0}$. We now aim to find $a_1,a_2\in \areg(q_0)$ such that $dF_{q_n}\rvert_{a_i}\to dF_{q_0}\rvert_{a_i}$, allowing us to apply proposition \ref{prop:dfconvimplqconv}: Let for some set $S\subset \sn$ we let $\mu(S):= \int_{S}da$ be the standard set measure and $S^c = \sn \setminus S$ the complement.

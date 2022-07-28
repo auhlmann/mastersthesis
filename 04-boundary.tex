@@ -4,33 +4,11 @@
 
 In this section we will examine how we can extend our reconstruction result to the case where the observed set $V$ is no longer contained within the interior of $J(p^-,p^+)$ but is now allowed to extend up to the boundary. In other words we want to recover the conformal structure of $J(p^-,p^+)$ from light cone observations made on the future null boundary $K = J(p^-,p^+) \setminus I^-(p^+)$.
 
-This setting is complicated by the fact that as $q\in J(p^-,p^+)$ approaches the boundary, the light observation $\mc{P}_K(q)$ get increasingly warped and is degenerate if $q$ is in the boundary. 
-
-
-\begin{theorem}[Boundary Reconstruction]\label{thm:boundaryreconstr}
-    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ two points in $M_j$ we denote $K_j = J(p_j^-,p_j^+) \setminus I^-(p^+_j)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exist a conformal diffeomorphism $\Phi:K_1\to K_2$ and that none of the past null geodesics starting at $p_j^+$ have a cut point in $K_j$. 
-
-    Now let $V_j\subset J(p_j^-,p_j^+)$. We assume that no null geodesic starting in $V_j$ has a conjugate point on $K_j$. 
-
-    Then, if 
-    \[
-    \widetilde{\Phi}(\mc{P}_{K_1}(V_1)) = \mc{P}_{K_2}(V_2)
-    \]
-    there exists a homeomorphism $\Phi:V_1\to V_2$.((conformal diffeomorphism $\Phi:V_1\to V_2$ that preserves causality))
-\end{theorem}
-
-\begin{remark}
-    ((Move this to intro))
-    We will again prove the previous theorem by working on just one globally hyperbolic Lorentzian manifold $(M,g)$ with $p^\pm,V,K$ as above. We show that given the following data we can reconstruct the topology of $V$:
-
-    \begin{enumerate}[label={\textnormal{(\arabic*)}}]
-        \item The smooth manifold (with edge) $K$,
-        \item the conformal class of $g\rvert_K$,
-        \item the set $\P_K(V)$.
-    \end{enumerate}
-\end{remark}
+This is complicated by the fact that as $q\in J(p^-,p^+)$ approaches the boundary, the light observation $\mc{P}_K(q)$ get increasingly warped and is degenerate if $q$ is in the boundary. 
 
 \section{Preliminaries}
+((Also include past boundary of $\jp$))
+
 To extend the reconstruction up to the edge of $\jp$ we need to introduce some new concepts.
 
 \begin{definition}[Unique minimum domain]\label{def:uniquemindomain}
@@ -45,13 +23,6 @@ To extend the reconstruction up to the edge of $\jp$ we need to introduce some n
     \]
 \end{definition}
 
-\begin{remark}
-    To account for the fact that we now also need to reconstruct points $q\in K$ which lie on be boundary we will introduce a second type of coordinates on $D$ related to the unique minimum.
-    
-    Let $V\subset \jp\setminus \{p^+\}$. As we saw in the previous chapter we can reconstruct $V\cap \interior{\jp}$. In this chapter we will show that we can also reconstruct $V\cap D$. Furthermore we will show that $D$ is open and $D\cup \interior{\jp} = \jp  \setminus \{p^+\}$. We can then combine this to reconstruct all of $V$.
-\end{remark}
-
-
 \begin{definition}[Constant observation time domain]\label{def:constobstime} For some $t_0\in (0,1)$ we define the \emph{constant observation time domain} as 
 \begin{equation}
     T_{t_0} = \{p\in K \mid p=\mu_a(t_0), a\in \sn\} = \Theta(\sn\times \{t_0\}) \subset K.
@@ -60,19 +31,19 @@ Note that because $\Theta$ is a diffeomorphism on $\sn \times (0,1)$ and by defi
 Thus for every $a\in \sn$ we can use lemma \ref{lem:dirreconstr} to find the unique future-pointing outward null ray $\R_+\nu_{a,t_0}\in L^+_{\Theta(a,t_0)}M$ such that $T_{\Theta(a,t_0)}T_{t_0} = \nu_{a,t_0}^\perp \cap T_{\Theta(a,t_0)}K$.
 \end{definition}
 
-\begin{lemma}\label{lem:amin} ((Rewrite to local minimum))
-    Let $q\in V\cap D$ with minimum $(a_q,t_q)$ and $p_q:=\mu_{a_q}(t_q)$. Then we have $p_q\in \er(q)$ and $v(q,p_q)\in \R_+\nu_{a_q,t_q}$, i.e. if $w_q\in L^K_qM$ is the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)\in \R_+\nu_{a_q,t_q}$.
+\begin{lemma}\label{lem:amin}
+    Let $q\in \interior{\jp}$ with minimum $(a_q,t_q)$ and $p_q:=\mu_{a_q}(t_q)$. Then we have $p_q\in \er(q)$ and $v(q,p_q)\in \R_+\nu_{a_q,t_q}$, i.e. if $w_q\in L^K_qM$ is the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)\in \R_+\nu_{a_q,t_q}$.
 \end{lemma}
 \begin{proof}
     Note that we have $t_q = f_{a_q}(q)$ and thus 
     \[
-        p_q = \Theta(a_q,t_q)=\mu_{a_q}(t_q) = \mu_{a_q}(f_{a_q}(q)) = \mc{E}_{a_q}(q)\in \pq,
+        p_q =\mu_{a_q}(t_q) = \mu_{a_q}(f_{a_q}(q)) = \mc{E}_{a_q}(q)\in \pq,
     \] proving that there exists a $w_q\in L^K_qM$ such that $p_q = \gamma_{q,w_q}(1)$. 
 
     Now we need to show that indeed $p_q\in \er(q)$.
     We recall that by prop \ref{prop:unionmanif} there exists an open neighborhood $p_q\in U\subset M$ such that $\mc{P}_K(q)\cap U$ is the union of $N$ pairwise transversal, spacelike, dimension $n-1$ submanifolds $\mc{V}_i$. Because $t_q$ is the minimum of $F_q$ we must have $T_{p_q}{\mc{V}_i} = T_{p_q}{T_{t_q}}$ for all $i=1,\dots N$. But because the manifolds must be pairwise transversal, we must have $N=1$, implying that $p_q$ is a regular point. Together with $p_q\in \ee(q)$ this yields $p_q \in \er(q)$.
 
-    Finally $\gamma'_{q,w_q}(1)=\nu_{a_q,t_q}$ follows from the fact that $T_{p_q}{\mc{V}_1} = T_{p_q}{T_{t_q}}$.
+    Finally $\gamma'_{q,w_q}(1)=\R_+\nu_{a_q,t_q}$ follows from the fact that $T_{p_q}{\mc{V}_1} = T_{p_q}{T_{t_q}}$.
 \end{proof}
 
 \begin{lemma}\label{lem:boundaryF}
@@ -89,7 +60,7 @@ Thus for every $a\in \sn$ we can use lemma \ref{lem:dirreconstr} to find the uni
     We begin with the case $a=a_0$ then $F_{q_0}(a_0)=t_0$ follows immediately from the definition of $f_{a_0}(q_0)$. Note that this also covers the case where $q_0=p^+$. For the case where $a\neq a_0$ and $q_0\neq p^+$ we suppose that $F_{q_0}(a)=f_a(q_0)<1$ by contradiction. Then we have $\tau(q_0,\mc{E}_a(q_0))=0$ which implies that there exists a null geodesic $\gamma$ with $\gamma(0)=q_0$ and $p:=\mc{E}_a(q_0)=\gamma(1)$. If $\gamma'(1)=\mu'_a(f_a(q_n))$ we would have $q_0\in \mu_a([0,1)) \cap \mu_{a_0}([0,1))$ which is a contradiction to lemma \ref{lem:Kcharact}. We must thus have $\gamma'(1)\neq\mu'_a(f_a(q_n))$ but this means there exists a broken null geodesic from $q_0$ to $p^+$ which is also a contradiction because $q_0\in K$ by assumption and $K\cap I^-(p^+)=\emptyset$ by lemma \ref{lem:Kcharact}.
 \end{proof}
 \begin{remark}
-    (($F_q$ ill behaved (not cont or conv) on boundary))
+    The previous lemma shows that the observation time functions $F_q$ for $q\in K$ lose many nice properties they had when $q\neq K$. In particular if $q\in K$, then $F_q$ is not continuous at $a_0$. Furthermore let $q_n=\Theta(a_n,t_0)\to q_0=\Theta(a_0,t_0)$ with $a_n \neq a_0$, then $F_{q_0}(a_0)=t_0$ but $F_{q_n}(a_n)=1$ for all $n\in \N$, implying $F_{q_n}$ fails to even converge pointwise to $F_{q_0}$. Later on we will fix some of these issues by multiplying $F_q$ with a smoothing bump function.
 \end{remark}
 
 \begin{lemma}\label{lem:convto1}
@@ -98,18 +69,18 @@ Thus for every $a\in \sn$ we can use lemma \ref{lem:dirreconstr} to find the uni
 \begin{proof}
     Because any $q_n$ can either lie in the boundary $K$ or in the interior $\interior{\jp}$ we can instead look at the subsequences $(q_n)_{n=1}^\infty \cap K$, $(q_n)_{n=1}^\infty \cap \interior{\jp}$. If we can prove that both subsequences converge to $q_0$ then we have also proven that $q_n$ itself converges to $q_0$. 
 
-    Hence let now $q_n \to q_0\in K\setminus p^+$ with $q_n=\mu_{a_n}(t_n) \in K\setminus p^+$. We then have $a_n\to a_0$ and thus $a_n \in A$ for all $n\ge N$ for some $N\in N$. But by the previous lemma this implies that $F_{q_n}\rvert_{\sn\setminus A} = F_{q_0}\rvert_{\sn\setminus A} = 1$ and we are done.
+    Hence let now $q_n \to q_0\in K\setminus p^+$ with $q_n=\mu_{a_n}(t_n) \in K\setminus p^+$. We then have $a_n\to a_0$ and thus $a_n \in A$ for all $n\ge N$ for some $N\in \N$. But by the previous lemma this implies that $F_{q_n}\rvert_{\sn\setminus A} = F_{q_0}\rvert_{\sn\setminus A} = 1$ and we are done.
 
     For the other part $q_n \to q_0\in K\setminus p^+$ with $q_n \in \interior{\jp}$.
-    We suppose by contradiction that there exists a $\varepsilon>0$ such that for all $N\in \N$ there exists a $n\ge N$ and a $a\in \sn\setminus A$ such that $f_a(q_n)<1-\varepsilon$. We can thus construct a sequence $a_k, q_k$ such that $f_{a_k}(q_k)<1-\varepsilon$ for all $k\in \N$. Because $f$ is bounded and $\sn$ compact there exists a convergent subsequence $a_j,q_j$ such that $t_j:=f_{a_j}(q_j)\to t'\leq 1-\varepsilon$ and $a_j \to a'\in \sn\A$ and $q_j\to q_0$. Now we have $\mu_{a_j}(t_j) = \Theta(a_j,t_j) \to \Theta(a',t')=\mu_{a'}(t')$ and 
+    We suppose by contradiction that there exists a $\varepsilon>0$ such that for all $N\in \N$ there exists a $n\ge N$ and a $a\in \sn\setminus A$ such that $f_a(q_n)<1-\varepsilon$. We can thus construct a sequence $(a_k, q_k)$ such that $f_{a_k}(q_k)<1-\varepsilon$ for all $k\in \N$. Because $f$ is bounded and $\sn$ compact there exists a convergent subsequence $(a_j,q_j)$ such that $t_j:=f_{a_j}(q_j)\to t'\leq 1-\varepsilon$, $a_j \to a'\in \sn\A$ and $q_j\to q_0$. Now we have $\mu_{a_j}(t_j) = \Theta(a_j,t_j) \to \Theta(a',t')=\mu_{a'}(t')$ and 
     \[
         0 = \lim_{j\to \infty}\tau(q_j,\mc{E}_{a_j}(q_j)) = \lim_{j\to \infty}\tau(q_j,\mu_{a_j}(t_j)) = \tau(q_0,\mu_{a'}(t')).
     \]
-    Furthermore because $\mu_{a_j}(t_j)=\mc{E}_{a_j}(q_j)$ we have $\mu_{a_j}(t_j)\in J^+(q_j)$. By ((REF)) this implies $\mu_{a'}(t')\in J^+(q_0)$. But this together with $\tau(q_0,\mu_{a'}(t'))$ implies that $\mu_{a'}(t')=\mc{E}_{a'}(q_0)$ and $f_{a'}(q_0)=t'<1-\varepsilon$. Finally because $a_0\in A$ and $a'\in \sn\setminus A$ we have $a'\neq a_0$ and $f_{a'}(q_0)\neq 1$, a contradiction to the previous lemma.
+    Furthermore because $\mu_{a_j}(t_j)=\mc{E}_{a_j}(q_j)$ we have $\mu_{a_j}(t_j)\in J^+(q_j)$. By ((REF)) this implies $\mu_{a'}(t')\in J^+(q_0)$. But this together with $\tau(q_0,\mu_{a'}(t'))$ implies that $\mu_{a'}(t')=\mc{E}_{a'}(q_0)$ and $f_{a'}(q_0)=t'<1-\varepsilon$. Finally because $a_0\in A$ and $a'\in \sn\setminus A$ we have $a'\neq a_0$ and $f_{a'}(q_0) <  1$, a contradiction to the previous lemma.
 \end{proof}
 
-\begin{lemma}\label{lem:unifconvawayfrommin}
-    Let $q_n\to q_0=\Theta(a_0,t_0)\in K\setminus p^+$. Then 
+\begin{lemma}
+    Let $q_n\in V\to q_0=\mu_{a_0}(t_0)\in K\setminus p^+$. Then 
     \[
         \liminf_{n\to \infty} \min_{a \in \sn} F_{q_n}(a) \ge t_0.
     \]
@@ -124,31 +95,37 @@ Thus for every $a\in \sn$ we can use lemma \ref{lem:dirreconstr} to find the uni
     \] which implies $\mu_{a'}(t')=\mc{E}_{a'}(q_0)$ and $F_{q_0}(a')=t'<t_0$. A contradiction because $F_{q_0}\ge t_0$ by lemma \ref{lem:boundaryF}.
 \end{proof}
 
-\begin{proposition}
-    Let $q_n\to q_0=\mu_{a_0}(t_0)\in K\setminus p^+$ then there exists a $\varepsilon>0$ and a $N\in \N$ such that for all $n\ge N$, $F_{q_n}$ has a unique minimum $a_n$ and $a_n\to a_0$.
+\begin{proposition}\label{prop:boundarymin}
+    Let $q_n\in V\to q_0=\mu_{a_0}(t_0)\in K\setminus p^+$ then there exists a $\varepsilon>0$ and a $N\in \N$ such that for all $n\ge N$, $F_{q_n}$ has a unique minimum $(a_n,t_n)$ and $(a_n,t_n)\to (a_0,t_0)$.
 \end{proposition}
 \begin{proof}
+    As in a previous proof we can again separately prove the statement for the cases $q_n\in K$ for all $n\in \N$ and $q_n \notin K$ for all $n\in \N$. If $q_n \in K$ the statement follows immediately. We can thus from now on assume $q_n \notin K$.
+
     First of all we let $O\subset M$ be a open convex neighborhood of $q_0$. Because $q_n \to q_0$ there exists a $N_1$ such that $n\ge N$ implies $q_n \in O$.
 
-    If we endow $M$ with a riemannian metric and for $a\in \sn, t\in [0,1]$ let $\nu_{a,t}\in CL^+_{a,t}M$ be the unique outward future pointing null vector orthogonal to $T_t$ at $a$ with $\lVert \nu_{a,t} \rVert_{g^+}=1$, as in definition \ref{def:constobstime}. Then we can define the map 
+    If we endow $M$ with a riemannian metric and for $a\in \sn, t\in [0,1]$ let $\nu_{a,t}\in CL^+_{\Theta(a,t)}M$ be the unique outward future pointing null vector orthogonal to $T_t$ at $a$ with $\lVert \nu_{a,t} \rVert_{g^+}=1$, as in definition \ref{def:constobstime}. We define the map 
     \begin{align*}
-        x^{-1}:\R_+\times [0,1] \times \sn &\to M \\
+        X:\R_+\times [0,1] \times \sn &\to M \\
         (c,a,t)&\mapsto \exp_{\Theta(a,t)}(-c\nu_{a,t})
-    \end{align*} which is smooth because $\nu_{a,t}$ varies smoothly in $(a,t)$, $x^{-1}$. We have $x^{-1}(0,a_0,t_0)=q_0$ and it is easy to check that it has invertible differential at $(0,a_0,t_0)$. Therefore there exists a $\varepsilon>0$ such that $x^{-1}:B_\varepsilon(0)\cap \R_+ \times B_\varepsilon(a_0) \times B_\varepsilon(t_0) \to O_\varepsilon$ is a diffeomorphism. Because $-\mu_{a,t}$ is inward pointing we have $O_\varepsilon\subset \jp$ for $\varepsilon>0$ small enough. In this case, by the invariance of domain theorem, $O_\varepsilon\subset \jp$ is a relatively open neighborhood of $q_0$. After possibly again reducing $\varepsilon>0$ we can get $O_\varepsilon\subset O$. Finally after further reducing $\varepsilon$, we can achieve that no two rays intersect in $O_\varepsilon$, i.e. 
+    \end{align*} which is smooth because $\nu_{a,t}$ varies smoothly in $(a,t)$. We have $X(0,a_0,t_0)=q_0$ and $X$ has invertible differential at $(0,a_0,t_0)$. Therefore there exists a $\varepsilon>0$ such that $X:B_\varepsilon(0)\cap \R_+ \times B_\varepsilon(a_0) \times B_\varepsilon(t_0) \to O_\varepsilon$ is a diffeomorphism. Because $-\nu_{a,t}$ is inward pointing we have $O_\varepsilon\subset \jp$ for $\varepsilon>0$ small enough. In this case, by the invariance of domain theorem, $O_\varepsilon\subset \jp$ is a relatively open neighborhood of $q_0$. After further reducing $\varepsilon$, we can achieve that no two rays intersect in $O_\varepsilon$, i.e. 
     \[
         \gamma_{\nu_{a_1,t_1}} \cap \gamma_{\nu_{a_2,t_2}} \cap O_\varepsilon=\emptyset \quad  \text{for all } a_1,a_2\in B_\varepsilon(a_0), t_1,t_2 \in B_\varepsilon(t_0).
-    \]
-    This possible because around $\Theta(a_0,t_0)$, $K$ is a smooth submanifold.
-    Thus there exists a $N_2\in \N$ such that $n\ge N_2$ implies $q_n\in O_\varepsilon\subset O$.
+    \] This possible because around $\Theta(a_0,t_0)$, $K$ is a smooth submanifold.
+    Finally we can reduce $\varepsilon>0$ to get $O_\varepsilon\subset O$.
     
-    Let now $q_n = x^{-1}(c_n,a_n,t_n)$. We now want to show that there exists a $N_3\ge N_2$ such that for all $n\ge N_3$, $F_{q_n}$ must have a global minimum in $B_\varepsilon(a_0)$. First of all because $q_n \in \interior{\jp}$, $F_{q_n}$ is a continuous function an a compact set. There must thus exists at least one $a'_n\in \sn$ such that $t'_n := F_{q_n}(a'_n) \leq F_{q_n}(a)$ for all $a\in \sn$. Note that because $t'_n$ is a minimum, the same argument as in lemma \ref{lem:amin} yields that $\Theta(a'_n,t_n')\in \er(q_n)$ and $v(q_n,\Theta(a'_n,t_n')) \in \R_+\nu_{a_n',t_n'}$.
+    Because $O_\varepsilon$ is open there exists a $N_2\in \N$ such that $n\ge N_2$ implies $q_n\in O_\varepsilon\subset O$.
+    In this case we can write $q_n = X(c_n,a_n,t_n)$. We want to show that there exists a $N_3\ge N_2$ such that for all $n\ge N_3$, $F_{q_n}$ must have a global minimum in $B_\varepsilon(a_0)$. First of all because $q_n \in \interior{\jp}$, $F_{q_n}$ is a continuous function an a compact set. There must thus exists at least one $a'_n\in \sn$ such that $t'_n := F_{q_n}(a'_n) \leq F_{q_n}(a)$ for all $a\in \sn$. Note that because $t'_n$ is a minimum, the same argument as in lemma \ref{lem:amin} yields that $\Theta(a'_n,t_n')\in \er(q_n)$ and $v(q_n,\Theta(a'_n,t_n')) \in \R_+\nu_{a_n',t_n'}$.
     
-    Next we want to show that if $n$ is big enough, any such $a_n'$ must lie in $B_\varepsilon(a_0)$. To that end we first note that  $\Theta(t_n,a_n)\in \er(q_n)\subset \mc{P}_K(q_n)$ because we are in a convex neighborhood. This implies $F_{q_n}(a_n)=t_n$. Because $t_n\in B_\varepsilon(t_0)$ we know that $t'_n\leq t_n < t_0+\varepsilon < 1$. By lemma \ref{lem:unifconvawayfrommin} we can then find a $N_3\in \N$ such that $n\ge N_3$ implies $F_{q_n}(a)>t_0+\varepsilon$ for all $a\in \sn \setminus B_\varepsilon(a_0)$. But this means that $F_{q_n}$ cannot have a minimum outside of $B_\varepsilon(a_0)$.
+    Next we want to show that if $n$ is big enough, any such $a_n'$ must lie in $B_\varepsilon(a_0)$. 
+    To that end we first note that  $\Theta(a_n,t_n)\in \er(q_n)\subset \mc{P}_K(q_n)$ because $q_n$ and $\Theta(a_n,t_n)$ both lie in the convex neighborhood $O$. 
+    This implies $F_{q_n}(a_n)=t_n$. 
+    Because $t_n\in B_\varepsilon(t_0)$ we know that $\min_{a\in \sn}F_{q_n}(a) = t'_n\leq t_n < t_0+\varepsilon < 1$. 
+    By lemma \ref{lem:convto1} we can then find a $N_3\in \N$ such that $n\ge N_3$ implies $F_{q_n}(a)>t_0+\varepsilon$ for all $a\in \sn \setminus B_\varepsilon(a_0)$. But this means that $F_{q_n}$ cannot have a minimum outside of $B_\varepsilon(a_0)$.
 
     Next we want to show that $a_n'=a_n$ and $t_n'=t_n$ implying $F_{q_n}$ has a unique minimum.
-    We $a_n'\in B_\varepsilon(a_0)$ for $n\ge N_3$. By the previous lemma there exists a $N_4$ such that $t'_n=\min_{a\in \sn} F_{q_n}(a) > t_0-\varepsilon$ for all $n\ge N$. Comining this with $t_n'\leq t_n < t_0+\varepsilon$ we have $t_n'\in B_\varepsilon(t_0)$. Now $\gamma_{\nu_{a_n,t_n}}$ and $\gamma_{\nu_{a_n',t_n'}}$ both contain $q_n\in O_\varepsilon$ this is a contradiction if $a_n\neq a_n'$ or $t_n'\neq t_n$. 
+    We have $a_n'\in B_\varepsilon(a_0)$ for $n\ge N_3$. By the previous lemma there exists a $N_4$ such that $\min_{a\in \sn} F_{q_n}(a)=t'_n> t_0-\varepsilon$ for all $n\ge N$. Combining this with $t_n'\leq t_n < t_0+\varepsilon$ we have $t_n'\in B_\varepsilon(t_0)$. Now $\gamma_{\nu_{a_n,t_n}}$ and $\gamma_{\nu_{a_n',t_n'}}$ both contain $q_n\in O_\varepsilon$, and have $a_n,a'_n\in B_\varepsilon(a_0)$ and $t_n,t'_n\in B_\varepsilon(t_0)$ this is a contradiction if $a_n\neq a_n'$ or $t_n'\neq t_n$. 
 
-    Finally $a_n\to a_0$ follows from the fact that $x^{-1}$ is a diffeomorphism and thus has a continuous inverse.
+    Finally $(a_n,t_n)\to (a_0,t_0)$ follows from the fact that $X$ is a diffeomorphism and thus has a continuous inverse.
 \end{proof}
 
 By lemma \ref{lem:firstcount} we immediately get:
@@ -156,25 +133,26 @@ By lemma \ref{lem:firstcount} we immediately get:
     There exists an open neighborhood $K\setminus p^+\subset O\subset \jp$ such that $O\subset D$, i.e. for every $q\in O$, $F_q$ has a unique minimum.
 \end{corollary}
 
-\begin{proposition}\label{prop:boundarymin}
-    Let $q_0\in D$ and $q_n\to q_0$ in $V$. Then there exists a $N\in \N$ such that $n\ge N$ implies $F_{q_n}$ has a unique minimum $a_n$ and $a_n\to a_0$ where $a_0$ is the unique minimum of $F_{q_0}$.
+\begin{proposition}\label{prop:globalminconv}
+    Let $q_0\in D$ and $q_n\to q_0$ in $V$. Then there exists a $N\in \N$ such that $n\ge N$ implies $F_{q_n}$ has a unique minimum $(a_n,t_n)$ and $(a_n,t_n)\to (a_0,t_0)$ where $(a_0,t_0)$ is the unique minimum of $F_{q_0}$.
 \end{proposition}
 \begin{proof}
     We may assume $q_0,q_n \in \interior{\jp}$ because the case $q_0\in K\setminus\{p^+\}$ is covered by the previous proposition and $q_0\in \interior{\jp}$ implies $q_n\in \interior{\jp}$ eventually because the interior is open.
 
-    First we write $t_0=F_{q_0}(a_0)<F_{q_0}(a'), a_0\neq a'\in \sn$. Let $p_0 = \mc{E}_{a_0}(q_0)$, then by lemma \ref{lem:amin} $p_0\in \er(q_0)$ and $a_0\in \areg(q_0)$. Then by prop \ref{prop:fsmooth} there exists a $\varepsilon>0$ such that $f:\cl{B_\varepsilon(q_0)}\times\cl{B_\varepsilon(a_0)}\to [0,1]$ is smooth. In particular $F_{q_0}=f(q_0,\cdot\;)$ is smooth on $\cl{B_\varepsilon(a_0)}\subset \areg(q_0)$. Furthermore because $a_0$ is a local minimum of the smooth $F_{q_n}$ we must have $dF_{q_0}\rvert_{a_0}=0$ and its hessian $H_{F_{q_0}}(a_0)$ must be positive definite. Because positive definiteness of the hessian is equivalent to it having only positive eigenvalues, there exists $\delta>0$ such that every eigenvalue of $H_{F_{q_0}}(a)$ is bigger than $c_0>0$ for all $a\in \cl{B_\delta(a_0)}\subset \cl{B_\varepsilon(a_0)}$. This implies that $F_{q_0}$ is convex on $\cl{B_\delta(a_0)}$. 
-    
-    By an analogous argument to the one employed in the proof of \ref{prop:dfunifconv} we can prove that there exists a $N_1\in \N$ such that for all $n\ge N$, $F_{q_n}\rvert_{\cl{B_\delta(a_0)}}$ is smooth and $H_{F_{q_n}}\to H_{F_{q_0}}$ uniformly on $\cl{B_\delta(a_0)}$. Because every eigenvalue of $H_{F_{q_0}}(a)$ is bigger than $c_0>0$ for all $a\in \cl{B_\delta(a_0)}$ there must exist a $N_2\ge N_1$ such that $H_{F_{q_n}}$ is also positive definite on $\rvert_{\cl{B_\delta(a_0)}}$. Therefore $F_{q_n}$ is convex on $\cl{B_\delta(a_0)}$ as well.
-    
-    Next we prove that $F_{q_n}$ must have all its minima in $B_{\frac{\delta}{2}}(a_0)$. We first note that because $a_0$ is the unique minimum of $F_{q_0}$ we have $F_{q_0}(a)-F_{q_0}(a_0)>0$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. Because $F_{q_0}$ is continuous and $\sn\setminus B_{\frac{\delta}{2}}(a_0)$ compact there exists a $c_1>0$ such that $F_{q_0}(a)> F_{q_0}(a_0) + c_1$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. By proposition \ref{prop:funif}, $F_{q_n}\to F_{q_0}$ uniformly. Hence there exists a $N_3\ge N_2$ such that $F_{q_n}(a_0)\leq F_{q_0}(a_0)+\frac{c_1}{2}$. Thus we have $\min_{a\in \sn}F_{q_n}(a) \leq F_{q_n}(a_0) < \leq F_{q_0}(a_0)+\frac{c_1}{2}$ for all $n\ge N_3$. But again by uniform convergence there exists a $N_4\ge N_3$ such that $F_{q_n}(a) > F_{q_0}(a_0)+\frac{c_1}{2}$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. Hence $F_{q_n}$ has no global minima in $\sn\setminus B_{\frac{\delta}{2}}(a_0)$ for all $n\ge N_4$.
+    First we write $t_0=F_{q_0}(a_0)<F_{q_0}(a'), a_0\neq a'\in \sn$ for the unique minimum of $F_{q_0}$. Let $p_0 = \mc{E}_{a_0}(q_0)$, then by lemma \ref{lem:amin}, $p_0\in \er(q_0)$ and $a_0\in \areg(q_0)$. By prop \ref{prop:fsmooth} there exists a $\varepsilon>0$ such that $f:\cl{B_\varepsilon(q_0)}\times\cl{B_\varepsilon(a_0)}\to [0,1]$ is smooth. In particular $F_{q_0}=f(q_0,\cdot\;)$ is smooth on $\cl{B_\varepsilon(a_0)}\subset \areg(q_0)$. Furthermore because $a_0$ is a local minimum of the smooth $F_{q_n}$ we must have $dF_{q_0}\rvert_{a_0}=0$ and its hessian $H_{F_{q_0}}(a_0)$ must be positive definite. Because positive definiteness of the hessian is equivalent to it having only positive eigenvalues, there exists $\delta>0$ such that every eigenvalue of $H_{F_{q_0}}(a)$ is bigger than $c_0>0$ for all $a\in \cl{B_\delta(a_0)}\subset \cl{B_\varepsilon(a_0)}$. Hence $H_{F_{q_0}}$ is positive definite and $F_{q_0}$ is convex on all of $\cl{B_\delta(a_0)}$.
 
-    But because $F_{q_n}$ is a continuous function on a compact space there must exist a minimum $a_n\in \sn$ such that $t_n:=F_{q_n}(a_n)\leq F_{q_n}(a')$ for all $a'\in \sn$. As we just saw we must have $a_n \in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. But we also proved that $F_{q_n}$ is convex on $B_\delta(a_0)$ which means that $a_0$ must be the unique minimum of $F_{q_n}$ on $B_\delta(a_0)$. Because $F_{q_n}$ cannot have another minimum outside of $B_{\frac{\delta}{2}}(a_0)$, $a_0$ must be the unique minimum of $F_{q_n}$ and $q_n \in D$.
+    By an analogous argument to the one employed in the proof of \ref{prop:dfunifconv} we can prove that $F_{q_n}\rvert_{\cl{B_\delta(a_0)}}$ is smooth for $n$ big enough and $H_{F_{q_n}}\to H_{F_{q_0}}$ uniformly on $\cl{B_\delta(a_0)}$. Because every eigenvalue of $H_{F_{q_0}}(a)$ is bigger than $c_0>0$ for all $a\in \cl{B_\delta(a_0)}$, there must exist a $N_1\ge \in \N$ such that $F_{q_n}\rvert_{\cl{B_\delta(a_0)}}$ is smooth and $H_{F_{q_n}}$ has only positive eigenvalues on $\cl{B_\delta(a_0)}$ for all $n \ge N_1$. Therefore $F_{q_n}$ is convex on $\cl{B_\delta(a_0)}$ as well.
+    
+    Next we prove that $F_{q_n}$ must have all its minima in $B_{\frac{\delta}{2}}(a_0)$. We first note that because $a_0$ is the unique minimum of $F_{q_0}$ we have $F_{q_0}(a)-F_{q_0}(a_0)>0$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. Because $F_{q_0}$ is continuous and $\sn\setminus B_{\frac{\delta}{2}}(a_0)$ compact there exists a $c_1>0$ such that $F_{q_0}(a)> F_{q_0}(a_0) + c_1$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. By proposition \ref{prop:funif}, $F_{q_n}\to F_{q_0}$ uniformly. Hence there exists a $N_2\ge N_1$ such that $F_{q_n}(a_0)\leq F_{q_0}(a_0)+\frac{c_1}{2}$. Thus we have $\min_{a\in \sn}F_{q_n}(a) \leq F_{q_n}(a_0) \leq F_{q_0}(a_0)+\frac{c_1}{2}$ for all $n\ge N_3$. But again by uniform convergence there exists a $N_3\ge N_2$ such that $F_{q_n}(a) > F_{q_0}(a_0)+\frac{c_1}{2}$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. Hence $F_{q_n}$ has no global minima in $\sn\setminus B_{\frac{\delta}{2}}(a_0)$ for all $n\ge N_4$.
 
-    Finally we prove that $a_n\to a_0$. We suppose by contradiction that $a_n$ does not converge to $a_0$. Then there exists a convergent subsequence $q_j$ such that $a_j \to a' \neq a_0$ and $q_j \in D$ for all $j\in \N$. Because $q_0,q_j\in \interior{\jp}$, we have $F_{q_j}(a_j) \to F_{q_0}(a')$. Furthermore we have $F_{q_j}(a_j)= \min_{a\in \sn}F_{q_j} \to \min_{a\in \sn}F_{q_0}$ because $F_{q_j}\to F_{q_0}$ uniformly. But this implies $F_{q_0}(a') = \min_{a\in \sn}F_{q_0}=F_{q_0}(a_0)$, a contradiction because $F_{q_0}$ was assumed to have a unique minimum.
+    But because $F_{q_n}$ is a continuous function on a compact space there must exist a minimum $a_n\in \sn$ such that $t_n:=F_{q_n}(a_n)\leq F_{q_n}(a')$ for all $a'\in \sn$. As we just saw we must have $a_n \in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. But we also proved that $F_{q_n}$ is convex on $B_\delta(a_0)$ which means that $a_0$ must be the unique minimum of $F_{q_n}$ on $B_\delta(a_0)$. Because $F_{q_n}$ cannot have another minimum outside of $B_{\frac{\delta}{2}}(a_0)$, $a_0$ must be the unique minimum of $F_{q_n}$ and thus $q_n \in D$.
+
+    Finally we prove that $a_n\to a_0$. We suppose by contradiction that $a_n$ does not converge to $a_0$. Because $\sn$ is compact there exists a convergent subsequence $q_j$ such that $a_j \to a' \neq a_0$ and $q_j \in D$ for all $j\in \N$. Because $q_0,q_j\in \interior{\jp}$, we have $F_{q_j}(a_j) \to F_{q_0}(a')$. Furthermore we have $F_{q_j}(a_j)= \min_{a\in \sn}F_{q_j} \to \min_{a\in \sn}F_{q_0}$ because $F_{q_j}\to F_{q_0}$ uniformly. But this implies $F_{q_0}(a') = \min_{a\in \sn}F_{q_0}=F_{q_0}(a_0)$, a contradiction because $F_{q_0}$ was assumed to have a unique minimum. Note that because $f$ is continuous on $\interior{\jp}\times \sn$ this implies $t_n=f(q_n,a_n)\to t_0 = f(q_0,a_0)$ as well.
 \end{proof}
+Note that by lemma \ref{lem:firstcount} this shows that $D$ is open.
 
 \section{Smoothed Observation Time Functions}
-In this section we will define \enquote{smoothed} observation time functions which extend ((nicely)) to the boundary $K$.
+In this section we will define \enquote{smoothed} observation time functions have more regular properties at the boundary $K$ then the previously used observation time functions.
 
 To that end we define 
 \begin{definition}[Observation Bump Function]\label{def:obsbumpfn}
@@ -185,7 +163,7 @@ To that end we define
 
 Equipped with these functions we can now define the
 \begin{definition}[Smoothed Observation Time Function]
-    We define the \emph{smoothed observation time function} to 
+    We define the \emph{smoothed observation time function} as 
     \begin{align*}
         h:D\times \sn &\to [0,1] \\
         (q,a)&\mapsto (1-\chi_{a_q}(a)(1-f(q,a)))
@@ -194,23 +172,23 @@ Equipped with these functions we can now define the
     Analogous to the previous observation time functions we define $h_a(q):=h(q,a)$ and $H_q(a):=h(q,a)$.
 \end{definition}
 \begin{remark}
-    Note that for $q\in K$ we have $H_q(a)=1$ for all $a\in \sn$. Furthermore, because $\chi_{a_q}$ is smooth and by proposition \ref{prop:fsmooth} we get that for any $q\in D$, $H_q$ is continuous on $\sn$ and smooth on $\areg(q)$. For any $q\in K$ we define $\areg(q)=\sn$.
+    Note that for $q\in K$ we have $H_q(a)=1$ for all $a\in \sn$. Furthermore, because $\chi_{a_q}$ is smooth and by proposition \ref{prop:fsmooth} we get that for any $q\in D$, $H_q$ is continuous on $\sn$ and smooth on $\areg(q)$ where for any $q\in K$ we define $\areg(q)=\sn$.
 \end{remark}
 
-\begin{proposition}
-    Let $q_n\to q_0\in D$. Then $H_{q_n}\to H_{q_0}$ uniformly.
+\begin{proposition}\label{prop:hunif}
+    Let $q_n\in D\to q_0\in D$. Then $H_{q_n}\to H_{q_0}$ uniformly.
 \end{proposition}
 \begin{proof}
-    Let $a_n$ resp. $a_0$ be the location of the minima of $F_{q_n}$ resp. $F_{q_0}$.
+    Let $a_n$ resp. $a_0$ be the location of the minimum of $F_{q_n}$ resp. $F_{q_0}$.
     We will again treat the cases $q_0\in K$ and $q_0\in \interior{\jp}$ seperately:
-    If $q_0\in \interior{\jp}$ there exists a $N_1\in \N$ such that $q_n \in \interior{\jp}$ for all $n\ge N_1$. We claim that $h:D\cap \interior{\jp}\times \sn$ is a continuous function on the interior. This is because $f(q,a)$ is continuous and $q_n\to q_0$ implies $a_n\to a_0$ by the previous lemma, which implies $\chi_{a_n}\to \chi_{a_0}$ because $\chi_a$ varies smoothly in $a\in \sn$. But now we can again apply lemma \ref{lem:unifconvoncompact} to get $H_{q_n}\to H_{q_0}$ uniformly.
+    If $q_0\in \interior{\jp}$ there exists a $N_1\in \N$ such that $q_n \in \interior{\jp}$ for all $n\ge N_1$. We claim that $h:D\cap \interior{\jp}\times \sn$ is a continuous function . This is because $f(q,a)$ is continuous and $q_n\to q_0$ implies $a_n\to a_0$ by the previous lemma, which implies $\chi_{a_n}\to \chi_{a_0}$ because $\chi_a$ varies smoothly in $a\in \sn$. But now we can apply lemma \ref{lem:unifconvoncompact} to get $H_{q_n}\to H_{q_0}$ uniformly.
 
     Now we treat the case $q_0\in K$. We can again split up $q_n$ into two subsequences $q_{i_n}\in \interior{\jp}$ and $q_{j_n}\in K$. Since we have $H_{q_{j_n}}(a)=1$ for all $a\in \sn$, $H_{q_{j_n}}\to H_{q_0}$ follows immediately since we have $H_{q_0}(a)=1$ for all $a\in \sn$.
 
     It remains to prove that $H_{q_{i_n}}\to H_{q_0}$ uniformly. To simplify notation we will denote $q_k:=q_{i_n}$, and $a_k$ for the location of the unique minimum of $F_{q_k}$. We want to show that for every $\varepsilon>0$ there exists a $N\in \N$ such that $H_{a_k}(a)>1-\varepsilon$ for all $a\in \sn$:
 
-    To that end let $\varepsilon>0$. Because $q_k\to a_0$ implies $a_k\to a_0$ by proposition \ref{prop:boundarymin}, there exists a $N_1\in \N$ such that $a_k\in B_\frac{\varepsilon}{2}(a_0)$ for all $k\ge N_1$. Hence we have $B_\frac{\varepsilon}{2}(a_0)\subset B_\varepsilon(a_k)$ and we have $\chi_{a_k}(a)<\varepsilon$ for all $a\in B_\frac{\varepsilon}{2}(a_0)\subset B_\varepsilon(a_n)$.
-    For any $a\in B_\frac{\varepsilon}{2}(a_0)$ we thus have $H_{q_k} = (1-\chi_{a_k}(a)(1-f(q_k,a))) > 1-\varepsilon$ because $(1-f(q_k,a))\in [0,1]$.
+    To that end let $\varepsilon>0$. Because $q_k\to q_0$ implies $a_k\to a_0$ by proposition \ref{prop:boundarymin}, there exists a $N_1\in \N$ such that $a_k\in B_\frac{\varepsilon}{2}(a_0)$ for all $k\ge N_1$. Hence we have $B_\frac{\varepsilon}{2}(a_0)\subset B_\varepsilon(a_k)$ and we have $\chi_{a_k}(a)<\varepsilon$ for all $a\in B_\frac{\varepsilon}{2}(a_0)\subset B_\varepsilon(a_n)$.
+    For any $a\in B_\frac{\varepsilon}{2}(a_0)$ we thus have $H_{q_k}(a) = (1-\chi_{a_k}(a)(1-f(q_k,a))) > 1-\varepsilon$ because $(1-f(q_k,a))\in [0,1]$.
 
     It remains to show that there exists a $N_2\in \N$ such that $H_{q_k}(a) > 1-\varepsilon$ for all $a\in \sn\setminus B_\frac{\varepsilon}{2}(a_0)$ and $n\ge N_2$. Because $B_\frac{\varepsilon}{2}(a_0)$ is an open neighborhood of we can apply \ref{lem:convto1} to find a $N_2\in \N$ with $F_{q_k}(a) > 1-\varepsilon$ for all $q\in \sn \setminus B_\frac{\varepsilon}{2}(a_0)$ and $n \ge N_2$. Because $\chi_{a}<1$ this implies $H_{q_k}(a) > 1-\varepsilon$ and we are done after setting $N:= \max \{N_1,N_2\}$.
 \end{proof}
@@ -231,22 +209,22 @@ Equipped with these functions we can now define the
 \end{lemma}
 \begin{proof}
     Let $q_0\in D\cap \interior{\jp}$ with minimum at $a_0\in \sn$. Recall that this implies $a_0\in \areg(q_0)$.
-    By proposition \ref{prop:fsmooth} there exists a $\varepsilon>0$ such that $f:\cl{B_\varepsilon(q_0)}\times\cl{B_\varepsilon(a_0)}\to [0,1]$ is smooth. Following an analogous argument to the one used in proposition \ref{prop:boundarymin} we can show that there exists a $\varepsilon>\delta>0$ such that the map $f:\cl{B_\delta(q_0)}\times\cl{B_\delta(a_0)}\to [0,1]$ is has positive definite hessian with respect to $a$ and for every $q\in \cl{B_\delta(q_0)}$ we have $\argmin_{a\in \sn} F_{q}(a) \in \cl{B_\delta(a_0)}$. 
+    By proposition \ref{prop:fsmooth} there exists a $\varepsilon>0$ such that $f:\cl{B_\varepsilon(q_0)}\times\cl{B_\varepsilon(a_0)}\to [0,1]$ is smooth. Following an analogous argument to the one used in proposition \ref{prop:boundarymin} we can show that there exists a $\varepsilon>\delta>0$ such that the map $f:\cl{B_\delta(q_0)}\times\cl{B_\delta(a_0)}\to [0,1]$ has positive definite hessian with respect to $a$ and for every $q\in \cl{B_\delta(q_0)}$ we have $\argmin_{a\in \sn} F_{q}(a) \in \cl{B_\delta(a_0)}$. 
 
     We then define the function 
     \begin{align*}
         f':\cl{B_\delta(q_0)}\times\cl{B_\delta(a_0)}&\to T^*\sn\\
         (q,a)&\mapsto dF_q\rvert_a
-    \end{align*} which is smooth because $f$ is smooth on its domain and has $f'(q_0,a_0)=0$. Furthermore because $f$ is has a positive definite hessian with respect to $a$ the non-degeneracy condition of the implicit function theorem is satisfied and we obtain a $\lambda>0$ and a smooth map $q\in B_\lambda(q_0)\mapsto a(q)\in B_\delta(a_0)$ such that $f'(q,a(q))=0$. Because $f$ is positive definite with respect to $a$ on $B_\delta(a_0)$ and by choice of $\delta$, $F_q$ must have its minimum in $B_\delta(a_0)$, $a(q)$ must be the location of the unique minimum of $F_q$ and we are done. 
+    \end{align*} which is smooth because $f$ is smooth on its domain and has $f'(q_0,a_0)=0$. Furthermore because $f$ is has a positive definite hessian with respect to $a$, the non-degeneracy condition of the implicit function theorem is satisfied and can find a $\lambda>0$ and a smooth map $q\in B_\lambda(q_0)\mapsto a(q)\in B_\delta(a_0)$ such that $f'(q,a(q))=0$. Because $f$ is positive definite with respect to $a$ on $B_\delta(a_0)$ and by choice of $\delta$, $F_q$ must have its minimum in $B_\delta(a_0)$ and $a(q)$ must be the location of this minimum as desired.
 \end{proof}
 
 
-\begin{corollary}
-    Let $\mc{C}:=\{(q,a)\in V\times \sn \mid q \in D\cap \interior{\jp}, a\in \areg(q)\}$ then $h:\mc{D}\to [0,1]$ is a smooth and $dH_q\rvert(a)$ is bounded for all $(q,a)\in \mc{C}$.
+\begin{corollary}\label{cor:hsmooth}
+    Let $\mc{C}:=\{(q,a)\in V\times \sn \mid q \in D\cap \interior{\jp}, a\in \areg(q)\}$ then $h:\mc{C}\to [0,1]$ is a smooth and $dH_q\rvert(a)$ is bounded for all $(q,a)\in \mc{C}$.
 \end{corollary}
 \begin{proof}
-    By proposition \ref{prop:fsmooth}, $f$ is smooth on $\mc{C}$. By the previous lemma $q\in D\cap \interior{\jp}\mapsto a(q)$ is smooth as well.
-    Hence the map $h(q,a) = (1-\chi_{a(q)}(a)(1-f(q,a)))$ is the composition of smooth functions making it smooth as well.
+    As shown in proposition \ref{prop:fsmooth}, $f$ is smooth on $\mc{C}$. By the previous lemma $q\in D\cap \interior{\jp}\mapsto a(q)$ is smooth as well.
+    Hence the map $h(q,a) = (1-\chi_{a(q)}(a)(1-f(q,a)))$ is the composition of smooth functions making it smooth itself.
 
     The boundedness of $dH_q\rvert(a)$, follows because $dF_q\rvert(a)$ is bounded by proposition \ref{prop:dfbounded} together with the fact that $\chi_{a}$ has bounded derivative because it is smooth on a compact set.
 \end{proof}
@@ -254,7 +232,7 @@ Equipped with these functions we can now define the
 \begin{lemma}\label{lem:dhconvonboundary}
     We can choose $\chi_a$ such that for all $q_n \to q_0\in K$ we have
     \[
-        \max_{a\in \areg(q_n)} \left\lVert dH_{q_n}\rvert_{a_n}\right\rVert_{g_\sn}\to 0.
+        \max_{a\in \areg(q_n)} \left\lVert dH_{q_n}\rvert_{a_n}-1\right\rVert_{g_\sn}\to 0.
     \]
 \end{lemma}
 \begin{proof}
@@ -262,3 +240,81 @@ Equipped with these functions we can now define the
 \end{proof}
 
 \section{Reconstruction}
+We can now reconstruct the topological structure of $V$
+
+Analogous to the reconstruction in the previous chapter we let $\mc{C}^{\infty}(\sn)$ be the space of continuous functions $H:\sn \to [0,1]$ which are smooth on a dense open set in $\sn$. We again endow this space with the metric 
+\[
+    d(H_1,H_2):= d_\infty(H_1,H_2) + \int_{\sn} \lVert dH_1\rvert_a - dH_2\rvert_a \rVert_{g_\sn}da,
+\] where $d_\infty(H_1,H_2):=\max_{a\in \sn}\lvert H_1(a)-H_2(a)\rvert$.
+Note that by definition of $\mc{C}^\infty(\sn)$ the subset of $\sn$ where $H_1$ or $H_2$ are not smooth is a null set, making the integral well-defined.
+
+For $q\in D$ with minimum $t_q\in [0,1]$ at $a_q\in \sn$ we define
+\begin{align*}
+    \mathcal{H}:D &\to \sn\times [0,1]\times(\mc{C}^\infty, d)\\
+    q&\mapsto (a_q,t_q, H_q)
+\end{align*} where $H_q(a)=h(q,a)$ is the smoothed observation time function.
+
+\begin{lemma}
+    For any $q\in D$ we can recover $F_q$ given only $\mc{H}(q)$.
+\end{lemma}
+\begin{proof}
+    First of all, given $\mc{H}(q)=(a_q,t_q, H_q)$ we can determine whether $q\in K$ or $q\in \interior{\jp}$, because $q\in K$ if and only if $\min_{a\in \sn} H_q(a)=1$. We can thus treat the cases seperately: If $q\in K$ we have $q=\Theta(a_q,t_q)$ and lemma \ref{lem:boundaryF} allows us to fully reconstruct $F_q$.
+
+    Now for the case where $q\in \interior{\jp}$: We have $H_q(a)=1-\chi_{a_q}(a)(1-F_q(a))$ and thus $F_q(a) = 1-\frac{1}{\chi_{a_q}(a)}(1-H_q(a))$. This allows us to reconstruct $F_q(a)$ for all $a\neq a_q$ because $\chi_{a_q}(a)\neq 0$ for all $a\neq a_q$. But by definition we have $F_q(a_q)=t_q$ and we have fulyl reconstructed $F_q$.
+\end{proof}
+
+We denote $V_1:=V\cap D$
+\begin{lemma}
+    $\mc{H}:V_1\to \widehat{V_1}:=\mc{H}(V_1)\subset \sn\times [0,1]\times(\mc{C}^\infty, d)$ is well-defined, continuous and bijective.
+\end{lemma}
+\begin{proof}
+    We begin by proving that $\mc{H}$ is well-defined. Because $\mc{H}$ is defined on $D$, any $q\in D$ must have a unique minimum making $q\mapsto(a_q,t_q,H_q)$ well-defined. Furthermore we have $H_q\in \mc{C}^\infty(\sn)$ by corollary \ref{cor:hsmooth}, together with the fact that $H_q=1$ is also smooth for $q\in K$.
+
+    Now we want to prove that for any $q_n\to q_0\in V_1$ with unique minima at $(a_n,t_n)$ resp. $(a_0,t_0)$ we have $(a_n,t_n) \to (a_0,t_0)$ and $d(q_n,q_0)\to 0$. By proposition \ref{prop:globalminconv} we have $(a_n,t_n) \to (a_0,t_0)$.
+    
+    By proposition \ref{prop:hunif} we have $H_{q_n}\to H_{q_0}$ uniformly, which implies $d_\infty(H_{q_n},H_{q_0})\to 0$. It remains to show $\int_{\sn} \lVert dH_{q_n}\rvert_a - dH_{q_0}\rvert_a \rVert_{g_\sn}da \to 0$. We again treat the cases $q_0\in K$ and $q_0\in \interior{\jp}$ seperately: If $q_0\in \interior{\jp}$ we can assume without loss of generality that $q_n\in \interior{\jp}$ as well. Then we can use corollary \ref{cor:hsmooth} and an analogous argument to the one used in lemma \ref{lem:Fprop} to show that $\int_{\sn} \lVert dH_{q_n}\rvert_a - dH_{q_0}\rvert_a \rVert_{g_\sn}da \to 0$.
+
+    It remains to show that 
+    \[
+        \int_{\sn} \lVert dH_{q_n}\rvert_a - dH_{q_0}\rvert_a \rVert_{g_\sn}da = \int_{\sn} \lVert dH_{q_n}\rvert_a - 1\rVert_{g_\sn}da \to 0
+    \] for $q_0\in K$. But this follows immediately from lemma \ref{lem:dhconvonboundary}.
+
+    Finally we show that $\mc{H}$ is injective. Note that we proved in the previous lemma that $\mc{H}(q)=(a_q,t_q,H_q)$ allows us to determine whether $q\in K$ of $q\in \interior{\jp}$.
+    If $q\in K$ we have $q = \Theta(a_q,t_q)$ making $\mc{H}$ injective on the boundary. If $q\in \interior{\jp}$, the previous lemma allows us to reconstruct $F_q$ and thus $\ee(q)$. Because $q\in V$ we can apply proposition \ref{prop:einj} proving that $\mc{H}$ is injective.
+\end{proof}
+
+\begin{lemma}
+    Let $q_n \in V_1$ such that $\mc{H}(q_n)\to \mc{H}(q_0)$ in $\widehat{V_1}$ for some $q_0\in V_1$. Then also $q_n \to q_0$.
+\end{lemma}
+\begin{proof}
+    By definition we have $\mc{H}(q_n) = (a_n,t_n,H_{q_n}) \to (a_0,t_0,H_{q_0}) = \mc{H}(q_0)$. Because we can determine from $\mc{H}(q_0)$ whether $q_0\in K$ or $q_0\in \interior{\jp}$ we can treat the two cases seperately. 
+    If $q_0\in \interior{\jp}$ we have $\min_{a\in \sn} H_{q_0}(a) < 1$, then by uniform convergence there exists a $N_1\in \N$ such that $\min_{a\in \sn} H_{q_n}(a)<1$, implying $q_n\in \interior{\jp}$ for all $n \ge N_1$. We can then apply an analogous argument to the one used in lemma \ref{lem:frevcont} to get $q_n \to q_0$.
+
+    For the case $q_0\in K$ we can again split up $\mc{H}(q_n)$ into two subsequences, $\mc{H}(q_{i_n})$ where $q_{i_n}\in K$ and $\mc{H}(q_{j_n})$ where $q_{j_n}\in \interior{\jp}$ for all $n\in \N$. We thus have $q_{i_n}=\Theta(a_{i_n},t_{i_n})$ which implies $q_{i_n}\to q_0$ because $(a_{i_n},t_{i_n}) \to (a_0,t_0)$. For the other case ((explain more in-depth)) we denote $q_k:=q_{j_n}\in \interior{\jp}$ and $(a_k,t_k):=(a_{j_n},t_{j_n})$ to simplify notation. Because $H_{q_k}\to H_{q_0}=1$ uniformly and there exists a $\varepsilon>0$ such that $H_{q_k}\rvert_{\sn\setminus B_\varepsilon(a_k)} = F_{q_k}\rvert_{\sn\setminus B_\varepsilon(a_k)}$ we also have $\max_{a\in \sn} F_{q_k}\to 1$. This implies that $d(q_k, K)\to 0$. Now we suppose by contradiction that $q_k$ does not converge to $q_0$. We thus have a convergent subsequence $q_j\to q'\neq q_0\in K$ and $a_j\to a_0, t_j\to t_0$. We can the apply proposition \ref{prop:globalminconv} to $q_j$ and $q'$ to find that $(a_0,t_0)$ is also the unique minimum of $F_{q'}$. But because $q'\in K$ we have $q' = \Theta(a_0,t_0) = q_0$, a contradiction.
+\end{proof}
+
+\begin{corollary}\label{cor:Hhomeo}
+    $\mc{H}:V_1 \to \widehat{V_1}$ is a homeomorphism.
+\end{corollary}
+
+\begin{remark}
+    Note that we can use \ref{cor:Fhomeo} on $V_2:=V\cap \interior{\jp}$ to get a homeomorphism $\F:V_2\to \widehat{V_2}:=\F(V_2)$. 
+\end{remark}
+((TODO: Explain more and include $V_1$ $V_2$ properties overview and that we given $\mc{H}(q_1)$ and $\F(q_2)$ we can determine if $q_1=q_2$))
+((TODO: Include past boundary of $\jp$ for now we assume $V\cap \partial\jp^-=\emptyset$))
+We can now reconstruct the topology on $V$:
+\begin{proposition}
+    A set $O\subset V$ is open if and only if $\mc{H}(O\cap V_1)\subset \widehat{V_1}$ and $\F(O\cap V_2)\subset \widehat{V_2}$ is open.
+\end{proposition}
+\begin{proof}
+    For the first direction we suppose that $O\subset V$ is open. Because $V_1$ and $V_2$ are open so are $O\cap V_1$ and $O\cap V_2$. But because both $\mc{H}$ and $\F$ are homeomorphisms and thus open maps, $\mc{H}(O\cap V_1)$ and $\mc{F}(O\cap V_2)$ must be open as well.
+
+    For the other direction we assume that $\mc{H}(O\cap V_1)$ and $\mc{F}(O\cap V_2)$ are open. Because $\mc{H}$ and $\mc{F}$ are bijective and continuous, $O\cap V_1$ and $O\cap V_2$ must be open as well. Furthermore we have $V_1\cup V_2 = V$ and thus 
+    \[
+        O = O\cap V = O \cap (V_1\cup V_2) = (O\cap V_1) \cup (O\cap V_2)
+    \] must be open, as desired.
+\end{proof}
+
+\begin{corollary}
+    Given data \ref{rmk:data} we can determine if a set is open ((TODO))
+\end{corollary}
