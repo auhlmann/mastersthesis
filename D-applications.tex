@@ -1,4 +1,32 @@
-\section{Applications}
+\chapter{Applications}
+
+\section{Stability Results}
+((Overhaul, include globally hyperbolic stability))
+We aim to show the reconstruction result in a simplified case and first establish that small deviations from the minkovsky metric on a compact set introduce no conjugate points:
+\begin{proposition}
+    Let $p^+\gg p^-, V\subset \interior{\jp}$ \emph{suitable}, $V$ open. Then there exists a $\varepsilon>0$ such that if $g,g'$ and $g''$ $\varepsilon$-close to $g_0$ then still suitable.
+\end{proposition}
+
+
+\begin{proposition}
+Let $K\subset\R^n_1$ be a compact subset of the $1+n$-dimensional minkovsky space with metric $g=-dt^2+\sum_{i=1}^n dx_i^2$. And let $\widetilde{g}$ be a slightly disturbed metric $\widetilde{g}=g+\varepsilon h$ where $\varepsilon>0$ and $h$ is another metric.
+
+Then we can choose $\varepsilon>0$ small enough such that under the disturbed metric $\widetilde{g}$ no causal geodesic starting in $K$ has a conjugate point in $K$.
+\end{proposition}
+\begin{proof}
+We begin by defining the set $H = \{(p,v)\in TK \mid \exp_p(v) \in K\}$. Note that for $\varepsilon>0$ small enough this set is compact as well. This is because in the minkovsky case, every geodesic starting in $K$ leaves $K$ in a finite time which depends continuously on the starting point and initial direction. This property still holds for $\widetilde{g}$ if $\varepsilon$ is small enough and thus $H$ is compact.
+
+Recall that ((REF GEOD)) for a geodesic $\gamma_{p,v}$ starting at $p$ with initial velocity $v$, $q=\gamma_{p,v}(b)$ is a conjugate point of $p=\gamma_{p,v}(0)$ if and only if the differential of the exponential map $d\exp_p$ is singular at $bv$. 
+We we then define 
+\[
+    \varepsilon_{p,v} = \frac{1}{2}\sup\{\varepsilon'>0\mid d\exp\}
+\]((Bla bla bla, do it with open cover instead))
+By compactness of $H$ we can achieve that $\exp$ is never singular on it which means that no geodesic starting in $K$ has a conjugate point in $K$. 
+\end{proof}
+((Is global hyperbolicity needed?))
+Note that this proof can be directly generalized to show that if $K$ is a compact subset of a globally hyperbolic manifold $(M,g)$ and every causal geodesic starting in $K$ has no conjugate point in $K$, then also for a slightly perturbed $(M,g+\varepsilon h)$, causal geodesics starting in $K$ have no conjugate points in $K$.
+((Expand conj point to cut points?))
+
 
 \begin{definition}[Einstein Universe]
 Let $(\R,-dt^2)$ be the real line with negatively definite metric $-dt^2$ and $(S^n,h)$ the n-sphere with the canonical Riemannian metric. The $1+n$ dimensional \emph{Einstein universe} is then defined as the product $(\R\times S^n, -ds^2 \oplus h)$
@@ -32,25 +60,3 @@ is a conformal diffeomorphism from a suitable subset $U\subset \R\times S^n$ to 
 \end{proposition}
 \begin{proof}
 \end{proof}
-
-\section{Stability Results}
-((Overhaul, include globally hyperbolic stability))
-We aim to show the reconstruction result in a simplified case and first establish that small deviations from the minkovsky metric on a compact set introduce no conjugate points:
-\begin{proposition}
-Let $K\subset\R^n_1$ be a compact subset of the $1+n$-dimensional minkovsky space with metric $g=-dt^2+\sum_{i=1}^n dx_i^2$. And let $\widetilde{g}$ be a slightly disturbed metric $\widetilde{g}=g+\varepsilon h$ where $\varepsilon>0$ and $h$ is another metric.
-
-Then we can choose $\varepsilon>0$ small enough such that under the disturbed metric $\widetilde{g}$ no causal geodesic starting in $K$ has a conjugate point in $K$.
-\end{proposition}
-\begin{proof}
-We begin by defining the set $H = \{(p,v)\in TK \mid \exp_p(v) \in K\}$. Note that for $\varepsilon>0$ small enough this set is compact as well. This is because in the minkovsky case, every geodesic starting in $K$ leaves $K$ in a finite time which depends continuously on the starting point and initial direction. This property still holds for $\widetilde{g}$ if $\varepsilon$ is small enough and thus $H$ is compact.
-
-Recall that ((REF GEOD)) for a geodesic $\gamma_{p,v}$ starting at $p$ with initial velocity $v$, $q=\gamma_{p,v}(b)$ is a conjugate point of $p=\gamma_{p,v}(0)$ if and only if the differential of the exponential map $d\exp_p$ is singular at $bv$. 
-We we then define 
-\[
-    \varepsilon_{p,v} = \frac{1}{2}\sup\{\varepsilon'>0\mid d\exp\}
-\]((Bla bla bla, do it with open cover instead))
-By compactness of $H$ we can achieve that $\exp$ is never singular on it which means that no geodesic starting in $K$ has a conjugate point in $K$. 
-\end{proof}
-((Is global hyperbolicity needed?))
-Note that this proof can be directly generalized to show that if $K$ is a compact subset of a globally hyperbolic manifold $(M,g)$ and every causal geodesic starting in $K$ has no conjugate point in $K$, then also for a slightly perturbed $(M,g+\varepsilon h)$, causal geodesics starting in $K$ have no conjugate points in $K$.
-((Expand conj point to cut points?))

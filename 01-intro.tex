@@ -4,14 +4,13 @@
 ((Introduce Notation etc.))
 
 \begin{definition}[Suitable]
-    We call $p^-\ll p^+\in M$ \emph{suitable} if $p^+$ has no past cut points in $\mc{L}^-_{p^+}\cap J^+(p^-)$ and $p^-$ has no future cut points in $\mc{L}^+_{p^-}\cap J^-(p^+)$.
+    We call $p^-\ll p^+\in M$ and $V\in \jp = J^+(p^-)\cap J^-(p^+)$ \emph{suitable} if $p^+$ has no past cut points in $\mc{L}^-_{p^+}\cap J^+(p^-)$,  $p^-$ has no future cut points in $\mc{L}^+_{p^-}\cap J^-(p^+)$ and no null geodesic starting in $V$ has a conjugate point in $\mc{L}^-_{p^+}\cap J^+(p^-)$.
 \end{definition}
 
 \begin{theorem}[Interior Reconstruction]\label{thm:intreconstr}
-    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+$ \emph{suitable} in $M_j$ we denote $K_j = \mc{L}^-_{p_j^+} \cap J^+(p_j^-)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exists a conformal diffeomorphism $\Phi:K_1\to K_2$. 
+    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+, V_j$ \emph{suitable} in $M_j$ we denote $K_j = \mc{L}^-_{p_j^+} \cap J^+(p_j^-)$, the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$. We assume that there exists a conformal diffeomorphism $\Phi:K_1\to K_2$. 
     
-    Now let $V_j\subset\interior{J(p_j^-,p_j^+)}$ be open sets. We assume that no null geodesic starting in $V_j$ has a null conjugate point on $K_j$. 
-    
+    We assume that $V_j\subset\interior{J(p_j^-,p_j^+)}$ are open sets. 
     Then, if 
     \[
     \widetilde{\Phi}(\mc{P}_{K_1}(V_1)) = \mc{P}_{K_2}(V_2)

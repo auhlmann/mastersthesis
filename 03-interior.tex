@@ -201,7 +201,7 @@ Let  $\widehat{q}\in \widehat{V}$ then the following holds:
     If $\overrightarrow{p}\in Y_0(q)$ we see that $Y_0(q) \subset \mc{X}_{\overrightarrow{p}}$. On the other hand $\overrightarrow{p}\notin Y_0(q)$ we have $Y_0(q) \cap \mc{X}_{\overrightarrow{p}} =\emptyset$. Since the set $Y_0(q)$ is open and dense in $Y(q)$, we see that $\overrightarrow{p}\in Y_0(q)$ if and only if the interior of $\mc{X}_{\overrightarrow{p}}$ is dense subset of $Y(q)$. Since the data \ref{rmk:data} is sufficient to determine $Y(q)$ and $\mc{X}_{\overrightarrow{p}}$, we can determine whether $\overrightarrow{p}\in Y_0(q)$ or not. And since, by proposition \ref{prop:observationtimecoordinates}, the $C^0$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}=\F(q)$ are $C^\infty$-observation coordinates if and only if $\overrightarrow{p}\in Y_0(q)$, where $\overrightarrow{p}$ are associated to $\aa$ wrt. $q$, we can determine all $C^0$-observation coordinates around $\widehat{q}$ which are also $C^\infty$-observation coordinates.
 \end{proof}
 
-\subsubsection{Construction of the conformal type of the metric}
+\section{Construction of the conformal type of the metric}
 We will denote by $\widehat{g}=\F_*g$ the metric on $\widehat{V}=\F$ that makes $\F:V\to \widehat{V}$ an isometry. Next we will show that the set $\F(V)$, the paths $\mu_a$ and the conformal class of the metric on $U$ determine the conformal class of $\widehat{g}$ on $\widehat{V}$.
 
 \begin{lemma}\label{lem:constructmetric}
@@ -233,59 +233,74 @@ The data given in \ref{rmk:data} allows us to determine a metric $G$ on $\wideha
     The above shows that the data \ref{rmk:data} determine the conformal class of the metric tensor $\widehat{g}$. And in particular we can construct a metric $G$ on $\widehat{V}$ that is conformal to $\widehat{g}$ and satisfies $G(X,X)=-1$.
 \end{proof}
 
-% \begin{proof}
-%     We have now gone through all the steps necessary to reconstruct the conformal, differential and topological data of $V$, we will not tie this all together to give a detailed account of the actual reconstruction and prove theorem \ref{thm:reconstr}.
+\section{Overview}
+We have now gone through all the steps necessary to reconstruct the conformal, differential and topological data of $V$ and will now tie this all together to give a detailed account of the actual reconstruction.
+
+As mentioned in remark \ref{rmk:data} we want to prove the following theorem which implies theorem \ref{thm:intreconstr}:
+\begin{theorem}
+    Let $(M,g)$ be a globally hyperbolic Lorentzian manifold and $p^+,p^-\in M, V\subset \jp$ suitable such that $V$ is an open subset of $\interior{\jp}$. Then given 
+    \begin{enumerate}[label={\textnormal{(\arabic*)}}]
+        \item The smooth manifold $K$,
+        \item the conformal class of $g\rvert_K$ and
+        \item the set of light cone observations $\mc{P}_K(V)$
+    \end{enumerate}
+    we can construct a globally hyperbolic Lorentzian manifold $\widehat{V}$ such that there exists a conformal diffeomorphism $\F:V\to \widehat{V}$, which preserves causality.
+\end{theorem}
+\begin{proof}
+    % Assume we are given data $\ref{rmk:data}$, that is, the smooth manifold $U$, the conformal class of $g\rvert_U$, the family of smooth and timelike future-pointing paths $\mu_a, a\in \ca$ and the collection of light observation sets $\mc{P}_U(V)=\{\mc{P}_U(q)\mid q\in V\}$. Note that for a given  $\mc{P}_U(q)$, we cannot, a priory, determine to which $q\in V$ it belongs.
     
-%     Assume we are given data $\ref{rmk:data}$, that is, the smooth manifold $U$, the conformal class of $g\rvert_U$, the family of smooth and timelike future-pointing paths $\mu_a, a\in \ca$ and the collection of light observation sets $\mc{P}_U(V)=\{\mc{P}_U(q)\mid q\in V\}$. Note that for a given  $\mc{P}_U(q)$, we cannot, a priory, determine to which $q\in V$ it belongs.
-    
-%     To then construct $\widehat{V}$ which is conformally diffeomorphic to $V$ we follow these steps:
-%     \begin{itemize}
-%         \item As $f_a(q) = \min \{s\in [-1,1] \mid \mu_a(s) \in \mc{P}_U(q)$ we can determine $\varepsilon_U(V) = \{\varepsilon_U(q) \mid q\in V\}$ from $\mc{P}_U(V)$.
-%         \item Proposition \ref{prop:recoverD} then allows us to determine $\mc{D}^{reg}_U(q)$, $\mc{D}_U(q)$ and $\varepsilon_U^{reg}(q)$ for a given $\varepsilon_U(q)\in \varepsilon_U(V)$. We can thus construct $\mc{D}^{reg}_U(V)$, $\mc{D}_U(V)$ and $\varepsilon_U^{reg}(V)$.
-%         \item We define the function 
-%         \begin{align*}
-%             \F:V&\to \F(V) = \widehat{V} \subset \R^{\ca}\\
-%             q &\mapsto \widehat{q} = F_q = (a\mapsto f_a(q)).
-%         \end{align*}
-%         For a given $\varepsilon_U(q)$ we can construct $\widehat{q}$ by $\widehat{q}(a) = f_a(q) = s$ such that $\mu_a(s) \in \varepsilon_U(q)$.
-%         This allows us to construct the following map
-%         \begin{align*}
-%             \widetilde{\F}:V&\to \widehat{V}\\
-%             \varepsilon_U(q) &\mapsto \widehat{q}.
-%         \end{align*}
-%         Note that by the same procedure we can define the map
-%         \begin{align*}
-%             \widetilde{f}_a:\varepsilon_U(V)&\to\R\\
-%             \varepsilon_U(q) &\mapsto f_a(q).
-%         \end{align*}
+    To construct the space $\widehat{V}$ which is conformally diffeomorphic to $V$ we follow these steps:
+    \begin{itemize}
+        \item As $f_a(q) = \min \{s\in [-1,1] \mid \mu_a(s) \in \mc{P}_K(q)\}$ we can determine $\mc{E}_K(V) = \{\ee(q) \mid q\in V\}$ from $\mc{P}_K(V)$.
+        \item Proposition \ref{prop:obsreconstr} then allows us to determine $\mc{D}^{reg}_K(q)$, $\mc{D}_K(q)$ and $\er(q)$ for a given $\ee(q)\in \ee(V)$. We can thus construct $\mc{D}^{reg}_K(V)$, $\mc{D}_K(V)$ and $\er(V)$.
+        \item We define the function 
+        \begin{align*}
+            \F:V&\to \F(V) = \widehat{V} \subset (\mc{C}^\infty(\sn),d)\\
+            q &\mapsto \widehat{q} = F_q = (a\mapsto f_a(q)).
+        \end{align*}
+        For a given $\ee(q)$ we can construct $\widehat{q}$ by $\widehat{q}(a) = f_a(q) = s$ such that $\mu_a(s) \in \ee(q)$.
+        This allows us to construct the map
+        \begin{align*}
+            \widetilde{\F}:\ee(V)&\to \widehat{V}\\
+            \ee(q) &\mapsto \widehat{q}.
+        \end{align*}
+        And we can thus determine the set $\widehat{V} = \widetilde{\F}(\ee(V))$.
+
+        \item By taking the subspace topology with respect to the topology on $\mc{C}^\infty(\sn)$ induced by $d$ we can determine a topology on $\widehat{V}$. By corollary \ref{cor:Fhomeo} this topology is homeomorphic to the topology on $V$, making $\F$ a homeomorphism.
         
-%         Furthermore if we endow $\widehat{V}$ with the product topology and let $\pi_a:\widehat{V}\to \R$ with $\widehat{q}\mapsto \widehat{q}(a)$ then the following diagrams commute for all $a\in \ca$:
-%         \[\begin{tikzcd}
-%         V &&& {\widehat{V}} \\
-%         {\varepsilon_U(V)} & {\widehat{V}} & V & {\mathbb{R}} & {\varepsilon_U(V)}
-%         \arrow["{\mathcal{F}}", from=1-1, to=2-2]
-%         \arrow["{\widetilde{\mathcal{F}}}"', from=2-1, to=2-2]
-%         \arrow["{q\mapsto\varepsilon_U(q)}"', from=1-1, to=2-1]
-%         \arrow["{f_a}"', from=2-3, to=2-4]
-%         \arrow["{\widetilde{f}_a}", from=2-5, to=2-4]
-%         \arrow["{\mathcal{F}}", from=2-3, to=1-4]
-%         \arrow["{\widetilde{\mathcal{F}}}"', from=2-5, to=1-4]
-%         \arrow["{\pi_a}", from=1-4, to=2-4]
-%     \end{tikzcd}\]
+    %     Note that by the same procedure we can define the map
+    %     \begin{align*}
+    %         \widetilde{f}_a:\varepsilon_U(V)&\to\R\\
+    %         \varepsilon_U(q) &\mapsto f_a(q).
+    %     \end{align*}
+        
+    %     Furthermore if we endow $\widehat{V}$ with the product topology and let $\pi_a:\widehat{V}\to \R$ with $\widehat{q}\mapsto \widehat{q}(a)$ then the following diagrams commute for all $a\in \ca$:
+    %     \[\begin{tikzcd}
+    %     V &&& {\widehat{V}} \\
+    %     {\varepsilon_U(V)} & {\widehat{V}} & V & {\mathbb{R}} & {\varepsilon_U(V)}
+    %     \arrow["{\mathcal{F}}", from=1-1, to=2-2]
+    %     \arrow["{\widetilde{\mathcal{F}}}"', from=2-1, to=2-2]
+    %     \arrow["{q\mapsto\varepsilon_U(q)}"', from=1-1, to=2-1]
+    %     \arrow["{f_a}"', from=2-3, to=2-4]
+    %     \arrow["{\widetilde{f}_a}", from=2-5, to=2-4]
+    %     \arrow["{\mathcal{F}}", from=2-3, to=1-4]
+    %     \arrow["{\widetilde{\mathcal{F}}}"', from=2-5, to=1-4]
+    %     \arrow["{\pi_a}", from=1-4, to=2-4]
+    % \end{tikzcd}\]
     
-%     Note that in the above diagrams, the data \ref{rmk:data} only allows us to construct the sets $\varepsilon_U(V)$ and $\widehat{V}$ and the maps $\widetilde{F}$, $\widetilde{f}_a$ and $\pi_a$.
+    % Note that in the above diagrams, the data \ref{rmk:data} only allows us to construct the sets $\varepsilon_U(V)$ and $\widehat{V}$ and the maps $\widetilde{F}$, $\widetilde{f}_a$ and $\pi_a$.
     
-%     We thus can construct the space $\widehat{V}$ and endow it with the product topology since both $\ca$ and $\R$ are metric spaces.
+    % We thus can construct the space $\widehat{V}$ and endow it with the product topology since both $\ca$ and $\R$ are metric spaces.
     
-%     \item We can then reconstruct the topological structure of $V$, since lemma \ref{lem:Fhomeo} shows that $\F:V\widehat{V}$ is a homeomorphism and we know the topology of $\widehat{V}$.
+    \item For a given point $\widehat{q}\in \widehat{V}$ we can use proposition \ref{prop:findsmoothcoords} and the data to determine all $C^0$-observation coordinates around $\widehat{q}$. We can then determine for each of these coordinates if they are also $C^\infty$-observation coordinates, and find at least one such coordinate system since existence is guaranteed. We can repeat that step for each $\widehat{q}\in \widehat{V}$ to find smooth coordinates on $\widehat{V}$, making $\F$ a diffeomorphism. 
     
-%     \item For a given point $\widehat{q}\in \widehat{V}$ we can use proposition \ref{prop:findsmoothcoords} and the date \ref{rmk:data} to determine all $C^0$-observation coordinates around $\widehat{q}$. We can then determine for each of these coordinates if they are also $C^\infty$-observation coordinates, and find at least one such coordinates since existence is guaranteed. We then repeat that step for each $\widehat{q}\in \widehat{V}$ to find smooth coordinates on $\widehat{V}$. Since these coordinates make $\F$ a diffeomorphism this allows us to recover the differential structure of $V$.
-    
-%     \item Finally we use lemma \ref{lem:constructmetric} to construct a metric $G$ and time-orientation $X$ on $\widehat{V}$ which is conformal to $\widehat{g}=\F_*g$ and makes $\F$ causal. 
-%     $\F:(V,g\rvert_U)\to (\widehat{V},G)$ is thus a causal diffeomorphism and we can reconstruct the causal and conformal structure of $V$.
-%     \end{itemize}
-    
-%     Given the data \ref{rmk:data}, we were able to reconstruct the conformal, differential and topological structure of $V$ and since the data is invariant under conformal diffeomorphism, the first consequence of theorem \ref{thm:reconstr} follows.
-    
-%     For the final part of theorem \ref{thm:reconstr}, by \ref{prop:recoverD}(1) we can identify all $q\in U\cap V$ using data \ref{rmk:data} which uniquely determines the map.
-% \end{proof}
+    \item Finally we can use lemma \ref{lem:constructmetric} to construct a metric $G$ and time-orientation $X$ on $\widehat{V}$ which is conformal to $\widehat{g}=\F_*g$ and makes $\F$ causal. 
+    $\F:(V,g\rvert_U)\to (\widehat{V},G)$ is thus a causal conformal diffeomorphism as desired.
+    \end{itemize}
+\end{proof}
+
+\begin{remark}\label{rmk:ReconstrPastBoundary}
+    In the statement of theorem \ref{thm:intreconstr} we required that $V$ be a subset of the interior $\interior{\jp}$. This is because as we approach the observation set $K$, the light cone observation sets get increasingly degenerate and loose many of their nice properties for points on the boundary, i.e. if we had a $q\in V\cap K$. This issue will be adressed in the next chapter by smoothing the observation time functions at the boundary.
+
+    However if $q\in V$ approaches the past boundary $\mc{L}^+_{p^-}\cap I^-(p^+)$ the situation is much simpler: Because we are always away from the set of observers $K$, the light cone observation sets remain well behaved even for $q\in \mc{L}^+_{p^-}\cap I^-(p^+)$. It is thus possible to relax the condition $V\subset \interior{\jp}$ to $V\subset \jp \setminus K$ in theorem \ref{thm:intreconstr} with only minor modifications to the proofs.
+\end{remark}

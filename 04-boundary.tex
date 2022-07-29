@@ -4,17 +4,18 @@
 
 In this section we will examine how we can extend our reconstruction result to the case where the observed set $V$ is no longer contained within the interior of $J(p^-,p^+)$ but is now allowed to extend up to the boundary. In other words we want to recover the conformal structure of $J(p^-,p^+)$ from light cone observations made on the future null boundary $K = J(p^-,p^+) \setminus I^-(p^+)$.
 
-This is complicated by the fact that as $q\in J(p^-,p^+)$ approaches the boundary, the light observation $\mc{P}_K(q)$ get increasingly warped and is degenerate if $q$ is in the boundary. 
+This is complicated by the fact that as $q\in J(p^-,p^+)$ approaches the boundary, the light observation sets $\mc{P}_K(q)$ get increasingly warped and is degenerate if $q$ is in the boundary. 
+
+Analogous to the interior reconstruction case we will again prove the modified version outlined in remark \ref{rmk:data}, and let $(M,g)$ be a globally hyperbolic Lorentzian manifold, with $p^+,p^-\in M,V\in \jp$ suitable such that $V\in \jp$ is relatively open.
 
 \section{Preliminaries}
-((Also include past boundary of $\jp$))
+To extend the reconstruction up to the edge of $\jp$ we will essentially split up the reconstruction into two steps: We will split up $V$ into $V\cap (\jp \setminus K)$ and $V\cap D$ where $D$ is the set of all points such that $F_q$ has a unique minimum. On $V\cap (\jp \setminus K)$ we will use the reconstruction result from the previous chapter and on $V\cap D$ we will use the fact that the observation time functions have unique minima to smooth them on the boundary $K$.
 
-To extend the reconstruction up to the edge of $\jp$ we need to introduce some new concepts.
-
+To that end we need to introduce some new concepts:
 \begin{definition}[Unique minimum domain]\label{def:uniquemindomain}
     We define the \emph{unique minimum domain} $D\subset \jp$ to be 
     \begin{equation}
-        D:=\{q\in \jp \mid F_q\text{ has a unique minimum}\}.
+        D:=\{q\in \interior{\jp} \cup K \mid F_q\text{ has a unique minimum}\}.
     \end{equation}
 
     We will often describe this minimum with 
@@ -22,6 +23,7 @@ To extend the reconstruction up to the edge of $\jp$ we need to introduce some n
         (a_q,t_q)=(\argmin_{a\in \sn} F_q, \min_{a\in \sn} F_q).
     \]
 \end{definition}
+This will be the domain where we will establish our reconstruct procedure. We will see that $D$ an open neighborhood of the boundary $K$ allowing us to reconstruct boundary points. By remark \ref{rmk:ReconstrPastBoundary} ((TODO))
 
 \begin{definition}[Constant observation time domain]\label{def:constobstime} For some $t_0\in (0,1)$ we define the \emph{constant observation time domain} as 
 \begin{equation}
