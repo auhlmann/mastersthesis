@@ -1,42 +1,80 @@
 \chapter{Applications}
 
 \section{Stability Results}
-((Overhaul, include globally hyperbolic stability))
-We aim to show the reconstruction result in a simplified case and first establish that small deviations from the minkovsky metric on a compact set introduce no conjugate points:
-\begin{proposition}
-    Let $p^+\gg p^-, V\subset \interior{\jp}$ \emph{suitable}, $V$ open. Then there exists a $\varepsilon>0$ such that if $g,g'$ and $g''$ $\varepsilon$-close to $g_0$ then still suitable.
-\end{proposition}
 
+The following lemma guarantees that theorem \ref{thm:intreconstr} still applies even if we deviate the metric slightly:
+\begin{lemma}
+    Let $(M,g)$ be a globally hyperbolic manifold with $p^-,p^+\in M$ \emph{suitable}. Furthermore let $V\in \interior{\jp}$ such for any $q\in \cl{V}$, no null geodesic starting at $q$ has a conjugate point in $K$.
 
-\begin{proposition}
-Let $K\subset\R^n_1$ be a compact subset of the $1+n$-dimensional minkovsky space with metric $g=-dt^2+\sum_{i=1}^n dx_i^2$. And let $\widetilde{g}$ be a slightly disturbed metric $\widetilde{g}=g+\varepsilon h$ where $\varepsilon>0$ and $h$ is another metric.
-
-Then we can choose $\varepsilon>0$ small enough such that under the disturbed metric $\widetilde{g}$ no causal geodesic starting in $K$ has a conjugate point in $K$.
-\end{proposition}
+    If we vary the metric $g$ slightly to $\widetilde{g}:=g+h$ such that 
+    \[
+        \lvert h_{ij}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha,\beta}\rvert_q \rvert <\varepsilon \quad \text{for }i,j,\alpha,\beta\in \{1,\dots, 1+n\}
+    \]
+    and $\widetilde{g}$ is smooth and has $h_q=0$ for all $q\in M\setminus V$. Then if $\varepsilon>0$ is small enough, $(M,\widetilde{g})$ is globally hyperbolic and $p^-,p^+,V$ are still \emph{suitable}
+\end{lemma}
 \begin{proof}
-We begin by defining the set $H = \{(p,v)\in TK \mid \exp_p(v) \in K\}$. Note that for $\varepsilon>0$ small enough this set is compact as well. This is because in the minkovsky case, every geodesic starting in $K$ leaves $K$ in a finite time which depends continuously on the starting point and initial direction. This property still holds for $\widetilde{g}$ if $\varepsilon$ is small enough and thus $H$ is compact.
+    To distinguish between objects defined in terms of $g$ or $\widetilde{g}$ we will add a prescript of the respective metrice, for example $\psg{\exp}_q$ is the exponential map defined with respect to $g$ and $\psgt{\exp}_q$ with respect to $\widetilde{g}$. We begin by showing that for $\varepsilon_1>0$, small enough, $(M,\widetilde{g})$ still globally hyperbolic. This follows from ((GEROCHPAPER))
+    
+    Next we want to show that we also have $p^- \psgt{\ll} p^+$, i.e. there exists a timelike (wrt. $\widetilde{g}$) path from 
+    $p^-$ to $p^+$. Because $p^- \psg{\ll} p^+$, there exists a path $\sigma$ with $\sigma(0)=p^-$ and $\sigma(1)=p^+$ which is timelike wrt. $g$. Because $[0,1]$ is compact we can find a $\varepsilon_2>0$ such that $\sigma$ is still timelike wrt. $\widetilde{g}$, and thus $p^-\ll g^+$.
 
-Recall that ((REF GEOD)) for a geodesic $\gamma_{p,v}$ starting at $p$ with initial velocity $v$, $q=\gamma_{p,v}(b)$ is a conjugate point of $p=\gamma_{p,v}(0)$ if and only if the differential of the exponential map $d\exp_p$ is singular at $bv$. 
-We we then define 
-\[
-    \varepsilon_{p,v} = \frac{1}{2}\sup\{\varepsilon'>0\mid d\exp\}
-\]((Bla bla bla, do it with open cover instead))
-By compactness of $H$ we can achieve that $\exp$ is never singular on it which means that no geodesic starting in $K$ has a conjugate point in $K$. 
+    Because $p^-\ll p^+$ and $(M,\widetilde{g})$ globally hyperbolic, the map $a\in \sn \mapsto \psgt{T}_a\in (0,\infty)$ as in lemma \ref{lem:Tvdef} is well-defined and continuous making $\psgt{\mc{S}} := \{(a,t)\in \sn\times [0,\infty) \mid t\in [0,\psgt{T}_a]\}$ a compact set. 
+
+    Now because the geodesic equation on $(M,\widetilde{g})$ is a second order ODE with coefficients $\widetilde{g}_{ij}$ and $\widetilde{g}_{ij,\alpha}$ and $h=\widetilde{g}-g$ has compact support, $\psgt{\exp}:TM\to M$ depends smoothly on $\widetilde{g}_{ij}$ and $\widetilde{g}_{ij,\alpha}$ while $d\psgt{\exp}:T(TM)\to TM$ depends smoothly on $\widetilde{g}_{ij}$, $\widetilde{g}_{ij,\alpha}$ and $\widetilde{g}_{ij,\alpha,\beta}$ for some $\varepsilon_3>0$ small enough. This also implies that $\psgt{\rho(q,w)}$ as well as $\psgt{T}_a$ depend smoothly on $\widetilde{g}$ and its first and second derivatives. Because we have $\psg{\rho(p^+,a)}>\psg{T}_a$ for all $a\in \sn$ there exists a $\varepsilon_4>0$ such that $\psgt{\rho(p^+,a)}>\psgt{T}_a$ for all $a\in \sn$ and we have proved that $p^-,p^+$ are suitable.
+
+    Note that because $\widetilde{g}=g$ outside of $V$, we still have $V\subset \interior{\psgt{\jp}}$. We can then see that $p^-,p^+,V$ are still suitable with respect to $\widetilde{g}$ and some $\varepsilon_5>0$ after noting that $\psgt{L}^K\cl{V}$ is compact and $\psg{\exp}$ has no conjugate points in $\psg{L}^K\cl{V}$ by assumption.
 \end{proof}
-((Is global hyperbolicity needed?))
-Note that this proof can be directly generalized to show that if $K$ is a compact subset of a globally hyperbolic manifold $(M,g)$ and every causal geodesic starting in $K$ has no conjugate point in $K$, then also for a slightly perturbed $(M,g+\varepsilon h)$, causal geodesics starting in $K$ have no conjugate points in $K$.
-((Expand conj point to cut points?))
 
+\begin{corollary}
+    Let $(M,g)$ be a globally hyperbolic manifold with $p^-,p^+\in M$ \emph{suitable} and such that no geodesic starting at $p^-$ has a cut point in $\mc{L}^+\cap J^-(p^+)$. Furthermore let $V\in \interior{\jp}$ such for any $q\in \cl{V}$, no null geodesic starting at $q$ has a conjugate point in $K$.
+    
+    If we vary the metric $g$ slightly to $\widetilde{g}:=g+h$ such that 
+    \[
+        \lvert h_{ij}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha,\beta}\rvert_q \rvert <\varepsilon \quad \text{for } i,j,\alpha,\beta\in \{1,\dots, 1+n\}
+    \] $q\in \interior{\jp}$
+    and $\widetilde{g}$ is smooth and has $h=0$ for all $q\in M\setminus \interior{\jp}$. Then if $\varepsilon>0$ is small enough, $(M,\widetilde{g})$ is globally hyperbolic and $p^-,p^+,V$ are still \emph{suitable}. Furthermore we have $\psg{\jp}=\psgt{\jp}$ and $\psg{K}=\psgt{K}$.
+\end{corollary}
+\begin{proof}
+    The proof follows from the observation that the fact that $p^\pm$ have no cut points in $\mc{L}^\mp_{p^\pm} \cap J^\pm(p^\mp)$ implies $\psg{\exp_{p^\pm}}= \psgt{\exp_{p^\pm}}$ together with an analogous argument to the previous lemma.
+\end{proof}
+
+\begin{example}
+    Because Minkowski space $(\R^{1+n}, g_M:=-dt^2 + \sum dx^2)$ has no cut points. We can pick any $p^-,p^+,V$ \emph{suitable} such that $V\in \interior{\jp}$ using the previous lemma we can see that for small deviatations from $g_M$ with support on $V$, theorem \ref{thm:intreconstr} still applies and we can reconstruct $V$ from the light cone observations on $K$.
+\end{example}
+
+
+
+However this example is somewhat limited in scope because such a deviation cannot be physical. To get a physical example we will use the reconstruction result on the Einstein universe:
+% \begin{proposition}
+% Let $K\subset\R^n_1$ be a compact subset of the $1+n$-dimensional minkovsky space with metric $g=-dt^2+\sum_{i=1}^n dx_i^2$. And let $\widetilde{g}$ be a slightly disturbed metric $\widetilde{g}=g+\varepsilon h$ where $\varepsilon>0$ and $h$ is another metric.
+
+% Then we can choose $\varepsilon>0$ small enough such that under the disturbed metric $\widetilde{g}$ no causal geodesic starting in $K$ has a conjugate point in $K$.
+% \end{proposition}
+% \begin{proof}
+% We begin by defining the set $H = \{(p,v)\in TK \mid \exp_p(v) \in K\}$. Note that for $\varepsilon>0$ small enough this set is compact as well. This is because in the minkovsky case, every geodesic starting in $K$ leaves $K$ in a finite time which depends continuously on the starting point and initial direction. This property still holds for $\widetilde{g}$ if $\varepsilon$ is small enough and thus $H$ is compact.
+
+% Recall that ((REF GEOD)) for a geodesic $\gamma_{p,v}$ starting at $p$ with initial velocity $v$, $q=\gamma_{p,v}(b)$ is a conjugate point of $p=\gamma_{p,v}(0)$ if and only if the differential of the exponential map $d\exp_p$ is singular at $bv$. 
+% We we then define 
+% \[
+%     \varepsilon_{p,v} = \frac{1}{2}\sup\{\varepsilon'>0\mid d\exp\}
+% \]((Bla bla bla, do it with open cover instead))
+% By compactness of $H$ we can achieve that $\exp$ is never singular on it which means that no geodesic starting in $K$ has a conjugate point in $K$. 
+% \end{proof}
+% ((Is global hyperbolicity needed?))
+% Note that this proof can be directly generalized to show that if $K$ is a compact subset of a globally hyperbolic manifold $(M,g)$ and every causal geodesic starting in $K$ has no conjugate point in $K$, then also for a slightly perturbed $(M,g+\varepsilon h)$, causal geodesics starting in $K$ have no conjugate points in $K$.
+% ((Expand conj point to cut points?))
+
+\section{Einstein Universe}
 
 \begin{definition}[Einstein Universe]
 Let $(\R,-dt^2)$ be the real line with negatively definite metric $-dt^2$ and $(S^n,h)$ the n-sphere with the canonical Riemannian metric. The $1+n$ dimensional \emph{Einstein universe} is then defined as the product $(\R\times S^n, -ds^2 \oplus h)$
 \end{definition}
 
 \begin{remark}
-We can parameterize $S^n$ by an angle $\alpha\in (0,\pi)$ and a point $\omega\in S^{n-1}$ via the map 
+We can parameterize $S^n$ by an angle $\alpha\in [0,\pi]$ and a point $\omega\in S^{n-1}$ via the map 
 
 \begin{align*}
-    S:(0,\pi)\times S^{n-1}&\to S^n \\
+    S:[0,\pi]\times S^{n-1}&\to S^n \\
     (\alpha,\omega) &\mapsto (\cos \alpha, \sin \alpha \omega)
 \end{align*}
 
@@ -45,18 +83,34 @@ If for a $X\in S^n$ we write $X=(X_0,\overrightarrow{X}), X_0\in \R, \overrighta
     \alpha = \arccos X_0, \quad \omega=\frac{\overrightarrow{X}}{\lVert\overrightarrow{X}\rVert}.
 \]
 
-Note that $S$ has the irregular points $(\pm 1,0\dots,0)$
+$S$ is surjective and smooth but we have 
+\[(1,0,\dots, 0) = S(0,\omega) \quad \text{and} \quad (-1,0,\dots,0)=S(\pi,\omega) \quad \text{for all }\omega\in \sn,\]
+which means $S$ fails to be injective if $\alpha = [0,\pi]$. Nontheless for every $X\in S^n$, $\alpha$ is well defined.
 \end{remark}
 
-We can now construct our conformal embedding:
+We define 
+\begin{align*}
+    M^M:=&\{(T,X)\in \R\times S^n \mid T\in(-\pi,\pi), \alpha<\pi-\lvert T\rvert\} \text{ and}\\
+    \mc{J}^+:=&\{(T,X)\in \R\times S^n \mid T\in(0,\pi), \alpha = \pi - T\}\\
+    \mc{J}^-:=&\{(T,X)\in \R\times S^n \mid T\in(\pi,0), \alpha = \pi + T\}\\
+    i^\pm := \{T=\pm\pi,\alpha=0\}
+\end{align*}
+((Explanation, $\mc{J}$ are null infinities and essentially $K$))
 
+We can now construct our conformal embedding:
 \begin{proposition}
 Let $(\R\times S^n,g)$ be the $1+n$ dimensional Einstein universe and $(\R^{1+n},h=dt^2-dx_ndx^n)$ the $1+n$ dimensional Minkovski space. Then the map 
 \begin{align}
-    \Psi:\R\times S^n &\to \R^{1+n}\\
+    \Psi:M^M &\to \R^{1+n}\\
     (T,X) &\mapsto\frac{1}{\cos T + X_0}(\sin T,\overrightarrow{X})
 \end{align}
-is a conformal diffeomorphism from a suitable subset $U\subset \R\times S^n$ to the whole Minkovski space.
+is a conformal diffeomorphism from $M^M$ to the whole Minkovski space.
 \end{proposition}
 \begin{proof}
+    ((Look at Friedrich))
 \end{proof}
+
+
+\begin{example}
+    vary EU a bit use cor to reconstr show that 
+\end{example}

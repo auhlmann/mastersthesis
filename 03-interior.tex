@@ -3,7 +3,7 @@
 \section{Construction of the topology}
 We aim to reconstruct the topological and differential data of $V$. To that end we define the following functions.
 
-For $q\in V$ we define the function $F_q:\sn\to\R$ by $a\mapsto f_a(q)$ as in the previous chapter. We let $\mc{C}^\infty(\sn)$ be the space of continuous function $F:\sn\to [0,1]$ which are smooth on a dense open set in $\sn$. We can then endow this space with the metric 
+For $q\in V$ we define the function $F_q:\sn\to [-T_\sn,0]$ by $a\mapsto f_a(q)$ as in the previous chapter. We let $\mc{C}^\infty(\sn)$ be the space of continuous function $F:\sn\to [-T_\sn,0]$ which are smooth on a dense open set in $\sn$. We can then endow this space with the metric 
 \[
     d(F,G):= d_\infty(F,G) + \int_{\sn} \lVert dF_a - dG_a \rVert_{g_\sn}da,
 \] where $d_\infty(F,G):=\max_{a\in \sn}\lvert F(a)-G(a)\rvert$.
@@ -251,7 +251,7 @@ As mentioned in remark \ref{rmk:data} we want to prove the following theorem whi
     
     To construct the space $\widehat{V}$ which is conformally diffeomorphic to $V$ we follow these steps:
     \begin{itemize}
-        \item As $f_a(q) = \min \{s\in [-1,1] \mid \mu_a(s) \in \mc{P}_K(q)\}$ we can determine $\mc{E}_K(V) = \{\ee(q) \mid q\in V\}$ from $\mc{P}_K(V)$.
+        \item As $f_a(q) = \min \{s\in [-T_a,0] \mid \mu_a(s) \in \mc{P}_K(q)\}$ we can determine $\mc{E}_K(V) = \{\ee(q) \mid q\in V\}$ from $\mc{P}_K(V)$.
         \item Proposition \ref{prop:obsreconstr} then allows us to determine $\mc{D}^{reg}_K(q)$, $\mc{D}_K(q)$ and $\er(q)$ for a given $\ee(q)\in \ee(V)$. We can thus construct $\mc{D}^{reg}_K(V)$, $\mc{D}_K(V)$ and $\er(V)$.
         \item We define the function 
         \begin{align*}
