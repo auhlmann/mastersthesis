@@ -1,0 +1,422 @@
+\section{Lorentzian Geometry}
+\subsection{Covariant Derivative and Levi-Civita Connection}
+
+\begin{definition}[Connection]
+A \emph{connection} is a map $D:\Gamma(M)\times\Gamma(M)\to\Gamma(M)$ such that
+
+\begin{itemize}
+    \item[(C1)] $D_VW$ is $C(M)$-linear in $V$
+    \item[(C2)] $D_VW$ is $\R$-linear in $W$
+    \item[(C3)] $D_V(fW) = V(f)W + fD_VW$ for $f\in C(M)$
+\end{itemize}
+
+\end{definition}
+
+\begin{theorem}[Levi-Civita Connection]
+On a semi-Riemannian manifold $(M,g)$ there exists a unique connection $D$ such that
+\begin{itemize}
+    \item[(C4)] $[V,W] = D_VW-D_WV$
+    \item[(C5)] $Xg(V,W)=g(D_XV,W)+g(V,D_XW)$
+\end{itemize}
+\end{theorem}
+
+
+\begin{proposition}[Covariant Derivative in Coordinates]
+In coordinates the covariant derivative for a vector field $X$ is given by 
+\begin{equation*}
+    (D_{\partial_i}X)^{k} = X^k_{,i}+\Gamma^k_{ij}X^j
+\end{equation*}
+\end{proposition}
+
+\begin{definition}[Covariant Differential]
+The \emph{covariant differential} of a tensor field $A\in T^r_s(M)$ is the $(r,s+1)$-tensor field $DA$ given by
+\begin{equation*}
+    (DA)(\theta_1,\dots,\theta_r,X_1,\dots,X_s,V) \coloneqq (D_VA)(\theta_1,\dots,\theta_r,X_1,\dots,X_s)
+\end{equation*}
+\end{definition}
+
+\subsection{Parallel Transport and Geodesics}
+\begin{definition}[Vector Field on a Curve]
+Let $\gamma:I\to M$ be a smooth curve. The space of \emph{vector fields along $\gamma$}, denoted by $\Gamma(\gamma)$, corresponds to smooth maps $Z:I\to TM$ such that $Z(t) = (\gamma(t), v\in T_{\gamma(t)M})$, i.e. vector fields along $\gamma$ parameterized by $I$.
+\end{definition}
+Note that any vector field on $M$ is also a vector field along $\gamma$.
+
+There is a natural way to define the vector rate of change $Z'$ for any $Z \in \Gamma(\gamma)$
+
+\begin{definition}[Induced Covariant Derivative]Suppose that $\gamma$ is regular, i.e. $\gamma'\neq0$ everywhere. Then the \emph{induced covariant derivative} on $\Gamma(\gamma)$ can be defined as
+\[
+Z' = DZ/dt \coloneqq D_{\gamma'}Z \qquad \text{ where } Z\in\Gamma(\gamma)
+\]
+we then have that 
+\[
+(Z')^k=\frac{Z^k}{dt}+\Gamma^k_{ij}\frac{d\gamma^i}{dt}Z^j
+\]
+\end{definition}
+If $Z'=0$, it is said to be \emph{parallel}.
+\begin{proposition}[Parallel Translation] For a curve $\gamma:I\to M$, let $a\in I$ and $z \in T_{\gamma(a)}M$.
+
+Then there exist a unique parallel vector field $Z$ on $\gamma$ such that $Z(a)=z$
+\end{proposition}
+Note that this induces a function 
+\[
+P = P^b_a(\gamma):T_{\gamma(a)}M\to T_{\gamma(b)}M \qquad \text{ where } a,b\in I
+\]
+called the \emph{parallel translation along $\gamma$}.
+\begin{lemma}
+Parallel translation is a linear isometry.
+\end{lemma}
+
+\subsection{Geodesics}
+\begin{definition}[Geodesic]
+A curve $\gamma$ is called a \emph{geodesic} if its acceleration $\gamma'' = D_{\gamma'}\gamma'$ is zero.
+\end{definition}
+Note that for a geodesic we thus have 
+\begin{equation}\label{eq:geod}
+\frac{d^2(\gamma^i)}{dt^2} + \Gamma^k_{ij}\frac{d\gamma^i}{dt}\frac{d\gamma^j}{dt} = 0 \qquad \text{ for all } k\in\ton
+\end{equation}
+These equations are known as the \emph{geodesic equations}
+
+\begin{proposition}
+Given a tangent vector $v\in T_pM$ there is a unique maximal geodesic $\gamma_v$ such that its initial velocity is $v$; that is $\gamma_v'(0)=v$.
+\end{proposition}
+
+
+\subsection{Exponential Map}
+For any point $p\in M$, the \emph{exponential map} is (where it is defined) given by
+\begin{align*}
+    \exp_p:T_pM&\to M\\
+    v &\to \gamma_v(1)
+\end{align*}
+Note that we have \[
+\exp_p(tv) = \gamma_{tv}(1) = \gamma_v(t) \qquad \text{ for }v\in T_pM, t\in \R 
+\].
+
+After restriction it is a well defined diffeomorphism:
+\begin{proposition}
+For every $p\in M$ there exists a neighborhood of zero $\widetilde{U}\subset T_pM$ on which the the exponential map $\exp_p$ is a diffeomorphism onto a neighborhood $U\subset M$ of $p$.
+
+If additionally, $\widetilde{U}$ is starshaped we call $U$ \emph{normal} and for every point $p'\in U$ there exists a unique geodesic $\sigma:[0,1]\to U$ from $p$ to $p'$ in $U$. Furthermore we have $\sigma'(0)=\exp^{-1}(p) \in \widetilde{U}$.
+\end{proposition}
+
+Note that if $U$ is normal, the inverse exponent map $\exp^{-1}:U\to\widetilde{U}$ induces a so called \emph{normal chart} on $U$. If we then pick a orthonormal basis $e_1,\dots,e_n$ of $T_pM$ we a normal coordinate system with $(x^1,\dots,x^n)$, which assigns to each point $p'\in U$ the coordinates of $\exp_p^{-1}(p') \in \widetilde{U}$ relative to the basis $(e_1,\dots,e_n)$. I.e.
+\[
+\exp_p^{-1}(p') = \sum x^i(p)e_i
+\]
+\begin{proposition}[Normal Coordinates]
+If $(x^1,\dots,x^n)$ are a normal coordinate system at $p\in M$ we have that 
+\[
+g_{ij}(p) = \delta_{ij}\varepsilon_j \qquad \text{ and } \qquad \Gamma_{ij}^k(p) = 0 \qquad \forall i,j,k
+\]
+\end{proposition}
+
+\subsection{Gauss Lemma and Convex Sets}
+The Gauss lemma asserts that the exponential map is a radial isometry
+\begin{lemma}[Gauss Lemma]
+Let $p\in M$ and $0\neq x\in T_pM$, if $v_x,w_x\in T_x(T_pM)$ with $v_x$ radial, then
+\[
+\langle d \exp_p(v_x), d \exp_p(w_x)\rangle = \langle v_x, w_x \rangle
+\]
+\end{lemma}
+
+We denote by $D\subset TM$ the largest domain of $\exp$, namely the set of all vectors in $v\in TM$ such that the geodesic $\gamma_v$ is defined on $[0,1]$. It follows that $D_p = D \cap T_pM$ is the largest domain of $\exp_p$.
+\begin{corollary}
+The domain $D$ of $\exp$ is open in $TM$. The domain $D_p$ of $\exp_p$ is an open subset of $T_pM$ and starshaped about 0.
+\end{corollary}
+
+\begin{definition}[Convex Set]
+An open set $C$ is \emph{convex} if it is a normal neighborhood of each of its points.
+\end{definition}
+
+\begin{proposition}
+Every $p\in M$ has a convex neighborhood.
+\end{proposition}
+
+\begin{lemma}
+A geodesic $\gamma:[0,b)\to M$ is geodesically extendable if and only if it is continuously extendable.
+\end{lemma}
+
+For $\mathcal{C}$ a convex open set with $p,q\in \mathcal{C}$. Suppose that $\sigma_{pq}$ is the radial geodesic from $p$ to $q$. We then call $\sigma'_{pq}(0) \in T_pM$ the \emph{displacement vector} from $p$ to $q$ and denote it by $\overrightarrow{pq}$.
+\begin{lemma}\label{lem:deltasmooth}
+Let $\mathcal{C}$ be a convex open set. The map $\Delta:\mathcal{C}\times\mathcal{C}\to TM$ given by $(p,q)\mapsto \overrightarrow{pq}$ is smooth and open.
+\end{lemma}
+
+\begin{lemma}
+Given any open covering $\mathcal{O}$ of M there exists a convex covering $\mathcal{C}$ such that each element of $\mathcal{C}$ is contained within some element of $\mathcal{O}$.
+\end{lemma}
+
+\subsection{Arc Length}
+\begin{definition}[Arc Length]
+Let $\gamma:[a,b]\to M$ be a piecewise smooth curve. The \emph{arc length} of $\gamma$ is 
+\[
+L(\gamma)\coloneqq\int_a^b\vert\gamma'(s)\vert ds
+\]
+\end{definition}
+Note that this length is invariant under monotone reparameterization and if $\vert\gamma'(s)\vert > 0$ everywhere we can achieve $\vert\gamma'(s)\vert = 1$ by reparameterization.
+
+\begin{lemma}
+$L(\sigma_{pq}) = \rvert \overrightarrow{pq} \rvert$ where $\overrightarrow{pq}\in T_pM$ is the vector such that $\exp_p(\overrightarrow{pq})=q$.
+\end{lemma}
+
+\begin{proposition}
+Let $U$ be a normal neighborhood of $p\in M$. If there exists a timelike curve in $U$ from $p$ to $p'$ then the radial geodesic segment $\sigma$ form $p$ to $p'$ is the unique longest timelike curve in $U$ from $p$ to $p'$.
+\end{proposition}
+This works because if the timelike curve strays from $\sigma$ it incurs a spacelike velocity component which only serves to reduce its length.
+
+\subsection{Lorentz Vector Space}
+Lorentz Vector Spaces are Scalar Product Spaces of index 1 and dimension $\ge 2$. They are abstractions of the tangent spaces to a Lorentz manifold.
+Let $W$ be a subspace of a Lorentz vector space $V$, there are \emph{three} possibilities:
+\begin{enumerate}
+    \item $g\vert_W$ is positive definite; $W$ is a inner product space and is said to be \emph{spacelike}.
+    \item $g\vert_W$ is nondegenerate of index 1; Then $W$ is \emph{timelike},
+    \item $g\vert_W$ is degenerate; Then $W$ is \emph{lightlike}.
+\end{enumerate}
+
+\begin{definition}[Timecone]
+Let $\mathcal{T}$ be the set of all timelike vectors in a Lorentz vector space.
+For $u \in \mathcal{T}$ we define the \emph{timecone} to be
+\[
+C(u)\coloneqq\{v\in\mathcal{T}\mid\langle u,v\rangle < 0\}
+\]
+The disjoint opposite timecone is given by $C(-u)$.
+\end{definition}
+Note that $C(u)$ and $C(-u)$ are convex cones and $C(u) \cup C(-u) = \mathcal{T}$.
+
+\begin{proposition}[Backwards inequalities for causal vectors]
+Let $v$ and $w$ be causal vectors. Then
+\begin{enumerate}
+    \item $\vert\langle v,w \rangle\vert\ge \vert v\vert \vert w\vert$
+    \item $\vert v \vert + \vert w \vert \le \vert v + w \vert$
+\end{enumerate}
+\end{proposition}
+
+To identify the \emph{future timecone} at every point of a Lorentzian manifold we need a \emph{time orientation} (a smooth assignment of a timecone to each point $p\in M$)
+\begin{lemma}
+A Lorentz manifold is time-orientable iff there exists a timelike vector field.
+\end{lemma}
+
+\subsection{Curvature}
+The Riemannian curvature tensor is the $(1,3)$ tensor field defined by 
+\begin{align*}
+    R:\Gamma(M)^3&\to\Gamma(M)\\
+    R_{XY}Z &= D_{[X,Y]} - [D_X,D_Y]Z
+\end{align*}
+which measures the degree to which the covariant derivative fails to be "lie-like".
+Note that $R$ is a tensor as it is $C(M)$-linear in all arguments.
+
+The curvature tensor is highly symmetric:
+\begin{proposition}Let $x,y,z,v,w\in T_pM$, then
+
+\begin{enumerate}
+    \item $R_{xy}=-R_{yx}$
+    \item $\ip{R_{xy}v,w}=-\ip{R_{xy}w,v}$
+    \item $R_{xy}z+R_{yz}x+R_{zx}y=0$
+    \item $\ip{R_{xy}v,w}=\ip{R_{vw}x,y}$
+\end{enumerate}
+\end{proposition}
+
+\section{Two-Parameter Maps}
+Due to their usefulness we will give a brief introduction to \emph{two-parameter maps}
+\[
+\x:\mathcal{D}\to M \quad \text{ where } \mathcal{D}\subset \R^2 \text{ and satisfies the interval condition.}
+\]
+$\x$ defines families of $u$- and $v$-parameter curves $\alpha_{v_0}\coloneqq u\mapsto \x(u,v_0)$, resp. $\beta_{u_0}\coloneqq v\mapsto \x(u_0,v)$.
+
+The \emph{partial velocities} are defined as
+\[
+\x_u \coloneqq d\x(\partial_u) = \frac{d}{du}\alpha_{v_0}, \quad \x_v \coloneqq d\x(\partial_v) = \frac{d}{dv}\beta_{u_0}.
+\]
+They are vector fields.
+
+Let now $Z$ be a vector field on $\x$, we can then define the \emph{partial covariant derivatives}
+\[
+Z_u = DZ/\partial u \coloneqq D_{\alpha_{v_0}}Z, \quad Z_v = DZ/\partial v \coloneqq D_{\beta_{u_0}}Z.
+\]
+
+In coordinates: 
+\[
+(Z_u)^k = \frac{\partial Z^k}{\partial u} + \sum_{i,j}\Gamma_{ij}^kZ^i\frac{\partial \x^j}{\partial u}
+\]
+
+A very useful proposition:
+\begin{proposition} For a two-parameter map $\x$ and a vector field $Z$, we have that
+
+
+\begin{enumerate}
+    \item $\x_{uv}=\x_{vu}$
+    \item $Z_{uv}-Z_{vu} = R_{x_u,x_v}Z$
+\end{enumerate}
+\end{proposition}
+
+\section{Calculus of Variation}
+We want to study the change in arc length of a curve segment under small displacements. To that end we will introduce the $\emph{variation}$ of a curve.
+\begin{definition}A \emph{variation} of a curve segment $\gamma:[a,b]\to M$ is a mapping \[
+\x:[a,b]\times(-\delta,\delta) \to M
+\]
+such that $\x(u,0)=\gamma(u)$ for all $u\in [a,b]$.
+
+The $u$-parameter curves (i.e. $\x(\cdot,v)$ for fixed $v\in(-\delta,\delta)$) are called \emph{longitudinal}, the $v$-parameter curves are called \emph{transverse}
+
+The vector field $V$ on $\gamma$ given by $V(u) = \frac{d}{dv}\x(u,0)$ is called the \emph{variation vector field}. It is the initial velocity of the transverse curve at that point.
+
+If the longitudinal curves of $\x$ are geodesic, $\x$ is called a \emph{geodesic variation}.
+
+\subsection{Jacobi Fields}
+\end{definition}
+\begin{definition}[Jacobi differential]
+If $\gamma$ is geodesic, a vector field $Y$ on $\gamma$ that satisfies the \emph{Jacobi differential equation}
+\[
+Y'' = R_{Y\gamma'}(\gamma')
+\]
+is called a \emph{Jacobi vector field}
+\end{definition}
+
+\begin{proposition}
+The variation vector field of a geodesic variation is a Jacobi field.
+\end{proposition}
+
+\begin{lemma}[Unique Jacobi Field]
+Let $\gamma$ be a geodesic with $\gamma(0)=p$ and $v,w\in T_pM$. Then there exist a unique Jacobi field $Y$ on $\gamma$ such that $Y(0)=v, Y'(0)=w$.
+\end{lemma}
+Since the jacobi equation is linear, the space of jacobi fields is thus a $2n$-dimensional vector space.
+
+\begin{proposition}[Jacobi Fields and Exponential Maps]Let $p\in M$ and $x\in T_pM$. For $v_x\in T_x(T_pM)$, 
+\[
+d \exp_p(v_x) = V(1)
+\]
+where $V$ is the unique Jacobi field on the geodesic $\gamma_x$ such that
+\[
+V(0) = 0, \quad V'(0) = v\in T_pM
+\]
+\end{proposition}
+
+\subsection{First and Second Deviation of Arc Length}
+We denote by $L_\x(v)$ the arc length of $\x(\cdot,v)$. Under mild conditions the function $L=L_\x$ is smooth and we are interested in finding formulas for the \emph{first and second variation of arc length} (i.e. $L'(0)$ and $L''(0)$).
+
+We consider piecewise smooth geodesics $\gamma$. To measure discontinuities at break points $(u_i)$ we define 
+\[
+\Delta\gamma'(u_i)\coloneqq\gamma'(u_i^+)-\gamma'(u_i^-)\in T_{\gamma(u_i)}M
+\]
+Furthermore, to treat spacelike and timelike curves in a uniform fashion we will define the \emph{sign} $\varepsilon$ of a curve as $\varepsilon=\sgn\langle\gamma',\gamma'\rangle$.
+
+We can now state the first variation formula
+\begin{proposition}[First Variation Formula]Let $\gamma:[a,b]\to M$ be a piecewise  smooth curve with constant speed $c>0$ and sign $\varepsilon$. If $\x$ is a variation of $\gamma$, then
+\[
+L'(0) = \frac{\varepsilon}{c}\left[-\int_a^b\ip{\gamma'',V}du
+-\sum_{i=1}^k\ip{\Delta\gamma'(u_i),V(u_i)} + \left.\ip{\gamma',V}\right\rvert_a^b\right]
+\]
+\end{proposition}
+Note that for a smooth and fixed endpoint variation we have that
+\[
+L'(0) = -\frac{\varepsilon}{c}\int_a^b\ip{\gamma'',V}du
+\]
+
+\begin{corollary}\label{cor:geoismax}
+Let $\gamma$ be a constant speed curve. We have that $\gamma$ is an unbroken geodesic if and only if the first variation is zero for every fixed endpoint variation $\x$.
+\end{corollary}
+
+By this corollary it is sufficient to study geodesics in the treatment of the second variation.
+
+We define the \emph{transverse acceleration vector field} $A(u)\coloneqq\x_{vv}(u,0)$.
+
+\begin{proposition}[Synge's Formula for Second Variation]Let $\gamma:[a,b]\to M$ be a geodesic with constant speed $c>0$ and sign $\varepsilon$. If $\x$ is a variation of $\gamma$, then
+\[
+L''(0) = \frac{\varepsilon}{c}\left[
+\int_a^b\left\{ \ip{(V')^\perp,(V')^\perp}
+-\ip{R_{V\gamma'}V,\gamma'}\right\} du
++\left.\ip{\gamma',A}\right\rvert_a^b\right]
+\]
+\end{proposition}
+
+\subsection{Conjugate Point}
+\begin{definition}[Conjugate Point]
+Points $\sigma(a)$ and $\sigma(b)$ on a geodesic $\sigma$ are \emph{conjugate along $\sigma$} if there is a nonzero Jacobi field J on $\sigma$ such that $J(a) = J(b) = 0$.
+\end{definition}
+
+We define $\jac$ to be the set of all Jacobi fields on $\sigma$ that vanish at $a$ and $b$.
+They are perpendicular to $\sigma$ since they vanish twice.
+
+\begin{proposition}[Conjugate Characterization]
+Let $\sigma:[0,b]\to M$ be a geodesic starting at $p$. The following are equivalent:
+
+\begin{enumerate}
+    \item $\sigma(b)$ is a conjugate point of $p=\sigma(0)$ along $\sigma$,
+    \item There is a nontrivial variation $\x$ of $\sigma$ through geodesics starting at $p$ such that $\x_v(b,0)=0$,
+    \item $\exp_p$ is singular at $b\sigma'(0)$, i.e. there exist $0\neq x\in T_{b\sigma'(0)}(T_pM)$ with $d\exp_p(x)=0$.
+\end{enumerate}
+\end{proposition}
+
+\subsection{Energy Variation}
+For a curve segment $\alpha:[0,b]\to M$ we define the energy as 
+\[
+E(\alpha) = \frac{1}{2}\int_0^b\ip{\alpha',\alpha'}du
+\]
+And for a piecewise smooth variation $\x$ of $\alpha$ we define
+\[
+E_\x(v) = \frac{1}{2}\int_0^b\ip{\x_u,\x_u}du
+\]
+where $v$ is fixed.
+
+Note that $E$ is always smooth and can thus be used to study null geodesics.
+
+\begin{proposition}[First Variation Formula]\label{prop:Evariation}
+Let $\mathbf{x}$ be a variation of $\alpha:[0,b]\to M$ with $V$ and $A$ the variation and transverse acceleration vector fields. Then
+\[
+    E'_{\mathbf{x}}(0) = \int_0^b g(V',\alpha')du = - \int_0^b g(V,\gamma'') - \sum_{i=1}^k g(V,\Delta\alpha')(u_i) + \left.g(V,\alpha')\right\rvert^b_0
+\]
+where $u_1<\dots<u_k$ are the breaks of $\mathbf{x}$ and $\alpha$.
+\end{proposition}
+
+\subsection{Smoothing}
+We will now show how given a path which fails to be a null geodesic, we can find a small variation such that it becomes timelike. This will be essential for establishing causal structure of Lorentzian manifolds.
+
+\begin{lemma}
+Let $\alpha:[0,1]\to M$ be a causal curve in a Lorentz manifold $(M,g)$ and $\x(u,v)$ a variation of $\alpha$ with variation field $V$. If $g(V'(u),\alpha'(u))<0$ for all $u\in [0,1]$ then for all sufficiently small $v>0$ the longitudinal curve $\alpha_v$ of $\x$ is timelike.
+\end{lemma}
+\begin{proof}
+Because $\alpha$ is causal we have 
+\[
+    g(\x_u,\x_u)(u,0) = g(\alpha'(u),\alpha'(u)) \leq 0 \quad \text{ for all }u\in[0,1].
+\]
+Furthermore we have $V'(u) = V_u(u) = \x_{vu}(u,0) = \x_{uv}(u,0)$ and for all $u\in [0,1]$:
+\begin{align*}
+    \frac{\partial}{\partial v}g(\x_u,\x_u)(u,0) = 2g(D_{\frac{\partial}{\partial v}}\x_u(u,0),\x_u(u,0))\\
+    = 2g(\x_{uv}(u,0), \alpha'(u)) = 2g(V'(u),\alpha'(u)) < 0.
+\end{align*}
+
+But now, since $\alpha$ is defined on the closed interval $[0,1]$ for $v>0$ sufficiently small we have $g(\x_u,\x_u)(u,v)<0$ for all $u\in [0,1]$. Hence $\alpha_v$ is timelike.
+\end{proof}
+
+\begin{proposition}[Smoothing of causal curves]\label{prop:geosmoothing}
+Let $M$ be a Lorentz manifold and $\alpha$ a causal curve from $p$ that is not a null pregeodesic, then there exist a timelike curve from $p$ to $q$ arbitrarily close to $\alpha$.
+\end{proposition}
+\begin{proof}
+We can WLOG assume that the domain of $\alpha$ is $[0,1]$. We will first consider two special cases.
+
+\emph{Case 1. $\alpha'(0)$ or $\alpha'(1)$ is timelike.} Assuming the latter let $W$ be obtained by parallel translation of $\alpha'(1)$ along $\alpha$. Then, as parallel translation is an isometry, $W$ and $\alpha'$ are always in the same causal cone and since $W$ is timelike, $g(W,\alpha')<0$. As $\alpha'$ is continuous there exists a $\delta>0$ such that $g(\alpha',\alpha') < -\delta$ on $[1-\delta,1]$. Let $f$ be any smooth function on $[0,1]$ vanishing at the endpoints with $f'>0$ on $[0,1-\delta]$. We then set $V = fW$ and get $g(V',\alpha') = g(f'W + fW',\alpha') = fg(W,\alpha) < 0$ on $[0,1-\delta]$ as $W'=0$, $f'>0$ and $g(W,\alpha')<0$ on $[0,1-\delta]$. Let $\x$ be a fixed endpoint variation of $\alpha$ with variation field $V$. By the above lemma there exists a $v>0$ sufficiently small such that the longitudinal curve $\alpha_v$ has become timelike on $[0,1-\delta]$ and is still timelike on $[1-\delta,1]$.
+
+\emph{Case 2. $\alpha$ is a smooth null curve.}
+Differentiation of $g(\alpha',\alpha')=0$ shows that $\alpha''\perp\alpha'$. Now $\alpha''$ cannot always be parallel to $\alpha'$, or $\alpha$ could be reparameterized to a null geodesic. Thus the function $g(\alpha'',\alpha'')\geq 0$ is not equal to zero as $g(\alpha',\alpha') = g(\alpha'',\alpha'') = g(\alpha',\alpha'') = 0$ would imply $g(\alpha''+\alpha',\alpha''+\alpha')=0$ which can only be true if $\alpha''=c\alpha'$. $g(\alpha'',\alpha'') \geq 0$ follows from the fact that $g(\alpha'',\alpha'') < 0$ would imply that $\alpha''$ is timelike and thus $g(\alpha',\alpha'')>0$.
+
+Let $W$ be a parallel timelike vector field on $\alpha$ in the same causal cone as $\alpha'$ at each point so $g(W,\alpha')<0$. Let $V=fW+\widetilde{f}\alpha''$ where $f$ and $\widetilde{f}$ vanish at the endpoints and are to be determined such that $g(V',\alpha')<0$.
+
+Since $g(\alpha'',\alpha')=0$ implies $g(\alpha''',\alpha')+g(\alpha'',\alpha'')=0$ and $W'=0$ we compute 
+\begin{align*}
+    g(V',\alpha') = g(f'W+fW'+\widetilde{f}'\alpha''+g\alpha''',\alpha') = f'g(W,\alpha') - \widetilde{f}g(\alpha'',\alpha'').
+\end{align*}
+
+Because $h=g(\alpha'',\alpha'')/g(W,\alpha)$ is not identical to zero there exists a smooth $\widetilde{f}$ vanishing at endpoints such that 
+\[
+    \int_0^1\widetilde{f}hdu = -1
+\]
+Let $f(u) = \int_0^u(\widetilde{f}h+1)du$. Then $f$ vanishes at endpoints and $f'=\widetilde{f}h+1 > \widetilde{f}h = \widetilde{f}g(\alpha'',\alpha'')/g(W,\alpha)$.
+Consequently, as $g(W,\alpha')<0$
+\begin{align*}
+    g(V',\alpha') &= f'g(W,\alpha') - \widetilde{f}g(\alpha'',\alpha'') \\
+    &< \widetilde{f}g(\alpha'',\alpha'')/g(W,\alpha')g(W,\alpha') - \widetilde{f}g(\alpha'',\alpha'') = 0.
+\end{align*}
+And we can again apply the lemma above.
+
+To complete the proof, note that if $\gamma'$ is timelike at a non-endpoint $s$ then Case 1 applies on $[0,s]$ and $[s,1]$ to give the required result. Thus we are left with the case of a piecewise smooth null curve $\alpha$. Unless every smooth segment of $\alpha$ can be reparameterized as a null geodesic, then by Case 2 some one can be varied to become timelike on that segment. Then we can apply Case 1 again to get a timelike curve.
+
+Thus there only remains the case of a broken null geodesic $\alpha$. It suffices to assume there is a single break $0<s<1$. Let $W$ on $\alpha$ be obtained by parallel translation of $\Delta\alpha'(s) = \alpha'(s^+)-\alpha'(s^-)$. Recall that these two velocities are by definition in the same causal cone, so using the reverse cauchy-schwarz inequality we get $g(W,\alpha')$ is negative on $[0,s^-]$ and positive on $[s^+,1]$. Now we choose a piecewise smooth function $f$ on $[0,1]$ that vanishes at the endpoints and positive derivative on $[0,s^-]$ and negative derivative on $[s^+,1]$. Then for $V=fW$ we have $g(V',\alpha')<0$ and the lemma applies.
+\end{proof}
