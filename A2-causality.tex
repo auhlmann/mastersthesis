@@ -1,23 +1,8 @@
-\chapter{Causality and Global Hyperbolicity}
+\chapter{Causality and Global Hyperbolicity}\label{chap:causality}
 \section{Causal Relations}
 In this first section we will establish which points in a Lorentzian manifold can be connected by timelike or lightlike paths under which circumstances. 
 
-We will take $(M,g)$ to be a time-oriented Lorentzian manifold. First we will set up some basic causality structure:
-\begin{definition}
-We write
-\begin{enumerate}
-    \item $p\ll q$ if $p\neq q$ and there exist a future-pointing timelike curve from $p$ to $q$,
-    \item $p<q$ if $p\neq q$ and there exist a future-pointing causal curve from $p$ to $q$,
-    \item $p\leq q$ if $p=q$ or $p<q$.
-\end{enumerate}
-We then define the \emph{chronological future} and \emph{causal future} of a point $p\in M$ as
-\begin{align*}
-    I^+(p) &\coloneqq \{q\in M \mid p\ll q\}\\
-    J^+(p) &\coloneqq \{q\in M \mid p\leq q\}.
-\end{align*}
-
-We can extend these definitions to arbitrary sets by setting $I^+(A)\coloneqq\bigcup_{p\in A}I^+(p)$ and $J^+(A)$ analogously.
-\end{definition}
+Let $(M,g)$ be a time-oriented Lorentzian manifold. We will first look at some properties of the causal and chronological future and past, as defined in \ref{def:causalrelations}.
 
 Note that in the Minkowski case $\R^n_1$ the set $I^+(p)$ is open and $J^+(p)=\overline{I^+(p)}$ is closed. Furthermore $I^+(p)$ resp. $J^+(p)$ is the set of all $q\in R^n_1$ such that $\overrightarrow{pq}$ is timelike resp. causal.
 We will see that under sufficient conditions the first of the above facts also hold in the general case.
@@ -53,7 +38,7 @@ Then since $\alpha$ is causal we get  $\alpha(s_i)\le \alpha(t_i) \le \alpha(s_{
 
 (2) can be generalized:
 
-\begin{lemma}
+\begin{lemma}\label{lem:Iopen}
 The relation $\ll$ is open; that is if $p\ll q$ there exist neighborhoods $\U,\V$ of $p$ and $q$ respectively such that for any $p'\in \U$ and $q'\in \V$ we still have $p\ll q$.
 \end{lemma}
 \begin{proof}
@@ -200,7 +185,7 @@ L(\gamma) \ge \lim_{n\to\infty} L(\alpha_n) \ge \lim_{n\to\infty}\tau(p_n,q_n) \
 But since $\delta$ itself is a curve from $p$ to $q$ this is a contradiction.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem:Jclosed}
 If $\U\subset M$ is a globally hyperbolic open set, then the causality relation $\leq$ is closed on $\U$.
 \end{lemma}
 \begin{proof}
@@ -230,23 +215,7 @@ For the time separation function we can say the following:
 
 \section{Light Cones}
 
-
-\begin{definition}[Light Cones]
-Let 
-\[
-L_pM \coloneqq \{ v\in T_pM\setminus\{0\} \mid \ip{v,v}=0 \}
-\]
-be the set of null vectors at $p\in M$. We can split $L_pM$ into $L^+_pM$ and $L^-_pM$ the future- and past-pointing null vectors. Furthermore we can define the bundle $LV\coloneqq\bigcup_{p\in V}L_pV\subset TM$.
-
-We now define the \emph{future light cone} of $p\in M$ to be 
-\[
-\flc_p \coloneqq \exp_p(L^+_pM) \cup \{p\}.
-\]
-$\mathcal{L}^-_p$ is defined analogously.
-\end{definition}
-Note that for $p\in M$ we have $\mc{L^+}_p\subset J^+(p)$ and $\mc{L^+}_p\supset J^+(p)\setminus I^+(p)$ if $M$ is globally hyperbolic.
-
-
+In this section we will examine some relevant properties of the light cone as defined in \ref{def:lightcone}
 
 \subsection{Null Cut Points}
 To better understand the behavior of null geodesics we will introduce so called \emph{cut points} which intuitively are the points where a null geodesic stops being maximal. Such cut points are the product of curvature as in the minkovski case there are none.

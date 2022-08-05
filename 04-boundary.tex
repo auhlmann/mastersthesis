@@ -1,17 +1,18 @@
-\chapter{Boundary Reconstruction}
+\chapter{Boundary Reconstruction}\label{chap:boundary}
 
 \section{Setting}
 
-In this section we will examine how we can extend our reconstruction result to the case where the observed set $V$ is no longer contained within the interior of $J(p^-,p^+)$ but is now allowed to extend up to the boundary. In other words we want to recover the conformal structure of $J(p^-,p^+)$ from light cone observations made on the future null boundary $K = J(p^-,p^+) \setminus I^-(p^+)$.
+In this section we will examine how we can extend our reconstruction result to the case where the source set $V$ is no longer contained within the interior of $J(p^-,p^+)$ but is now allowed to extend up to the boundary $K \setminus \{p^+\}$. 
 
-This is complicated by the fact that as $q\in J(p^-,p^+)$ approaches the boundary, the light observation sets $\mc{P}_K(q)$ get increasingly warped and is degenerate if $q$ is in the boundary. 
+This is complicated by the fact that as $q\in J(p^-,p^+)$ approaches the observation set $K$, the light observation sets $\mc{P}_K(q)$ get increasingly warped and are degenerate if $q\in K$. 
 
 Analogous to the interior reconstruction case we will again prove the modified version outlined in remark \ref{rmk:data}, and let $(M,g)$ be a globally hyperbolic Lorentzian manifold, with $p^+,p^-\in M,V\in \jp$ suitable such that $V\in \jp$ is relatively open.
 
 \section{Preliminaries}
-To extend the reconstruction up to the edge of $\jp$ we will essentially split up the reconstruction into two steps: We will split up $V$ into $V\cap (\jp \setminus K)$ and $V\cap D$ where $D$ is the set of all points such that $F_q$ has a unique minimum. On $V\cap (\jp \setminus K)$ we will use the reconstruction result from the previous chapter and on $V\cap D$ we will use the fact that the observation time functions have unique minima to smooth them on the boundary $K$.
+To extend the reconstruction up to the edge of $\jp$ we will essentially split up the reconstruction into two steps: We will split up $V$ into $V\cap (\jp \setminus K)$ and $V\cap D$ where $D$ is the set of all points such that $F_q$ has a unique minimum. On $V\cap (\jp \setminus K)$ we can use the reconstruction result from the previous chapter and on $V\cap D$ we will use the fact that the observation time functions have unique minima to smooth them on the boundary $K$ and allow a reconstruction.
 
-To that end we need to introduce some new concepts:
+\subsection{Definitions}
+We first need to introduce some new concepts:
 \begin{definition}[Unique minimum domain]\label{def:uniquemindomain}
     We define the \emph{unique minimum domain} $D\subset \jp$ to be 
     \begin{equation}
@@ -23,7 +24,7 @@ To that end we need to introduce some new concepts:
         (a_q,t_q)=(\argmin_{a\in \sn} F_q, \min_{a\in \sn} F_q).
     \]
 \end{definition}
-This will be the domain where we will establish our reconstruct procedure. We will see that $D$ an open neighborhood of the boundary $K$ allowing us to reconstruct boundary points. As mentioned remark \ref{rmk:ReconstrPastBoundary} the reconstruction from the past chapter can be applied to the whole $\jp\setminus K$, because $D$ is an open neighborhood of $K$ in $\jp$ this will allow us to reconstruct set in all of $\jp$.
+We will see that $D$ an open neighborhood of $K \setminus \{p^+\}$ allowing us to reconstruct boundary points. As mentioned remark \ref{rmk:ReconstrPastBoundary} the reconstruction from the past chapter can be applied to the whole $\jp\setminus K$, because $D$ is an open neighborhood of $K$ in $\jp$ this will allow us to reconstruct set in all of $\jp\setminus \{p^+\}$.
 
 \begin{definition}[Constant observation time domain]\label{def:constobstime} For some $t_0\in (T_\sn,0)$ we define the \emph{constant observation time domain} as 
 \begin{equation}
@@ -32,11 +33,12 @@ This will be the domain where we will establish our reconstruct procedure. We wi
 Where the second characterization follows from equation \ref{eq:Teq}. Because $\mc{T}^{-1}(\mc{T}(p^+)+t_0)$ is a cauchy hypersurface and thus a spacelike submanifold, $T_{t_0}$ is a $n-1$ dimensional spacelike submanifold of $K$ (away from its boundary).
 Thus for every $a\in \sn$ such that $T_a>t_0$ we can use lemma \ref{lem:dirreconstr} to find the unique future-pointing outward null ray $\R_+\nu_{a,t_0}\in L^+_{\Theta(a,t_0)}M$ such that $T_{\Theta(a,t_0)}T_{t_0} = \nu_{a,t_0}^\perp \cap T_{\Theta(a,t_0)}K$.
 
-Note that for every $q\in \interior{\jp}$ and $p=\Theta(a,t)\in \mc{P}_K(q)$ we have $t>-T_a$ which implies that $p$ is in the relative interior of $T_{t}$. I.e. there exists an open neighborhood $p\in U \subset M$ such that $T_t\cap U$ is a submanifold.
+Note that for every $q\in \interior{\jp}$ and $p=\Theta(a,t)\in \mc{P}_K(q)$ we have $t>-T_a$ which implies that $p$ is in the relative interior of $T_{t}$, i.e. there exists an open neighborhood $p\in U \subset M$ such that $T_t\cap U$ is a submanifold.
 \end{definition}
 
+This lemma is often useful because is shows that for $F_q$ with $q\in \interior{\jp}$ local minima must be regular points and the unique null geodesic from $q$ to the minimum must have a specific direction at the minimum related to the constant observation time domain:
 \begin{lemma}\label{lem:amin}
-    Let $q\in \interior{\jp}$ with $(a_q,t_q)$ the minimum of $F_q$ and $p_q:=\mu_{a_q}(t_q)$. Then we have $p_q\in \er(q)$ and $v(q,p_q)\in \R_+\nu_{a_q,t_q}$, i.e. if $w_q\in L^K_qM$ is the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)\in \R_+\nu_{a_q,t_q}$.
+    Let $q\in \interior{\jp}$ with $(a_q,t_q)$ a local minimum of $F_q$ and $p_q:=\mu_{a_q}(t_q)$. Then we have $p_q\in \er(q)$ and $v(q,p_q)\in \R_+\nu_{a_q,t_q}$, i.e. if $w_q\in L^K_qM$ is the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)\in \R_+\nu_{a_q,t_q}$.
 \end{lemma}
 \begin{proof}
     Note that we have $t_q = f_{a_q}(q)$ and thus 
@@ -45,11 +47,15 @@ Note that for every $q\in \interior{\jp}$ and $p=\Theta(a,t)\in \mc{P}_K(q)$ we 
     \] proving that there exists a $w_q\in L^K_qM$ such that $p_q = \gamma_{q,w_q}(1)$. 
 
     Now we need to show that indeed $p_q\in \er(q)$.
-    We recall that by prop \ref{prop:unionmanif} there exists an open neighborhood $p_q\in U\subset M$ such that $\mc{P}_K(q)\cap U$ is the union of $N$ pairwise transversal, spacelike, dimension $n-1$ submanifolds $\mc{V}_i$. Because $t_q$ is the minimum of $F_q$ we must have $T_{p_q}{\mc{V}_i} = T_{p_q}{T_{t_q}}$ for all $i=1,\dots N$. But because the manifolds must be pairwise transversal, we must have $N=1$, implying that $p_q$ is a regular point. Together with $p_q\in \ee(q)$ this yields $p_q \in \er(q)$.
+    We recall that by proposition \ref{prop:unionmanif} there exists an open neighborhood $p_q\in U\subset \mc{P}_K(q)$ such that $\mc{P}_K(q)\cap U$ is the union of $N$ pairwise transversal, spacelike, dimension $n-1$ submanifolds $\mc{V}_i$. Because $t_q$ is the minimum of $F_q$ we must have $T_{p_q}{\mc{U}_i} = T_{p_q}{T_{t_q}}$ for all $i=1,\dots N$. But because the manifolds must be pairwise transversal, we must have $N=1$, implying that $p_q$ is a regular point of $\mc{P}_K(q)$. Together with $p_q\in \ee(q)$ this yields $p_q \in \er(q)$.
 
     Finally $\gamma'_{q,w_q}(1)=\R_+\nu_{a_q,t_q}$ follows from the fact that $T_{p_q}{\mc{V}_1} = T_{p_q}{T_{t_q}}$.
 \end{proof}
 
+\subsection{Observation time Functions at the boundary}
+In this subsection we will study how the observation time functions behave for point $q\in K$ as well as for sequences $q_n \in V \to q_0\in K$:
+
+We can explicitly characterize observation time functions at the boundary.
 \begin{lemma}\label{lem:boundaryF}
     For $q_0=\mu_{a_0}(t_0)\in K$ we have 
     \begin{equation*}
@@ -67,6 +73,7 @@ Note that for every $q\in \interior{\jp}$ and $p=\Theta(a,t)\in \mc{P}_K(q)$ we 
     The previous lemma shows that the observation time functions $F_q$ for $q\in K$ lose many nice properties they had when $q\neq K$. In particular if $q\in K$, then $F_q$ is not continuous at $a_0$. Furthermore let $q_n=\Theta(a_n,t_0)\to q_0=\Theta(a_0,t_0)$ with $a_n \notin a_0$, then $F_{q_0}(a_0)=t_0$ but $F_{q_n}(a_0)=0$ for all $n\in \N$, implying $F_{q_n}$ fails to even converge pointwise to $F_{q_0}$. Later on we will fix some of these issues by multiplying $F_q$ with a smoothing bump function.
 \end{remark}
 
+This lemma shows that even though obervation time functions dont retain many of their nice properties at the boundary they at least behave somewhat regularly away from the minimum.
 \begin{lemma}\label{lem:convto1}
     Let $q_n\in V\to q_0=\mu_{a_0}(t_0)\in K\setminus{p^+}$ and $A\subset \sn$ an open neighborhood of $a_0$ then we have $F_{q_n}\rvert_{\sn\setminus A} \to 0$ uniformly.
 \end{lemma}
@@ -93,12 +100,13 @@ Note that for every $q\in \interior{\jp}$ and $p=\Theta(a,t)\in \mc{P}_K(q)$ we 
     Suppose by contradiction that there exists a convergent subsequence $q_k$ of $q_n$ such that $\min_{a \in \sn} F_{q_k}(a)\to t'<t_0$. There thus exists a sequence of $a_k$ such that $F_{q_k}(a_k)\to t'<t_0$. Taking subsequences again we get $a_j\to a'$ and $t_j:=F_{q_j}(a_j)\to t'<t_0$. Then we have 
     \[
         J^+(q_j)\ni \mu_{a_j}(F_{q_j}(a_j)) \to \mu_{a'}(t') \in J^+(q_0)
-    \] by continuity of $\mu$ and ((REF)). We also have 
+    \] by continuity of $\mu$ and lemma \ref{lem:Jclosed}. We also have 
     \[
         0 = \lim_{n\to \infty}\tau(q_j,\mu_{a_j}(F_{q_j}(a_j))) = \tau(q_0,\mu_{a'}(t'))
     \] which implies $\mu_{a'}(t')=\mc{E}_{a'}(q_0)$ and $F_{q_0}(a')=t'<t_0$. A contradiction because $F_{q_0}\ge t_0$ by lemma \ref{lem:boundaryF}.
 \end{proof}
 
+This proposition is important because it shows that $D$ is an open neighborhood of the boundary, which means a reconstruction on $D$ is also a reconstruction of the boundary. The key idea here is that as $q_n \to q_0=\mu_{a_0}(t_0)\in K \setminus \{p^+\}$ we can use lemma \ref{lem:convto1} to control the converge away from the minimum $a_0$ and to introduce local coordinates around $a_0\in \sn$ to study the behavior close to $a_0$
 \begin{proposition}\label{prop:boundarymin}
     Let $q_n\in V\to q_0=\mu_{a_0}(t_0)\in K\setminus p^+$ then there exists a $\varepsilon>0$ and a $N\in \N$ such that for all $n\ge N$, $F_{q_n}$ has a unique minimum $(a_n,t_n)$ and $(a_n,t_n)\to (a_0,t_0)$.
 \end{proposition}
@@ -137,15 +145,16 @@ By lemma \ref{lem:firstcount} we immediately get:
     There exists an open neighborhood $K\setminus p^+\subset O\subset \jp$ such that $O\subset D$, i.e. for every $q\in O$, $F_q$ has a unique minimum.
 \end{corollary}
 
+We can now show that $D$ is an open subset of $\jp$:
 \begin{proposition}\label{prop:globalminconv}
     Let $q_0\in D$ and $q_n\to q_0$ in $V$. Then there exists a $N\in \N$ such that $n\ge N$ implies $F_{q_n}$ has a unique minimum $(a_n,t_n)$ and $(a_n,t_n)\to (a_0,t_0)$ where $(a_0,t_0)$ is the unique minimum of $F_{q_0}$.
 \end{proposition}
 \begin{proof}
     We may assume $q_0,q_n \in \interior{\jp}$ because the case $q_0\in K\setminus\{p^+\}$ is covered by the previous proposition and $q_0\in \interior{\jp}$ implies $q_n\in \interior{\jp}$ eventually because the interior is open.
 
-    First we write $t_0=F_{q_0}(a_0)<F_{q_0}(a'), a_0\neq a'\in \sn$ for the unique minimum of $F_{q_0}$. Let $p_0 = \mc{E}_{a_0}(q_0)$, then by lemma \ref{lem:amin}, $p_0\in \er(q_0)$ and $a_0\in \areg(q_0)$. By prop \ref{prop:fsmooth} there exists a $\varepsilon>0$ such that $f:\cl{B_\varepsilon(q_0)}\times\cl{B_\varepsilon(a_0)}\to [-T_\sn,0]$ is smooth. In particular $F_{q_0}=f(q_0,\cdot\;)$ is smooth on $\cl{B_\varepsilon(a_0)}\subset \areg(q_0)$. Furthermore because $a_0$ is a local minimum of the smooth $F_{q_n}$ we must have $dF_{q_0}\rvert_{a_0}=0$ and its hessian $H_{F_{q_0}}(a_0)$ must be positive definite. Because positive definiteness of the hessian is equivalent to it having only positive eigenvalues, there exists $\delta>0$ such that every eigenvalue of $H_{F_{q_0}}(a)$ is bigger than $c_0>0$ for all $a\in \cl{B_\delta(a_0)}\subset \cl{B_\varepsilon(a_0)}$. Hence $H_{F_{q_0}}$ is positive definite and $F_{q_0}$ is convex on all of $\cl{B_\delta(a_0)}$.
+    First we write $t_0=F_{q_0}(a_0)<F_{q_0}(a'), a_0\neq a'\in \sn$ for the unique minimum of $F_{q_0}$. Let $p_0 = \mc{E}_{a_0}(q_0)$, then by lemma \ref{lem:amin}, $p_0\in \er(q_0)$ and $a_0\in \areg(q_0)$. By prop \ref{prop:fsmooth} there exists a $\varepsilon>0$ such that $f:\cl{B_\varepsilon(q_0)}\times\cl{B_\varepsilon(a_0)}\to [-T_\sn,0]$ is smooth. In particular $F_{q_0}=f(q_0,\cdot\;)$ is smooth on $\cl{B_\varepsilon(a_0)}\subset \areg(q_0)$. Furthermore because $a_0$ is a local minimum of the smooth $F_{q_n}$ we must have $dF_{q_0}\rvert_{a_0}=0$ and its hessian $\mc{H}_{F_{q_0}}(a_0)$ must be positive definite. Because positive definiteness of the hessian is equivalent to it having only positive eigenvalues, there exists $\delta>0$ such that every eigenvalue of $\mc{H}_{F_{q_0}}(a)$ is bigger than $c_0>0$ for all $a\in \cl{B_\delta(a_0)}\subset \cl{B_\varepsilon(a_0)}$. Hence $\mc{H}_{F_{q_0}}$ is positive definite and $F_{q_0}$ is convex on all of $\cl{B_\delta(a_0)}$.
 
-    By an analogous argument to the one employed in the proof of \ref{prop:dfunifconv} we can prove that $F_{q_n}\rvert_{\cl{B_\delta(a_0)}}$ is smooth for $n$ big enough and $H_{F_{q_n}}\to H_{F_{q_0}}$ uniformly on $\cl{B_\delta(a_0)}$. Because every eigenvalue of $H_{F_{q_0}}(a)$ is bigger than $c_0>0$ for all $a\in \cl{B_\delta(a_0)}$, there must exist a $N_1\ge \in \N$ such that $F_{q_n}\rvert_{\cl{B_\delta(a_0)}}$ is smooth and $H_{F_{q_n}}$ has only positive eigenvalues on $\cl{B_\delta(a_0)}$ for all $n \ge N_1$. Therefore $F_{q_n}$ is convex on $\cl{B_\delta(a_0)}$ as well.
+    By an analogous argument to the one employed in the proof of \ref{prop:dfunifconv} we can prove that $F_{q_n}\rvert_{\cl{B_\delta(a_0)}}$ is smooth for $n$ big enough and $\mc{H}_{F_{q_n}}\to \mc{H}_{F_{q_0}}$ uniformly on $\cl{B_\delta(a_0)}$. Because every eigenvalue of $\mc{H}_{F_{q_0}}(a)$ is bigger than $c_0>0$ for all $a\in \cl{B_\delta(a_0)}$, there must exist a $N_1\ge \in \N$ such that $F_{q_n}\rvert_{\cl{B_\delta(a_0)}}$ is smooth and $\mc{H}_{F_{q_n}}$ has only positive eigenvalues on $\cl{B_\delta(a_0)}$ for all $n \ge N_1$. Therefore $F_{q_n}$ is convex on $\cl{B_\delta(a_0)}$ as well.
     
     Next we prove that $F_{q_n}$ must have all its minima in $B_{\frac{\delta}{2}}(a_0)$. We first note that because $a_0$ is the unique minimum of $F_{q_0}$ we have $F_{q_0}(a)-F_{q_0}(a_0)>0$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. Because $F_{q_0}$ is continuous and $\sn\setminus B_{\frac{\delta}{2}}(a_0)$ compact there exists a $c_1>0$ such that $F_{q_0}(a)> F_{q_0}(a_0) + c_1$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. By proposition \ref{prop:funif}, $F_{q_n}\to F_{q_0}$ uniformly. Hence there exists a $N_2\ge N_1$ such that $F_{q_n}(a_0)\leq F_{q_0}(a_0)+\frac{c_1}{2}$. Thus we have $\min_{a\in \sn}F_{q_n}(a) \leq F_{q_n}(a_0) \leq F_{q_0}(a_0)+\frac{c_1}{2}$ for all $n\ge N_3$. But again by uniform convergence there exists a $N_3\ge N_2$ such that $F_{q_n}(a) > F_{q_0}(a_0)+\frac{c_1}{2}$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. Hence $F_{q_n}$ has no global minima in $\sn\setminus B_{\frac{\delta}{2}}(a_0)$ for all $n\ge N_3$.
 
@@ -156,14 +165,22 @@ By lemma \ref{lem:firstcount} we immediately get:
 Note that by lemma \ref{lem:firstcount} this shows that $D$ is open.
 
 \section{Smoothed Observation Time Functions}
-In this section we will define \enquote{smoothed} observation time functions have more regular properties at the boundary $K$ then the previously used observation time functions.
+In this section we will define \enquote{smoothed} observation time functions which will be regular enough at the boundary $K$ to carry out a similar reconstruction as in the previous chapter.
 
 To that end we define 
 \begin{definition}[Observation Bump Function]\label{def:obsbumpfn}
-    ((Write more neatly))
-    For $a\in \sn$ we define the \emph{observation bump function} $\chi_{a}:\sn\to [0,1]$ to be a smooth function which varies smoothly in $a$, has $\chi_a(a')=0$ if and only if $a'=a$, is symmetric around $a$ and there exist $\varepsilon_1>0$ such that $\chi_{a}(a')=1$ for all $a'\in \sn\setminus B_{\varepsilon_1}(a)$ and a $\varepsilon_1 > \varepsilon_2 > 0$ such that $\max_{a'\in B_{\varepsilon}(a)} \chi_a(a')<\frac{\varepsilon}{T_\sn}$ for all $\varepsilon<\varepsilon_2$.
+    For $a_0\in \sn$ want to define the \emph{observation bump function} $\chi_{a_0}:\sn\to [0,1]$ to be a smooth function which varies smoothly in $a_0$, has $\chi_{a_0}(a')=0$ if and only if $a'=a_0$, is symmetric around $a_0$ and there exist $\varepsilon_1>0$ such that $\chi_{a_0}(a')=1$ for all $a'\in \sn\setminus B_{\varepsilon_1}(a_0)$ and a $\varepsilon_1 > \varepsilon_2 > 0$ such that $\max_{a'\in B_{\varepsilon}(a_0)} \chi_{a_0}(a')<\frac{\varepsilon}{T_\sn}$ for all $\varepsilon<\varepsilon_2$.
+
+    To that end, for a fixed $a_0\in \sn$ we introduce local radial coordinates $a\in B_1(a_0)\mapsto (r(a),\omega(a))\in [0,1]\times S^{n-2}$ such that $r(a_0)=0$. For $a \in \sn$ we then define 
+    \begin{equation*}
+        \chi_{a_0}(a) := 
+        \begin{cases*}
+            1-\exp(-\frac{r(a)^2}{1-r(a)^2}) & if $a\in B_1(a_0)$ \\
+            1 & otherwise
+        \end{cases*}
+    \end{equation*}
+    Because $\chi_{a_0}(a)$ only depends on $r(a)$ it is symmetric, by construction is is smooth and also varies smoothly in $a_0$. We can see that $\varepsilon_1 = 1$ any because we have $\frac{\chi_{a_0}(r)}{r}\rvert_{r=0}=0$ there exists a suitable $\varepsilon_1 > \varepsilon_2 > 0$.
 \end{definition}
-((More in-depth construction))
 
 Equipped with these functions we can now define the
 \begin{definition}[Smoothed Observation Time Function]
@@ -172,13 +189,15 @@ Equipped with these functions we can now define the
         h:D\times \sn &\to [-T_\sn,0] \\
         (q,a)&\mapsto \chi_{a_q}(a)f(q,a)
     \end{align*}
-    where $a_q$ is the location of the unique minimum of $F_q$.
+    where $a_q$ is the location of the unique minimum of $F_q$. Note that $h$ is well defined because $\chi_{a_q}(a)\in [0,1]$ for all $a\in \sn$. 
     Analogous to the previous observation time functions we define $h_a(q):=h(q,a)$ and $H_q(a):=h(q,a)$.
 \end{definition}
 \begin{remark}
-    Note that for $q\in K$ we have $H_q(a)=0$ for all $a\in \sn$. Furthermore, because $\chi_{a_q}$ is smooth and by proposition \ref{prop:fsmooth} we get that for any $q\in D$, $H_q$ is continuous on $\sn$ and smooth on $\areg(q)$ where for any $q\in K$ we define $\areg(q)=\sn$.
+    Note that for $q\in K$ we have $H_q(a)=0$ for all $a\in \sn$. Furthermore, because $\chi_{a_q}$ is smooth and by proposition \ref{prop:fsmooth} we get that for any $q\in D$, $H_q$ is continuous on $\sn$ and smooth on $\areg(q)$ (where for any $q\in K$ we define $\areg(q)=\sn$).
 \end{remark}
 
+We will now show that $H_q$ is regular even at the boundary:
+First of all it converges uniformly for any limit point $q_0\in D$.
 \begin{proposition}\label{prop:hunif}
     Let $q_n\in D\to q_0\in D$. Then $H_{q_n}\to H_{q_0}$ uniformly.
 \end{proposition}
@@ -204,7 +223,8 @@ Equipped with these functions we can now define the
     Let $(q_n,a_n)\to (q_0,a_0)\in D\times \sn$. The case where $q_0\in \interior{\jp}$ was treated in the proof of the previous proposition. We can thus assume $q_0\in K$. Furthermore we assume $q_n \in \interior{\jp}$ because if $q_n$ has a subsequence in $K$ it is trivial to show that $h$ converges on this subsequence. Because $h(q_0,a_0)=1$ for any $a_0\in \sn$ it remains to show that $h(q_n,a_n)=H_{q_n}(a_n)\to 1$, which follows immediately from the previous proposition.
 \end{proof}
 
-\begin{lemma}
+We now want to show that $h$ is even smooth on a suitable subset of $D\times \sn$, i.e. the analogue of proposition \ref{prop:fsmooth}. To that end we must first show that the unique minimum of $F_q$ varies smoothly with $q$:
+\begin{lemma}\label{lem:minsmooth}
     For every $q\in D\cap \interior{\jp}$ there exists a $\lambda>0$ such that the map 
     \begin{align*}
         a:B_\lambda(q_0)&\to \sn\\
@@ -236,7 +256,7 @@ Equipped with these functions we can now define the
 \begin{lemma}\label{lem:dhconvonboundary}
     We can choose $\chi_a$ such that for all $q_n \to q_0\in K$ we have
     \[
-        \max_{a\in \areg(q_n)} \left\lVert dH_{q_n}\rvert_{a_n}-0\right\rVert_{g_\sn}\to 0.
+        \max_{a\in \areg(q_n)} \left\lVert dH_{q_n}\rvert_{a_n}\right\rVert_{g_\sn}\to 0.
     \]
 \end{lemma}
 \begin{proof}
@@ -258,6 +278,7 @@ For $q\in D$ with minimum $t_q\in [-T_{a_q},0]$ at $a_q\in \sn$ we define
     q&\mapsto (a_q,t_q, H_q)
 \end{align*} where $H_q(a)=h(q,a)$ is the smoothed observation time function.
 
+The follow lemma assures that no information is lost when passing from $F_q$ to $H_q$:
 \begin{lemma}
     For any $q\in D$ we can recover $F_q$ given only $\mc{H}(q)$.
 \end{lemma}
@@ -302,7 +323,7 @@ We denote $V_1:=V\cap D$
 \end{corollary}
 
 \begin{remark}
-    Note that we can use \ref{cor:Fhomeo} on $V_2:=V\cap (\jp\setminus K)$ to get a homeomorphism $\F:V_2\to \widehat{V_2}:=\F(V_2)$. 
+    Note that we can use \ref{cor:Fhomeo} on $V_2:=V\cap (\jp\setminus K)$ to get a homeomorphism $\F:V_2\to \widehat{V_2}:=\F(V_2)$. By proposition \ref{prop:globalminconv} we know that $D$ is an open neighborhood of $K\setminus \{p^+\}$. Therefore $V_1=D\cap V$ and $V_2=(\jp\setminus K) \cap V$ are both open subsets of $\jp$ and we have $V_1 \cup V_2 = V$ because $V\subset \jp \setminus\{p^+\}$.
 \end{remark}
 ((TODO: Explain more and include $V_1$ $V_2$ properties overview and that we given $\mc{H}(q_1)$ and $\F(q_2)$ we can determine if $q_1=q_2$))
 ((TODO: Include past boundary of $\jp$ for now we assume $V\cap \partial\jp^-=\emptyset$))
@@ -322,3 +343,41 @@ We can now reconstruct the topology on $V$:
 \begin{corollary}
     Given data \ref{rmk:data} we can determine if a set is open ((TODO))
 \end{corollary}
+\begin{proof}Suppose we are given the data from \ref{rmk:data} and the light observation set $\mc{P}_K(\mc{O})=\{\mc{P}_K(q)\mid q\in \mc{O}\}$ of a subset $\mc{O}\subset V$. For any $\mc{P}_K(q)\in \mc{P}_K(\mc{O})$ we can first evaluate if $q\in V\setminus K$ and $q\in D$ by checking if $F_q$ is continuous in $a$ and if it has a unique minimum. If $q\in D$ we can construct $H_q$; note that $F_q$ and $H_q$ are completely determined by $\mc{P}_K(q)$ and the data. This allows us to construct $\mc{H}(\mc{O}\cap V_1)=\{H_q \mid q\in V \cap D\}$ and $\mc{F}(\mc{O}\cap V_2)=\{F_q \mid q\in V \cap (\jp\setminus K)\}$. Because we know the topology on $\widehat{V_1}$ and $\widehat{V_2}$ we can determine if $\mc{H}(\mc{O}\cap V_1)\subset \widehat{V_1}$ and $\mc{F}(\mc{O}\cap V_2)\subset\widehat{V_2}$ are open. By the previous proposition this allows us to determine whether $\mc{O}$ was open. Therefore we know all open subsets of $V$ and with it the topology of $V$.
+\end{proof}
+
+\section{Smooth and Conformal Reconstruction}
+As mentioned in the introduction the smooth and conformal reconstruction in the boundary case was beyond the scope of this paper. We do however conjecture that the reconstruction remains possible in this case as well, and want to sketch a possible proof:
+\begin{conjecture}[Full Boundary Reconstruction]
+    Let $(M_j,g_j), p^\pm_j$ as in theorem \ref{thm:bdreconstr}. Let now $V_j\subset J(p_j^-,p_j^+) \setminus p_j^+$ be open sets. We assume that no null geodesic starting in $V_j$ has a null conjugate point on $K_j$. 
+    
+    Then, if 
+    \[
+    \widetilde{\Phi}(\mc{P}_{K_1}(V_1)) = \mc{P}_{K_2}(V_2)
+    \]
+    there exists a conformal diffeomorphism $\Phi:V_1\to V_2$ that preserves causality.
+\end{conjecture}
+
+The main challenge here is the differential reconstruction: We can again proceed by looking at $V_1 = D\cap V$ and $V_2=(\jp \setminus K)\cap V$ seperately. For the second case concerning $V_2$ we should be able to again use the interior reconstruction to determine the differential structure around point away from $K$.
+
+As in the topology reconstruction the recovery of the differential structure on $D$ should be more challenging: We need to find locally smooth coordinates on $D$ which extend smoothly to the boundary and can be determined by the data. But here we actually already laid some groundwork: In the proof of proposition \ref{prop:boundarymin} we defined a map 
+\begin{align*}
+    X:\R_+\times \mc{S} &\to M \\
+    (c,a,t)&\mapsto \exp_{\Theta(a,t)}(-c\nu_{a,t})
+\end{align*}which for any $q_0\in K$, after suitably restricting the domain, was a diffeomorphism onto an open neighborhood $q_0\in O \subset \jp$. This implies that in a suitable neighborhood of the boundary $K$, the distance $c$ to $K$ as well as the location $a$ and value $t$ of the unique minimum define smooth coordinates. However, while for any $q\in V$ we can determine whether $F_q$ has a unqiue minimum and if it does the location and value of it as well from the light observation sets, there is no a priori way do determine the \emph{distance} of some $q\in V$ to $K$ from the light observations. 
+
+To solve this issue we introduce a proxy for the distance which should work if $q\in V$ is close enough to the boundary: For $q\in D$ with unique minimum at $(a_q,t_q)\in \mc{S}$ we define the map
+\[
+    d(q):= \frac{1}{\det \mc{H}_{F_q}(a_q)} \text{ if }q\in \interior{\jp} \text{ and }d(q):=0 \text{ if }q\in K
+\] where $\mc{H}_{F_q}$ again is the hessian of $F_q$.
+This map is well-defined because $a_q$ must be a regular point ensuring $F_q$ is smooth at $a_q$ and in the proof of proposition \ref{prop:globalminconv} we saw that $\mc{H}_{F_q}(a_q)$ must be positive definite making $\frac{1}{\det \mc{H}_{F_q}(a_q)}$ positive and finite. Furthermore we note that this definition is coordinate independent. Importantly, because we know $F_q$ we can determine $d(q)$ from the light observation sets as desired. We now conjecture that 
+\begin{conjecture}
+    For a suitable open neighborhood $\mc{O}$ of $K$, the map 
+    \begin{align*}
+        x:\mc{O}&\to \R \times \sn \times \R\\
+        q &\mapsto (d(q),a_q,t_q)
+    \end{align*} is a diffeomorphism onto its image.
+\end{conjecture}
+This is supported by lemma \ref{lem:minsmooth} which shows that the map $q\mapsto a_q$ is smooth on the interior, as required. Because the light observations allow us to determine $x$ on all of $V\cap D$ we can presumably identify all points where $x$ fails to be injective and so determine a suitable $\mc{O}$ from the data, allowing us to determine the differential structure of $V$ in a neighborhood of $K$ as desired.
+
+Finally for the conformal reconstruction we note that for $q\in \jp\setminus K$ we can determine the light cone just as in the interior reconstruction case. But if $q\in K$ we already know the light cone at $q$ because we know the metric on all of $K$.

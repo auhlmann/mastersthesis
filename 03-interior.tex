@@ -1,9 +1,9 @@
-\chapter{Interior Reconstruction}
+\chapter{Interior Reconstruction}\label{chap:interior}
+In this chapter we will use the observation time functions to reconstruct the topological, differential and conformal data of $V$.
 
 \section{Construction of the topology}
-We aim to reconstruct the topological and differential data of $V$. To that end we define the following functions.
-
-For $q\in V$ we define the function $F_q:\sn\to [-T_\sn,0]$ by $a\mapsto f_a(q)$ as in the previous chapter. We let $\mc{C}^\infty(\sn)$ be the space of continuous function $F:\sn\to [-T_\sn,0]$ which are smooth on a dense open set in $\sn$. We can then endow this space with the metric 
+The central idea in this section is to find a subspace of the space of all functions from $\sn$ to $\R$, $\R^\sn$ such that for all $q\in V$, $F_q$ is contained in this subspace and convergence in this subspace is equivalent to convergenge in $V$.
+A suitable space for this task turns out to be $\mc{C}^\infty(\sn)$, the space of continuous function $F:\sn\to [-T_\sn,0]$ which are smooth on a dense open set in $\sn$ and bounded derivative, endowed with the metric
 \[
     d(F,G):= d_\infty(F,G) + \int_{\sn} \lVert dF_a - dG_a \rVert_{g_\sn}da,
 \] where $d_\infty(F,G):=\max_{a\in \sn}\lvert F(a)-G(a)\rvert$.
@@ -15,13 +15,12 @@ We can then define the function
     q&\mapsto F_q
 \end{align*} mapping a $q\in V$ to the function $F_q:\sn\to\R$. 
 
-The following argument establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology wrt. the topology induced by $d$ on $\mc{C}^\infty$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
-((Explain that data allows us to determine $d_\infty$ ))
+The following argument establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology with respect to the topology induced by $d$ on $\mc{C}^\infty$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
 \begin{lemma}\label{lem:Fprop}
 The map $\mathcal{F}:V\to\widehat{V}:=\mathcal{F}(V)$ is a well-defined continuous and bijective.
 \end{lemma}
 \begin{proof}
-First of all we show that $\F:V\to (\mc{C}^\infty,d)$ is well-defined. Let $q\in V$, then $F_q$ is continuous by proposition \ref{prop:fcont}, and smooth on a dense open set (namely $\areg(q)$) by proposition \ref{prop:fsmooth}.
+First of all we show that $\F:V\to (\mc{C}^\infty,d)$ is well-defined. Let $q\in V$, then $F_q$ is continuous by proposition \ref{prop:fcont}, smooth on a dense open set (namely $\areg(q)$) by proposition \ref{prop:fsmooth}, with bounded derivative by proposition \ref{prop:dfbounded}.
 
 To prove that $\F$ is continuous we let $q_n\to q_0 \in V$. By proposition \ref{prop:funif} $F_{q_n}\to F_{q_0}$ uniformly and thus $d_\infty(F_{q_n},F_{q_0})\to 0$. Now we need to show that 
 \[
@@ -124,19 +123,25 @@ And we get:
     $\F:V\to \widehat{V}$ is a homeomorphism.
 \end{corollary}
 
+Note that because $\mc{P}_K(V)$ determines all $F_q$ and thus the set $\widehat{V}$, it is uniquely determined by the data \ref{rmk:data}. We can thus reconstruct the topology of $V$ because we can determine the topology of $(\mc{C}^\infty(\sn),d)$ and the subspace topology on $\widehat{V}$ which must be equivalent to the topology on $V$.
 
 \section{Smooth Reconstruction}
 Having established the topological structure of $V$ we next aim to establish coordinates on $\F(V)$ near any $\F(q)$ that make $\F(V)$ diffeomorphic to $V$.
 
 \subsection{Construction of smooth coordinates}
-We will consider $\mc{F}(V)$ a topological space and denote $\mc{F}(V)=\widehat{V}$. We denote the points of this manifold by $\widehat{q}=\mc{F}(q)$. Next we construct a differentiable structure on $\widehat{V}$ that is compatible with that of $V$ and makes $\F$ a diffeomorphism.
+In line with the last section we will consider $\widehat{V}:=\mc{F}(V)$ a topological space. We denote the points of this manifold by $\widehat{q}:=\mc{F}(q)=F_q$. This means that points in $\widehat{V}$ are functions from $\sn$ to $\R$.
+Next we construct a differentiable structure on $\widehat{V}$ that is compatible with that of $V$ and makes $\F$ a diffeomorphism.
 
+This definition is related to the coordinates constructed in proposition \ref{prop:observationtimecoordinates}, i.e. obervation coordinates consist of a tuple of observation times from $n+1$ observers.
 \begin{definition}[Observation Coordinates]
 Let $\widehat{q}=\F(q)\in \widehat{V}$ and $\aa = (a_j)^n_{j=0}\subset (\sn)^{n+1}$ with $p_j = \mc{E}_{a_j}(q)$ such that $p_j\in \er(q)$ for all $j=0,\dots,n$. Let $s_{a_j} = f_{a_j} \circ \mathcal{F}^{-1}$ and $\mathbf{s}_{\overrightarrow{a}}=\mathbf{f}_{\overrightarrow{a}}\circ\mc{F}^{-1}$. Let $W\subset\widehat{V}$ be an open neighborhood of $\widehat{q}$. We say that $(W,\mathbf{s}_\aa)$ are $C^0$-observation coordinates around $\widehat{q}$ if the map $\mathbf{s}_\aa:W\to \R^n$ is open and injective. Also we say that $(W,\mathbf{s}_\aa)$ are $C^\infty$-observation coordinates around $\widehat{q}$ if $\mathbf{s}_{\overrightarrow{a}}\circ\mc{F}:\mc{F}^{-1}(W)\to \R^n$ are smooth local coordinates on $V\subset M$.
 \end{definition}
 Note that by the invariance of domain theorem, $\mathbf{s}_{\overrightarrow{a}}:W\to \R^n$ is open if it is injective.
 Although for a given $\overrightarrow{a}\in (\sn)^{n+1}$ there might be several sets $W$ for which $(W,\mathbf{s}_{\overrightarrow{a}})$ form $C^0$-observation coordinates to clarify the notation we will often denote the coordinates $(W,\mathbf{s}_{\overrightarrow{a}})$ as $(W_{\overrightarrow{a}},\mathbf{s}_{\overrightarrow{a}})$. 
 
+Crucially for a tuple $\overrightarrow{a}\in (\sn)^{1+n}$ we can determine $\mathbf{s}_{\overrightarrow{a}}:\widehat{V}\to \R^{n+1}$ using only the data from \ref{rmk:data}. This is because for a given $\widehat{q}=F_q\in \widehat{V}$ we have $\mathbf{s}_{\overrightarrow{a}}(\widehat{q}) = (F_q(a_0),\dots,F_q(a_n))$ requiring no external information.
+
+We can now determine the differential structure of $V$:
 \begin{proposition}\label{prop:findsmoothcoords}
 Let  $\widehat{q}\in \widehat{V}$ then the following holds:
 \begin{enumerate}[label={\textnormal{(\arabic*)}}]
@@ -201,9 +206,9 @@ Let  $\widehat{q}\in \widehat{V}$ then the following holds:
     If $\overrightarrow{p}\in Y_0(q)$ we see that $Y_0(q) \subset \mc{X}_{\overrightarrow{p}}$. On the other hand $\overrightarrow{p}\notin Y_0(q)$ we have $Y_0(q) \cap \mc{X}_{\overrightarrow{p}} =\emptyset$. Since the set $Y_0(q)$ is open and dense in $Y(q)$, we see that $\overrightarrow{p}\in Y_0(q)$ if and only if the interior of $\mc{X}_{\overrightarrow{p}}$ is dense subset of $Y(q)$. Since the data \ref{rmk:data} is sufficient to determine $Y(q)$ and $\mc{X}_{\overrightarrow{p}}$, we can determine whether $\overrightarrow{p}\in Y_0(q)$ or not. And since, by proposition \ref{prop:observationtimecoordinates}, the $C^0$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}=\F(q)$ are $C^\infty$-observation coordinates if and only if $\overrightarrow{p}\in Y_0(q)$, where $\overrightarrow{p}$ are associated to $\aa$ wrt. $q$, we can determine all $C^0$-observation coordinates around $\widehat{q}$ which are also $C^\infty$-observation coordinates.
 \end{proof}
 
-\section{Construction of the conformal type of the metric}
-We will denote by $\widehat{g}=\F_*g$ the metric on $\widehat{V}=\F$ that makes $\F:V\to \widehat{V}$ an isometry. Next we will show that the set $\F(V)$, the paths $\mu_a$ and the conformal class of the metric on $U$ determine the conformal class of $\widehat{g}$ on $\widehat{V}$.
 
+\section{Construction of the conformal type of the metric}
+We will denote by $\widehat{g}=\F_*g$ the metric on $\widehat{V}=\F$ that makes $\F:V\to \widehat{V}$ an isometry. The next lemma will allow us to determine a time-orientation on $\widehat{V}$ making $\F:V\to \widehat{V}$ a causal map, and a metric $G$ which is conformally equivalent to $\widehat{g}$. The key ideas are that we can use some equations from proposition \ref{prop:observationtimecoordinates} to determine a timelike, future-pointing vector field on $\widehat{V}$, and that for a given $\widehat{q}\in \widehat{V}$ we can determine all null geodesics through $\widehat{q}$ allowing us to determine all null cones $L_{\widehat{q}}\widehat{V}$ in $\widehat{V}$.
 \begin{lemma}\label{lem:constructmetric}
 The data given in \ref{rmk:data} allows us to determine a metric $G$ on $\widehat{V}=\F(V)$ that is conformal to $\widehat{g}$ and a time orientation on $\widehat{V}$ that makes $\F:V\to \widehat{V}$ a causality preserving map.
 \end{lemma}
@@ -233,8 +238,8 @@ The data given in \ref{rmk:data} allows us to determine a metric $G$ on $\wideha
     The above shows that the data \ref{rmk:data} determine the conformal class of the metric tensor $\widehat{g}$. And in particular we can construct a metric $G$ on $\widehat{V}$ that is conformal to $\widehat{g}$ and satisfies $G(X,X)=-1$.
 \end{proof}
 
-\section{Overview}
-We have now gone through all the steps necessary to reconstruct the conformal, differential and topological data of $V$ and will now tie this all together to give a detailed account of the actual reconstruction.
+\section{Reconstruction overview}
+We have gone through all the steps necessary to reconstruct the conformal, differential and topological data of $V$ and will now tie this all together to give a detailed account of the actual reconstruction.
 
 As mentioned in remark \ref{rmk:data} we want to prove the following theorem which implies theorem \ref{thm:intreconstr}:
 \begin{theorem}
@@ -302,5 +307,5 @@ As mentioned in remark \ref{rmk:data} we want to prove the following theorem whi
 \begin{remark}\label{rmk:ReconstrPastBoundary}
     In the statement of theorem \ref{thm:intreconstr} we required that $V$ be a subset of the interior $\interior{\jp}$. This is because as we approach the observation set $K$, the light cone observation sets get increasingly degenerate and loose many of their nice properties for points on the boundary, i.e. if we had a $q\in V\cap K$. This issue will be adressed in the next chapter by smoothing the observation time functions at the boundary.
 
-    However if $q\in V$ approaches the past boundary $\mc{L}^+_{p^-}\cap I^-(p^+)$ the situation is much simpler: Because we are always away from the set of observers $K$, the light cone observation sets remain well behaved even for $q\in \mc{L}^+_{p^-}\cap I^-(p^+)$. It is thus possible to relax the condition $V\subset \interior{\jp}$ to $V\subset \jp \setminus K$ in theorem \ref{thm:intreconstr} with only minor modifications to the proofs.
+    However if $q\in V$ approaches the past boundary $K^-:=\mc{L}^+_{p^-}\cap I^-(p^+)$ the situation is simpler: Because we are always away from the set of observers $K$, the light cone observation sets remain transverse to $K$ and thus well behaved even for $q\in \mc{L}^+_{p^-}\cap I^-(p^+)$. It is thus possible to relax the condition $V\subset \interior{\jp}$ to $V\subset \jp \setminus K$ in theorem \ref{thm:intreconstr} with only minor modifications to the proofs.
 \end{remark}
