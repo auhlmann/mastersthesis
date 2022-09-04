@@ -1,7 +1,7 @@
 \chapter{Applications}
-((TODO Polish Chapter))
-\section{Stability Results}
+In this chapter we will examine some useful applications of the results proven in the previous chapters. We first show that the suitability conditions required in theorems \ref{thm:intreconstr} and \ref{thm:bdreconstr} are somewhat generic as they are preserved by small perturbations. Then we will use a conformal embedding of Minkowski space into the Einstein universe to show that theorem \ref{thm:intreconstr} also allows us to reconstruct the complete spacetime from observations at future null infinity.
 
+\section{Stability Results}
 The following lemma guarantees that theorem \ref{thm:intreconstr} still applies even if we deviate the metric slightly:
 \begin{lemma}
     Let $(M,g)$ be a globally hyperbolic manifold with $p^-,p^+\in M$ \emph{suitable}. Furthermore let $V\in \interior{\jp}$ such for any $q\in \cl{V}$, no null geodesic starting at $q$ has a conjugate point in $K$.
@@ -13,7 +13,7 @@ The following lemma guarantees that theorem \ref{thm:intreconstr} still applies 
     and $\widetilde{g}$ is smooth and has $h_q=0$ for all $q\in M\setminus V$. Then if $\varepsilon>0$ is small enough, $(M,\widetilde{g})$ is globally hyperbolic and $p^-,p^+,V$ are still \emph{suitable}
 \end{lemma}
 \begin{proof}
-    To distinguish between objects defined in terms of $g$ or $\widetilde{g}$ we will add a prescript of the respective metrice, for example $\psg{\exp}_q$ is the exponential map defined with respect to $g$ and $\psgt{\exp}_q$ with respect to $\widetilde{g}$. We begin by showing that for $\varepsilon_1>0$, small enough, $(M,\widetilde{g})$ still globally hyperbolic. This follows from theorem 12 in \cite{gerochdomain}.
+    To distinguish between objects defined in terms of $g$ or $\widetilde{g}$ we will add a prescript of the respective metric, for example $\psg{\exp}_q$ is the exponential map defined with respect to $g$ and $\psgt{\exp}_q$ with respect to $\widetilde{g}$. We begin by mentioning that for $\varepsilon>0$, small enough, $(M,\widetilde{g})$ still globally hyperbolic. This follows from theorem 12 in \cite{gerochdomain}.
     
     Next we want to show that we also have $p^- \psgt{\ll} p^+$, i.e. there exists a timelike (wrt. $\widetilde{g}$) path from 
     $p^-$ to $p^+$. Because $p^- \psg{\ll} p^+$, there exists a path $\sigma$ with $\sigma(0)=p^-$ and $\sigma(1)=p^+$ which is timelike wrt. $g$. Because $[0,1]$ is compact we can find a $\varepsilon_2>0$ such that $\sigma$ is still timelike wrt. $\widetilde{g}$, and thus $p^-\ll g^+$.
@@ -25,8 +25,9 @@ The following lemma guarantees that theorem \ref{thm:intreconstr} still applies 
     Note that because $\widetilde{g}=g$ outside of $V$, we still have $V\subset \interior{\psgt{\jp}}$. We can then see that $p^-,p^+,V$ are still suitable with respect to $\widetilde{g}$ and some $\varepsilon_5>0$ after noting that $\psgt{L}^K\cl{V}$ is compact and $\psg{\exp}$ has no conjugate points in $\psg{L}^K\cl{V}$ by assumption.
 \end{proof}
 
+We can extend the previous result slightly to show that if also the past boundary of $\jp$ has no cut points, then $\jp$ and $K$ are conserved.
 \begin{corollary}\label{cor:suitablestable}
-    Let $(M,g)$ be a globally hyperbolic manifold with $p^-,p^+\in M$ \emph{suitable} and such that no geodesic starting at $p^-$ has a cut point in $\mc{L}^+\cap J^-(p^+)$. Furthermore let $V\in \interior{\jp}$ such for any $q\in \cl{V}$, no null geodesic starting at $q$ has a conjugate point in $K$.
+    Let $(M,g)$ be a globally hyperbolic manifold with $p^-,p^+\in M$ \emph{suitable} and such that no geodesic starting at $p^-$ has a cut point in $\mc{L}^+_{p^-}\cap J^-(p^+)$. Furthermore let $V\in \interior{\jp}$ such for any $q\in \cl{V}$, no null geodesic starting at $q$ has a conjugate point in $K$.
     
     If we vary the metric $g$ slightly to $\widetilde{g}:=g+h$ such that 
     \[
@@ -35,7 +36,7 @@ The following lemma guarantees that theorem \ref{thm:intreconstr} still applies 
     and $\widetilde{g}$ is smooth and has $h=0$ for all $q\in M\setminus \interior{\jp}$. Then if $\varepsilon>0$ is small enough, $(M,\widetilde{g})$ is globally hyperbolic and $p^-,p^+,V$ are still \emph{suitable}. Furthermore we have $\psg{\jp}=\psgt{\jp}$ and $\psg{K}=\psgt{K}$.
 \end{corollary}
 \begin{proof}
-    The proof follows from the observation that the fact that $p^\pm$ have no cut points in $\mc{L}^\mp_{p^\pm} \cap J^\pm(p^\mp)$ implies $\psg{\exp_{p^\pm}}= \psgt{\exp_{p^\pm}}$ together with an analogous argument to the previous lemma.
+    The proof follows from the observation that the fact that $p^+$ and $p^-$ have no cut points in $\mc{L}^\mp_{p^\pm} \cap J^\pm(p^\mp)$ implies $\psg{\exp_{p^\pm}}= \psgt{\exp_{p^\pm}}$, together with an analogous argument to the previous lemma.
 \end{proof}
 
 \begin{example}
@@ -67,10 +68,11 @@ However this example is somewhat limited in scope because such a deviation canno
 \section{Einstein Universe}
 
 \begin{definition}[Einstein Universe]
-Let $(\R,-dt^2)$ be the real line with negatively definite metric $-dt^2$ and $(S^n,h)$ the n-sphere with the canonical Riemannian metric. The $1+n$ dimensional \emph{Einstein universe} is then defined as the product $(\R\times S^n, -dt^2 \oplus h)$
+Let $(\R,-dt^2)$ be the real line with negative definite metric $-dt^2$ and $(S^n,h)$ the $n$-sphere with the canonical Riemannian metric. The $1+n$ dimensional \emph{Einstein universe} is then defined as the product $(\R\times S^n, -dt^2 \oplus h)$. Note that by construction is a Lorentzian globally hyperbolic manifold.
 \end{definition}
 
-\begin{remark}
+To better describe the Einstein universe the following remark is very useful
+\begin{remark}\label{rmk:alphadef}
 We can parameterize $S^n$ by an angle $\alpha\in [0,\pi]$ and a point $\omega\in S^{n-1}$ via the map 
 
 \begin{align*}
@@ -85,18 +87,30 @@ If for a $X\in S^n$ we write $X=(X_0,\overrightarrow{X}), X_0\in \R, \overrighta
 
 $S$ is surjective and smooth but we have 
 \[(1,0,\dots, 0) = S(0,\omega) \quad \text{and} \quad (-1,0,\dots,0)=S(\pi,\omega) \quad \text{for all }\omega\in \sn,\]
-which means $S$ fails to be injective if $\alpha = [0,\pi]$. Nontheless for every $X\in S^n$, $\alpha$ is well defined.
+which means $S$ fails to be injective if $\alpha = \{0,\pi\}$. Nontheless for every $X\in S^n$, $X\mapsto \alpha$ is well defined and smooth.
 \end{remark}
 
-We define 
-\begin{align*}
-    M^M:=&\{(T,X)\in \R\times S^n \mid T\in(-\pi,\pi), \alpha<\pi-\lvert T\rvert\} \text{ and}\\
-    \mc{J}^+:=&\{(T,X)\in \R\times S^n \mid T\in(0,\pi), \alpha = \pi - T\}\\
-    \mc{J}^-:=&\{(T,X)\in \R\times S^n \mid T\in(\pi,0), \alpha = \pi + T\}\\
-    i^\pm :=& \{T=\pm\pi,\alpha=0\}
-\end{align*}
+\subsection{Conformal Embedding}
+We will now describe how Minkowsky space can be conformally embedded into the Einstein universe and how we can find null the corresponding future and past infinities.
+\begin{definition}
+    We can first define $M^M$, the image of the conformal embedding and thus a conformal copy of Minkowski space within the Einstein universe:
+    \begin{align*}
+        M^M:=&\{(T,X)\in \R\times S^n \mid T\in(-\pi,\pi), \alpha<\pi-\lvert T\rvert\}
+    \end{align*}
+    Next we can define the future and past null infinities of $M^M$ to be (almost) its future and past boundaries:
+    \begin{align*}
+        \mc{J}^+:=&\{(T,X)\in \R\times S^n \mid T\in(0,\pi), \alpha = \pi - T\}\\
+        \mc{J}^-:=&\{(T,X)\in \R\times S^n \mid T\in(\pi,0), \alpha = \pi + T\}
+    \end{align*}
+    As mentioned $\mc{J}^\pm$ are only \emph{almost} the full boundary of $M^M$; in fact $\{T=\pm\pi,\alpha=0\}$ and $\{T=0,\alpha=\pi\}$ are missing. But as remarked in \ref{rmk:alphadef}, at these points the mapping $X\mapsto \alpha$ is degenerate and 
+    \begin{align*}
+        i^\pm :=& \{T=\pm\pi,\alpha=0\} \\
+        i^S := & \{T=0,\alpha=\pi\}
+    \end{align*}
+    are single points which correspond exactly to timelike future, timelike past and spacelike infinities.
+\end{definition}
 
-If we set $p^\pm = i^\pm$ we can see that $\mc{J}^+ = K \setminus (\{p^+\} \cup R)$, and that they are \emph{almost} suitable. A slight issue is that past null geodesics starting at $i^+=(\pi, 0)$ have a conjugate point at $(0,\pi)\in R$. We even have $R = \{(0,\pi)\}$. Meaning the past light cone starting at $i^+$ fully collapses into $(0,\pi)$. Luckily by lemma \ref{lem:Kcharact}(3) we can continue as if $i^-$ and $i^+$ were suitable.
+If we set $p^\pm = i^\pm$ we can see that $\mc{J}^+ = K \setminus (\{p^+\} \cup R)$, and that they are \emph{almost} suitable. A slight issue is that past null geodesics starting at $i^+=(\pi, 0)$ have a conjugate point at $i^s=(0,\pi)\in R$. We even have $R = \{i^S\}$. Meaning the past light cone starting at $i^+$ fully collapses into $i^s$. To fix this we can again argue that by lemma \ref{lem:Kcharact}(3) we can disregard this boundary behaviour and because no geodesic starting at $i^+$ has a conjugate point in $\mc{J}^+$ we can continue as if $i^-$ and $i^+$ were suitable.
 
 We can now construct our conformal embedding:
 \begin{proposition}
@@ -105,20 +119,26 @@ Let $(M^E,g_E)=(\R\times S^n,-dt^2 \oplus h)$ be the $1+n$ dimensional Einstein 
     \Psi:M^M &\to \R^{1+n}\\
     (T,X) &\mapsto\frac{1}{\cos T + X_0}(\sin T,\overrightarrow{X})
 \end{align}
-is a conformal (state conformal factor) diffeomorphism from $M^M$ to the whole Minkovski space.
+is a conformal diffeomorphism from $M^M$ to the whole Minkovski space $\R^{1+n}$ with conformal factor $\cos(T)+X_0$. Here $X_0$ denotes the first coordinate of $X$ under the canonical embedding of $S^n$ into $\R^{n+1}$.
 \end{proposition}
 \begin{proof}
-    ((TODO))
+    This can be verified by calculation. An extensive treatment can be found in \cite{hormander}(A.4).
 \end{proof}
 
+\begin{figure}\label{fig:EU}
+    \centering
+    \input{graphics/EU.tex}
+    \caption{
+        Illustration of the Einstein universe together with the conformal copy of Minkovski space $M^M$ and the corresponding infinities $\mc{J}^\pm$ and $i^\pm$. We can see that $\mc{J^\pm}$ are codimension 1 null submanifolds of the Einstein universe and $i^\pm$ are single points.
+    }
+\end{figure}
 Note that this allows us to identify $J^\pm$ with the future resp. past null infinities of Minkowski space, whereas $i^\pm$ are the future resp. past timelike infinities.
-
-We can thus understand a reconstruction of a set $V\subset \interior{J(i^-,i^+)}$ from light observations on $J^+$ as a reconstruction of a subset of Minkowsky space from observations at future null infinity. Notably this remains possible even if we vary $g$ slightly:
-\begin{example}Let now $V:= \{(T,X)\in M^M \mid T>0\}$ and $p^\pm = i^\pm$ Then we we have $V\in \interior{\jp}$, no null geodesic starting in $\cl{V}$ has cut point on $K=\mc{L}^-_{p^+}\cap J^+(p^-) = \mc{J}^+$. This is because for any $\omega \in S^n$ and $\eta\in T_\omega S^n$, $-\omega$ is a conjugate point of full dimension along $\gamma_{\omega,\eta}$. Furthermore by the same argument we can see that for all $v\in CL^-_{i^+}M$, $\gamma_{i^+,v}$ has a conjucate point of maximal dimension exactly where it intersects with $J^+(p)\setminus I^+(p)$, i.e. on the boundary $R$. Because of this $R$ is now a single point and not a dimension $n-1$ submanifold anymore. By lemma \ref{lem:Kcharact}(3) assures that this is no problem as all reconstruction only requires $K$ to be regular on $K\cap I^+(p^-)$.
+We can thus understand a reconstruction of a set $V\subset \interior{J(i^-,i^+)}$ from light observations on $\mc{J}^+$ as a reconstruction of a subset of Minkowsky space from observations at future null infinity. Notably this remains possible even if we vary $g$ slightly:
+\begin{example}Let now $V:= \{(T,X)\in M^M \mid T>0\}$ and $p^\pm = i^\pm$ Then we we have $V\in \interior{\jp}$ and no null geodesic starting in $\cl{V}$ has cut point on $K=\mc{L}^-_{p^+}\cap J^+(p^-) \approx \mc{J}^+$. This is because for any $\omega \in S^n$ and $\eta\in T_\omega S^n$, $-\omega$ is a conjugate point of full dimension along $\gamma_{\omega,\eta}$ and in fact the first cut point. Furthermore by the same argument we can see that for all $v\in CL^-_{i^+}M$, $\gamma_{i^+,v}$ has a conjucate point of maximal dimension exactly where it intersects with $J^+(p^-)\setminus I^+(p^-)$, i.e. on the boundary $R$. Because of this $R$ is now a single point and not a dimension $n-1$ submanifold anymore. By lemma \ref{lem:Kcharact}(3) assures that this is no problem as all reconstruction only requires $K$ to be regular on $K\cap I^+(p^-)$.
 
 We can thus assume that $p^-,p^+$ and $V$ are suitable and can apply corollary \ref{cor:suitablestable} to show that even if we vary $g$ slightly to $\widetilde{g}$ on $\interior{\jp}$ we can still carry out the reconstruction. 
 
-If we then use $\Psi$ to push the whole situation into $\R^{1+n}$ we can see that $\Psi_*g$ is a slight variation of the Minkowski metric and does not necessarily have compact support. If we then view $J^+$ as future null infinity we can see that we are able to reconstruct $\Psi(V) = \{(t,x)\in \R^{1+} \mid t>0\}$ from the light observations at null infinity.
+If we then use $\Psi$ to push the whole situation into $\R^{1+n}$ we can see that $\Psi_*g$ is a slight variation of the Minkowski metric which does not necessarily have compact support. If we view $\mc{}^+$ as future null infinity we can see that we are able to reconstruct $\Psi(V) = \{(t,x)\in \R^{1+n} \mid t>0\}$ from the light observations at null infinity.
 
 Using theorem 3.5 in \cite{friedrichspacetime} we can see that there even are families of physical spacetimes, i.e. satisfying the Einstein field equations, which can be reconstructed in this way.
 \end{example}

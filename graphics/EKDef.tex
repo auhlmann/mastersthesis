@@ -1,0 +1,35 @@
+\begin{tikzpicture}[auto,scale=4]
+    \begin{scope}[on above layer]
+        \coordinate (P) at (0,0);
+
+        \coordinate (C) at ($({0.5*2.5*cos(-60)},{0.5*3*sin(-60)})$);
+        \coordinate (D) at ($({0.5*2.5*cos(-20)},{0.5*3*sin(-20)})$);
+        \coordinate (M) at ($({0.5*2.5*cos(-40)},{0.5*3*sin(-40)})$);
+
+        \coordinate (A) at ($({2.5*cos(-60)},{3*sin(-60)})$);
+        \coordinate (B) at ($({2.5*cos(-20)},{3*sin(-20)})$);
+        
+        \draw[line width=3pt,white] (A)--(C) (D) -- (B);
+
+        %\draw[dotted, thick](A) -- (P) node[point]{} node[above]{$p^+$} -- node{K} (B);
+        \draw[dotted, thick](A) --(C) (D) -- node{K} (B);
+        \draw[dotted, thick, domain=-60:-20] plot ({0.5*2.5*cos(\x)},{0.5*3*sin(\x)});
+        \draw[dotted, thick, domain=-60:-20] plot ({2.5*cos(\x)},{3*sin(\x)});
+    
+        \path (0.8,-2.2) coordinate (q) node[point]{} node[below]{$q$};
+        \path (1.6,-1.6) coordinate (p) node[point]{} node[below right]{$p$};
+        \coordinate (I) at ($(P)!0.7!(A)$);
+    \end{scope}
+
+    \begin{scope}[red]
+        \coordinate (P1) at ($(C)!0.8!(A)$);
+        \coordinate (P2) at ($(D)!0.8!(B)$);
+        \coordinate (T) at ($(M)!0.15!(p)$);
+
+        \draw (P1) to[out=20, in=260] (p) to[out=80,in=50] node[above,pos=0.7]{$\mathcal{P}_K(q)$} (T) to[out=230,in=200] (p) to[out=20,in=260] (P2);
+    \end{scope}
+
+    \begin{scope}[very thick, blue]
+        \draw (P1) to[out=20, in=260] (p) to[out=20,in=260] node[pos=0.6,left]{$\mathcal{E}_K(q)$} (P2);
+    \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,37 @@
+\begin{tikzpicture}[auto,scale=3]
+    \begin{scope}[on above layer]
+        \coordinate (P) at (0,0);
+
+        \coordinate (C) at ($({0.5*2.5*cos(-60)},{0.5*3*sin(-60)})$);
+        \coordinate (D) at ($({0.5*2.5*cos(-20)},{0.5*3*sin(-20)})$);
+
+        \coordinate (A) at ($({2.5*cos(-60)},{3*sin(-60)})$);
+        \coordinate (B) at ($({2.5*cos(-20)},{3*sin(-20)})$);
+        
+        \draw[line width=3pt,white] (A)--(C) (D) -- (B);
+
+        %\draw[dotted, thick](A) -- (P) node[point]{} node[above]{$p^+$} -- node{K} (B);
+        \draw[dotted, thick](A) --(C) (D) -- node{K} (B);
+        \draw[dotted, thick, domain=-60:-20] plot ({0.5*2.5*cos(\x)},{0.5*3*sin(\x)});
+        \draw[dotted, thick, domain=-60:-20] plot ({2.5*cos(\x)},{3*sin(\x)});
+    
+        \path (0.2,-2.5) coordinate (q) node[point]{} node[below]{$q$};
+        \path (1.5,-1.5) coordinate (p) node[point]{} node[above left]{$p$};
+        \coordinate (I) at ($(P)!0.7!(A)$);
+    \end{scope}
+
+    \begin{scope}[red, very thick]
+        \draw (q) to[out=60, in=190] node{$\gamma$} (I);
+        \draw[dashed] (I) to[out=10,in=225] (p);
+
+        \coordinate (p') at ($(p)+(1,0)$);
+        \draw[->] ($(p)!1pt!45:(p')$) --node[below right]{$\gamma'(1)$} ($(p)!14pt!45:(p')$) ; 
+    \end{scope}
+
+    \begin{scope}{red}
+        
+    \end{scope}
+
+    %\draw[line width=3pt, white](P) -- (A);
+    
+\end{tikzpicture}

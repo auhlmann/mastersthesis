@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=4,auto]
+    \draw (0,0) -- (50:1) coordinate (A) -- node[pos=0.3]{$T_pK$} ++(320:2) -- ++(230:1) coordinate (B) -- cycle;
+    
+    \draw[black!50!green, thick] ($0.0*(A)+0.5*(B)$) coordinate (C) -- coordinate (M) node[left]{$S$} ($1.0*(A)+0.5*(B)$) coordinate (D);
+
+    \path ($(C)!0.9!(D)$) -- ++(30:0.5) coordinate (P');
+    \draw[blue,thick] ($(C)!0.1!(D)$) -- ++(30:0.5) node[below right]{$N$} -- (P') -- ($(C)!0.9!(D)$);
+
+    \path ($(C)!0.9!(D)$) -- ++(210:0.5) coordinate (P');
+    \draw[blue,dashed,thick] ($(C)!0.1!(D)$) -- ++(210:0.5) -- (P') -- ($(C)!0.9!(D)$);
+
+    \draw[red,->, thick] (M) -- ++(30:0.8) node[right]{$\mathbb{R}_+V$};
+\end{tikzpicture}

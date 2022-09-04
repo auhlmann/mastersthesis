@@ -1,0 +1,54 @@
+\begin{tikzpicture}[auto,scale=1]
+    \def\vtick#1#2{
+        \draw ($#1+(-0.1,0)$) node[left]{#2} -- ($#1+(0.1,0)$);
+    }
+    \begin{scope}[on above layer]
+        \def\da{0.3}
+        \def\db{0.45}
+        \path (-2,3) coordinate (A) (-2,-3) coordinate (B);
+        \path (2,3) coordinate (C) (2,-3) coordinate (D);
+
+        \draw ($(A)+(0,\da)$)--coordinate (M1) ($(B)+(0,-\da)$);
+        \draw ($(C)+(0,\da)$)--coordinate (M2) ($(D)+(0,-\da)$);
+        \draw[dotted,thick] ($(A)+(0,\da)$)--($(A)+(0,\da+\db)$) ($(B)+(0,-\da)$)--($(B)+(0,-\da-\db)$);
+        \draw[dotted,thick] ($(C)+(0,\da)$)--($(C)+(0,\da+\db)$) ($(D)+(0,-\da)$)--($(D)+(0,-\da-\db)$);
+    \end{scope}
+
+    \begin{scope}
+        \clip (-2,0) rectangle (2,-1);
+        \draw (0,0) ellipse(2 and 0.2);
+    \end{scope}
+    \begin{scope}
+        \clip (-2,0) rectangle (2,1);
+        \draw[dashed] (0,0) ellipse(2 and 0.2);
+    \end{scope}
+
+    \vtick{(A)}{$\pi$}
+    \vtick{(M1)}{$0$}
+    \vtick{(B)}{$-\pi$}
+
+    \begin{scope}[red, thick]
+        \draw[on above layer] (-2,1.5) to[bend left=10] (0,3) node[point]{} node[above]{$i^+$} to[bend left=10] node[above right]{$\mathcal{J}^+$} (2,1.5);
+        \draw[dashed] (-2,1.5) to[bend right=10] (0,0.2) to[bend right=10] (2,1.5);
+    \end{scope}
+
+    \begin{scope}[blue,thick]
+        \draw[on above layer] (-2,-1.5) to[bend right=10] (0,-3) node[point]{} node[below]{$i^-$} to[bend right=10] node[below right]{$\mathcal{J}^-$} (2,-1.5);
+        \draw[dashed] (-2,-1.5) to[bend left=10] (0,0.2) to[bend left=10] (2,-1.5);
+    \end{scope}
+    
+    \path (0,1) node{$M^M$};
+
+    \fill[opacity=0.1] (-2,1.5) to[bend left=10] (0,3) node[point]{} to[bend left=10] (2,1.5) -- (2,-1.5) to[bend left=10] (0,-3) to[bend left=10] (-2,-1.5) -- cycle;
+
+    \fill[opacity=0.1] (-2,1.5) to[bend right=10] (0,0.2) to[bend right=10] (2,1.5) -- (2,-1.5) to[bend right=10] (0,0.2) to[bend right=10] (-2,-1.5) -- cycle;
+
+    \coordinate (O) at (3,2);
+
+    \draw (O) ellipse (0.5 and 0.2);
+    \path (3.5,2) node[right]{$S^n$};
+
+    \draw[white, line width=3pt] (O) -- ++(0,0.5);
+    \draw[->] (O) -- ++(0,0.5) node[above]{$\mathbb{R}$};
+
+\end{tikzpicture}

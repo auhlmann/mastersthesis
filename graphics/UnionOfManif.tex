@@ -1,0 +1,65 @@
+\begin{tikzpicture}[auto,scale=4]
+    \begin{scope}[on above layer]
+        \coordinate (P) at (0,0);
+
+        \coordinate (C) at ($({0.5*2.5*cos(-60)},{0.5*3*sin(-60)})$);
+        \coordinate (D) at ($({0.5*2.5*cos(-20)},{0.5*3*sin(-20)})$);
+        \coordinate (M) at ($({0.5*2.5*cos(-40)},{0.5*3*sin(-40)})$);
+
+        \coordinate (A) at ($({2.5*cos(-60)},{3*sin(-60)})$);
+        \coordinate (B) at ($({2.5*cos(-20)},{3*sin(-20)})$);
+        
+        \draw[line width=3pt,white] (A)--(C) (D) -- (B);
+
+        %\draw[dotted, thick](A) -- (P) node[point]{} node[above]{$p^+$} -- node{K} (B);
+        \draw[dotted, thick](A) --(C) (D) -- node{K} (B);
+        \draw[dotted, thick, domain=-60:-20] plot ({0.5*2.5*cos(\x)},{0.5*3*sin(\x)});
+        \draw[dotted, thick, domain=-60:-20] plot ({2.5*cos(\x)},{3*sin(\x)});
+    
+        \path (0.8,-2.2) coordinate (q) node[point]{} node[below]{$q$};
+        \path (1.6,-1.6) coordinate (p) node[point]{} node[above left]{$p$};
+        \coordinate (I) at ($(P)!0.7!(A)$);
+    \end{scope}
+
+    \begin{scope}[red]
+        \coordinate (P1) at ($(C)!0.8!(A)$);
+        \coordinate (P2) at ($(D)!0.8!(B)$);
+        \coordinate (T) at ($(M)!0.15!(p)$);
+
+        \draw (P1) to[out=20, in=260] (p) to[out=80,in=50] node[above,pos=0.7]{$\mathcal{P}_K(q)$} (T) to[out=230,in=200] (p) to[out=20,in=260] (P2);
+    \end{scope}
+
+    \begin{scope}[black!50!green]
+        \draw[dotted, thick] (p) circle (0.39)  ++(0.12,0.36)node[above]{$U$};
+    \end{scope}
+
+    \path[name path=U] (p) circle (0.39);
+    \path[name path=P] (P1) to[out=20, in=260] (p) to[out=80,in=50] (T) to[out=230,in=200] (p) to[out=20,in=260] (P2);
+    \path[name intersections={of=U and P,by={I,J,K,L}}];
+
+    \begin{scope}[blue,thick]
+        \clip (p) circle (0.39);
+        \draw (P1) to[out=20, in=260] node[pos=0.8,right]{$\mathcal{U}_2$} (p) to[out=80,in=50] (T);
+    \end{scope}
+
+    \begin{scope}[magenta,thick]
+        \clip (p) circle (0.39);
+        \draw (T) to[out=230,in=200] (p) to[out=20,in=260] node[pos=0.3,below right]{$\mathcal{U}_1$} (P2);
+    \end{scope}
+
+    \path[name path=U] (p) circle (0.39);
+    \path[name path=P] (P1) to[out=20, in=260] (p) to[out=80,in=50] (T) to[out=230,in=200] (p) to[out=20,in=260] (P2);
+    \path[name intersections={of=U and P,by={I,J,K,L}}];
+
+    \coordinate (G1) at ($(C)!0.49!(A)$);
+    \coordinate (G2) at ($(C)!0.7!(A)$);
+
+    \begin{scope}[on behind layer]
+        \draw[blue] (q) to[out=75,in=230]node[left,pos=0.9]{$\gamma_{w_2}$} (G1);
+        \draw[blue,dashed] (G1) to[out=50, in=180] (p);
+
+        \draw[magenta] (q) to[out=330,in=200]node[below,pos=0.8]{$\gamma_{w_1}$} (G2);
+        \draw[magenta,dashed] (G2) to[out=30,in=260] (p);
+        
+    \end{scope}
+\end{tikzpicture}

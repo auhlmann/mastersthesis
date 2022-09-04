@@ -1,0 +1,53 @@
+\begin{tikzpicture}[auto,scale=4]
+    \begin{scope}[on above layer]
+        \coordinate (L) at (-1,0);       
+        \coordinate (U) at (0,1);       
+        \coordinate (R) at (1,0);  
+
+        \draw[name path=cone] (L) -- node{$K$} (U) node[point]{} node[left]{$p^+$}  --   (R);
+
+        \path (0,0.15) coordinate (q) node[point]{} node[below]{$q$};
+        \path ($(q)+(-1,-1)$) coordinate (qmm) ($(q)+(-1,1)$) coordinate (qmp) ($(q)+(1,-1)$) coordinate (qpm) ($(q)+(1,1)$) coordinate (qpp);
+    \end{scope}
+
+    \begin{scope}[red, thick]
+        \path ($(U)!0.35!(L)$) coordinate (I1) ($(U)!0.3!(R)$) coordinate (I2);
+        \path (I1)-- coordinate (I') (I2);
+        \coordinate (I3) at ($(I')+(0,-0.1)$);
+        \coordinate (I4) at ($(U)!0.3!(I3)$);
+        \draw[dashed] (I1) to[bend left] (I2);
+        \draw[white,line width=5pt] (I3) to[out=30,in=0] (I4) to[out=180,in=150] (I3);
+        \draw (I1) to[out=-20,in=210] (I3) to[out=30,in=0] (I4) to[out=180,in=150] (I3) to[out=330,in=200] (I2) node[above right]{$\mathcal{P}_K(q)$} ;
+    \end{scope}
+
+
+    \draw[dashed] (-1,0) .. controls (-0.5,0.5) and (0.5,0.5) .. (1,0);
+    \draw (-1,0) .. controls (-0.5,-0.5) and (0.5,-0.5) .. coordinate[pos=0.3](A) coordinate[pos=0.7](B) (1,0);
+
+    \begin{scope}[blue]
+        \def\vari{0.25}
+        \def\varo{0.315}
+        \draw ($(q)!\vari!(qmm)$) -- ($(q)!\vari!(qpp)$);
+        \draw[dotted, thick] ($(q)!\vari!(qmm)$) -- ($(q)!\varo!(qmm)$);
+        \draw[dotted, thick] ($(q)!\vari!(qpp)$) -- ($(q)!\varo!(qpp)$);
+
+        \draw ($(q)!\vari!(qmp)$) -- node[right,pos=0.7]{$L_qM$} ($(q)!\vari!(qpm)$);
+        \draw[dotted, thick] ($(q)!\vari!(qmp)$) -- ($(q)!\varo!(qmp)$);
+        \draw[dotted, thick] ($(q)!\vari!(qpm)$) -- ($(q)!\varo!(qpm)$);
+
+        % \draw ($(q)!\vari!(qmp)$) to[bend right] ($(q)!\vari!(qpp)$);
+        % \draw[dashed] ($(q)!\vari!(qmp)$) to[bend left] ($(q)!\vari!(qpp)$);
+
+        % \draw ($(q)!\vari!(qmm)$) to[bend right] ($(q)!\vari!(qpm)$);
+        % \draw[dashed] ($(q)!\vari!(qmm)$) to[bend left] ($(q)!\vari!(qpm)$);
+    \end{scope}
+
+    \begin{scope}[thick, black!50!green]
+        \path ($(q)!0.18!(qmp)$) coordinate (M1) ($(q)!0.22!(qpp)$) coordinate (M2);
+        \path (M1)-- coordinate (M') (M2);
+        \coordinate (M3) at ($(M')+(0,-0.05)$);
+        \draw[dashed] (M1) to[bend left] (M2);
+        \draw (M1) node[below left]{$L_q^KM$} to[out=-20,in=190] (M3) to[out=10,in=180] (M2);
+    \end{scope}
+    
+\end{tikzpicture}

@@ -1,0 +1,36 @@
+\def\vtick#1#2{
+        \draw ($#1+(-0.2,0)$) node[left]{#2} -- ($#1+(0.2,0)$);
+}
+\def\htick#1#2{
+        \draw ($#1+(0,-0.1)$) node[below]{#2} -- ($#1+(0,+0.1)$);
+}
+
+\begin{tikzpicture}[xscale=0.5,auto,scale=1.3]
+    \path (0,0) coordinate(o) (0,2.3) coordinate (y) (2*3.14159,0) coordinate (x);
+
+    \draw[->] (o)--(x) node[right]{$S^{n-1}$};
+    \draw[->] (o)--(y) node[above]{$F_q(a)$};
+    \vtick{(0,2)}{$0$}
+    \vtick{(0,0.15)}{$t_q$}
+
+    \htick{(2.99,0)}{$a_q$}
+
+    \draw[thick] plot[domain=-2.2:-2.2+2*3.14159,samples=100] (\x+2.2,{(-(2-1.2^2)/(2-1.2*(cos(\x r)+sin(\x r)))+2)});
+
+    \draw[->,thick] (8,2) to[bend left=15] node[above]{$*\chi_{a_q}$} (11,2);
+
+    \begin{scope}[xshift=350]
+    \path (0,0) coordinate(o) (0,2.3) coordinate (y) (2*3.14159,0) coordinate (x);
+
+    \draw[->] (o)--(x) node[right]{$S^{n-1}$};
+    \draw[->] (o)--(y) node[above]{$H_q(a)$};
+    \vtick{(0,2)}{$0$}
+
+    \htick{(2.99,0)}{$a_q$}
+    \begin{scope}[thick]
+        \draw plot[domain=-0.2:-0.2+1.99,samples=100] (\x+2.2,{(-(2-1.2^2)/(2-1.2*(cos(\x r)+sin(\x r)))*(1-exp(-(\x-0.79)^2/(1-(\x-0.79)^2))))+2});
+        \draw plot[domain=-2.2:-0.2,samples=100] (\x+2.2,{(-(2-1.2^2)/(2-1.2*(cos(\x r)+sin(\x r))))+2});
+        \draw plot[domain=-0.2+1.99:-2.2+2*3.14159,samples=100] (\x+2.2,{(-(2-1.2^2)/(2-1.2*(cos(\x r)+sin(\x r))))+2});
+    \end{scope}
+    \end{scope}
+\end{tikzpicture}

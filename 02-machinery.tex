@@ -98,8 +98,14 @@ Finally for part (3) we assume that there exists a $p_0\in R$ and $p\in J^-(p_0)
 % Note that these data are invariant under conformal diffeomorphism, and any map we construct from it will thus also be invariant. We also remark that $\overline{V}\subset \operatorname{int} J(p^-,p^+)$ implies that $q\notin K$ for any $q\in \overline{V}$. 
 % \end{remark}
 
+\begin{figure}\label{fig:Transversality}
+    \centering
+    \input{graphics/Transversality.tex}
+    \caption{Illustration of a null geodesic $\gamma$ from a point $q=\gamma(0)\in \interior{\jp}$ to a point $p=\gamma(1)\in K$ on the observations set, where $\gamma$ must be transversal.}
+\end{figure}
 
-This lemma will be essential in showing many of the desirable properties of the \emph{observation time} functions, because it ensures that for any $q\in \interior{\jp}$ the intersection of the forwards light cone $\mc{L}^+_{q}\cap K$ is not degenerate. The fact that this fails if the source point $q$ is in $K$ is precisely why many of the nice properties of the observation time functions dont carry over to points on $K$.
+
+The following lemma will be essential in showing many of the desirable properties of the \emph{observation time} functions, because it ensures that for any $q\in \interior{\jp}$ the intersection of the forwards light cone $\mc{L}^+_{q}\cap K$ is not degenerate. The fact that this fails if the source point $q$ is in $K$ is precisely why many of the nice properties of the observation time functions dont carry over to points on $K$.
 \begin{lemma}\label{lem:transversality}
 For any $q\in \ijp$ the restriction of the exponential map to null vectors $\exp_q:L^+_qM\to M$ is \emph{transverse} to $K$, i.e. for all $w\in L^+_qM$ such that $\gamma_{q,w}(1) = p\in K$ we have $\gamma'_{q,w}(1)\notin T_pK$.
 \end{lemma}
@@ -160,6 +166,12 @@ The following lemma closely resembles lemma \ref{lem:hitsonce}:
 \end{proof}
 For some $a\in \sn$ often write $T_a:=T_v$ where $v\in CL^-_{p^+}M$ is obtained via the equivalence from equation \ref{eq:CEQSN}. Because $a\mapsto T_a$ is a continuous map on a compact set there exists a maximum $T_\sn$.
 
+\begin{figure}\label{fig:Observers}
+    \centering
+    \input{graphics/Observers.tex}
+    \caption{Illustration of two observers on the observation set as constructed in proposition \ref{prop:thetaconstr}; $a_1,a_2\in \sn$ correspond to unit null directions at $p^+$. The observer $\mu_{a_i}$ is then taken to be the null geodesic which hits $p^+$ with the repsective null direction.}
+\end{figure}
+
 With this setup we can now parameterize $K$:
 \begin{proposition}\label{prop:thetaconstr}
     Let $\mc{S}:=\{(a,t)\in \sn \times (-\infty,0]\mid t \in [-T_a,0]\}$.
@@ -202,6 +214,12 @@ And finally we can see that we can construct the map $\Theta$ and thus the geode
 \subsection{Differential Constructions}
 Having parameterized $K$ we can now outline some differential properties of $K$ and $\mc{P}_K(q)$:
 
+\begin{figure}\label{fig:DirReconstr}
+    \centering
+    \input{graphics/DirReconstr.tex}
+    \caption{Illustration of lemma \ref{lem:dirreconstr}; $S,N$ and $\R_+V$ are as below.((more))}
+\end{figure}
+
 The first lemma closely resembles lemma 2.5 in \cite{hintzpaper} with only minor adjustments to adapt it to our case. It is reproduced here for the sake of completeness. It will allow us to reconstruct the direction of incoming light rays at point in $\mc{P}_K(q)$ which will locally correspond to the spacelike hypersurface.
 \begin{lemma}[Direction Reconstruction]\label{lem:dirreconstr}
 Let $p\in K$ then there exists a bijection $\Phi$ between the space $\mc{S}$ of spacelike hyperplanes $S\subset T_pK$ and the space $\mc{V}$ of rays $\R_+V\subset T_pM$ along future-directed outward facing null vectors, given by the mapping $S\in \mc{S}$ to the unique future-directed outward pointing null ray $\Phi(S)$ contained in $S^\perp$. The inverse map is given by $\mc{V}\ni \R_+V \mapsto T_pK \cap V^\perp\in \mc{S}$.
@@ -216,8 +234,15 @@ Moreover there exists a bijection between $\mc{S}$ and the space $\mc{N}$ of lin
     For the last claim we note that the map $\mc{N}\ni N \mapsto N^\perp \cap L^+_pM \in \mc{V}$ maps a null hypersurface $N$ to the unique ray along a future-pointing outward null generator of $N$. The inverse of this map is given by $\mc{V}\ni \R_+V\mapsto V^\perp \in \mc{N}$. Composition of these maps with $\Phi$ yields the desired bijection $\mc{N}\to \mc{S}$.
 \end{proof}
 
+\begin{figure}[h]\label{fig:LKDef}
+    \centering
+    \input{graphics/LKDef.tex}
+    \caption{
+        Illustration of the observation preimage $L^K_qM$ as defined in \ref{def:preimage}; The observation preimage $L^K_qM\subset L_qM$ is obtained by taking the preimage under $\exp_q$ restricted to $L_q^+M$ of $\pq$. Note that $L^K_qM$ is a submanifold even if $\pq$ fails to be one.
+    }
+\end{figure}
 The next part can be seen as an extension of lemma \ref{lem:hitsonce} we will show that for a $q\in V$, the set of null vectors hitting $K$ is actually a smooth submanifold of the future light cone and that on $L^K_qM$, $\exp_q$ is a local diffeomorphism. The fact that no geodesic starting in $V$ can have a conjugate point in $K$ and the transversality of $\exp_q$ to $K$ are curcial here. 
-\begin{definition}[Observation Preimage]
+\begin{definition}[Observation Preimage]\label{def:preimage}
 For any $q\in V$ with light observation set $\mc{P}_K(q)\subset K$ we define the \emph{observation preimage} $L^K_qM$ to be the preimage of $K$ under the exponential map restricted to $L^+_qM$, i.e. 
 \begin{align*}
     L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K) \subset L^+_qM
@@ -302,6 +327,13 @@ We now aim to show that for $q\in V$,  $\mc{P}_K(q)$ is localy the finite union 
     completing the proof.
 \end{proof}
 
+\begin{figure}\label{fig:UnionOfManif}
+    \centering
+    \input{graphics/UnionOfManif.tex}
+    \caption{
+        Illustration of proposition \ref{prop:unionmanif}; even if $\pq$ fails to be a submanifold, locally it is the union of only finitely many submanifolds. ((Explain $U$ and other stuff))
+    }
+\end{figure}
 
 Armed with the previous lemma we can now show:
 \begin{proposition}\label{prop:unionmanif}
@@ -491,6 +523,15 @@ We say that $\mathcal{D}_K(q)$ is the \emph{direction set} of $q$ and $\mathcal{
 Let $\mc{E}_K(q) := \pi(\mathcal{D}_K(q))$ and $\mc{E}^{reg}_K(q) := \pi(\mathcal{D}^{reg}_K(q))$, where $\pi:TM\to M$ is the canonical projection. We say that $\mc{E}_K(q)$ is the \emph{set of earliest observations} and $\mc{E}^{reg}_K(q)$ is the \emph{set of earliest regular observations} of $q$ in $K$. We denote the collection of earliest observation sets by $\mc{E}_K(V) = \{ \mc{E}_K(q) \mid q\in V\}$.
 \end{definition}
 Note that $\mc{E}_K(q) = \{ \mc{E}_a(q) \mid a\in \sn \}$, and thus is really the set of all earliest observation points of $q$. The intuition for the direction set $\mc{D}_K(q)$ is that they contain all points $p\in \ee(q)$ together with the directions of the corresponding null geodesics going from $q$ to $p$, at $p$.
+
+
+\begin{figure}\label{fig:EKDef}
+    \centering
+    \input{graphics/EKDef.tex}
+    \caption{
+        Illustration of the \emph{set of earliest observations} $\ee(q)$; we can see that at points $p\in K$ where $pq$ fails to be a submanifold, $\ee(q)$ incurrs a \enquote{sharp edge}.
+    }
+\end{figure}
 
 We can now characterize these observation sets and see that regular points in $\er(q)$ resp. $\mc{D}^{reg}_K(q)$ correspond to regular observation points $p\in \mc{P}^{reg}_K(q)$:
 \begin{proposition}\label{prop:submanifolds}

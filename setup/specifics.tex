@@ -42,3 +42,10 @@
 
 \newcommand{\im}{\operatorname{im}}
 %\newcommand{\interior}{\operatorname{int}}
+
+\tikzstyle{point} = [circle,fill,minimum size=2, inner sep=0]
+\def\potato#1#2{
+    \begin{scope}[shift={#1},scale=#2]
+        \draw plot [smooth cycle, tension = 0.8] coordinates {(0,0) (0.4,-0.8) (0.6,-0.3) (1,0.2)};
+    \end{scope}
+}

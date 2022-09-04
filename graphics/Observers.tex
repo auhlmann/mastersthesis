@@ -1,0 +1,22 @@
+\begin{tikzpicture}[auto,scale=4]
+    \coordinate (L) at (-1,0);       
+    \coordinate (U) at (0,1);       
+    \coordinate (R) at (1,0);  
+
+
+    \draw[dashed] (-1,0) .. controls (-0.5,0.5) and (0.5,0.5) .. (1,0);
+    \draw (-1,0) .. controls (-0.5,-0.5) and (0.5,-0.5) .. coordinate[pos=0.3](A) coordinate[pos=0.7](B) (1,0);
+
+    \draw[red,thick] (A) node[point]{}node[below]{$\mu_{a_1}(-T_{a_1})$} to[out = 100,in=250] ($(A)!0.6!(U)+(-0.1,0)$) to[out=70,in=230]node[pos=0.3,right]{$\mu_{a_1}$} (U);
+    \coordinate (U') at ($(U)+(0,1)$);
+    \draw[red,thick,->] ($(U)!1pt!-40:(U')$) -- ($(U)!7pt!-40:(U')$)node[above right]{$a_1$}; 
+
+    \draw[blue,thick] (B) node[point]{}node[below]{$\mu_{a_2}(-T_{a_2})$} to[out = 90,in=250] node[pos=0.6,right]{$\mu_{a_2}$} ($(B)!0.6!(U)+(0.1,0)$) to[out=70,in=-60] (U);
+    \coordinate (U') at ($(U)+(0,1)$);
+    \draw[blue,thick,->] ($(U)!1pt!-330:(U')$) -- ($(U)!7pt!-330:(U')$) node[above left]{$a_2$}; 
+
+
+
+    \draw[name path=cone] (L) -- 
+    (U) node[point]{} node[left]{$p^+$}  -- node{$K$}  (R);
+\end{tikzpicture}

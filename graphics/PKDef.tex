@@ -1,0 +1,32 @@
+\begin{tikzpicture}[auto,scale=3]
+    \coordinate (L) at (-1,0);       
+    \coordinate (U) at (0,1);       
+    \coordinate (R) at (1,0);       
+
+    \coordinate (q) at (-0.3,0.1);
+
+    \path[name path=light1]($(q)+(-1,1)$) -- (q);
+    \path[name path=cone1] (L)--(U);
+    \path[name path=light2]($(q)+(1,1)$) -- (q);
+    \path[name path=cone2] (R)--(U);
+
+    \path[name intersections={of=light1 and cone1,by={I1}}];
+    \path[name intersections={of=light2 and cone2,by={I2}}];
+    \path (I1) -- coordinate (M) (I2);
+
+
+    \draw[dashed] (-1,0) .. controls (-0.5,0.5) and (0.5,0.5) .. (1,0);
+    \draw (-1,0) .. controls (-0.5,-0.5) and (0.5,-0.5) ..  (1,0);
+
+    \draw[blue] (I1) -- (q) node[point]{} node[below]{$q$} -- node[right]{$\mathcal{L}^+_q$} (I2);
+
+    \draw[red] (I1) node[left]{$\mathcal{P}_K(q)$} .. controls ($(M)!5pt!30:(I1)$) and ($(M)!5pt!150:(I1)$) .. (I2);
+    \draw[red, dashed] (I1) .. controls ($(M)!5pt!150:(I2)$) and ($(M)!5pt!30:(I2)$) ..  (I2);
+
+    
+
+    %\draw[magenta] (-0.6,0.4) .. controls (0,0) .. (0.3,0.7);
+
+    \draw[name path=cone] (L) -- 
+    (U) node[point]{} node[above]{$p^+$}  -- node{$K$}  (R);
+\end{tikzpicture}
