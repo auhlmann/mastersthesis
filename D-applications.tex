@@ -13,16 +13,16 @@ The following lemma guarantees that theorem \ref{thm:intreconstr} still applies 
     and $\widetilde{g}$ is smooth and has $h_q=0$ for all $q\in M\setminus V$. Then if $\varepsilon>0$ is small enough, $(M,\widetilde{g})$ is globally hyperbolic and $p^-,p^+,V$ are still \emph{suitable}
 \end{lemma}
 \begin{proof}
-    To distinguish between objects defined in terms of $g$ or $\widetilde{g}$ we will add a prescript of the respective metric, for example $\psg{\exp}_q$ is the exponential map defined with respect to $g$ and $\psgt{\exp}_q$ with respect to $\widetilde{g}$. We begin by mentioning that for $\varepsilon>0$, small enough, $(M,\widetilde{g})$ still globally hyperbolic. This follows from theorem 12 in \cite{gerochdomain}.
+    To distinguish between objects defined in terms of $g$ or $\widetilde{g}$ we will add a prescript of the respective metric, for example $\psg{\exp}_q$ is the exponential map defined with respect to $g$ and $\psgt{\exp}_q$ with respect to $\widetilde{g}$. We begin by mentioning that for $\varepsilon_1>0$, small enough, $(M,\widetilde{g})$ still globally hyperbolic. This follows from theorem 12 in \cite{gerochdomain}.
     
     Next we want to show that we also have $p^- \psgt{\ll} p^+$, i.e. there exists a timelike (wrt. $\widetilde{g}$) path from 
-    $p^-$ to $p^+$. Because $p^- \psg{\ll} p^+$, there exists a path $\sigma$ with $\sigma(0)=p^-$ and $\sigma(1)=p^+$ which is timelike wrt. $g$. Because $[0,1]$ is compact we can find a $\varepsilon_2>0$ such that $\sigma$ is still timelike wrt. $\widetilde{g}$, and thus $p^-\ll g^+$.
+    $p^-$ to $p^+$. Because $p^- \psg{\ll} p^+$, there exists a path $\sigma$ with $\sigma(0)=p^-$ and $\sigma(1)=p^+$ which is timelike wrt. $g$. Because $[0,1]$ is compact we can find a $\varepsilon_2>0$ such that $\sigma$ is still timelike wrt. $\widetilde{g}$, and thus $p^-\psgt{\ll} g^+$.
 
-    Because $p^-\ll p^+$ and $(M,\widetilde{g})$ globally hyperbolic, the map $a\in \sn \mapsto \psgt{T}_a\in (0,\infty)$ as in lemma \ref{lem:Tvdef} is well-defined and continuous making $\psgt{\mc{S}} := \{(a,t)\in \sn\times [0,\infty) \mid t\in [0,\psgt{T}_a]\}$ a compact set. 
+    Because $p^-\psgt{\ll} p^+$ and $(M,\widetilde{g})$ globally hyperbolic, the map $a\in \sn \mapsto \psgt{T}_a\in (-\infty,0)$ as in lemma \ref{lem:Tvdef} is well-defined and continuous making $\psgt{\mc{S}} := \{(a,t)\in \sn\times [0,\infty) \mid t\in [0,\psgt{T}_a]\}$ a compact set. 
 
-    Now because the geodesic equation on $(M,\widetilde{g})$ is a second order ODE with coefficients $\widetilde{g}_{ij}$ and $\widetilde{g}_{ij,\alpha}$ and $h=\widetilde{g}-g$ has compact support, $\psgt{\exp}:TM\to M$ depends smoothly on $\widetilde{g}_{ij}$ and $\widetilde{g}_{ij,\alpha}$ while $d\psgt{\exp}:T(TM)\to TM$ depends smoothly on $\widetilde{g}_{ij}$, $\widetilde{g}_{ij,\alpha}$ and $\widetilde{g}_{ij,\alpha,\beta}$ for some $\varepsilon_3>0$ small enough. This also implies that $\psgt{\rho(q,w)}$ as well as $\psgt{T}_a$ depend smoothly on $\widetilde{g}$ and its first and second derivatives. Because we have $\psg{\rho(p^+,a)}>\psg{T}_a$ for all $a\in \sn$ there exists a $\varepsilon_4>0$ such that $\psgt{\rho(p^+,a)}>\psgt{T}_a$ for all $a\in \sn$ and we have proved that $p^-,p^+$ are suitable.
+    Now because the geodesic equation on $(M,\widetilde{g})$ is a second order ODE with coefficients $\widetilde{g}_{ij}$ and $\widetilde{g}_{ij,\alpha}$ and $h=\widetilde{g}-g$ has compact support, $\psgt{\exp}:TM\to M$ depends smoothly on $\widetilde{g}_{ij}$ and $\widetilde{g}_{ij,\alpha}$ while $d\psgt{\exp}:T(TM)\to TM$ depends smoothly on $\widetilde{g}_{ij}$, $\widetilde{g}_{ij,\alpha}$ and $\widetilde{g}_{ij,\alpha,\beta}$ for some $\varepsilon_3>0$ small enough. This implies that $\psgt{\rho(q,w)}$ as well as $\psgt{T}_a$ depend smoothly on $\widetilde{g}$ and its first and second derivatives. Because we have $\psg{\rho(p^+,a)}>\psg{T}_a$ for all $a\in \sn$ there exists a $\varepsilon_4>0$ such that $\psgt{\rho(p^+,a)}>\psgt{T}_a$ for all $a\in \sn$ and we have proved that $p^-,p^+$ are suitable.
 
-    Note that because $\widetilde{g}=g$ outside of $V$, we still have $V\subset \interior{\psgt{\jp}}$. We can then see that $p^-,p^+,V$ are still suitable with respect to $\widetilde{g}$ and some $\varepsilon_5>0$ after noting that $\psgt{L}^K\cl{V}$ is compact and $\psg{\exp}$ has no conjugate points in $\psg{L}^K\cl{V}$ by assumption.
+    Note that because $\widetilde{g}=g$ outside of $V$, we still have $V\subset \interior{\psgt{\jp}}$. We can then see that $p^-,p^+,V$ are still suitable with respect to $\widetilde{g}$ and some $\varepsilon_5>0$ after noting that $\psgt{L}^K\cl{V}$ is compact and $\psg{\exp}$ has no conjugate points in $\psg{L}^K\cl{V}$ by assumption. Taking $\varepsilon:=\min \{\varepsilon_1,\dots \varepsilon_5\}$ yields the desired result.
 \end{proof}
 
 We can extend the previous result slightly to show that if also the past boundary of $\jp$ has no cut points, then $\jp$ and $K$ are conserved.
@@ -36,7 +36,7 @@ We can extend the previous result slightly to show that if also the past boundar
     and $\widetilde{g}$ is smooth and has $h=0$ for all $q\in M\setminus \interior{\jp}$. Then if $\varepsilon>0$ is small enough, $(M,\widetilde{g})$ is globally hyperbolic and $p^-,p^+,V$ are still \emph{suitable}. Furthermore we have $\psg{\jp}=\psgt{\jp}$ and $\psg{K}=\psgt{K}$.
 \end{corollary}
 \begin{proof}
-    The proof follows from the observation that the fact that $p^+$ and $p^-$ have no cut points in $\mc{L}^\mp_{p^\pm} \cap J^\pm(p^\mp)$ implies $\psg{\exp_{p^\pm}}= \psgt{\exp_{p^\pm}}$, together with an analogous argument to the previous lemma.
+    The proof follows from the observation that the fact that $p^+$ and $p^-$ have no cut points in $\mc{L}^\mp_{p^\pm} \cap J^\pm(p^\mp)$ implies $\psg{\exp_{p^\pm}}= \psgt{\exp_{p^\pm}}$, together with an analogous argument as in the previous lemma.
 \end{proof}
 
 \begin{example}
