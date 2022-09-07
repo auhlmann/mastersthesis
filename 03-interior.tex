@@ -5,8 +5,8 @@ In this chapter we will use the observation time functions to reconstruct the to
 The central idea in this section is to find a subspace of the space of all functions from $\sn$ to $\R$, $\R^\sn$ such that for all $q\in V$, $F_q$ is contained in this subspace and convergence in this subspace is equivalent to convergenge in $V$.
 A suitable space for this task turns out to be $\mc{C}^\infty(\sn)$, the space of continuous function $F:\sn\to [-T_\sn,0]$ which are smooth on a dense open set in $\sn$ and bounded derivative, endowed with the metric
 \[
-    d(F,G):= d_\infty(F,G) + \int_{\sn} \lVert dF_a - dG_a \rVert_{g_\sn}da,
-\] where $d_\infty(F,G):=\max_{a\in \sn}\lvert F(a)-G(a)\rvert$.
+    d(F,G)\coloneqq  d_\infty(F,G) + \int_{\sn} \lVert dF_a - dG_a \rVert_{g_\sn}da,
+\] where $d_\infty(F,G)\coloneqq \max_{a\in \sn}\lvert F(a)-G(a)\rvert$.
 Note that by definition of $\mc{C}^\infty(\sn)$ the subset of $\sn$ where $F$ or $G$ are not smooth is a null set, making the integral well-defined.
 
 We can then define the function 
@@ -17,7 +17,7 @@ We can then define the function
 
 The following argument establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology with respect to the topology induced by $d$ on $\mc{C}^\infty$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
 \begin{lemma}\label{lem:Fprop}
-The map $\mathcal{F}:V\to\widehat{V}:=\mathcal{F}(V)$ is a well-defined continuous and bijective.
+The map $\mathcal{F}:V\to\widehat{V}\coloneqq \mathcal{F}(V)$ is a well-defined continuous and bijective.
 \end{lemma}
 \begin{proof}
 First of all we show that $\F:V\to (\mc{C}^\infty,d)$ is well-defined. Let $q\in V$, then $F_q$ is continuous by proposition \ref{prop:fcont}, smooth on a dense open set (namely $\areg(q)$) by proposition \ref{prop:fsmooth}, with bounded derivative by proposition \ref{prop:dfbounded}.
@@ -50,13 +50,13 @@ Finally, injectivity follows from the fact that for any $q,q'\in V$ we have $\F(
 \end{proof}
 
 However there is still some work required to show that $\F^{-1}$ is continuous on $\widehat{V}$:
-\begin{lemma}\label{lem:frevcont} Let $F_n \to F_0$ in $\widehat{V}$ then $q_n:=\F^{-1}(F_n) \to q_0:=\F^{-1}(F_0)$.
+\begin{lemma}\label{lem:frevcont} Let $F_n \to F_0$ in $\widehat{V}$ then $q_n\coloneqq \F^{-1}(F_n) \to q_0\coloneqq \F^{-1}(F_0)$.
 \end{lemma}
 \begin{proof}
-    Note that by the previous result $\F:V\to \widehat{V}$ is a bijection and thus $q_n$ and $q_0$ are well defined and we have $F_n = F_{q_n}$ resp. $F_0 = F_{q_0}$. We now aim to find $a_1,a_2\in \areg(q_0)$ such that $dF_{q_n}\rvert_{a_i}\to dF_{q_0}\rvert_{a_i}$, allowing us to apply proposition \ref{prop:dfconvimplqconv}: Let for some set $S\subset \sn$ we let $\mu(S):= \int_{S}da$ be the standard set measure and $S^c = \sn \setminus S$ the complement.
+    Note that by the previous result $\F:V\to \widehat{V}$ is a bijection and thus $q_n$ and $q_0$ are well defined and we have $F_n = F_{q_n}$ resp. $F_0 = F_{q_0}$. We now aim to find $a_1,a_2\in \areg(q_0)$ such that $dF_{q_n}\rvert_{a_i}\to dF_{q_0}\rvert_{a_i}$, allowing us to apply proposition \ref{prop:dfconvimplqconv}: Let for some set $S\subset \sn$ we let $\mu(S)\coloneqq  \int_{S}da$ be the standard set measure and $S^c = \sn \setminus S$ the complement.
 
     Let \[
-        A:=\areg(q_0) \cap \bigcap_{n=1}^{\infty}\areg(q_n)
+        A\coloneqq \areg(q_0) \cap \bigcap_{n=1}^{\infty}\areg(q_n)
     \] and
     \[
         C = A^c, \quad C_n = \areg(q_n)^c, \quad C_0 = \areg(q_n)^c.
@@ -68,17 +68,17 @@ However there is still some work required to show that $\F^{-1}$ is continuous o
 
     We then define the set of \emph{stragglers} as 
     \[
-        S(A):=\{a\in A \mid \lim_{n\to \infty} dF_{q_n}\rvert_a \neq dF_{q_0}\rvert_a\}.
+        S(A)\coloneqq \{a\in A \mid \lim_{n\to \infty} dF_{q_n}\rvert_a \neq dF_{q_0}\rvert_a\}.
     \] Because $F_{q_n}\to F_{q_0}$ with respect to $d$ we must have $\int_{\sn} \lVert \left.dF_{q_n}\right\rvert_a - \left.dF_{q_0}\right\rvert_a \rVert_{g_\sn}da \to 0$ which implies $\mu(S(A))=0$. But now we have $\mu(A\setminus S(A)) > 0$ which implies that there exist two $a_1,a_2\in A\setminus S(A)$. By definition $F_{q_n}$ is smooth at $a_i$ for all $n\in \N$ and $dF_{q_n}\rvert_{a_i} \to dF_{q_0}\rvert_{a_i}$. Now we can apply proposition \ref{prop:dfconvimplqconv} and get $q_n\to q_0$ as desired.
 \end{proof}
 % \begin{proof}
 %     Let $(q_n)_{n=1}^\infty, q_0 \in V$ such that $F_{q_n}\to F_{q_0}$ uniformly. Note that because $\F$ is injective the choice of $q_n$ for $F_{q_n}=\F(q_n)$ is unambigous.
 
-%     Let $t_0 = \max_{a\in \sn} F_{q_0}(a)$, because $q_0\in V$, lemma \ref{lem:Kcharact}(3) implies that $t_0<1$. Hence there exists an $\varepsilon>0$ such that $t':=t_0 + \varepsilon < 1$. And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n:=\max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
+%     Let $t_0 = \max_{a\in \sn} F_{q_0}(a)$, because $q_0\in V$, lemma \ref{lem:Kcharact}(3) implies that $t_0<1$. Hence there exists an $\varepsilon>0$ such that $t'\coloneqq t_0 + \varepsilon < 1$. And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n\coloneqq \max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
 
 %     We now define 
 %     \[
-%         C_{t'}:=\{q\in \jp \mid \max_{a\in \sn} F_q(q)\leq t'\}   
+%         C_{t'}\coloneqq \{q\in \jp \mid \max_{a\in \sn} F_q(q)\leq t'\}   
 %     \] and after removing the first $N$ elements of $(q_n)_{n=1}^\infty$ we may assume $q_n, q_0\in C_{t'}$.
 
 %     We now show that $C_{t'}\subset \jp$ is closed: Let $p_n \to p_0 \in \jp$ with $p_n \in C_{t'}$. We must have $p_0\in \interior{\jp}$ because otherwise $\max_{a\in \sn} F_{p_n}(a)\to 1 > t'$. 
@@ -97,11 +97,11 @@ However there is still some work required to show that $\F^{-1}$ is continuous o
 
 %     Let $t_0 = \max_{a\in \sn} F_{q_0}(a)$, because $q_0\in V$, lemma \ref{lem:Kcharact}(3) implies that $t_0<1$. Hence there exists an $t'$ such that $t_0 < t' < 1$. Now we endow $M$ with and arbitrary metric compatible with the topology and let $\varepsilon>0$ such that $\overline{B_\varepsilon(q_0)}\subset V$
     
-%     % And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n:=\max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
+%     % And because $F_{q_n}$ to $F_{q_0}$ uniformly there exists a $N\in \N$ such that $t_n\coloneqq \max_{a\in \sn} F_{q_n}(a)<t'$ for all $n \ge N$. 
 
 %     We now define 
 %     \[
-%         C_{t'}:=\{q\in \overline{B_\varepsilon(q_0)} \mid \max_{a\in \sn} F_q(a)\leq t'\}   
+%         C_{t'}\coloneqq \{q\in \overline{B_\varepsilon(q_0)} \mid \max_{a\in \sn} F_q(a)\leq t'\}   
 %     \] 
     
 %     % and after removing the first $N$ elements of $(q_n)_{n=1}^\infty$ we may assume $q_n, q_0\in C_{t'}$.
@@ -129,7 +129,7 @@ Note that because $\mc{P}_K(V)$ determines all $F_q$ and thus the set $\widehat{
 Having established the topological structure of $V$ we next aim to establish coordinates on $\F(V)$ near any $\F(q)$ that make $\F(V)$ diffeomorphic to $V$.
 
 \subsection{Construction of smooth coordinates}
-In line with the last section we will consider $\widehat{V}:=\mc{F}(V)$ a topological space. We denote the points of this manifold by $\widehat{q}:=\mc{F}(q)=F_q$. This means that points in $\widehat{V}$ are functions from $\sn$ to $\R$.
+In line with the last section we will consider $\widehat{V}\coloneqq \mc{F}(V)$ a topological space. We denote the points of this manifold by $\widehat{q}\coloneqq \mc{F}(q)=F_q$. This means that points in $\widehat{V}$ are functions from $\sn$ to $\R$.
 Next we construct a differentiable structure on $\widehat{V}$ that is compatible with that of $V$ and makes $\F$ a diffeomorphism.
 
 This definition is related to the coordinates constructed in proposition \ref{prop:observationtimecoordinates}, i.e. obervation coordinates consist of a tuple of observation times from $n+1$ observers.
@@ -168,7 +168,7 @@ Let  $\widehat{q}\in \widehat{V}$ then the following holds:
 
     Moving on to part (3): We begin by proving that the set of points in $(\er(q))^{n+1}$ which yield $C^\infty$-observation coordinates is open and dense in $(\er(q))^{n+1}$.
     We consider $p\in \er(q)$ and $a\in \sn$ which are associated. 
-    % Recall that equation \ref{eq:fgradient} implies $f_a(q)$ satisfies
+    % Recall that equation \eqref{eq:fgradient} implies $f_a(q)$ satisfies
     % \[
     % \nabla_q f_a(q) = \frac{1}{c(q,a)}w(q,p), \quad c(q,a)\neq 0
     % \]
@@ -201,7 +201,7 @@ Let  $\widehat{q}\in \widehat{V}$ then the following holds:
     \end{multline}
     Here the \enquote{only if}-direction follows from the fact that the nondegeneracy of the Jacobian ensures that the linear independence of the spanning vectors is preserved.
     
-    For some $\overrightarrow{p}=(p_j)^n_{j=0}\in Y(q)$ with $\aa$ associated we define $\mc{X}_{\overrightarrow{p}}\subset Y(q)$ to be the set of $(\widetilde{p}_j)^n_{j=0}\in Y(q)$, such that for the associated $\overrightarrow{b}$ there exists $W_{\overrightarrow{b}}$ such that $(W_{\overrightarrow{b}},\mathbf{s}_{\overrightarrow{b}})$ are $C^0$-coordinates around $\widehat{q}$ and condition \ref{eq:compatibility} is satisfied.
+    For some $\overrightarrow{p}=(p_j)^n_{j=0}\in Y(q)$ with $\aa$ associated we define $\mc{X}_{\overrightarrow{p}}\subset Y(q)$ to be the set of $(\widetilde{p}_j)^n_{j=0}\in Y(q)$, such that for the associated $\overrightarrow{b}$ there exists $W_{\overrightarrow{b}}$ such that $(W_{\overrightarrow{b}},\mathbf{s}_{\overrightarrow{b}})$ are $C^0$-coordinates around $\widehat{q}$ and condition \eqref{eq:compatibility} is satisfied.
     
     If $\overrightarrow{p}\in Y_0(q)$ we see that $Y_0(q) \subset \mc{X}_{\overrightarrow{p}}$. On the other hand $\overrightarrow{p}\notin Y_0(q)$ we have $Y_0(q) \cap \mc{X}_{\overrightarrow{p}} =\emptyset$. Since the set $Y_0(q)$ is open and dense in $Y(q)$, we see that $\overrightarrow{p}\in Y_0(q)$ if and only if the interior of $\mc{X}_{\overrightarrow{p}}$ is dense subset of $Y(q)$. Since the data \ref{rmk:data} is sufficient to determine $Y(q)$ and $\mc{X}_{\overrightarrow{p}}$, we can determine whether $\overrightarrow{p}\in Y_0(q)$ or not. And since, by proposition \ref{prop:observationtimecoordinates}, the $C^0$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}=\F(q)$ are $C^\infty$-observation coordinates if and only if $\overrightarrow{p}\in Y_0(q)$, where $\overrightarrow{p}$ are associated to $\aa$ wrt. $q$, we can determine all $C^0$-observation coordinates around $\widehat{q}$ which are also $C^\infty$-observation coordinates.
 \end{proof}
@@ -216,7 +216,7 @@ The data given in \ref{rmk:data} allows us to determine a metric $G$ on $\wideha
     Let $(W_\aa,\mathbf{s}_\aa)$ be $C^\infty$-observation coordinates on $\widehat{V}$ and $\widehat{q}\in W_\aa$.
     We begin by constructing a time orientation on $\widehat{V}$:
     Let $a_1, a_2\in \aa$ and $p_1,p_2\in U$ be associated wrt. the point $q=\F^{-1}(\widehat{q})$, i.e. $p_i=\mc{E}_{a_i}(q)$.
-    Because $\mathbf{f}_\aa = \mathbf{s}_\aa \circ \F$ are smooth coordinates we have that the vectors $w(q,p_1)$ and $w(q,p_2)$ pointing from $q$ to $p_i$ must be non-parallel. Therefore, by equation \ref{eq:fgradient} we see that the gradient vectors $\nabla f_{a_i}(q)$ are non-parallel, lightlike and past-pointing. 
+    Because $\mathbf{f}_\aa = \mathbf{s}_\aa \circ \F$ are smooth coordinates we have that the vectors $w(q,p_1)$ and $w(q,p_2)$ pointing from $q$ to $p_i$ must be non-parallel. Therefore, by equation \eqref{eq:fgradient} we see that the gradient vectors $\nabla f_{a_i}(q)$ are non-parallel, lightlike and past-pointing. 
     Thus the co-vectors $-ds_{a_1}\rvert_{\widehat{q}}$ and $-ds_{a_2}\rvert_{\widehat{q}}$ are non-parallel lightlike and future-pointing. This follows from the fact that $\F$ is an isometry and the co-vector $df_a$ is the image of  $\nabla f_a$ under the canonical isomophism. Moreover because the data allows us to fully determine $s_{a_1}$ and $s_{a_2}$ on $\widehat{V}$ (see previous proof) we can also determine $ds_{a_1}$ resp. $ds_{a_2}$.
     
     The co-vector field $X=(-ds_{a_1})+(-ds_{a_2})$ is timelike and future-pointing and forms a local time-orientation on $W_\aa$. Using bump functions and a partition of unity we can then obtain a time-orientation on the whole of $\widehat{V}$ since all orientations agree where they overlap.
@@ -307,5 +307,5 @@ As mentioned in remark \ref{rmk:data} we want to prove the following theorem whi
 \begin{remark}\label{rmk:ReconstrPastBoundary}
     In the statement of theorem \ref{thm:intreconstr} we required that $V$ be a subset of the interior $\interior{\jp}$. This is because as we approach the observation set $K$, the light cone observation sets get increasingly degenerate and loose many of their nice properties for points on the boundary, i.e. if we had a $q\in V\cap K$. This issue will be adressed in the next chapter by smoothing the observation time functions at the boundary.
 
-    However if $q\in V$ approaches the past boundary $K^-:=\mc{L}^+_{p^-}\cap I^-(p^+)$ the situation is simpler: Because we are always away from the set of observers $K$, the light cone observation sets remain transverse to $K$ and thus well behaved even for $q\in \mc{L}^+_{p^-}\cap I^-(p^+)$. It is thus possible to relax the condition $V\subset \interior{\jp}$ to $V\subset \jp \setminus K$ in theorem \ref{thm:intreconstr} with only minor modifications to the proofs.
+    However if $q\in V$ approaches the past boundary $K^-\coloneqq \mc{L}^+_{p^-}\cap I^-(p^+)$ the situation is simpler: Because we are always away from the set of observers $K$, the light cone observation sets remain transverse to $K$ and thus well behaved even for $q\in \mc{L}^+_{p^-}\cap I^-(p^+)$. It is thus possible to relax the condition $V\subset \interior{\jp}$ to $V\subset \jp \setminus K$ in theorem \ref{thm:intreconstr} with only minor modifications to the proofs.
 \end{remark}

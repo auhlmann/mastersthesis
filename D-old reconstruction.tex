@@ -90,7 +90,7 @@ Setting $\mu^{(2)}_a \coloneqq \Phi(\mu^{(1)}_a)$ yields the desired equation fo
 For the last step, since the arguments are analogous, it suffices to restrict our attention to the case of $s_{-2}\in (-1,s_-)$ with $p_{-2}\coloneqq\mu(s_{-2})$. We first note that $I\coloneqq I^+(\mu(-1)=z)\cap I^-(\mu(s_-)=p^-)$ is a nonempty open set as $\mu$ is a timelike path from $z$ to $p^-$ and thus $z\ll  p^-$.
 
 Thus $\Theta(s_{-2},\cdot)^{-1}(I)\subset \mathcal{A}$, i.e.\ the subset of $\mathcal{A}$ such that $\Theta(t_{-2},a)\in I$, is open, because $\Theta$ is continuous, and nonempty, because $\mu(s_{-2}) = \Theta(s_{2-},0)\in I$.
-We can thus obtain equation \ref{eq:framerestriction} after shrinking $\mathcal{A}$ to force equality.
+We can thus obtain equation \eqref{eq:framerestriction} after shrinking $\mathcal{A}$ to force equality.
 \end{proof}
 
 \begin{remark}\label{rmk:data}To simplify notation we will continue with the construction on just one Lorentzian manifold $(M,g)$ and assume that we are given the following data to construct the required conformal diffeomorphism from theorem \ref{thm:reconstr}.
@@ -151,7 +151,7 @@ Let $a\in \ca$ and $q \in J^-(p^+)\setminus I^-(p^-)$. Then
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-We begin by showing (1): By equation \ref{eq:framerestriction} we have that $\mu(s_{-2})\in I^-(p^-)$ and $\mu(s_{+2})\in I^+(p^+)$. The second equation gives us $p^+\ll \mu(s_{+2})$, together with $q<p^+$ we get that $q\ll \mu(s_{+2})$ and thus $\mu(s_{+2})\in J^+(q)$ which proves the second inequality. The first inequality follows from the fact that, by the first equation no causal curve from $q$ to $\mu(s_{-2})$ can exist.
+We begin by showing (1): By equation \eqref{eq:framerestriction} we have that $\mu(s_{-2})\in I^-(p^-)$ and $\mu(s_{+2})\in I^+(p^+)$. The second equation gives us $p^+\ll \mu(s_{+2})$, together with $q<p^+$ we get that $q\ll \mu(s_{+2})$ and thus $\mu(s_{+2})\in J^+(q)$ which proves the second inequality. The first inequality follows from the fact that, by the first equation no causal curve from $q$ to $\mu(s_{-2})$ can exist.
 
 (2) As $f_a(q)$ is an infimum and $\mu_a$ is continuous we can find some sequence $s_n\downarrow f_a(q)$ such that $\mu_a(f_n) \in J^+(q) \to \varepsilon_a(q)$. $\varepsilon_a(q)\in J^+(q)$ follows, since $J^+(q)$ is closed. 
 
@@ -163,7 +163,7 @@ Finally consider a $s'>f_a(q)$. As $\mu_a$ is timelike we get $\mu_a(s')\gg \mu_
 
 (3) We can WLOG assume that $p\neq q$ as the result follows trivially otherwise. Suppose $p=\varepsilon_a(q)$, then by (2) we know that $\tau(q,p)=0$ and $p\in J^+(q)$. By remark \ref{rmk:causalitysummary}(4) there exists a null geodesic from $q$ to $p$ and thus $p\in \mathcal{L}^+(q)$ and consequently also $p\in \mathcal{P}_U(q)$. 
 
-For the other direction let $p\in \mathcal{P}_U(q)$ with $\tau(p,q)=0$. Thus there exists a null geodesic from $p$ to $q$. And by equation \ref{eq:frameunion} there exists an $a\in \ca$ and a $s_0\in [-1,1]$ such that $\mu_a(s_0)=p$.
+For the other direction let $p\in \mathcal{P}_U(q)$ with $\tau(p,q)=0$. Thus there exists a null geodesic from $p$ to $q$. And by equation \eqref{eq:frameunion} there exists an $a\in \ca$ and a $s_0\in [-1,1]$ such that $\mu_a(s_0)=p$.
 By (2) we know that the function $s\mapsto \tau(q,\mu_a(s))$ is strictly increasing after $f_a(q)$ and thus we must have $s_0\leq f_a(q)$. But since $p=\mu_a(s_0) \in J^+(q)$, the definition of $f_a(q)$ yields $s_0=f_a(q)$ and we get $p=\mu_a(s_0) = \mu_a(f_a(q)) = \varepsilon_a(q)$.
 
 Finally the last equivalence follows from the fact that $\mathcal{P}_U(q) = \mathcal{L}^+(q)\cap U$ contains only null geodesics together with the definition of cut points (definition \ref{def:cutpoint}).
@@ -216,19 +216,19 @@ Let $q\in J^-(p^+)\setminus I^-(p^-)$, then
 \begin{proof}
 For the left inclusion assume $p\in \varepsilon_U(q)$, i.e. there exists an $a\in \ca$ such that $\varepsilon_a(q)=p$. Then lemma \ref{lem:observationtime}(3) immediately yields, $p\in \P_U(q)$ and  $\tau(q,p)=0$. Now suppose there were a $p'\in \P_U(q)$ with $p'\ll p$. By as $\P_U(q)\subset J^+(q)$ we have $q\leq p'$, then as $p'\ll p$ we get $q\ll p$. But this would imply $\tau(p,q)>0$, a contradiction.
 
-For the other direction we assume we have $p \in \P_U(q)$ such that there are no $p'\in\P_U(q)$ such that $p'\ll p$. Again by lemma \ref{lem:observationtime}(3) we only need to prove that $\tau(p,q)=0$. Suppose that $\tau(p,q)>0$. By equation \ref{eq:frameunion} there exists an $a\in \ca$ and a $s\in [-1,1]$ such that $\mu_a(s) = p$. Now since $\tau(p,q)>0$, we must have $s > f_a(q)$. But then $\varepsilon_a(q) = \mu_a(f_a(q)) \ll  \mu_a(s)$, since $\mu_a$ is timelike, which is a contradiction.
+For the other direction we assume we have $p \in \P_U(q)$ such that there are no $p'\in\P_U(q)$ such that $p'\ll p$. Again by lemma \ref{lem:observationtime}(3) we only need to prove that $\tau(p,q)=0$. Suppose that $\tau(p,q)>0$. By equation \eqref{eq:frameunion} there exists an $a\in \ca$ and a $s\in [-1,1]$ such that $\mu_a(s) = p$. Now since $\tau(p,q)>0$, we must have $s > f_a(q)$. But then $\varepsilon_a(q) = \mu_a(f_a(q)) \ll  \mu_a(s)$, since $\mu_a$ is timelike, which is a contradiction.
 \end{proof}
 Thus $\varepsilon_U(q)$ truly deserves to be called the \enquote{set of earliest observations}.
 
 \subsection{Constructive Solution of the Inverse Problem}
-By formula \ref{eq:observationtimerestated} and $\varepsilon_U(q) = \{\varepsilon_a(q) \mid a\in \ca \}$, the light observation set $\P_U(V)$ completely determines $\varepsilon_U(V)$ and thus 
+By formula \eqref{eq:observationtimerestated} and $\varepsilon_U(q) = \{\varepsilon_a(q) \mid a\in \ca \}$, the light observation set $\P_U(V)$ completely determines $\varepsilon_U(V)$ and thus 
 \[
 \widetilde{\Phi}(\P_{U_1}(V_1)) = \P_{U_2}(V_2) \implies \widetilde{\Phi}(\varepsilon_{U_1}(V_1)) = \varepsilon_{U_2}(V_2).
 \]
 
 It is hence sufficient to prove the following result:
 \begin{theorem}
-Assume the conditions of theorem \ref{thm:reconstr} are give except for condition \ref{eq:conformalobservation} which is replaced by
+Assume the conditions of theorem \ref{thm:reconstr} are give except for condition \eqref{eq:conformalobservation} which is replaced by
 \[
     \widetilde{\Phi}(\varepsilon_{U_1}(V_1)) = \varepsilon_{U_2}(V_2).
 \]
@@ -281,7 +281,7 @@ For $q\in J^-(p^+)\setminus I^-(p^-)$ we define the function $F_q:\ca\to\R$ by $
     q&\mapsto F_q
 \end{align*} mapping a $q\in J^-(p^+)\setminus I^-(p^-)$ to the function $F_q:\ca\to\R$. We endow the set $\R^\mathcal{A} = \{f:\ca\to \R\}$ with the product topology.
 
-By equation \ref{eq:observationtimerestated}, the set $\varepsilon_U(q)$ determines $F_q=\mathcal{F}(q)$ via
+By equation \eqref{eq:observationtimerestated}, the set $\varepsilon_U(q)$ determines $F_q=\mathcal{F}(q)$ via
 \begin{equation}\label{eq:epsdetfq}
     F_q(a) = f_a(q) = s,\quad \text{where $s\in [-1,1]$ such that $\mu_a(s)\in \varepsilon_U(q), a\in \ca$}.
 \end{equation}
@@ -301,7 +301,7 @@ Then the map $\mathcal{F}:V\to\mathcal{F}(V)$ is a homeomorphism.
 By the properties of the product topology and the fact that $q\mapsto f_a(q)$ is continuous by lemma \ref{lem:observationtime}(4) we get that $\F:\past\to\R^\mathcal{A}$ is continuous.
 Now let $\overline{V}$ be the closure of $V$ in $M$. Note that $\overline{V}$ is compact.
 
-Next we will show that the map $\F:\overline{V}\to\F(\overline{V})$ is injective. First we note that $\F(\overline{V})=\overline{\F(V)}$, since $\F$ is continuous gives $\F(\overline{V}) \subset \overline{F(V)}$, and $V$ compact gives $\F(\overline{V})$ closed. To show that $\F$ is injective it is sufficient to prove that the map $\varepsilon_U:\overline{V}\to\varepsilon_U(\overline{V})$ is injective, as by equation \ref{eq:fqdeteps}$ \F(q)$ uniquely determines $\varepsilon_U(q)$. I.e. if $\F(q)=\F(q')$ we would have $\varepsilon_U(q)=\varepsilon_U(q')$.
+Next we will show that the map $\F:\overline{V}\to\F(\overline{V})$ is injective. First we note that $\F(\overline{V})=\overline{\F(V)}$, since $\F$ is continuous gives $\F(\overline{V}) \subset \overline{F(V)}$, and $V$ compact gives $\F(\overline{V})$ closed. To show that $\F$ is injective it is sufficient to prove that the map $\varepsilon_U:\overline{V}\to\varepsilon_U(\overline{V})$ is injective, as by equation \eqref{eq:fqdeteps}$ \F(q)$ uniquely determines $\varepsilon_U(q)$. I.e. if $\F(q)=\F(q')$ we would have $\varepsilon_U(q)=\varepsilon_U(q')$.
 
 We to achieve a contradiction we now assume the opposite: That there exist $q_1\neq q_2$ which satisfy $\varepsilon_U(q_1) = \varepsilon_U(q_2)$. By proposition \ref{prop:recoverD} this implies 
 \[
@@ -417,7 +417,7 @@ We thus managed to calculate what we wanted and can summarize as
 \end{equation}
 where $w_0=w(q_0,p_0)$ and $v=\gamma'_{q_0,w_0}(1)$. Since $\mu'_a(s)$ is timelike and future-pointing and $v$ is light-like and future-pointing we get $\frac{\partial\mathbf{E}_a(q_0,s_0)}{\partial s}<0$.
 
-By using the implicit function theorem we get an open neighborhood $V_a\subset V_0$ of $q_0$ and a smooth function $q\mapsto s(q,a)$ defined on $V_a$ such that $s(q_0,a) = f_a(q_0) = s_0$ and $\mathbf{E}_a(q,s(q,a)) = 0$. By definition $s(q,a)=f_a(q)$ for all $q\in V_a$ and it follows from equation \ref{eq:dEsummary} together with the implicit function theorem that 
+By using the implicit function theorem we get an open neighborhood $V_a\subset V_0$ of $q_0$ and a smooth function $q\mapsto s(q,a)$ defined on $V_a$ such that $s(q_0,a) = f_a(q_0) = s_0$ and $\mathbf{E}_a(q,s(q,a)) = 0$. By definition $s(q,a)=f_a(q)$ for all $q\in V_a$ and it follows from equation \eqref{eq:dEsummary} together with the implicit function theorem that 
 \begin{equation}\label{eq:fgradient}
     \left.\nabla f_a(q)\right\rvert_{q=q_0} = \frac{1}{c(q_0,a)}w_0, \quad 
     c(q_0,a) = \left.\frac{\partial\mathbf{E}_a(q_0,s)}{\partial s}\right\rvert_{s=s_0}\neq 0,
@@ -432,7 +432,7 @@ Let $V_{\overrightarrow{a}} = \bigcap_{j=1}^n V_{a_j}$ and consider the map
     \mathbf{f}_{\overrightarrow{a}}:V_{\overrightarrow{a}}&\to \R^n\\
     q&\mapsto (f_{a_1}(q),\dots,f_{a_n}(q)).
 \end{align*}
-As all components are smooth, $\mathbf{\overrightarrow{a}}$ itself is smooth as well. Now since, by equation \ref{eq:fgradient} each component has gradient $\left.\nabla f_{a_j}(q)\right\rvert_{q=q_0} = \frac{1}{c(q_0,a_j)}w_0$ with $c(q_0,a_j)\neq 0$. Since we assumed that $w_0,\dots,w_n$ be independent, $\mathbf{f}_{\overrightarrow{a}}$ is non-degenerate at $q_0$ and thus defines a smooth coordinate system in some neighborhood of $q_0$.
+As all components are smooth, $\mathbf{\overrightarrow{a}}$ itself is smooth as well. Now since, by equation \eqref{eq:fgradient} each component has gradient $\left.\nabla f_{a_j}(q)\right\rvert_{q=q_0} = \frac{1}{c(q_0,a_j)}w_0$ with $c(q_0,a_j)\neq 0$. Since we assumed that $w_0,\dots,w_n$ be independent, $\mathbf{f}_{\overrightarrow{a}}$ is non-degenerate at $q_0$ and thus defines a smooth coordinate system in some neighborhood of $q_0$.
 \end{proof}
 
 \begin{definition}[Observation Coordinates]
@@ -469,7 +469,7 @@ But since the data \ref{rmk:data} determines the topological structure of $\wide
 
 We can now move on to proving the final part by first proving that the set of points in $\varepsilon_U^{reg}(q)$ which yield $C^\infty$-observation coordinates is open and dense in $(\varepsilon_U^{reg}(q))^n$.
 We consider $p\in \varepsilon_U^{reg}(q)$ and $a\in \ca$ which are associated. Note that $p\in \varepsilon^{reg}_U(q)$ implies $p\neq q$ and thus $q\neq \mu_a$.
-Now we can use equation \ref{eq:fgradient} to get that $f_a(q)$ satisfies
+Now we can use equation \eqref{eq:fgradient} to get that $f_a(q)$ satisfies
 \[
 \nabla_q f_a(q) = c(q,a)w(q,p), \quad c(q,a)\neq 0
 \]
@@ -505,7 +505,7 @@ Furthermore, since smooth coordinates must be compatible, if $(\widetilde{p}_j)^
 \end{multline}
 Here the \enquote{only if}-direction follows from the fact that the nondegeneracy of the Jacobian ensures that the linear independence of the spanning vectors is preserved.
 
-We denote $\overrightarrow{p}=(p_j)^n_{j=1}\in Y(q)$ and define $\mc{X}_{\overrightarrow{p}}\subset Y(q)$ to be the set of those $(\widetilde{p}_j)^n_{j=1}\in Y(q)$, for which there are $\overrightarrow{b}\in \ca^n$ and $C^0$-observation coordinates $(W_{\overrightarrow{b}},\mathbf{s}_{\overrightarrow{b}})$ around $\widehat{q}$ such that $\widehat{p}_j$ is associated with $b_j$ wrt. $q$ and condition \ref{eq:compatibility} is satisfied.
+We denote $\overrightarrow{p}=(p_j)^n_{j=1}\in Y(q)$ and define $\mc{X}_{\overrightarrow{p}}\subset Y(q)$ to be the set of those $(\widetilde{p}_j)^n_{j=1}\in Y(q)$, for which there are $\overrightarrow{b}\in \ca^n$ and $C^0$-observation coordinates $(W_{\overrightarrow{b}},\mathbf{s}_{\overrightarrow{b}})$ around $\widehat{q}$ such that $\widehat{p}_j$ is associated with $b_j$ wrt. $q$ and condition \eqref{eq:compatibility} is satisfied.
 
 If $\overrightarrow{p}\in Y_0(q)$ we see that $Y_0(q) \subset \mc{X}_{\overrightarrow{p}}$. On the other hand $\overrightarrow{p}\notin Y_0(q)$ we have $Y_0(q) \cap \mc{X}_{\overrightarrow{p}} =\emptyset$. Since the set $Y_0(q)$ is open and dense in $Y(q)$, we see that $\overrightarrow{p}\in Y_0(q)$ if and only if the interior of $\mc{X}_{\overrightarrow{p}}$ is dense subset of $Y(q)$. Since the data \ref{rmk:data} is sufficient to determine $Y(q)$ and $\mc{X}_{\overrightarrow{p}}$, we can determine whether $\overrightarrow{p}\in Y_0(q)$ or not. And since, by proposition \ref{prop:observationtimecoordinates}, the $C^0$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}=\F(q)$ are $C^\infty$-observation coordinates if and only if $\widehat{p}\in Y_0(q)$, where $\widehat{p}$ are associated to $\aa$ wrt. $q$, we can determine all $C^0$-observation coordinates around $\widehat{q}$ which are also $C^\infty$-observation coordinates.
 \end{proof}
@@ -524,7 +524,7 @@ The data given in \ref{rmk:data} determine a metric $G$ on $\widehat{V}=\F(V)$ t
 \end{lemma}
 \begin{proof}
 Let $(W_\aa,\mathbf{s}_\aa)$ be $C^\infty$-observation coordinates on $\widehat{V}$ and $\widehat{q}\in W_\aa$. Let $a_1, a_2\in \aa$ and $p_1,p_2\in U$ be associated wrt. the point $q=\F^{-1}(\widehat{q})$, i.e. $p_i=\varepsilon_{a_i}(q)$.
-As $f_\aa = \mathbf{s}_\aa \circ \F$ must be smooth coordinates we have that the vectors $w(q,p_1)$ and $w(q,p_2)$ pointing from $q$ to $p_i$ must be non-parallel. Furthermore, by equation \ref{eq:fgradient} we see that the gradient vectors $\nabla f_{a_i}(q)$ are non-parallel, lightlike and past-pointing.
+As $f_\aa = \mathbf{s}_\aa \circ \F$ must be smooth coordinates we have that the vectors $w(q,p_1)$ and $w(q,p_2)$ pointing from $q$ to $p_i$ must be non-parallel. Furthermore, by equation \eqref{eq:fgradient} we see that the gradient vectors $\nabla f_{a_i}(q)$ are non-parallel, lightlike and past-pointing.
 Thus the co-vectors $-ds_{a_1}\rvert_{\widehat{q}}$ and $-ds_{a_2}\rvert_{\widehat{q}}$ are non-parallel lightlike and future-pointing. This follows from the fact that $\F$ is an isometry and the co-vector $df_a$ is the image of  $\nabla f_a$ under the canonical isomophism. 
 
 Hence the co-vector field $X=-ds_{a_1}-ds_{a_2}$ is timelike and future-pointing and forms a local time-orientation on $W_\aa$. Using bump functions and a partition of unity we can then obtain a time-orientation on the whole of $\widehat{V}$ since all orientations agree where they overlap.

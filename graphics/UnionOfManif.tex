@@ -37,12 +37,12 @@
     \path[name path=P] (P1) to[out=20, in=260] (p) to[out=80,in=50] (T) to[out=230,in=200] (p) to[out=20,in=260] (P2);
     \path[name intersections={of=U and P,by={I,J,K,L}}];
 
-    \begin{scope}[blue,thick]
+    \begin{scope}[blue,very thick]
         \clip (p) circle (0.39);
         \draw (P1) to[out=20, in=260] node[pos=0.8,right]{$\mathcal{U}_2$} (p) to[out=80,in=50] (T);
     \end{scope}
 
-    \begin{scope}[magenta,thick]
+    \begin{scope}[magenta,very thick]
         \clip (p) circle (0.39);
         \draw (T) to[out=230,in=200] (p) to[out=20,in=260] node[pos=0.3,below right]{$\mathcal{U}_1$} (P2);
     \end{scope}

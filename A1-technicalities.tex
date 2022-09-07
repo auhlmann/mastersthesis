@@ -1,13 +1,10 @@
 \chapter{Technical Lemmas}
-
-\begin{lemma}[Transverse Map]\label{lem:transmap}
-    Let $f:M\to N$ be a smooth map transverse to the submanifold $L\subset N$ of codimension $k$ and $f^{-1}(L)$ is nonempty.
-    Then $f^{-1}(L)$ is a codimension $k$ submanifold of $M$.
-\end{lemma}
+In this chapter we will state and prove some useful technical lemmas from topology and differential geometry.
 
 
+This first lemma states that under sufficiently nice conditions, two-parameter maps converge uniformly if one input converges pointwise. This is exactly what we need to prove that $F_{q_n}$ converges uniformly to $F_{q_0}$ if $q_n\to q_0\in \interior{\jp}$.
 \begin{lemma}\label{lem:unifconvoncompact}
-    Let $(X,d_X),(Y,d_Y),(Z,d_Z)$ be metric spaces with $X,Y$ compact. Let $f:X\times Y\to Z$ be a continuous functions and denote $f_x:Y\to Z;y\mapsto f_x(y):=f(x,y)$ for $x\in X$. Let $x_n\to x_0 \in X$ as $n\to\infty$ be a convergent sequence.
+    Let $(X,d_X),(Y,d_Y),(Z,d_Z)$ be metric spaces with $X,Y$ compact. Let $f:X\times Y\to Z$ be a continuous functions and denote $f_x:Y\to Z;y\mapsto f_x(y)\coloneqq f(x,y)$ for $x\in X$. Let $x_n\to x_0 \in X$ as $n\to\infty$ be a convergent sequence.
 
     Then $f_{x_n}\to f_{x_0}$ uniformly as $n\to \infty$.
 \end{lemma}
@@ -25,11 +22,21 @@
     $d_X(x_n,x_0)<\delta \wedge d_Y(y,y)<\delta$ which implies $d_Z(f_{x_n}(y),f_{x_0}(y))<\varepsilon$. Because $y\in Y$ was arbitrary we also get $max_{y\in Y} d_Z(f_{x_n}(y),f_{x_0}(y))<\varepsilon$ and the proof is complete.
 \end{proof}
 
-
+This lemma is useful because it allows us to translate the question of whether a set defined by a certain property is open into a question of sequences which in our contex are often more natural to answer.
 \begin{lemma}\label{lem:firstcount}
     Let $A$ be a first-countable topological space and $P:A\to \{\text{false},\text{true}\}$ a property defined for all points $a\in A$. Suppose now that for any converging sequence $a_n\to a_0\in A$ there exists a $N\in N$ such that $P(a_n)$ is true for all $n\ge N$.
     
-    Then there exists an open neighborhood $O\in A$ of $a_0$ such that $P(a)$ is true for all $a\in O$.
+    Then there exists an open neighborhood $O\subset A$ of $a_0$ such that $P(a)$ is true for all $a\in O$.
 \end{lemma}
+\begin{proof}
+    We suppose by contradiction that for all open neighborhoods $a_0\in U \subset A$ there exists a $a_U\in U$ such that $P(a_U)$ is false. We then use the fact that $A$ is first-countable to obtain a countable neighborhood base, i.e. a sequence of neighborhoods $U_1\supset U_2 \supset \dots$ such that for every open neighborhood $a_0\in U' \subset A$ there exists a $N\in \N$ such that $U_N\subset U'$. Now as noted above, for every $U_n$ there must exist a $a_n\in U_n$ with $P(a_n)$ false. But because the sets $U_n$ form a countable neighborhood base of $a_0$, $a_n$ must converge to $a_0$. This is a contradiction because $P(a_n)$ is false for all $n\in \N$.
+\end{proof}
 
-
+Finally this lemma is used to prove that $L^K_qM$ is indeed a submanifold.
+\begin{lemma}[Transverse Map]\label{lem:transmap}
+    Let $f:M\to N$ be a smooth map transverse to the submanifold $L\subset N$ of codimension $k$ and $f^{-1}(L)$ is nonempty.
+    Then $f^{-1}(L)$ is a codimension $k$ submanifold of $M$.
+\end{lemma}
+\begin{proof}
+    This standard result from differential geometry follows from the preimage theorem after using the fact that $L$ is a submanifold of $N$.
+\end{proof}

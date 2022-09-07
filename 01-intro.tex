@@ -1,11 +1,10 @@
 \chapter{Introduction}
 
-We aim to show that on a globally hyperbolic $1+n$-dimensional Lorentzian manifold $(M,g)$ with two points suitable $p^-\ll p^+\in M$ separated by a timelike path and a suitable \emph{source set} $V\subset M$ which is and contained within the intersection of the causal future of $p^+$ and the causal past of $p^-$ denoted $\jp$, we can reconstruct the topological, differential and conformal structure of $V$ using the light cone observations on the future boundary of $\jp$. 
+We aim to show that on a globally hyperbolic $1+n$-dimensional Lorentzian manifold $(M,g)$ with two suitable points $p^-\ll p^+\in M$ separated by a timelike path and a suitable \emph{source set} $V\subset M$ which is contained within $\jp$ (the intersection of the causal future of $p^+$ and the causal past of $p^-$), we can reconstruct the topological, differential and conformal structure of $V$ using the light cone observations on the future boundary of $\jp$. 
 
-This thesis will be structured as follows: In this chapter we will introduce some concepts in Lorentzian geometry needed to fully state our main results and give some outline as to their proof. We will also give an overview of related results.
+This thesis will be structured as follows: In this chapter we will introduce some concepts in Lorentzian geometry needed to fully state our main results and give an outline of their proofs. We will also give an overview of related results.
 
-The chapter \ref{chap:preliminaries} contains a lot of the technical results on light cones and their observation on a null surface. This then enables us in chapter \ref{chap:interior} to prove the main reconstruction result where the source set is an open subset of the interior. In \ref{chap:boundary} we will then extend this result to settings where the source set extends up to be boundary.
-((Applications and Conclusion and Appendix))
+Chapter \ref{chap:preliminaries} contains a lot of the technical results related to light cones and their observations on a null surface. This then enables us in chapter \ref{chap:interior} to prove the main reconstruction result where the source set is an open subset of the interior. In \ref{chap:boundary} we will then extend this result to settings where the source set extends up to the boundary. And finally in chapter \ref{chap:applications} we will go over some useful applications of the results proven in the previous chapters.
 
 \section{Setting}
 In the following $(M,g)$ will always a globally hyperbolic Lorentzian manifold. We beging by introducing some definitions which will be very useful for describing the causality relations on $M$:
@@ -21,7 +20,7 @@ In the following $(M,g)$ will always a globally hyperbolic Lorentzian manifold. 
         I^+(p) &\coloneqq \{q\in M \mid p\ll q\}\\
         J^+(p) &\coloneqq \{q\in M \mid p\leq q\}.
     \end{align*} Chronological and causal past are defined analogously.
-    We can extend these definitions to arbitrary sets by setting $I^\pm(A)\coloneqq\bigcup_{p\in A}I^\pm(p)$ and $J^\pm(A)$ analogously. For two points $p^-\ll p^+$ resp. $p^-\leq p^+$ we denote $I(p^-,p^+):=I^+(p^-)\cap I^-(p^+)$ resp. $\jp:=J^+(p^-)\cap J^-(p^+)$.
+    We can extend these definitions to arbitrary sets by setting $I^\pm(A)\coloneqq\bigcup_{p\in A}I^\pm(p)$ and $J^\pm(A)$ analogously. For two points $p^-\ll p^+$ resp. $p^-\leq p^+$ we denote $I(p^-,p^+)\coloneqq I^+(p^-)\cap I^-(p^+)$ resp. $\jp\coloneqq J^+(p^-)\cap J^-(p^+)$.
 \end{definition}
 
 For a point $p\in M$ we now look at the the null vectors in $T_pM$ and null geodesics starting at $p$:
@@ -39,19 +38,20 @@ For a point $p\in M$ we now look at the the null vectors in $T_pM$ and null geod
     $\mathcal{L}^-_p$ is defined analogously.
 
 
-    Note that for $p\in M$ we have $\mc{L}^+_p\subset J^+(p)$ and $\mc{L^+}_p\supset J^+(p)\setminus I^+(p)$ if $M$ is globally hyperbolic.
+    Note that for $p\in M$ we have $\mc{L}^+_p\subset J^+(p)$ and $\mc{L}^+_p\supset J^+(p)\setminus I^+(p)$ if $M$ is globally hyperbolic.
 \end{definition}
 
 For a point $p\in M$ and a vector $v\in T_pM$, we will often write $\gamma_{p,v}$ for the unique geodesic starting at $p$ with velocity $v$; we have $\gamma_{p,v}(t)=\exp_p(tv)$.
-Let $p\in M$ and $v\in T_pM$, we say that $\gamma_{p,v}$ has a \emph{conjugate point} at $p'=\gamma_{p,v}(t)$ if $d\exp_p\rvert_{tv}$ does not have full rank. If $v$ is a null geodesic, i.e. $v\in L^\pm_qM$, we say that $\gamma_{p,v}$ has a \emph{cut point} at $p'=\gamma_{p,v}$ if $\tau(p,p')=0$ but $\tau(p,\gamma_{p,v}(t'))>0$ for all $t'>t$; here $\tau:M\times M\to \R$ is the \emph{time separation function} mapping two point to the length of the maximal geodesic joining them.
+Let $p\in M$ and $v\in T_pM$, we say that $\gamma_{p,v}$ has a \emph{conjugate point} at $p'=\gamma_{p,v}(t)$ if $d\exp_p\rvert_{tv}$ does not have full rank. If $v$ is a null geodesic, i.e. $v\in L^\pm_qM$, we say that $\gamma_{p,v}$ has a \emph{cut point} at $p'=\gamma_{p,v}$ if $\tau(p,p')=0$ but $\tau(p,\gamma_{p,v}(t'))>0$ for all $t'>t$; here $\tau:M\times M\to \R$ is the \emph{time separation function} mapping two point to the length of the maximal geodesic joining them. We define the \emph{cut locus function} $
+\rho(p,v)\coloneqq\sup\{s\in[0,\infty) \mid \tau(p,\gamma_{p,v}(s))=0\}$ which maps $(p,v)$ to the location of the first cut point along $\gamma_{p,v}$
 
 For a more in-depth introduction to causal relations, light cones, cut and conjucate points as well as an overview of all relevant results we refer the reader to appendix \ref{chap:causality}.
 
-Equipepd with this language we can state the regularity condition necessary for our reconstruction results to apply:
+Equipped with this language we can state the regularity condition necessary for our reconstruction results to apply:
 \begin{definition}[Suitable]
     We call $p^-\ll p^+\in M$  \emph{suitable} if $p^+$ has no past cut points in $\mc{L}^-_{p^+}\cap J^+(p^-)$. Furthermore we call $p^-\ll p^+\in M$ and $V\subset \jp$ \emph{suitable}, if $p^-$ and $p^+$ are \emph{suitable} and no null geodesic starting in $V$ has a conjugate point in $\mc{L}^-_{p^+}\cap J^+(p^-)$.
 \end{definition}
-We will refer to the future boundary of $\jp$, i.e. the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$, as the \emph{observation set} $K:=\mc{L}^-_{p^+}\cap J^+(p^-)$. We can then make formal the notion of light observations on the observation set $K$:
+We will refer to the future boundary of $\jp$, i.e. the closed and compact backwards light cone from $p_j^+$ cut off at the intersection with the forwards light cone of $p_j^-$, as the \emph{observation set} $K\coloneqq \mc{L}^-_{p^+}\cap J^+(p^-)$. We can now now make precise the notion of light observations on the observation set $K$:
 \begin{definition}[Light Observation Set]
     The \emph{light observation set} of a point $q\in \jp$ is defined as
     \[
@@ -61,19 +61,37 @@ We will refer to the future boundary of $\jp$, i.e. the closed and compact backw
 \end{definition}
 Note that $\mathcal{P}_K(V)$ is an unindexed set and we thus have a priori no information which observation set $\mathcal{P}_K(q)$ belongs to which point $q\in V$.
 
-\begin{figure}\label{fig:intro}
+\begin{figure}
     \centering
     \subfloat[Compact causal diamond $\jp$]{\input{graphics/DiamondDef.tex}}
     \hspace*{10pt}
     \subfloat[Light cone observation set of a single point]{\input{graphics/PKDef.tex}}
     \caption{Illustrations of $\jp$, $K$, $V$ and $\mc{P}_K(q)$ in the Minkowski case.}
+    \label{fig:intro}
 \end{figure}
+
+\begin{example}[Minkowski Case]\label{ex:minkowski}
+    We will now discuss the above definitions in the case of Minkowski space i.e. $(M,g)=(\R^{1+n},-dt^2+\sum (dx^i)^2)$. The Minkowski case is especially relevant because some proofs rely on reducing the situation to the Minkowski case where the light observation sets are very straightforward. 
+    Because there are no cut point in Minkowski space any $p^-\ll p^+$ and $V\in\jp$ will be suitable. The light cones are literally cones given by equations of the form 
+    \begin{align*}
+        \mc{L}_q\coloneqq \{(t,x^1,\dots,x^n)\mid -(t-t_q)^2 + \sum_{i=1}^n (x^i-x^i_q)^2 = 0\}
+    \end{align*}
+    where $q=(t_q,x^1_q,\dots,x^n_q)$.
+
+    Thus the light observations sets $\pq$ are exactly conic intersections, i.e. 
+    \[
+        \pq=\mc{L}^+_q\cap K = \mc{L}^+_q\cap \mc{L}^-_{p^+} \cap J^+(p^-) = \mc{L}_{p^+} \cap \mc{L}_q
+    \] for $q\in \interior{\jp}$. For $q\in K$ we have the less general $\pq =  \mc{L}^+_q\cap \mc{L}^-_{p^+}$.
+    This also illuminates why the light observation sets get increasingly degenerate as $q$ approaches $K$ and finally becomes a line. The Minkowski case is further illustrated in figure \ref{fig:intro}.
+
+    Note that while the Minkowski case is a useful example it cannot capture the more general behaviours, most importantly because it contains no cut points. In the general case $\mc{L}^+_q$ can contain cut points before it hits $K$, causing $\pq$ to fail being a submanifold.
+\end{example}
 
 Now we are ready to state the main theorem concerning the reconstruction in the case where the source set $V$ is contained within the interior of $\jp$:
 \begin{theorem}[Interior Reconstruction]\label{thm:intreconstr}
-    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+, V_j\subset M_j$ \emph{suitable} in $M_j$ we denote $K_j := \mc{L}^-_{p_j^+} \cap J^+(p_j^-)$. We assume that there exists a conformal diffeomorphism $\Phi:K_1\to K_2$. 
+    Let $(M_j,g_j), j=1,2$ be two open globally hyperbolic, time-oriented Lorentzian manifolds. For $p_j^-\ll p_j^+, V_j\subset M_j$ \emph{suitable} in $M_j$ we denote $K_j \coloneqq  \mc{L}^-_{p_j^+} \cap J^+(p_j^-)$. We assume that there exists a conformal diffeomorphism $\Phi:K_1\to K_2$. 
     
-    If we assume that the source sets $V_j\subset\interior{J(p_j^-,p_j^+)}$ are open subsets of the interior of $\jp$. 
+    Suppose that the source sets $V_j\subset\interior{J(p_j^-,p_j^+)}$ are open subsets of the interior of $\jp$. 
     Then, if 
     \[
     \widetilde{\Phi}(\mc{P}_{K_1}(V_1)) = \{\Phi(\mc{P}_K(q))\mid q \in V\} = \mc{P}_{K_2}(V_2)
@@ -86,19 +104,19 @@ Essentially, the theorem states that on two Lorentzian manifolds with conformall
 The statement for the boundary reconstruction is essentially the same. The one notable difference (and also the reason why it is called boundary construction) is that $V$ is no longer required to be a subset of the interior of $\jp$, but can now be a subset of $\jp \setminus \{p^+\}$. We will only prove the topological reconstruction in this case as the differential and conformal reconstructions were beyond the scope of this thesis:
 \begin{theorem}[Boundary Reconstruction]\label{thm:bdreconstr}
     Let $(M_j,g_j), p^\pm_j, V_j, K_j$ as in the previous theorem.
-    If we now assume that the source sets $V_j\subset \jp\setminus\{p^+\}$ are open subset and
+    Suppose that the source sets $V_j\subset \jp\setminus\{p^+\}$ are open subset and
     \[
     \widetilde{\Phi}(\mc{P}_{K_1}(V_1)) = \{\Phi(\mc{P}_K(q))\mid q \in V\} = \mc{P}_{K_2}(V_2)
     \]
     there exists a homeomorphism $\Phi:V_1\to V_2$.
 \end{theorem}
-We will later conjecture that $\Phi$ can also be made to be a conformal diffeomorphism that preserves causality as in the previous theorem.
+We conjecture that $\Phi$ can also be made to be a conformal diffeomorphism that preserves causality as in the previous theorem.
 
 \section{Proof Outline}
 \begin{remark}[Data]\label{rmk:data} 
-    In the following we will use an equivalent formulation to Theorems \ref{thm:intreconstr} and \ref{thm:bdreconstr}: Namely we will show that if $(M,g), K, V, p^+,p^-$ are as in Theorem \ref{thm:intreconstr} resp. \ref{thm:bdreconstr}, then given the \emph{data}
+    In the following we will use an equivalent formulation of theorems \ref{thm:intreconstr} and \ref{thm:bdreconstr}: Namely we will show that if $(M,g), K, V, p^+,p^-$ are as in Theorem \ref{thm:intreconstr} resp. \ref{thm:bdreconstr}, then given the \emph{data}
     \begin{enumerate}[label={\textnormal{(\arabic*)}}]
-        \item The smooth manifold $K$,
+        \item the smooth manifold $K$,
         \item the conformal class of $g\rvert_K$ and
         \item the set of light cone observations $\mc{P}_K(V)$
     \end{enumerate}
@@ -107,44 +125,48 @@ We will later conjecture that $\Phi$ can also be made to be a conformal diffeomo
 
     In light of this we will from here on restrict ourselves to only one globally hyperbolic Lorentzian manifold $(M,g)$ with $p^+,p^-, V$ \emph{suitable} and show how given the \emph{data} we can construct $\widehat{V}$.
 \end{remark}
+
+Here it is helpful to clarify two things: First of all, we note that $g\rvert_K$ denotes the degenerate, lower-dimensional metric obtained by restricting $g$ to only vectors in the $n-$dimensional $T_pK$; $g\rvert_K$ is degenerate because $K$ is a null hypersurface. As we will see this information is sufficient for our reconstruction to be carried out.
+And second, we note that while we may only \emph{directly} use the data outlined in the previous remark, we will often make use of the fact that these data come from a Lorentzian manifold which satisfies all assumtions of theorem \ref{thm:intreconstr} or \ref{thm:bdreconstr}, namely $(M,g)$. This allows us to prove many results relevant to the reconstruction while still only using the data outlined in the previous remark; see for example proposition \ref{prop:einj}.
+
 \subsection{Interior Case}
-A core idea is to cover $K$ with a family of observers $\mu_a:[-T_a,0]\to K$, $a\in \sn$ travelling along future-pointing null geodesics. For a fixed observer $a\in \sn$ we can then define the \emph{observation time function} $f_a:\jp\to \R$ to be the time at which the observer $\mu_a$ first \enquote{sees} light emitted by $q$, i.e. 
+A core idea is to cover $K$ with a family of observers $\mu_a:[-T_a,0]\to K$, $a\in \sn$ travelling along future-pointing null geodesics with $\mu_a(0)=p^+$. For a fixed observer $a\in \sn$ we can then define the \emph{observation time function} $f_a:\jp\to \R$ to be the time at which the observer $\mu_a$ first \enquote{sees} light emitted by $q$, i.e. 
 \[
-    f_a(q):=\inf (\{t\in [-T_a,0] \mid \mu_a(t)\in \mc{P}_K(q)\}\cup \{1\}).
+    f_a(q)\coloneqq \inf (\{t\in [-T_a,0] \mid \mu_a(t)\in \mc{P}_K(q)\}\cup \{0\}).
 \]
 
-For a fixed $q\in \jp$ we then denote $F_q(a):=f_a(q)$. These functions have many desirable properties, i.e. $q\mapsto F_q$ is continuous, $F_q=F_{q'}$ implies $q=q'$ and $F_{q_n}\to F_{q_0}$ implies $q_n\to q_0$ on $V$.
+For a fixed $q\in \jp$ we then denote $F_q(a)\coloneqq f_a(q)$. These functions have many desirable properties, i.e. $q\mapsto F_q$ is continuous, $F_q=F_{q'}$ implies $q=q'$ and $F_{q_n}\to F_{q_0}$ implies $q_n\to q_0$ on $V$.
 And importantly the light observation set $\mc{P}_K(q)$ for some $q\in \jp$ fully determines $F_q$. 
 
-We can then define the map $\F:V\to \widehat{V}:=\F(V)\subset \mc{C}^\infty(\sn); q\mapsto F_q$. We can fully determine $\widehat{V}$ from the light observation sets $\mc{P}_K(V)$. Because we have a topology on $\mc{C}^\infty(\sn)$ we can determine the subspace topology on $\widehat{V}$ and the nice properties of $F_q$ ensure that the map $\F$ is a homeomorphism, allowing us to determine the topology on $V$.
+We can then define the map $\F:V\to \widehat{V}\coloneqq \F(V)\subset \mc{C}^\infty(\sn); q\mapsto F_q$. We can fully determine $\widehat{V}$ from the light observation sets $\mc{P}_K(V)$. Because we have a topology on $\mc{C}^\infty(\sn)$ we can determine the subspace topology on $\widehat{V}$ and the nice properties of $F_q$ ensure that the map $\F$ is a homeomorphism, allowing us to determine the topology on $V$.
 
-To determine the differential structure of $V$ we let $q\in V$, and pick $1+n$ observers $a_0,\dots,a_n\in \sn$. We denote $w_i\in L^+_qM$ for the null vectors pointing from $q$ to $p_i:=\mu_{a_i}(f_{a_i}(q))$ the points of earliest observation. We then show that if the set $(w_0,\dots, w_n)$ is linearly independent, the map $q'\mapsto (f_{a_0}(q'),\dots, f_{a_n}(q'))$ defines smooth coordinates around $q$. We furthermore show that such coordinates always exists and we can determine them using the light observation sets, allowing us to determine the differential structure of $V$.
+To determine the differential structure of $V$ we let $q\in V$, and pick $1+n$ observers $a_0,\dots,a_n\in \sn$. We denote $w_i\in L^+_qM$ for the null vectors pointing from $q$ to $p_i\coloneqq \mu_{a_i}(f_{a_i}(q))$ the points of earliest observation. We then show that if the set $(w_0,\dots, w_n)$ is linearly independent, the map $q'\mapsto (f_{a_0}(q'),\dots, f_{a_n}(q'))$ defines smooth coordinates around $q$. We furthermore show that such coordinates always exists and we can determine them using the light observation sets, allowing us to determine the differential structure of $V$.
 
-Finally to reconstruct the conformal type of the metric on $V$ we show that the light observation sets allow us to determine all lightlike geodesics around a point $q\in V$, this allows us to determine the light cones for all points $q\in V$, which is equivalent to knowing the conformal type of the metric, finishing the proof.
+Finally to reconstruct the conformal type of the metric on $V$ we show that the light observation sets allow us to determine all lightlike geodesics around a point $q\in V$; this allows us to determine the light cones for all points $q\in V$, which is equivalent to knowing the conformal type of the metric, finishing the proof.
 
 \subsection{Boundary Case}
 Recall that in this case the source set $V$ can also intersect the boundary of $\jp$ and thus the observation set $K$. This poses some difficulties because as the points $q\in V$ get closer to $K$, the observations become increasingly degenerate and lose many of their nice properties in the limit case $q\in K$.
- To solve this issue we will reconstruct the topology in two parts: The interior reconstruction allows us to reconstruct the topology on $V_2:= V \cap \interior{\jp}$, i.e. the interior part of $V$. The main challenge will now be to develop a reconstruction procedure on an open neighborhood of the boundary $K\setminus p^+$:
+ To solve this issue we will reconstruct the topology in two parts: The interior reconstruction allows us to reconstruct the topology on $V_2\coloneqq  V \cap \interior{\jp}$, i.e. the interior part of $V$. The main challenge will now be to develop a reconstruction procedure on an open neighborhood of the boundary $K\setminus p^+$:
 
-To that end we define the \emph{unique minimum domain} $D:=\{q\in \interior{\jp}\cup K \mid F_q \text{ has a unique minimum}\}$. We then show that $D$ is indeed an open neighborhood of $K$, because as $q$ approaches $K$ in must have a unique minimum on $\sn$. An illustrative example for this behavior is the case of Minkowski space ((Do actual example?)). We then show that the unique minimum of $F_q$ is well behaved on $D$.
+To that end we define the \emph{unique minimum domain} $D\coloneqq \{q\in \interior{\jp}\cup K \mid F_q \text{ has a unique minimum}\}$. We then show that $D$ is indeed an open neighborhood of $K$, because as $q$ approaches $K$ in must have a unique minimum on $\sn$. An illustrative example for this behavior is the case of Minkowski space as discussed in \ref{ex:minkowski}. We then show that the unique minimum of $F_q$ is well behaved on $D$.
 
-Next we use these unique minima to \enquote{smooth out} the observation time functions $F_q$ as they approach the boundary: For $q\in D$ with unique minimum at $a_q$ we use a smooth bump function $\chi_{a_q}$ with $\chi_{a_q}(a_q)=0$ and $\chi_{a_q}(a')=1$ for $a'$ far enough away from $a_q$. We then define \emph{smoothed observation time functions} $H_q(a):=\chi_{a_q}(a)F_q(a)$ which have $H_q(a_q)=0$. These functions are well behaved even if $q\in K$ and we can, analogously to the interior reconstruction, define a map $\mc{H}:D\to \widehat{D} = \mc{H}(D)\subset \mc{C}^\infty(\sn); q\mapsto H_q$, which can then be proven to be a homeomorphism, with respect to the canonical subspace topology. This allows us to recover the topology on $V_1:= V\cap D$.
+Next we use these unique minima to \enquote{smooth out} the observation time functions $F_q$ as they approach the boundary: For $q\in D$ with unique minimum at $a_q$ we use a smooth bump function $\chi_{a_q}$ with $\chi_{a_q}(a_q)=0$ and $\chi_{a_q}(a')=1$ for $a'$ far enough away from $a_q$. We then define \emph{smoothed observation time functions} $H_q(a)\coloneqq \chi_{a_q}(a)F_q(a)$ which have $H_q(a_q)=0$. These functions are well behaved even if $q\in K$ and we can, analogously to the interior reconstruction, define a map $\mc{H}:D\to \widehat{D} = \mc{H}(D)\subset \mc{C}^\infty(\sn); q\mapsto H_q$, which can then be proven to be a homeomorphism, with respect to the canonical subspace topology. This allows us to recover the topology on $V_1\coloneqq  V\cap D$.
 
 Because all these constructions again only require the light observations sets $\mc{P}_K(V)$ and we have $V_1, V_2\subset V$ open with $V=V_1\cup V_2$ we can then combine the topologies on $V_1$ and $V_2$ to reconstruct the topology of $V$.
 
 \section{Related work}
 Both the setting as well as many of the techniques used in this thesis are mainly inspired by the work of \citet{kurylev2017inverse} and \citet{hintzpaper}:
-\cite{kurylev2017inverse} treats the conformal reconstruction of a source spacetime $V$ in the case where instead of a null hypersurface $K$ we observe the light cones on an open set $U$. The reconstruction is then carried out by endowing $U$ with a set of observers and measuring their observation times, similar similar to our approach. \cite{hintzpaper} contains a similar result but in case where the observations take place on a timelike boundary which reflects null geodesics. A lot of the techniques used in this thesis for dealing with the \enquote{slimness} of the observation sets are are employed in our approach as well.
+\cite{kurylev2017inverse} treats the conformal reconstruction of a source spacetime $V$ in the case where instead of a null hypersurface $K$ we observe the light cones on an open set $U$. The reconstruction is then carried out by endowing $U$ with a set of observers and measuring their observation times, similar similar to our approach. \cite{hintzpaper} contains a similar result but in case where the observations take place on a timelike boundary which reflects null geodesics. A lot of the techniques used in \cite{hintzpaper} for dealing with the \enquote{slimness} of the observation sets are employed in our approach as well.
 
-For further results on reconstruction in the Lorentzian case we mention the work of \citet{lassas2016determination} showing that the knowledge of the time separation function on a timelike hypersurface $\Sigma$ allows one to the $C^\infty$-jet of the metric on $\Sigma$ and \citet{larsson2015broken} proving that the isometric structure of a compact Lorentzian manifold with boundary is completely determined by geodesic data at the boundary.
+For further results on reconstruction in the Lorentzian case we mention the work of \citet{lassas2016determination} showing that the knowledge of the time separation function on a timelike hypersurface $\Sigma$ allows one to the $C^\infty$-jet of the metric on $\Sigma$, and \citet{larsson2015broken} proving that the isometric structure of a compact Lorentzian manifold with boundary is completely determined by geodesic data at the boundary.
 
 We also mention work of \citet{wang2019inverse} and \citet{lassas2018inverse} which treats the isometric or conformal reconstruction of a spacetime given the source-to-solution map of appropriate nonlinear wave equations on a Lorentzan manifold.
 
-There are also many related results in the Riemannian case: \citet{lassas2017reconstruction} treat the reconstruction of a compact Riemannian manifold using the scattering data on the boundary, \citet{stefanov2017local} show on a Riemannian manifold with convex boundary then knowledge of the distance function on the boundary allows the reconstruction of the metric on some neighborhood of the boundary, and finally \citet{pestov2005two} show a similar result which allows the reconstruction of the metric on the whole manifold in the two-dimensional case.
+There are also many related results in the Riemannian case: \citet{lassas2017reconstruction} treat the reconstruction of a compact Riemannian manifold using the scattering data on the boundary; \citet{stefanov2017local} show on a Riemannian manifold with convex boundary that knowledge of the distance function on the boundary allows the reconstruction of the metric on some neighborhood of the boundary, and finally \citet{pestov2005two} show a similar result which allows the reconstruction of the metric on the whole manifold in the two-dimensional case.
 
-\section{Notation}((Smaller Header? Even necessary?))
-The notation used in thesis should be very close to the one used commonly in differential geometry and topology, but for the sake of completenes and clarity we note that for some subset $A\subset X$ of a topological space $X$, $\cl{A}$ denotes the closure of $A$, $\partial A$ the boundary and $\interior{A}$ the interior. 
+\section{Notation}
+The notation used in thesis is very close to the one used commonly in differential geometry and topology, but for the sake of completenes and clarity we note that for some subset $A\subset X$ of a topological space $X$, $\cl{A}$ denotes the closure of $A$, $\partial A$ the boundary and $\interior{A}$ the interior. 
 
-If $M$ is a smooth manifold and $p\in M$ a point then $T_pM$ denotes the tangent space at $p$ and $T^*_pM$ the cotangent space. If $f:M\to N$ is a map between smooth manifolds $df:TM\to TN; [\gamma]\mapsto [f\circ\gamma]$ denotes the differential. When it is clear from the context $\pi:TM\to M; (p,v)\to v$ will be the canonical projection from the tangent bundle to the manifold, and for a product $A\times B$, $\pi_a:A\times B\to A$ and $\pi_b:A\times B\to B$ will be the canonical product projections.
+If $M$ is a smooth manifold and $p\in M$ a point then $T_pM$ denotes the tangent space at $p$ and $T^*_pM$ the cotangent space. If $f:M\to N$ is a map between smooth manifolds $df:TM\to TN; [\gamma]\mapsto [f\circ\gamma]$ denotes the differential. When it is clear from the context $\pi:TM\to M; (p,v)\to v$ will be the canonical projection from the tangent bundle to the manifold, and for a product $A\times B$, $\pi_A:A\times B\to A$ and $\pi_B:A\times B\to B$ will be the canonical product projections.
 
 For the sake of distinguishing the one timelike dimension from the spacelike dimensions on Lorentzian manifolds we usually let a Lorentzian manifold $(M,g)$ be of dimension $1+n$. And often, when it is clear from the context on what interval a geodesic $\gamma$ is defined we will simply write $p\in \gamma$ to denote a point on the geodesic.

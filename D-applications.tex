@@ -1,4 +1,4 @@
-\chapter{Applications}
+\chapter{Applications}\label{chap:applications}
 In this chapter we will examine some useful applications of the results proven in the previous chapters. We first show that the suitability conditions required in theorems \ref{thm:intreconstr} and \ref{thm:bdreconstr} are somewhat generic as they are preserved by small perturbations. Then we will use a conformal embedding of Minkowski space into the Einstein universe to show that theorem \ref{thm:intreconstr} also allows us to reconstruct the complete spacetime from observations at future null infinity.
 
 \section{Stability Results}
@@ -6,7 +6,7 @@ The following lemma guarantees that theorem \ref{thm:intreconstr} still applies 
 \begin{lemma}
     Let $(M,g)$ be a globally hyperbolic manifold with $p^-,p^+\in M$ \emph{suitable}. Furthermore let $V\in \interior{\jp}$ such for any $q\in \cl{V}$, no null geodesic starting at $q$ has a conjugate point in $K$.
 
-    If we vary the metric $g$ slightly to $\widetilde{g}:=g+h$ such that 
+    If we vary the metric $g$ slightly to $\widetilde{g}\coloneqq g+h$ such that 
     \[
         \lvert h_{ij}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha,\beta}\rvert_q \rvert <\varepsilon \quad \text{for }i,j,\alpha,\beta\in \{1,\dots, 1+n\}
     \]
@@ -18,18 +18,18 @@ The following lemma guarantees that theorem \ref{thm:intreconstr} still applies 
     Next we want to show that we also have $p^- \psgt{\ll} p^+$, i.e. there exists a timelike (wrt. $\widetilde{g}$) path from 
     $p^-$ to $p^+$. Because $p^- \psg{\ll} p^+$, there exists a path $\sigma$ with $\sigma(0)=p^-$ and $\sigma(1)=p^+$ which is timelike wrt. $g$. Because $[0,1]$ is compact we can find a $\varepsilon_2>0$ such that $\sigma$ is still timelike wrt. $\widetilde{g}$, and thus $p^-\psgt{\ll} g^+$.
 
-    Because $p^-\psgt{\ll} p^+$ and $(M,\widetilde{g})$ globally hyperbolic, the map $a\in \sn \mapsto \psgt{T}_a\in (-\infty,0)$ as in lemma \ref{lem:Tvdef} is well-defined and continuous making $\psgt{\mc{S}} := \{(a,t)\in \sn\times [0,\infty) \mid t\in [0,\psgt{T}_a]\}$ a compact set. 
+    Because $p^-\psgt{\ll} p^+$ and $(M,\widetilde{g})$ globally hyperbolic, the map $a\in \sn \mapsto \psgt{T}_a\in (-\infty,0)$ as in lemma \ref{lem:Tvdef} is well-defined and continuous making $\psgt{\mc{S}} \coloneqq  \{(a,t)\in \sn\times [0,\infty) \mid t\in [0,\psgt{T}_a]\}$ a compact set. 
 
     Now because the geodesic equation on $(M,\widetilde{g})$ is a second order ODE with coefficients $\widetilde{g}_{ij}$ and $\widetilde{g}_{ij,\alpha}$ and $h=\widetilde{g}-g$ has compact support, $\psgt{\exp}:TM\to M$ depends smoothly on $\widetilde{g}_{ij}$ and $\widetilde{g}_{ij,\alpha}$ while $d\psgt{\exp}:T(TM)\to TM$ depends smoothly on $\widetilde{g}_{ij}$, $\widetilde{g}_{ij,\alpha}$ and $\widetilde{g}_{ij,\alpha,\beta}$ for some $\varepsilon_3>0$ small enough. This implies that $\psgt{\rho(q,w)}$ as well as $\psgt{T}_a$ depend smoothly on $\widetilde{g}$ and its first and second derivatives. Because we have $\psg{\rho(p^+,a)}>\psg{T}_a$ for all $a\in \sn$ there exists a $\varepsilon_4>0$ such that $\psgt{\rho(p^+,a)}>\psgt{T}_a$ for all $a\in \sn$ and we have proved that $p^-,p^+$ are suitable.
 
-    Note that because $\widetilde{g}=g$ outside of $V$, we still have $V\subset \interior{\psgt{\jp}}$. We can then see that $p^-,p^+,V$ are still suitable with respect to $\widetilde{g}$ and some $\varepsilon_5>0$ after noting that $\psgt{L}^K\cl{V}$ is compact and $\psg{\exp}$ has no conjugate points in $\psg{L}^K\cl{V}$ by assumption. Taking $\varepsilon:=\min \{\varepsilon_1,\dots \varepsilon_5\}$ yields the desired result.
+    Note that because $\widetilde{g}=g$ outside of $V$, we still have $V\subset \interior{\psgt{\jp}}$. We can then see that $p^-,p^+,V$ are still suitable with respect to $\widetilde{g}$ and some $\varepsilon_5>0$ after noting that $\psgt{L}^K\cl{V}$ is compact and $\psg{\exp}$ has no conjugate points in $\psg{L}^K\cl{V}$ by assumption. Taking $\varepsilon\coloneqq \min \{\varepsilon_1,\dots \varepsilon_5\}$ yields the desired result.
 \end{proof}
 
 We can extend the previous result slightly to show that if also the past boundary of $\jp$ has no cut points, then $\jp$ and $K$ are conserved.
 \begin{corollary}\label{cor:suitablestable}
     Let $(M,g)$ be a globally hyperbolic manifold with $p^-,p^+\in M$ \emph{suitable} and such that no geodesic starting at $p^-$ has a cut point in $\mc{L}^+_{p^-}\cap J^-(p^+)$. Furthermore let $V\in \interior{\jp}$ such for any $q\in \cl{V}$, no null geodesic starting at $q$ has a conjugate point in $K$.
     
-    If we vary the metric $g$ slightly to $\widetilde{g}:=g+h$ such that 
+    If we vary the metric $g$ slightly to $\widetilde{g}\coloneqq g+h$ such that 
     \[
         \lvert h_{ij}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha,\beta}\rvert_q \rvert <\varepsilon \quad \text{for } i,j,\alpha,\beta\in \{1,\dots, 1+n\}
     \] $q\in \interior{\jp}$
@@ -40,7 +40,7 @@ We can extend the previous result slightly to show that if also the past boundar
 \end{proof}
 
 \begin{example}
-    Because Minkowski space $(\R^{1+n}, g_M:=-dt^2 + \sum dx^2)$ has no cut points. We can pick any $p^-,p^+,V$ \emph{suitable} such that $V\in \interior{\jp}$ using the previous lemma we can see that for small deviatations from $g_M$ with support on $V$, theorem \ref{thm:intreconstr} still applies and we can reconstruct $V$ from the light cone observations on $K$.
+    Because Minkowski space $(\R^{1+n}, g_M\coloneqq -dt^2 + \sum dx^2)$ has no cut points. We can pick any $p^-,p^+,V$ \emph{suitable} such that $V\in \interior{\jp}$ using the previous lemma we can see that for small deviatations from $g_M$ with support on $V$, theorem \ref{thm:intreconstr} still applies and we can reconstruct $V$ from the light cone observations on $K$.
 \end{example}
 
 
@@ -95,17 +95,17 @@ We will now describe how Minkowsky space can be conformally embedded into the Ei
 \begin{definition}
     We can first define $M^M$, the image of the conformal embedding and thus a conformal copy of Minkowski space within the Einstein universe:
     \begin{align*}
-        M^M:=&\{(T,X)\in \R\times S^n \mid T\in(-\pi,\pi), \alpha<\pi-\lvert T\rvert\}
+        M^M\coloneqq &\{(T,X)\in \R\times S^n \mid T\in(-\pi,\pi), \alpha<\pi-\lvert T\rvert\}
     \end{align*}
     Next we can define the future and past null infinities of $M^M$ to be (almost) its future and past boundaries:
     \begin{align*}
-        \mc{J}^+:=&\{(T,X)\in \R\times S^n \mid T\in(0,\pi), \alpha = \pi - T\}\\
-        \mc{J}^-:=&\{(T,X)\in \R\times S^n \mid T\in(\pi,0), \alpha = \pi + T\}
+        \mc{J}^+\coloneqq &\{(T,X)\in \R\times S^n \mid T\in(0,\pi), \alpha = \pi - T\}\\
+        \mc{J}^-\coloneqq &\{(T,X)\in \R\times S^n \mid T\in(\pi,0), \alpha = \pi + T\}
     \end{align*}
     As mentioned $\mc{J}^\pm$ are only \emph{almost} the full boundary of $M^M$; in fact $\{T=\pm\pi,\alpha=0\}$ and $\{T=0,\alpha=\pi\}$ are missing. But as remarked in \ref{rmk:alphadef}, at these points the mapping $X\mapsto \alpha$ is degenerate and 
     \begin{align*}
-        i^\pm :=& \{T=\pm\pi,\alpha=0\} \\
-        i^S := & \{T=0,\alpha=\pi\}
+        i^\pm \coloneqq & \{T=\pm\pi,\alpha=0\} \\
+        i^S \coloneqq  & \{T=0,\alpha=\pi\}
     \end{align*}
     are single points which correspond exactly to timelike future, timelike past and spacelike infinities.
 \end{definition}
@@ -114,12 +114,12 @@ If we set $p^\pm = i^\pm$ we can see that $\mc{J}^+ = K \setminus (\{p^+\} \cup 
 
 We can now construct our conformal embedding:
 \begin{proposition}
-Let $(M^E,g_E)=(\R\times S^n,-dt^2 \oplus h)$ be the $1+n$ dimensional Einstein universe and $(\R^{1+n},h=dt^2-dx_ndx^n)$ the $1+n$ dimensional Minkovski space. Then the map 
+Let $(M^E,g_E)=(\R\times S^n,-dt^2 \oplus h)$ be the $1+n$ dimensional Einstein universe and $(\R^{1+n},h=dt^2-dx_ndx^n)$ the $1+n$ dimensional Minkowski space. Then the map 
 \begin{align}
     \Psi:M^M &\to \R^{1+n}\\
     (T,X) &\mapsto\frac{1}{\cos T + X_0}(\sin T,\overrightarrow{X})
 \end{align}
-is a conformal diffeomorphism from $M^M$ to the whole Minkovski space $\R^{1+n}$ with conformal factor $\cos(T)+X_0$. Here $X_0$ denotes the first coordinate of $X$ under the canonical embedding of $S^n$ into $\R^{n+1}$.
+is a conformal diffeomorphism from $M^M$ to the whole Minkowski space $\R^{1+n}$ with conformal factor $\cos(T)+X_0$. Here $X_0$ denotes the first coordinate of $X$ under the canonical embedding of $S^n$ into $\R^{n+1}$.
 \end{proposition}
 \begin{proof}
     This can be verified by calculation. An extensive treatment can be found in \cite{hormander}(A.4).
@@ -129,12 +129,12 @@ is a conformal diffeomorphism from $M^M$ to the whole Minkovski space $\R^{1+n}$
     \centering
     \input{graphics/EU.tex}
     \caption{
-        Illustration of the Einstein universe together with the conformal copy of Minkovski space $M^M$ and the corresponding infinities $\mc{J}^\pm$ and $i^\pm$. We can see that $\mc{J^\pm}$ are codimension 1 null submanifolds of the Einstein universe and $i^\pm$ are single points.
+        Illustration of the Einstein universe together with the conformal copy of Minkowski space $M^M$ and the corresponding infinities $\mc{J}^\pm$ and $i^\pm$. We can see that $\mc{J^\pm}$ are codimension 1 null submanifolds of the Einstein universe and $i^\pm$ are single points.
     }
 \end{figure}
 Note that this allows us to identify $J^\pm$ with the future resp. past null infinities of Minkowski space, whereas $i^\pm$ are the future resp. past timelike infinities.
 We can thus understand a reconstruction of a set $V\subset \interior{J(i^-,i^+)}$ from light observations on $\mc{J}^+$ as a reconstruction of a subset of Minkowsky space from observations at future null infinity. Notably this remains possible even if we vary $g$ slightly:
-\begin{example}Let now $V:= \{(T,X)\in M^M \mid T>0\}$ and $p^\pm = i^\pm$ Then we we have $V\in \interior{\jp}$ and no null geodesic starting in $\cl{V}$ has cut point on $K=\mc{L}^-_{p^+}\cap J^+(p^-) \approx \mc{J}^+$. This is because for any $\omega \in S^n$ and $\eta\in T_\omega S^n$, $-\omega$ is a conjugate point of full dimension along $\gamma_{\omega,\eta}$ and in fact the first cut point. Furthermore by the same argument we can see that for all $v\in CL^-_{i^+}M$, $\gamma_{i^+,v}$ has a conjucate point of maximal dimension exactly where it intersects with $J^+(p^-)\setminus I^+(p^-)$, i.e. on the boundary $R$. Because of this $R$ is now a single point and not a dimension $n-1$ submanifold anymore. By lemma \ref{lem:Kcharact}(3) assures that this is no problem as all reconstruction only requires $K$ to be regular on $K\cap I^+(p^-)$.
+\begin{example}Let now $V\coloneqq  \{(T,X)\in M^M \mid T>0\}$ and $p^\pm = i^\pm$ Then we we have $V\in \interior{\jp}$ and no null geodesic starting in $\cl{V}$ has cut point on $K=\mc{L}^-_{p^+}\cap J^+(p^-) \approx \mc{J}^+$. This is because for any $\omega \in S^n$ and $\eta\in T_\omega S^n$, $-\omega$ is a conjugate point of full dimension along $\gamma_{\omega,\eta}$ and in fact the first cut point. Furthermore by the same argument we can see that for all $v\in CL^-_{i^+}M$, $\gamma_{i^+,v}$ has a conjucate point of maximal dimension exactly where it intersects with $J^+(p^-)\setminus I^+(p^-)$, i.e. on the boundary $R$. Because of this $R$ is now a single point and not a dimension $n-1$ submanifold anymore. By lemma \ref{lem:Kcharact}(3) assures that this is no problem as all reconstruction only requires $K$ to be regular on $K\cap I^+(p^-)$.
 
 We can thus assume that $p^-,p^+$ and $V$ are suitable and can apply corollary \ref{cor:suitablestable} to show that even if we vary $g$ slightly to $\widetilde{g}$ on $\interior{\jp}$ we can still carry out the reconstruction. 
 

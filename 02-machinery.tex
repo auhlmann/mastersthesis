@@ -1,5 +1,5 @@
 \chapter{Geometric Preliminaries}\label{chap:preliminaries}
-As noted in the introduction, in this chapter we will set up most of the machinery and prove most of the properties needed to prove theorems \ref{chap:interior} and \ref{chap:boundary} 
+As noted in the introduction, in this chapter we will set up most of the machinery and prove most of the properties needed to prove theorems \ref{chap:interior} and \ref{chap:boundary}.
 % \section{Null Conjugate Points}
 % ((TODO Connection to cut points))
 % ((Leave this here?))
@@ -15,7 +15,7 @@ As noted in the introduction, in this chapter we will set up most of the machine
 %     We begin by proving the backwards direction and to that end assume that there exist a nonzero $\xi\in T_{bw}(L_qM)$ such that $d\exp_q(\xi)=0$. By the construction of the tangent space there thus exists a non-constant path $\xi:(-\varepsilon,\varepsilon)\to L_qM$ with $\xi(0)=bw$. This allows us to construct the variation $\x(u,v)=\exp_q(\frac{u}{b}\xi(v))$ which has $\x(t,0)=\gamma_{q,w}(t)$ and is a variation through null geodesics. Finally we have $\x_v(b,0)=d\exp_q(\xi)=0$ by the chain rule.
 
 %     For the other direction we first note that by definition $\x(u,v)=\exp_q(u\x_u(0,v))$ and $\x_u(0,v)\in L_qM$ as $\x$ is a variation through \emph{null} geodesics. 
-%     Now again by the chain rule we have $0=\x_v(b,0) = d\exp_q\rvert_{bw} \circ \frac{d}{dv}(bx_u(0,v))\rvert_{v=0}$. But since $\xi := \frac{d}{dv}(bx_u(0,v))\rvert_{v=0} \in T_{bw}(L_qM)$ we are done.
+%     Now again by the chain rule we have $0=\x_v(b,0) = d\exp_q\rvert_{bw} \circ \frac{d}{dv}(bx_u(0,v))\rvert_{v=0}$. But since $\xi \coloneqq  \frac{d}{dv}(bx_u(0,v))\rvert_{v=0} \in T_{bw}(L_qM)$ we are done.
 % \end{proof}
 
 % Null conjugate points are also conformal invariants:
@@ -29,9 +29,8 @@ As noted in the introduction, in this chapter we will set up most of the machine
 \section{Geometry of the light cone observations}
 We will begin by proving some relevant properties of $K$ and $\mc{P}_K(q)$.
 \subsection{Observer Set}
-This lemma is important because characterization (1) shows that on $K=\mc{L}^-_{p^+}\cap J^+(p^-)$ all points $p$ have $\tau(p,p^+)=0$. (2-3) are also very useful because they show the light cones of points $q$ in the interior of $\jp$ will only intersect $K$ in its relative interior, often allowing us to ignore the points where $K$ fails to be a submanifold. 
 \begin{lemma}\label{lem:Kcharact}
-    Let $p^-,p^+\in M$ suitable and $R:= K \setminus I^+(p^-)$ the past boundary of $K$ then:
+    Let $p^-,p^+\in M$ suitable and $R\coloneqq  K \setminus I^+(p^-)$ the past boundary of $K$ then:
     \begin{enumerate}[label={\textnormal{(\arabic*)}}]
         \item $K=\jp\setminus I^-(p^+)$,
         \item $\mc{L}^-_{p^+}\cap \ijp = \emptyset$, and 
@@ -42,6 +41,9 @@ This lemma is important because characterization (1) shows that on $K=\mc{L}^-_{
         % \]
     \end{enumerate}
 \end{lemma}
+
+This lemma is important because characterization (1) shows that on $K=\mc{L}^-_{p^+}\cap J^+(p^-)$ all points $p$ have $\tau(p,p^+)=0$. (2-3) are also very useful because they show the light cones of points $q$ in the interior of $\jp$ will only intersect $K$ in its relative interior, often allowing us to ignore the points where $K$ fails to be a submanifold. 
+
 \begin{proof}
 (1) We first rewrite $\jp\setminus I^-(p^+)=(J^-(p^+)\setminus I^-(p^+))\cap J^+(p^-)$ and immediately get $(J^-(p^+)\setminus I^-(p^+))\cap J^+(p^-)\subset \mc{L}^-_{p^+}\cap J^+(p^-)=K$ as $J^-(p^+)\setminus I^-(p^+)\subset \mc{L}^-_{p^+}$. For the other inclusion we note that because we assumed $p^-\ll p^+$ to be suitable, we have we have $\tau(p,p^+)=0$ for all $p\in K$. Together with $p\in \mc{L}_{p^+}^- $, this implies $p\in J^-(p^+)\setminus I^-(p^+)$. Furthermore $p\in K$ also implies $p\in J^+(p^-)$. Putting this together we get $p\in (J^-(p^+)\setminus I^-(p^+))\cap J^+(p^-)$ proving the equality.
 
@@ -55,7 +57,7 @@ This lemma is important because characterization (1) shows that on $K=\mc{L}^-_{
 
 % We now aim to construct a smooth surjecive map $\theta:\sn \times [0,1] \to \exp^{-1}_{p^+}(K)$ which is a diffeomorphism on $\sn \times [0,1)$. To that end we look at the set of \emph{unit null directions} 
 % \[
-%     CL^-_{p^+}M:=\{v\in L^-_{p^+}M \mid \lVert v \rVert_{g^+}=1\}\simeq \sn
+%     CL^-_{p^+}M\coloneqq \{v\in L^-_{p^+}M \mid \lVert v \rVert_{g^+}=1\}\simeq \sn
 % \] 
 % for some riemannian metric $g^+$ on $M$. By ((Leavescompact)) for a given null direction $v \in CL^-_{p^+}M$ there exists a $s_v>0$ such that $\gamma_{p^+,v}(s_v) \in J^+(p^-)$ but $\gamma_{p^+,v}(s') \notin J^+(p^-)$ for all $s'>s_v$. Furthermore for any $s'\le s_\mu$ we have $\gamma_{p^+,v}(s')\in J^+(p^-)$ because we can append the lightlike path from $p^-$ to $\gamma_{p^+,v}(s_v)\in J^+(p^-)$ to $\gamma_{p^+,v}\rvert_{[s',s_v]}$ and get a lightlike path from $p^-$ to $\gamma_{p^+,v}(s')$. We also have $\gamma_{p^+,v}(t_v)\notin I^+(p^-)$ because $I^+(p^-)$ is open which would imply the existence of a $t'>t_v$ such that $\gamma_{p^+,v}(t')\in I^+(p^-)\subset J^+(p^-)$ violating the maximality of $t_v$. Finally, because $\exp_{p^+}$ is transverse to $\mc{L}^+_{p^-}$, $exp_{p^+}^-1(\mc{L}^+_{p^-})$ is a smooth submanifold of $L^-_{p^+}M$, by lemma \ref{lem:transmap}. This implies that the map that $v\mapsto t_v$ is smooth.
 
@@ -67,7 +69,7 @@ This lemma is important because characterization (1) shows that on $K=\mc{L}^-_{
 % where we used $CL^-_{p^+}\simeq\sn$ to identify $v\in \sn$ with the corresponding $v\in CL^-_{p^+}$.
 % Using the results from the above paragraph it follows that $\theta$ is well-defined and has the desired properties. 
 
-% We now set $\Theta:=\exp_{p^+}\circ \; \theta$, which satisfies all properties in (2) and are done with this part.
+% We now set $\Theta\coloneqq \exp_{p^+}\circ \; \theta$, which satisfies all properties in (2) and are done with this part.
 
 For part (2) we assume there exists a $p\in \mc{L}^-_{p^+}\cap \interior{\jp}$. Note that $\interior{\jp}=I^+(p^-)\cap I^-(p^+)$. We thus have $p\in I^+(p^-)\subset J^+(p^-)$, which together with $p\in \mc{L}^-_{p^+}$ implies $p\in K$. But now we have $p\in I^-(p^+)$ and $p\in K$, a contradiction to (1).
 
@@ -105,13 +107,13 @@ Finally for part (3) we assume that there exists a $p_0\in R$ and $p\in J^-(p_0)
 \end{figure}
 
 
-The following lemma will be essential in showing many of the desirable properties of the \emph{observation time} functions, because it ensures that for any $q\in \interior{\jp}$ the intersection of the forwards light cone $\mc{L}^+_{q}\cap K$ is not degenerate. The fact that this fails if the source point $q$ is in $K$ is precisely why many of the nice properties of the observation time functions dont carry over to points on $K$.
+The following lemma will be essential in showing many of the desirable properties of the \emph{observation time} functions, because it ensures that for any $q\in \interior{\jp}$ the intersection of the forward light cone $\mc{L}^+_{q}\cap K$ is not degenerate. The fact that this fails if the source point $q$ is in $K$ is precisely why many of the nice properties of the observation time functions do not carry over to points on $K$.
 \begin{lemma}\label{lem:transversality}
 For any $q\in \ijp$ the restriction of the exponential map to null vectors $\exp_q:L^+_qM\to M$ is \emph{transverse} to $K$, i.e. for all $w\in L^+_qM$ such that $\gamma_{q,w}(1) = p\in K$ we have $\gamma'_{q,w}(1)\notin T_pK$.
 \end{lemma}
 \begin{proof}
-    In order to achieve a contradiction we assume that there exists a $q\in \ijp$ and a $w\in L^+_qM$ such that with $p=\gamma_{q,w}(1)\in K$ and $v:=\gamma'_{q,w}(1)\in L_pK$.
-    Since $K$ is generated by backwards null geodesics originating at $p^+$ there exists a $u\in L^-_{p^+}M$ and a $t\in \R_+$ with $\gamma_{p^+,u}(t)=p, \gamma'_{p^+,u}(t)=-v$. We can thus obtain an unbroken past-pointing null geodesic from $p^+$ to $q$ by connecting $\gamma_{p^+,u}$ and $\gamma_{p,-v}$. But this implies that $q\in \mc{L}^-_{p^+}\cap J^+(p^-)$ which is a contradiction to \ref{lem:Kcharact}(2).
+    In order to achieve a contradiction we assume that there exists a $q\in \ijp$ and a $w\in L^+_qM$ such that with $p=\gamma_{q,w}(1)\in K$ and $v\coloneqq \gamma'_{q,w}(1)\in L_pK$.
+    Since $K$ is generated by backwards null geodesics originating at $p^+$ there exists a $u\in L^-_{p^+}M$ and a $t\in \R_+$ with $\gamma_{p^+,u}(t)=p, \gamma'_{p^+,u}(t)=-v$. We can thus obtain an unbroken past-pointing null geodesic from $p^+$ to $q$ by connecting $\gamma_{p^+,u}$ and $\gamma_{p,-v}$. But this implies that $q\in \mc{L}^-_{p^+}\cap J^+(p^-)$ which is a contradiction to lemma \ref{lem:Kcharact}(2).
 
     We now prove that this implies that $\exp_q:L^+_qM\to M$ is transverse to $K$. We need to show that for every $w\in L^+_qM$ with $\exp_q(w)=p\in K$ we have 
     \[
@@ -120,7 +122,7 @@ For any $q\in \ijp$ the restriction of the exponential map to null vectors $\exp
     As $T_pK$ is a null hypersurface we only need to prove that $\im(d\exp_q\rvert_w)$ contains a null vector which is not a multiple of the null vector $v\in T_pK$ generating $T_pK = v^\perp$. But by the properties of the exponential map, $\im(d\exp_q\rvert_w)$ contains $v' = \gamma'_{q,w}(1) \in T_pM$. And since we just proved that $v'\notin T_pK$, $v'$ cannot be a multiple of $v$, as desired.
 \end{proof}
 
-This next lemma will also be very useful. The core idea is that $K$ is a subset of $J^-(p^+)$. $J^-(p^+)$ has, by definition, the useful property that once a lightlike curve leaves it it can never return.
+The core idea of the next lemma is that $K$ is a subset of $J^-(p^+)$. $J^-(p^+)$ has, by definition, the useful property that once a lightlike curve leaves it it can never return.
 \begin{lemma}\label{lem:hitsonce}
     For $q\in \ijp$ and $w\in L^+_qM$ there exists a unique $t_w\in (0,\infty)$ such that $\gamma_{q,w}(t_w)\in K$.
 \end{lemma}
@@ -135,36 +137,64 @@ This next lemma will also be very useful. The core idea is that $K$ is a subset 
 \subsection{Parametrization of the observer set}
 We will now exploit the fact that no past null geodesic starting at $p^+$ has a cut point in $K$ to construct a smooth parametrization of $K$, equivalent to a smoothly parameterized family of geodesics, generating $K$.
 
-We will need to use the Lorentzian splitting theorem as stated in chapter 14 of \cite{beem}:
-\begin{theorem}[Lorentzian Splitting Theorem] Let $(M,g)$ be a globally hyperbolic Lorentzian manifold. Then $(M,g)$ splits isometrically as a product $(\R\times H,-dt^2\oplus h)$, where $(V,h)$ is a complete Riemannian manifold.
-\end{theorem}
-We will often denote the smooth projection from $M$ to the timelike component as $\mc{T}:M\to \R$. Note also that such a splitting also induces a canonical Riemannian metric $g^+$ on $M$ given by $g^+ := dt^2 \oplus h$. For such a metric we denote $CL^\pm_p M:=\{v\in L^\pm_pM\mid \lVert v \rVert_{g^+}=\sqrt{2} \}$ for some $p\in M$, $\sqrt{2}$ is convenience as we will see soon and actual constant does not matter. We can then construct isometries such that
-\begin{equation}\label{eq:CEQSN}
-    \sn \simeq CT_{\pi_h(p)}H := \{v_H\in T_{\pi_h(p)}\mid \lVert v_H \rVert_h =1 \} \simeq CL^\pm_pM.
-\end{equation} $\sn \simeq CT_{\pi_H(p)}H$ follows by picking coordinates around $\pi_h(p)$. And the map $a_H\in CT_{\pi_h(p)}H \mapsto \partial_t + a_H \in CT_{\pi_h(p)}H$, is an isometry as desired; here we used the fact vecors in $CL^\pm_p M$ have length $\sqrt(2)$. From here on we will thus often use $\sn$ and $CL^\pm_pM$ interchangably.
+% We will need to use the Lorentzian splitting theorem as stated in chapter 14 of \cite{beem}:
+% \begin{theorem}[Lorentzian Splitting Theorem] Let $(M,g)$ be a globally hyperbolic Lorentzian manifold. Then $(M,g)$ splits isometrically as a product $(\R\times H,-dt^2\oplus h)$, where $(V,h)$ is a complete Riemannian manifold.
+% \end{theorem}
 
-Note that this construction implies 
-\begin{equation}\label{eq:constspeed}
-    \frac{d\mc{T}(\gamma_{p^+,v}(t))}{dt} = -1 \quad \text{ for all }t\in [0,\infty), v\in CL^-_{p^+}M.
-\end{equation}
+\begin{remark}\label{rmk:muconstr}
+    To construct these paths we will need to make two arbitrary choices: First, we want to construct a family of null geodesics $\mu_a$ covering $K$, but only know the \emph{conformal} class of $g\rvert_K$; by proposition \ref{prop:pregeodesicconformal} we thus only know the null pregeodesics on $K$. But because because we actually only need $\mu_a$ to be smooth null curves moving along null pregeodesics this poses no problem; we can pick a degenerate metric $\widetilde{g}$ on $K$ which belongs to the conformal class $g\rvert_K$ and construct all of our \enquote{geodesics} with respect to that metric. To that end we will later denote $\psgt{\exp}$ for the exponential with respect to $\widetilde{g}$. 
+
+    The second choice arises because we want to identify $\sn$ with $CL^+_{p^+}$, the set of future-pointing null directions at $p^+$. To that end we pick an arbitrary Riemannian metric $g^+$ compatible with $(M,g)$ and have 
+    \begin{align}\label{eq:CLMEQSN}
+        CL^+_{p^+}M \coloneqq \{v\in L^+_{p^+}M \mid \lVert v \rVert_{g^+}=1\} \simeq \sn.
+    \end{align}
+    From here on we will thus often use $\sn$ and $CL^\pm_pM$ interchangably.
+
+    Note that for an arbitrary point $p\in K$, because we only know the conformal class of $g\rvert_{K}$ restricted to vectors in $T_pM$, we cannot reconstruct the whole null cone $L^+_pM$ from the data outlined in remark \ref{rmk:data}.
+    But because every null pregeodesic on $K$ must end at $p^+$, and we know all null pregeodesics on $K$ from the data we can determine the full past light cone $L^-_{p^+}M$ and thus also $L^+_{p^+}M$ by taking the limit. 
+\end{remark}
+
+\begin{definition}[Observer]
+    For some $a\in \sn$ we will define \emph{observer} $\mu_a$ to be the smooth lightlike path
+    \begin{align*}
+        \mu_a(t):[-T_a,0]&\to M \\
+         t&\mapsto\psgt{\exp_{p^+}(ta_v)}    
+    \end{align*}
+    where $v_a$ is given by \refeq{eq:CLMEQSN} and $T_a$ will be defined in the next lemma.
+\end{definition}
+Note, by construction, $\mu_a$ corresponds to a stictly monotone, smooth \\reparameterization of the \enquote{true} geodesic $\gamma_{p^+,v_a}$.
+
+% We will often denote the smooth projection from $M$ to the timelike component as $\mc{T}:M\to \R$. Note also that such a splitting also induces a canonical Riemannian metric $g^+$ on $M$ given by $g^+ \coloneqq  dt^2 \oplus h$. For such a metric we denote $CL^\pm_p M\coloneqq \{v\in L^\pm_pM\mid \lVert v \rVert_{g^+}=\sqrt{2} \}$ for some $p\in M$, $\sqrt{2}$ is convenience as we will see soon and actual constant does not matter. We can then construct isometries such that
+% \begin{equation}\label{eq:CEQSN}
+%     \sn \simeq CT_{\pi_h(p)}H \coloneqq  \{v_H\in T_{\pi_h(p)}\mid \lVert v_H \rVert_h =1 \} \simeq CL^\pm_pM.
+% \end{equation} $\sn \simeq CT_{\pi_H(p)}H$ follows by picking coordinates around $\pi_h(p)$. And the map $a_H\in CT_{\pi_h(p)}H \mapsto \partial_t + a_H \in CT_{\pi_h(p)}H$, is an isometry as desired; here we used the fact vecors in $CL^\pm_p M$ have length $\sqrt(2)$. From here on we will thus often use $\sn$ and $CL^\pm_pM$ interchangably.
+
+% Note that this construction implies 
+% \begin{equation}\label{eq:constspeed}
+%     \frac{d\mc{T}(\gamma_{p^+,v}(t))}{dt} = -1 \quad \text{ for all }t\in [0,\infty), v\in CL^-_{p^+}M.
+% \end{equation}
 
 The following lemma closely resembles lemma \ref{lem:hitsonce}:
 \begin{lemma}\label{lem:Tvdef}
-    Let $v\in CL^-_{p^+}M$ then there exists a unique $T_v\in \R_+$ such that $\gamma_{p^+,v}([0,T_v])\in K$ and $\gamma_{p^+,v}(t')\notin K$ for all $t'>T_v$.
+    Let $a\in \sn$.
+    Then there exists a unique $T_a\in \R_+$ such that $\mu_a([-T_a,0])\in K$ and $\mu_a(t')\notin K$ for all $t'<-T_a$.
 \end{lemma}
 \begin{proof}
-    Importantly we have $p^-\notin \mc{L}^-_{p^+}$ because $\tau(p^-,p^+)>0$ and $p^+$ does not have any past cut points in $K=\mc{L}^-_{p^+}\cap J^+(p^-)$. The rest of the proof is essentially analogous to the proof of lemma \ref{lem:hitsonce}.
+    Because $\mu_a$ is a smooth monotone reparameterization of $\gamma_{p^+,v_a}$ is it sufficient to show that there exists a $T_a'\in \R_+$, such that $\gamma_{p^+,v_a}([-T_a',0])\in K$ and $\gamma_{p^+,v_a}\notin K$ for all $t'<-T_a'$.
+
+    Importantly we have $p^-\notin \mc{L}^-_{p^+}$ because $\tau(p^-,p^+)>0$ and $p^+$ does not have any past cut points in $K=\mc{L}^-_{p^+}\cap J^+(p^-)$. The rest of the proof is now essentially analogous to the proof of lemma \ref{lem:hitsonce}.
 \end{proof}
+Note that because $R$ is the past boundary of $K$ we have $t=T_a$ if and only if $\mu_a(t)\in R$.
 
 \begin{lemma}
-    The map $v\in CL^-_{p^+}M\mapsto T_v\in \R_+$ is continuous.
+    The map $a\in \sn\mapsto T_a\in \R_+$ is continuous.
 \end{lemma}
 \begin{proof}
-    We will first show that it is bounded. Note that we have $\mc{T}(p)\ge \mc{T}(p^-)$ for all $p\in J^+(p^-)$ because $\mc{T}$ is strictly increasing along causal geodesics. Now equation \ref{eq:constspeed} guarantees $\mc{T}(\gamma_{p^+,v}(2(t^+-t^-)))= \mc{T}(p^+)-2(t^+-t^-) < t^-$, where $t^\pm := \mc{T}(p^\pm)$. We thus have $\gamma_{p^+,v}(2(t^+-t^-))\notin J^+(p^-)$ and $T_v < t^+-t^-$ for all $v\in CL^-_{p^+}M$.
+    We will first show that it is bounded. This follows from the fact that $\psgt{\exp_{p^+}^{-1}}(R)$ is a bounded subset of $L^-_{p^+}M$, because every $\mu_a$ must eventually hit $R$ and once it does it can never enter $K$.
 
-    To show that the map is continuous we assume $v_n \to v_0 \in CL^-_{p^+}M$ but $T_{v_n}$ does not converge to $T_{v_0}$. Because $T_{v_n}$ is bounded there must exist a convergent subsequence $T_{v_j}\to T'\neq T_{v_0}$. We denote $p_j:=\gamma_{p^+,v_j}(T_{v_j})$ and have $p_j\to p':=\gamma_{p^+,v_0}(T')$. Furthermore because $p_j\in J^+(p^-)\setminus I^+(p^-)$ closed we also have $p'\in J^+(p^-)\setminus I^+(p^-)$, but this is a contradiction to the previous lemma.
+    To show that the map is continuous we assume $a_n \to a_0 \in \sn$ but $T_{a_n}$ does not converge to $T_{a_0}$. Because $T_{a_n}$ is bounded there must exist a convergent subsequence $T_{a_j}\to T'\neq T_{a_0}$. We denote $p_j\coloneqq \mu_{a_j}(T_{a_j})$ and have $p_j\to p'\coloneqq \mu_{a_0}(T')$ because $a\mapsto \mu_a$ is continuous. Furthermore because $p_j\in J^+(p^-)\setminus I^+(p^-)$ is closed we also have $p'\in J^+(p^-)\setminus I^+(p^-)$ which means $p'\in R$, but this is a contradiction to the previous lemma.
 \end{proof}
-For some $a\in \sn$ often write $T_a:=T_v$ where $v\in CL^-_{p^+}M$ is obtained via the equivalence from equation \ref{eq:CEQSN}. Because $a\mapsto T_a$ is a continuous map on a compact set there exists a maximum $T_\sn$.
+Because $a\mapsto T_a$ is a continuous map on a compact set there exists a maximum $T_\sn$.
 
 \begin{figure}\label{fig:Observers}
     \centering
@@ -174,42 +204,42 @@ For some $a\in \sn$ often write $T_a:=T_v$ where $v\in CL^-_{p^+}M$ is obtained 
 
 With this setup we can now parameterize $K$:
 \begin{proposition}\label{prop:thetaconstr}
-    Let $\mc{S}:=\{(a,t)\in \sn \times (-\infty,0]\mid t \in [-T_a,0]\}$.
+    Let $\mc{S}\coloneqq \{(a,t)\in \sn \times (-\infty,0]\mid t \in [-T_a,0]\}$.
     Then the map
     \begin{align*}
         \Theta:\mc{S}&\to K\\
-        (a,t)&\mapsto \exp_{p^+}(-tv_a)
-    \end{align*} where $v_a\in CL^-_{p^+}M$ is again given by equation \ref{eq:CEQSN}, has the following properties:
+        (a,t)&\mapsto \mu_a(t)
+    \end{align*}, has the following properties:
     \begin{enumerate}[label=\textnormal{(\arabic*)}]
         \item $\Theta:\mc{S}\to K$ is a surjective smooth map such that the curves 
-        \[\mu_a:=t\mapsto\Theta(a,t) \quad a\in \sn, t\in [-T_a,0]\] are null geodesics,
+        \[\mu_a=t\mapsto\Theta(a,t) \quad a\in \sn, t\in [-T_a,0]\] are smooth curves following null pregeodesics,
         \item $\Theta(S^{n-1}\times\{0\}) = \{p^+\}, \quad \Theta(\{(a,T_a)\mid a\in \sn\}) = R$ and
-        \item $\Theta:\mc{S}^\times:=\{(a,t)\in \sn \times (-\infty,0]\mid t \in (-T_a,0)\}\to K\setminus ({p^+} \cup R)$ is a diffeomorphism.
+        \item $\Theta:\mc{S}^\times\coloneqq \{(a,t)\in \sn \times (-\infty,0]\mid t \in (-T_a,0)\}\to K\setminus ({p^+} \cup R)$ is a diffeomorphism.
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    To show (1) we first note that the fact that $\Theta$ is surjective follows from lemma \ref{lem:Tvdef}, while smoothness and the geodesic property follows from the fact that $\exp_{p^+}$ and $a\in \sn \mapsto v_a\in v_a\in CL^-_{p^+}M$ are smooth.
+    To show (1) we first note that the fact that $\Theta$ is surjective follows from lemma \ref{lem:Tvdef}, while smoothness and the geodesic property follow by definition of $\mu_a(t)\coloneqq \psgt{\exp_{p^+}(tv_a)}$.
     The two equalities in (2) follow from definition together with lemma \ref{lem:Tvdef}.
     Finally for (3) we note that because $a\mapsto T_a$ is a continuous map, $\mc{S}^\times$ is a open submanifold of $\sn\times (-\infty,0]$. Furthermore because by assumption $p^-$ and $p^+$ are \emph{suitable}, past null geodesics originating at $p^+$ have no cut points in $K$, i.e. $\rho(p^+,v_a)>T_a$ for all $a\in \sn$. But this means that $\Theta$ is a diffeomorphism on $\mc{S}^\times$ and by (2) we have $\Theta(\mc{S}^\times)=K\setminus (\{p^+\}\cup R)$, as desired.
 \end{proof}
 
 
-Note that this implies that $K$ is a smooth $n$-dimensional submanifold of $M$ at any point away from its boundary. We will treat $K$ itself as a submanifold when it is clear that we are working away from the boundary. This is often the case as by \ref{lem:Kcharact}(2-3) no null geodesic originating from the interior of $\jp$ can reach $p^+$ or $R$, i.e. the boundary of $K$.
+Note that this implies that $K$ is a smooth $n$-dimensional submanifold of $M$ at any point away from its boundary. We will treat $K$ itself as a submanifold when it is clear that we are working away from the boundary. This is often the case by lemma \ref{lem:Kcharact}(2-3) no null geodesic originating from the interior of $\jp$ can reach $p^+$ or $R$, i.e. the boundary of $K$.
 
 Furthermore by the properties of $\Theta$ we have 
 \begin{align}
-    \mu_a([-T_a,0])\cap \mu_{a'}([-T_a,0]) &= \{p^+\} \text{ for } a\neq a'\in \sn \text{ and }\\
+    \mu_a([-T_a,0])\cap \mu_{a'}([-T_a',0]) &= \{p^+\} \text{ for } a\neq a'\in \sn \text{ and }\\
     \bigcup_{a\in \sn}\mu_a([-T_a,0]) &= K
-\end{align} which implies that for every point $p\in K\setminus \{p^+\}$ there exist unique $(a,t)$ such that $\mu_a(t)=p$. Owing to equation \ref{eq:constspeed} also have 
-\begin{equation}\label{eq:muspeed}
-    \frac{d\mc{T}(\mu_a(t))}{dt} = 1 \quad \text{ for all }a\in \sn, t\in [-T_a,0]
-\end{equation}which implies 
-\begin{equation}\label{eq:Teq}
-    \mc{T}(\mu_a(t)) = \mc{T}(p^+)+t \quad \text{ for all }a\in \sn, t\in [-T_a,0]
-\end{equation} making $\mc{T}(\mu_a(t))$ independent of $a\in \sn$.
+\end{align} which implies that for every point $p\in K\setminus \{p^+\}$ there exist unique $(a,t)$ such that $\mu_a(t)=p$. 
+% Owing to equation \eqref{eq:constspeed} also have 
+% \begin{equation}\label{eq:muspeed}
+%     \frac{d\mc{T}(\mu_a(t))}{dt} = 1 \quad \text{ for all }a\in \sn, t\in [-T_a,0]
+% \end{equation}which implies 
+% \begin{equation}\label{eq:Teq}
+%     \mc{T}(\mu_a(t)) = \mc{T}(p^+)+t \quad \text{ for all }a\in \sn, t\in [-T_a,0]
+% \end{equation} making $\mc{T}(\mu_a(t))$ independent of $a\in \sn$.
 
-And finally we can see that we can construct the map $\Theta$ and thus the geodesics $\mu_a$ using only the data outlined in remark \ref{rmk:data}, because we have the smooth structure of $K$ and $g\rvert_K$ determines all null geodesics on $K$.
-
+And finally, as outlined in remark \ref{rmk:muconstr}, we can construct $\mu_a$ and thus also $\Theta$ using only the data outlined in remark \ref{rmk:data}.
 
 \subsection{Differential Constructions}
 Having parameterized $K$ we can now outline some differential properties of $K$ and $\mc{P}_K(q)$:
@@ -217,22 +247,25 @@ Having parameterized $K$ we can now outline some differential properties of $K$ 
 \begin{figure}\label{fig:DirReconstr}
     \centering
     \input{graphics/DirReconstr.tex}
-    \caption{Illustration of lemma \ref{lem:dirreconstr}; $S,N$ and $\R_+V$ are as below.((more))}
+    \caption{Illustration of lemma \ref{lem:dirreconstr}; Everything takes place in $T_pM$. $T_pK$ and $N$ are transversal null hypersurfaces and $S$ is a spacelike hypersurface in $T_pK$. $\R_+V\coloneqq \Phi(S)$ is the unique outward future-pointing null ray orthogonal to $S$. 
+    We have $N^\perp = \R V$ and $S = N \cap T_pK$.}
 \end{figure}
 
 The first lemma closely resembles lemma 2.5 in \cite{hintzpaper} with only minor adjustments to adapt it to our case. It is reproduced here for the sake of completeness. It will allow us to reconstruct the direction of incoming light rays at point in $\mc{P}_K(q)$ which will locally correspond to the spacelike hypersurface.
 \begin{lemma}[Direction Reconstruction]\label{lem:dirreconstr}
-Let $p\in K$ then there exists a bijection $\Phi$ between the space $\mc{S}$ of spacelike hyperplanes $S\subset T_pK$ and the space $\mc{V}$ of rays $\R_+V\subset T_pM$ along future-directed outward facing null vectors, given by the mapping $S\in \mc{S}$ to the unique future-directed outward pointing null ray $\Phi(S)$ contained in $S^\perp$. The inverse map is given by $\mc{V}\ni \R_+V \mapsto T_pK \cap V^\perp\in \mc{S}$.
+Let $p\in K$ then there exists a homeomorphism $\Phi$ between the space $\mc{S}$ of spacelike hyperplanes $S\subset T_pK$ and the space $\mc{V}$ of rays $\R_+V\subset T_pM$ along future-directed outward facing null vectors, given by mapping $S\in \mc{S}$ to the unique future-directed outward pointing null ray $\Phi(S)$ contained in $S^\perp$. The inverse map is given by $\mc{V}\ni \R_+V \mapsto T_pK \cap V^\perp\in \mc{S}$.
 
-Moreover there exists a bijection between $\mc{S}$ and the space $\mc{N}$ of linear null hypersurfaces $N\subset T_pM$ which contain a future-directed outward pointing null vector given by $\mc{S}\ni S\mapsto S\oplus \operatorname{span} \Phi(S)\in \mc{N}$.
+Moreover there exists a homeomorphism between $\mc{S}$ and the space $\mc{N}$ of linear null hypersurfaces $N\subset T_pM$ which contain a future-directed outward pointing null vector given by $\mc{S}\ni S\mapsto S\oplus \operatorname{span} \Phi(S)\in \mc{N}$.
 \end{lemma}
 \begin{proof}
     Let $p\in K$, and $S\subset T_pK$ be a spacelike hyperplane. The orthogonal complement $S^\perp\subset T_pM$ then is a two-dimensional lorentzian subspace. Hence there exist four light rays which are multiples of the vectors $V,-V,W,-W$ in $S^\perp$, where we assume without loss of generality that $V$ and $W$ are future-pointing. Since $T_pK=v^\perp$ for some future-pointing null vector $v\in T_pK$, we have $v\in S^\perp$ and can WLOG assume $\R_+W=\R_+v$, i.e. $\R_+W$ is the ray pointing along the null hypersurface $K$. This leaves $\R_+V$ as the unique future-pointing outward null ray which is perpendicular to $S$, and we can thus set $\Phi(S)=\R_+V$.
 
-    For to prove $\Phi$ is a bijection, we let $0\neq V\in T_pM$ be an outward future-pointing null vector. In particular this means that $V\notin T_pK$. Thus $S=V^\perp\cap T_pK$ is a spacelike hyperplane in $T_pK$ which satisfies $S=\Phi^{-1}(V)$.
+    In order to prove that $\Phi$ is a bijection, we let $0\neq V\in T_pM$ be an outward future-pointing null vector. In particular this means that $V\notin T_pK$. Thus $S=V^\perp\cap T_pK$ is a spacelike hyperplane in $T_pK$ which satisfies $S=\Phi^{-1}(V)$.
 
     For the last claim we note that the map $\mc{N}\ni N \mapsto N^\perp \cap L^+_pM \in \mc{V}$ maps a null hypersurface $N$ to the unique ray along a future-pointing outward null generator of $N$. The inverse of this map is given by $\mc{V}\ni \R_+V\mapsto V^\perp \in \mc{N}$. Composition of these maps with $\Phi$ yields the desired bijection $\mc{N}\to \mc{S}$.
 \end{proof}
+
+The previous lemma will be very useful because for $q\in V$ it allows us to connect the local shape of the observation set $\pq$ (which corresponds to the spacelike hypersurface $S$) to the direction of the incoming null geodesics from $q$ to $\pq$ (which correspond to $\R_+V$). Although the data outlined in remark \ref{rmk:data} is not sufficient to explicitly reconstruct these incoming directions (because we cannot determine the full light cone $L_pM$) the lemma will often allow us to treat the local shape of $\pq$ as a standin.
 
 \begin{figure}[h]\label{fig:LKDef}
     \centering
@@ -241,24 +274,24 @@ Moreover there exists a bijection between $\mc{S}$ and the space $\mc{N}$ of lin
         Illustration of the observation preimage $L^K_qM$ as defined in \ref{def:preimage}; The observation preimage $L^K_qM\subset L_qM$ is obtained by taking the preimage under $\exp_q$ restricted to $L_q^+M$ of $\pq$. Note that $L^K_qM$ is a submanifold even if $\pq$ fails to be one.
     }
 \end{figure}
-The next part can be seen as an extension of lemma \ref{lem:hitsonce} we will show that for a $q\in V$, the set of null vectors hitting $K$ is actually a smooth submanifold of the future light cone and that on $L^K_qM$, $\exp_q$ is a local diffeomorphism. The fact that no geodesic starting in $V$ can have a conjugate point in $K$ and the transversality of $\exp_q$ to $K$ are curcial here. 
+The next part can be seen as an extension of lemma \ref{lem:hitsonce}; we will show that for $q\in V$, the set $L^K_qM$ of null vectors hitting $K$ is actually a smooth submanifold of the future light cone and that on $L^K_qM$, $\exp_q$ is a local diffeomorphism. The fact that no geodesic starting in $V$ can have a conjugate point in $K$ and the transversality of $\exp_q$ to $K$ are crucial here. 
 \begin{definition}[Observation Preimage]\label{def:preimage}
 For any $q\in V$ with light observation set $\mc{P}_K(q)\subset K$ we define the \emph{observation preimage} $L^K_qM$ to be the preimage of $K$ under the exponential map restricted to $L^+_qM$, i.e. 
 \begin{align*}
-    L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K) \subset L^+_qM
+    L^K_qM \coloneqq  (\exp_q\rvert_{L^+_qM})^{-1}(K) \subset L^+_qM
 \end{align*}
 \end{definition}
 \begin{lemma}\label{lem:preimage}
-For any $q\in V$, the observation preimage $L^K_qM$ is a $n-1$-dimensional submanifold of $L^+_qM$. 
+For any $q\in V$, the observation preimage $L^K_qM$ is a $(n-1)$-dimensional submanifold of $L^+_qM$. 
 
-Furthermore, for any $w\in L^K_qM$ there exist a relatively open neighborhood $O_w\subset L^K_qM$ such that $\exp_q:O_w\to U_w:=\exp_q(O_w)\subset \mc{P}_K(q)$ is a diffeomorphism.
+Furthermore, for any $w\in L^K_qM$ there exist a relatively open neighborhood $O_w\subset L^K_qM$ such that $\exp_q:O_w\to U_w\coloneqq \exp_q(O_w)\subset \mc{P}_K(q)$ is a diffeomorphism.
 \end{lemma}
 \begin{proof}
-    By lemma \ref{lem:transversality}, $\exp_q:L^+_qM\to M$ is transverse to $K$ (here we treat $L^+_qM$ and $K$ as submanifolds, because by lemma \ref{lem:Kcharact}(2-3) we can disregard the boundary points). Thus by the preimage lemma \ref{lem:transmap} $ L^K_qM := (\exp_q\rvert_{L^+_qM})^{-1}(K)$ is a $n-1$-dimensional submanifold of $L^+_qM$.
+    By lemma \ref{lem:transversality}, $\exp_q:L^+_qM\to M$ is transverse to $K$ (here we treat $L^+_qM$ and $K$ as submanifolds, because by lemma \ref{lem:Kcharact}(2-3) we can disregard the boundary points). Thus by the preimage lemma \ref{lem:transmap} $ L^K_qM \coloneqq  (\exp_q\rvert_{L^+_qM})^{-1}(K)$ is a $(n-1)$-dimensional submanifold of $L^+_qM$.
 
-    For the second part let $w\in L^K_qM$, since $p:=\exp_q(w)\in K$ and we assumed that such a $p$ cannot be a null conjugate point, we know that $\exp_q:L^+_qM\to M$ has an invertible differential at $w$. Thus, by the implicit function theorem, there exists an open neighborhood $O_w'\subset L^+_qM$ of $w$ such that $\exp_q:O_w'\to \exp_q(O_w')$ is a diffeomorphism. If we then restrict $\exp_q$ to $O_w:=O_w' \cap L^K_qM$ the map is still a diffeomorphism as desired.
+    For the second part let $w\in L^K_qM$; since $p\coloneqq \exp_q(w)\in K$ and we assumed that such a $p$ cannot be a null conjugate point, we know that $\exp_q:L^+_qM\to M$ has an invertible differential at $w$. Thus, by the implicit function theorem, there exists an open neighborhood $O_w'\subset L^+_qM$ of $w$ such that $\exp_q:O_w'\to \exp_q(O_w')$ is a diffeomorphism. If we then restrict $\exp_q$ to $O_w\coloneqq O_w' \cap L^K_qM$ the map is still a diffeomorphism as desired.
 \end{proof}
-Note that by the invariance of domain theorem $U_w$ is an open submanifold of $\mc{P}_K(q)$
+Note that by the invariance of domain theorem $U_w$ is an open submanifold of $\mc{P}_K(q)$.
 
 \begin{corollary}\label{cor:lksn}
     The map 
@@ -266,17 +299,17 @@ Note that by the invariance of domain theorem $U_w$ is an open submanifold of $\
         \sn \simeq CL^+_qM &\to L^K_qM\\
         w &\mapsto t_ww
     \end{align*}
-    where $t_w$ is as in \ref{lem:hitsonce}, is a diffeomorphism.
+    where $t_w$ is as in lemma \ref{lem:hitsonce}, is a diffeomorphism.
 \end{corollary}
 \begin{proof}
     This result follows immediately from lemma \ref{lem:hitsonce} together with the fact that since $K$ is (away from its boundary) a smooth submanifold, the map $w\mapsto t_w$ is smooth.
 \end{proof}
 
-We now aim to show that for $q\in V$,  $\mc{P}_K(q)$ is localy the finite union of submanifold. This will make use of a lot of the machinery developed so far. 
+We now aim to show that for $q\in V$, $\mc{P}_K(q)$ is locally the finite union of submanifolds. This will make use of a lot of the machinery developed so far. 
 \begin{lemma}\label{lem:finitevecs}
-    Let $q\in V$ and $p\in \mc{P}_K(q)$ then there exist only finitely many $w_1,\dots,w_N\in L^K_qM$ such that $\exp_q(w_i)=p$. Furthermore with $O_{w_i}$ as in the previous lemma such that $\exp_q:O_{w_i}\to U_{w_i}$ are a diffeomorphisms, there exists an open neighborhood $U\subset \mc{P}_K(q)$ of $p$ such that 
+    Let $q\in V$ and $p\in \mc{P}_K(q)$. Then there exist only finitely many $w_1,\dots,w_N\in L^K_qM$ such that $\exp_q(w_i)=p$. Furthermore with $O_{w_i}$ as in the previous lemma such that $\exp_q:O_{w_i}\to U_{w_i}$ is diffeomorphism for all $i=1,\dots,N$, there exists an open neighborhood $U\subset \mc{P}_K(q)$ of $p$ such that 
     \[
-        \exp^{-1}_{q}(U)\cap L^K_qM \subset \bigcup_{i=1}^N O_{w_i}
+        \exp^{-1}_{q}(U)\cap L^K_qM \subset \bigcup_{i=1}^N O_{w_i}.
     \]
     
     %for any neighborhood $W\subset L^K_qM$ of $v_1,\dots,v_n$, there exists a %neighborhood $U\subset \mc{P}_K(q)$ of $p$ such that $\exp^{-1}_q(U) \cap L^+_qM %\subset W$. 
@@ -287,11 +320,11 @@ We now aim to show that for $q\in V$,  $\mc{P}_K(q)$ is localy the finite union 
 
     To show that there can only be finitely many $w\in L^K_qM$ with $\exp_q(w)=p$ we let
     \[
-        C:=\exp_q^{-1}(p)\cap L^K_qM.
+        C\coloneqq \exp_q^{-1}(p)\cap L^K_qM.
     \] 
     As $M$ is hausdorff, ${p}$ is closed and $\exp_q$ is continuous, $C$ must be closed. $C\subset L^K_qM$ is thus a closed subset of a compact space, making $C$ itself compact as well. Now the family $\{O_w \mid w\in \exp^{-1}_q(p)\cap L^K_qM\}$ is an open cover of $C$. But because $C$ is compact there must exist a finite subcover such that 
     \[
-        C\subset O:= \bigcup_{i=1}^N O_{w_i}.
+        C\subset O\coloneqq  \bigcup_{i=1}^N O_{w_i}.
     \]
     We can now make some observations: By definition, for any $w\in L^K_qM\setminus C$ we have $\exp_q(w)\neq p$. And as $\exp_q$ is a diffeomorphism on $O_{w_i}$ for all $i=1,\dots, N$, it must be injective and we get $\exp^{-1}_q(p)\cap O_{w_i}=\{w_i\}$. We thus have 
     \[
@@ -309,17 +342,17 @@ We now aim to show that for $q\in V$,  $\mc{P}_K(q)$ is localy the finite union 
 
     To show the second part we denote
     \[
-        L^\times := L^K_qM \setminus O \quad \text{ and have } L^\times \cap \exp^{-1}_q(p) = \emptyset.
+        L^\times \coloneqq  L^K_qM \setminus O \quad \text{ and have } L^\times \cap \exp^{-1}_q(p) = \emptyset.
     \]
-    Note that $L^\times$ is a closed and thus compact subset of $L^K_q$. We then endow $M$ the geodesic metric $d$ induced by $g^+$. 
+    Note that $L^\times$ is a closed and thus compact subset of $L^K_q$. We now endow $M$ with the geodesic metric $d$ induced by $g^+$. 
     This lets us define the continuous function 
     \begin{align*}
-        g:L^\times &\to \R\\
+        d:L^\times &\to \R\\
         w &\mapsto d(\exp_q(w),p).
     \end{align*}
     Because $L^\times \cap \exp^{-1}_q(p) = \emptyset$ we have $g(w)>0$ for all $w\in L^\times$. But now, as $L^\times$ is compact there exists a $\varepsilon>0$ such that $g(w)=d(\exp_q(w),p)>\varepsilon$ for all $w\in L^\times$. We can now choose
     \[
-        U := B_\varepsilon(p) \cap \mc{P}_K(q)
+        U \coloneqq  B_\varepsilon(p) \cap \mc{P}_K(q)
     \] and get an open neighborhood of $p$ in $\mc{P}_K(q)$ with $\exp^{-1}(U)\cap L^\times = \emptyset$. But this means 
     \[
         \exp^{-1}_q(U) \cap L^K_qM \subset O = \bigcup_{i=1}^N O_{w_i}
@@ -331,35 +364,35 @@ We now aim to show that for $q\in V$,  $\mc{P}_K(q)$ is localy the finite union 
     \centering
     \input{graphics/UnionOfManif.tex}
     \caption{
-        Illustration of proposition \ref{prop:unionmanif}; even if $\pq$ fails to be a submanifold, locally it is the union of only finitely many submanifolds. ((Explain $U$ and other stuff))
+        Illustration of proposition \ref{prop:unionmanif}; even if $\pq$ fails to be a submanifold, locally it is the union of only finitely many submanifolds. The submanifolds are $\mc{U}_i = U \cap \exp_q(O_{w_i})$ where $O_{w_i}$ is a neighborhood of $w_i$ in $L^K_qM$.
     }
 \end{figure}
 
 Armed with the previous lemma we can now show:
 \begin{proposition}\label{prop:unionmanif}
-Let $q\in V$ and $p\in \mc{P}_K(q)$. There exists an open neighborhood $p\in U\subset \mc{P}_K(q)$, a positive integer $N$ and $N$ pairwise transversal, spacelike, codimension 1 submanifolds $\mc{U}_i\subset K$ such that $\mc{P}_K(q) \cap U = \bigcup_{i=1}^N \mc{U}_i$ and $p\in \mc{U}_i$ for $i={1,\dots, N}$.
+Let $q\in V$ and $p\in \mc{P}_K(q)$. There exists an open neighborhood $p\in U\subset M$, a positive integer $N$ and $N$ pairwise transversal, spacelike, codimension 1 submanifolds $\mc{U}_i\subset K$ such that $\mc{P}_K(q) \cap U = \bigcup_{i=1}^N \mc{U}_i$ and $p\in \mc{U}_i$ for $i={1,\dots, N}$.
 \end{proposition}
 \begin{proof}
     Let $q\in V$ and $p\in \mc{P}_K(q)$. By the previous lemma we know that there can only be finitely many $w_1,\dots,w_n\in L^K_qM$ with $\exp_q(w_i)=p$. 
 
-    By lemma \ref{lem:preimage}, for each $w_i$ there exists a neighborhood $O_{w_i}\subset L^K_qM$ of $w_i$ such that $\exp_q:O_{w_i}\to U_{w_i}:=\exp_q(O_{w_i})$ is a diffeomorphism. Thus $U_{w_i}\subset \mc{P}_K(q)$ is a codimension 1 submanifold of $K$ and we have $\bigcup_{i=1}^N U_{w_i}\subset \mc{P}_K(q)$.
+    By lemma \ref{lem:preimage}, for each $w_i$ there exists a neighborhood $O_{w_i}\subset L^K_qM$ of $w_i$ such that $\exp_q:O_{w_i}\to U_{w_i}\coloneqq \exp_q(O_{w_i})$ is a diffeomorphism. Thus $U_{w_i}\subset \mc{P}_K(q)$ is a codimension 1 submanifold of $K$ and we have $\bigcup_{i=1}^N U_{w_i}\subset \mc{P}_K(q)$.
 
     Now we use the second part of the previous lemma to obtain an open neighborhood $U\subset \mc{P}_K(q)$ of $p$, such that $\exp_q^{-1}(U)\cap L^K_qM\subset \bigcup_{i=1}^N O_{w_i}$. Thus any point $p\in \mc{P}_K(q) \cap U$ is contained in some $\mc{V}_i$ and we have $\bigcup_{i=1}^N U_{w_i} \supset \mc{P}_K(q)\cap U$. 
     We then define 
     \[
-        \U_i := U \cap U_{w_i}
+        \U_i \coloneqq  U \cap U_{w_i}
     \] and have 
     \[
         \bigcup_{i=1}^N \,\U_i = \mc{P}_K(q)\cap U
     \] as desired. Furthermore, because $U$ is an open neighborhood of $p$, $\U_i$ is still a codimension 1 submanifold of $K$ and $p\in \U_i$.
 
-    We show that $\U_i$ is spacelike. To that end let $p\in \U_i$. Note that we have $\U_i\subset K$ and $\U_i\subset U_{w_i}' = \exp_q(O_{w_i}')$, where $w_i\in O_{w_i}' \subset L^+_qM$ is an open neighborhood of $w_i$ in $L^+_qM$ such that on $O_{w_i}'$, $\exp_q$ is a diffeomorphism onto its image. Both $K$ and $U_{w_i}'$ are null hypersurfaces around $p$ but by proposition \ref{lem:transversality} they are transversal and thus cannot be generated by the same null rays. Thus $T_p\,\U_i = T_pK \cap T_pU_{w_i}'$ can only contain spacelike vectors.
+    We now want to show that $\U_i$ is spacelike. To that end let $p\in \U_i$. Note that we have $\U_i\subset K$ and $\U_i\subset U_{w_i}' = \exp_q(O_{w_i}')$, where $w_i\in O_{w_i}' \subset L^+_qM$ is an open neighborhood of $w_i$ in $L^+_qM$ such that on $O_{w_i}'$, $\exp_q$ is a diffeomorphism onto its image. Both $K$ and $U_{w_i}'$ are null hypersurfaces around $p$ but by proposition \ref{lem:transversality} they are transversal and thus cannot be generated by the same null rays. Thus $T_p\,\U_i = T_pK \cap T_pU_{w_i}'$ can only contain spacelike vectors.
 
-    Finally to prove that they are transversal at $p$, we assume by contradiction that there exist $i\neq j$ such that $T_p\,\U_i=T_p\,\U_j$. But by lemma \ref{lem:dirreconstr} this would imply that $v_i = cv_j$ for a $c\in \R_+$, where $v_i = \gamma'(1)_{q,w_i}, v_i = \gamma'(1)_{q,w_i}$. This would imply $w_i = w_j$, a contradiction.
+    Finally to prove that they are transversal at $p$, we assume by contradiction that there exist $i\neq j$ such that $T_p\,\U_i=T_p\,\U_j$. But by lemma \ref{lem:dirreconstr} this would imply that $v_i = cv_j$ for a $c\in \R_+$, where $v_i = \gamma'_{q,w_i}(1)$ and $v_j = \gamma'_{q,w_j}(1)$. This would imply $w_i = w_j$, a contradiction.
 \end{proof}
 
 \begin{definition}[Regular Point]\label{def:regpt}
-We call a point $p\in \mc{P}_K(q)$ \emph{regular} if there exists an open neighborhood $\mc{U}\subset M$ of $p$ such that $\mc{U}\cap \mc{P}_K(q)$ is a $n-1$ dimensional submanifold of $M$.
+We call a point $p\in \mc{P}_K(q)$ \emph{regular} if there exists an open neighborhood $\mc{U}\subset M$ of $p$ such that $\mc{U}\cap \mc{P}_K(q)$ is a $(n-1)$ dimensional submanifold of $M$.
 
 Note that $p\in \mc{P}_K(q)$ is regular if and only if $N=1$ for $p$ in the previous proposition.
 \end{definition}
@@ -375,7 +408,7 @@ To prove the set of regular points is dense in $\pq$ we to show that for every p
 \[
     \U_i \setminus \bigcup_{j\neq i}\, \U_j \quad \text{ is open and nonempty for every }i=1,\dots N.
 \]
-We can find a $p'\in \mc{U}_i$ for some $i\in 1,\dots,N$ such that $p'\notin \mc{U}_j$ for $j\neq i$. Then because $\U_i \setminus \bigcup_{j\neq i}$ is open can find an open neighborhood $\mc{O}'$ around $p'$ such that $\mc{O}'\cap \mc{P}_K(q)\subset \mc{U}_i$ which means $p'$ is a regular point, as desired.
+We can find a $p'\in \mc{U}_i$ for some $i\in 1,\dots,N$ such that $p'\notin \mc{U}_j$ for $j\neq i$. Then because $\U_i \setminus \bigcup_{j\neq i} \mc{U}_j$ is open can find an open neighborhood $\mc{O}'$ around $p'$ such that $\mc{O}'\cap \mc{P}_K(q)\subset \mc{U}_i$ which means $p'$ is a regular point, as desired.
 \end{proof}
 
 \section{Observation Time Functions}
@@ -393,9 +426,9 @@ Moreover, we define the \emph{earliest observation point} $\mc{E}_a(q)\coloneqq\
 Intuititively, $f_a(q)$ corresponds to the earliest time at which the observer $\mu_a$ measures light from $q$ and $\mc{E}_a(q)$ is the point at which this happens.
 \end{definition}
 
-We will first give some useful properties of these observation time functions: (1) corrensponds to the fact that future light cones from points $q\in \interior{\jp}$ only intersect the interior of $K$, as show in lemma \ref{lem:Kcharact}(2-3).
+We will first give some useful properties of these observation time functions: (1) corresponds to the fact that future light cones from points $q\in \interior{\jp}$ only intersect the interior of $K$, as shown in lemma \ref{lem:Kcharact}(2-3).
 \begin{lemma}\label{lem:observationtime}
-Let $a\in \sn$ and $q \in \ijp$. Then
+Let $a\in \sn$ and $q \in \ijp$. Then:
 \begin{enumerate}[label={\textnormal{(\arabic*)}}]
     \item It holds that $f_a(q)\in (-T_a,0)$.
     \item We have $\mc{E}_a(q)\in J^+(q)$ and $\tau(q,\mc{E}_a(q))=0$. Moreover the function $s\mapsto\tau(q,\mu_a(s))$ is continuous, non-decreasing on $[-T_a,0]$ and strictly increasing on $[f_a(q),0]$.
@@ -408,23 +441,23 @@ Let $a\in \mc{A}$ and $q\in V$.
 We begin by showing (1): 
 Because $q \in \interior{\jp} = I^+(p^-)\cap I^-(p^+)$ we have $q\in I^-(p^+)$ and conversely $p^+\in I^+(q)$. By lemma \ref{lem:Iopen} we know that $I^+(q)$ is open and thus it forms an open neighborhood of $p^+$. But as $\mu_a$ is a continuous path with $\mu_a(1)=p^+$ there must exist a $t<0$ such that $\mu_a(t)\in I^+(q)\subset J^+(q)$. Hence we have $f_a(q)<0$.
 
-To show $f_a(q)>-T_a$ we assume $f_a(q)=-T_a$ to achieve a contradiction. We thus have $-T_a=\inf \{s\in [-T_a,0] \mid \mu_a(s)\in J^+(q)\}$. This means that there exists a convergent sequence $t_n\searrow 0$ as $n\to \infty$ such that $\mu_a(t_n)\in J^+(q)$ for all $n$. Because $\mu_a$ is continuous and $J^+(q)$ closed we have $p_0:=\mu_a(-T_a)\in J^+(q)$. But $p_0=\mu_a(-T_a)\in R$ by prop \ref{prop:thetaconstr}(2). Hence we get $p_0\in J^+(q) \cap R$ for $q\in V$, which is a contradiction to \ref{lem:Kcharact}(3).
+To show $f_a(q)>-T_a$ we assume $f_a(q)=-T_a$ to achieve a contradiction. We thus have $-T_a=\inf \{s\in [-T_a,0] \mid \mu_a(s)\in J^+(q)\}$. This means that there exists a convergent sequence $t_n\searrow -T_a$ as $n\to \infty$ such that $\mu_a(t_n)\in J^+(q)$ for all $n$. Because $\mu_a$ is continuous and $J^+(q)$ closed we have $p_0\coloneqq \mu_a(-T_a)\in J^+(q)$. But $p_0=\mu_a(-T_a)\in R$ by proposition \ref{prop:thetaconstr}(2). Hence we get $p_0\in J^+(q) \cap R$ for $q\in V$, which is a contradiction to lemma \ref{lem:Kcharact}(3).
 
 To show (2) we proceed as follows:
 By the definition of the infimum we can find a sequence $t_n\searrow f_a(q)$ such that for all $t_n$ we have $\mu_a(t_n)\in J^+(q)$. Now since $t\mapsto \mu_a(t)$ is continuous we have that $\mu_a(t_n)\to \mu_a(f_a(q)) = \mc{E}_a(q)$. Since $J^+(q)$ is closed this yields $\mc{E}_a(q)\in J^+(q)$. 
 
 For the second part we assume by contradiction that $\tau(q,\mc{E}_a(q)) > 0$. Since this means that a timelike path from $q$ to $\mc{E}_a(q)$ exists we have $\mc{E}_a(q)\in I^+(q)$. Then, since $I^+(q)$ is open we can find a $t<f_a(q)$ such that $\mu_a(t)\in I^+(q) \subset J^+(q)$. This is a contradiction since $f_a(q)$ is the infimum over such $t$.
 
-To show that $s\mapsto \tau(q,\mu_a(s))$ is continuous and non-decreasing on $[-T_a,0]$ we first note that it is the composition of two continuous functions. Monotony then follows from the reverse triangle inequality for $\tau$ (see \ref{rmk:causalitysummary}(2)) together with the fact that $\mu_a$ is a future pointing null geodesic.
+To show that $s\mapsto \tau(q,\mu_a(s))$ is continuous and non-decreasing on $[-T_a,0]$ we first note that it is the composition of two continuous functions. Monotony then follows from the reverse triangle inequality for $\tau$ (see remark \ref{rmk:causalitysummary}(2)) together with the fact that $\mu_a$ is a monotone reparametrization of a future pointing null geodesic.
 
-To show that $s\mapsto \tau(q,\mu_a(s))$ is strictly increasing in $[f_a(q),0]$ we let $f_a\leq t_1<t_2\leq 0$. Now by \ref{rmk:causalitysummary}(4) there exists a causal geodesic $\gamma_1:[0,1]\to M$ with $\gamma_1(0)=q$ and $\gamma_1(1)=\mu_a(t_1)$ such that $L(\gamma_1)=\tau(p,\mu_a(t_1))$. 
-If we then connect $\gamma_1$ to $\mu_a\rvert_{[t_1,t_2]}$ we get a path $\gamma_2$ connecting $q$ to $\mu_a(t_2)$ which has length $L(\gamma_2) = L(\gamma_1)$ as $\mu_a$ is a null geodesic. Next we argue that $\gamma_2$ must have a break at the connecting point, i.e. $\gamma_1'(1) \neq c\mu_a'(t_1)$ for any $c\in \R_+$. If $\gamma_1$ is timelike this observation is trivial as $\mu_a$ is lightlike. If however, $\gamma_1$ is lightlike (which is only the case if $t_1=f_a(q)$), this fact follows from the transversality of light cone observations as noted in proposition \ref{lem:transversality}. This means that $\gamma_2$ is a broken causal geodesic, which implies that there exists a strictly longer timelike geodesic $\gamma_3$ connecting the endpoints and we get
+To show that $s\mapsto \tau(q,\mu_a(s))$ is strictly increasing in $[f_a(q),0]$ we let $f_a(q)\leq t_1<t_2\leq 0$. Now by \ref{rmk:causalitysummary}(4) there exists a causal geodesic $\gamma_1:[0,1]\to M$ with $\gamma_1(0)=q$ and $\gamma_1(1)=\mu_a(t_1)$ such that $L(\gamma_1)=\tau(p,\mu_a(t_1))$. 
+If we then connect $\gamma_1$ to $\mu_a\rvert_{[t_1,t_2]}$ we get a path $\gamma_2$ connecting $q$ to $\mu_a(t_2)$ which has length $L(\gamma_2) = L(\gamma_1)$ as $\mu_a$ is a lightlike curve. Next we argue that $\gamma_2$ must have a break at the connecting point, i.e. $\gamma_1'(1) \neq c\mu_a'(t_1)$ for any $c\in \R_+$. If $\gamma_1$ is timelike this observation is trivial as $\mu_a$ is lightlike. If however, $\gamma_1$ is lightlike (which is only the case if $t_1=f_a(q)$), this fact follows from the transversality of light cone observations as noted in proposition \ref{lem:transversality}. This means that $\gamma_2$ is a broken causal curve, which implies that there exists a strictly longer timelike geodesic $\gamma_3$ connecting the endpoints and we get
 \[
 \tau(q,\mu_a(t_2)) \geq L(\gamma_3) > L(\gamma_2) = L(\gamma_1) = \tau(q,\mu_a(t_1)).
 \]
 
-Finally we can take on (3)
-To prove the fist direction we assume that $p=\mc{E}_a(q)$ for some $a\in \mc{A}$. Now by (2) we have $\mc{E}_a(q) \in J^+(q)$ and $\tau(q,\mc{E}_a(q))=\tau(q,p)=0$. But now, by \ref{rmk:causalitysummary} there exists a null geodesic from $q$ to $p$ which means $p\in \mc{P}_K(q)$. 
+Finally we can take on (3),
+to prove the fist direction we assume that $p=\mc{E}_a(q)$ for some $a\in \mc{A}$. Now by (2) we have $\mc{E}_a(q) \in J^+(q)$ and $\tau(q,\mc{E}_a(q))=\tau(q,p)=0$. But now, by \ref{rmk:causalitysummary} there exists a null geodesic from $q$ to $p$ which means $p\in \mc{P}_K(q)$. 
 
 For the other direction we let $p\in \mc{P}_K(q)$ with $\tau(q,p)=0$. Now let $a\in \mc{A}$ such that $p=\mu_a(t)$ for some $t\in [0,1]$. We then assume by contradiction that $\mc{E}_a(q) \neq p$, i.e. $f_a(q) < t$. But by (2) we have that $s\mapsto\tau(q,\mu_a(s))$ is strictly increasing after $f_a(q)$ which is in contradiction with $\tau(q,p)=0$.
 
@@ -436,7 +469,14 @@ By (3) of the above lemma, for any $q\in V$ and $a\in \ca$ we have $\mc{E}_a(q)\
     f_a(q) = \min \{ s\in [-T_a,0] \mid \mu_a(s)\in \P_U(q) \}, \quad \mc{E}_a(q) = \mu_a(f_a(q))
 \end{align}
 
-Note that we can use $f_a(q)$ to define the related functions $f:\jp \times \times \sn \to [-T_\sn,0]; (q,a)\mapsto f_a(q)$ and $F_q:\sn \to [-T_\sn,0]; a\mapsto f_a(q)$. 
+Note that we can use $f_a(q)$ to define the related functions \begin{align*}
+    f:\jp \times \sn &\to [-T_\sn,0]\\
+    (q,a)&\mapsto f_a(q)
+\end{align*} and 
+\begin{align*}
+    F_q:\sn &\to [-T_\sn,0]\\
+     a&\mapsto f_a(q).
+\end{align*}
 
 % \begin{lemma}\label{lem:qcont} Let $a\in \sn$. Then the function $q\mapsto f_a(q)$ is continuous on $V$.
 %\end{lemma}
@@ -474,12 +514,12 @@ Note that we can use $f_a(q)$ to define the related functions $f:\jp \times \tim
 % \end{proof}
 
 \begin{proposition}\label{prop:fcont} 
-    The function $f:\ijp\times\sn\to[-T_\sn,0];\; (q,a)\mapsto f_a(q)$ is continuous.
+    The function $f:\ijp\times\sn\to[-T_\sn,0]$ is continuous.
 \end{proposition}
 \begin{proof}
-    We want to show that for every convergent sequence $(q_n,a_n)\to (q_0,a_0)\in \ijp\times \sn$ we have $t_n:=f_{a_n}(q_n)\to f_{a_0}(q_0)=:t_0$ as $n \to \infty$. Because the sequence $t_n$ lives in $[-T_\sn,0]$ and is thus bounded it suffices to show that for every convergent subsequence $t_j = f_{a_j}(q_j) \to t'$ we have $t'=t_0$. Note that still $(q_j,a_j)\to (q_0,a_0)$ because they are the subsequence of a convergent sequence. The points of earliest observation converge:
+    We want to show that for every convergent sequence $(q_n,a_n)\to (q_0,a_0)\in \ijp\times \sn$ we have $t_n\coloneqq f_{a_n}(q_n)\to f_{a_0}(q_0)=:t_0$ as $n \to \infty$. Because the sequence $t_n$ lives in $[-T_\sn,0]$ and is thus bounded it suffices to show that for every convergent subsequence $t_j = f_{a_j}(q_j) \to t'$ we have $t'=t_0$. Note that still $(q_j,a_j)\to (q_0,a_0)$ because they are the subsequence of a convergent sequence. The points of earliest observation converge:
     \[
-        \mc{E}_{a_j}(q_i) = \mu_{a_j}(f_{a_j}(q_j)) = \mu_{a_j}(t_j) = \Theta(a_j,t_j) \to \Theta(a_0,t') = \mu_{a_0}(t')=p'
+        \mc{E}_{a_j}(q_j) = \mu_{a_j}(f_{a_j}(q_j)) = \mu_{a_j}(t_j) = \Theta(a_j,t_j) \to \Theta(a_0,t') = \mu_{a_0}(t')=p'
     \] because $(a_j,t_j)\to (a_0,t')$ and $\Theta$ is continuous.
     The first key observation is that  because $q_j\to q_0$ and $J^+(q_i)\ni\mc{E}_{a_j}(q_j) \to  p'$ lemma \ref{lem:Jclosed} implies $p'\in J^+(q_0)$.
 
@@ -492,7 +532,7 @@ Note that we can use $f_a(q)$ to define the related functions $f:\jp \times \tim
     \[
         \mu_{a_0}(t') = p' = \mc{E}_{a_0}(q_0) = \mu_{a_0}(f_{a_0}(q_0))= \mu_{a_0}(t_0).
     \]
-    Because $\mu_a$ is injective we get $t'=t_0$, as desired. Hence every convergent subsequence of $t_n$ goes to $t_0$ which, by compactness of $[-T_\sn,0]$, implies that also $f_{a_n}(q_n)=t_n \to t_0 = f_{a_0}(q_0)$, proving that $f$ is continuous.
+    Because $\mu_a$ is injective we get $t'=t_0$, as desired. Hence every convergent subsequence of $t_n$ tends to $t_0$ which, by compactness of $[-T_\sn,0]$, implies that also $f_{a_n}(q_n)=t_n \to t_0 = f_{a_0}(q_0)$, proving that $f$ is continuous.
 \end{proof}
 
 \begin{proposition}\label{prop:funif}
@@ -509,7 +549,7 @@ Note that we can use $f_a(q)$ to define the related functions $f:\jp \times \tim
 \end{proof}
 
 \subsection{Set of earliest observations}
-After defining the observation time functions and the earliest observation point for a $q\in V$ and observer $\mu_a, a\in \sn$. We can now at the set of all earliest observation points together:
+After defining the observation time functions and the earliest observation point for a $q\in V$ and observer $\mu_a, a\in \sn$ we can now look at the set of all earliest observation points together:
 \begin{definition}[Set of earliest observations]
 For $q\in \overline{V}$ we define
 \begin{alignat*}{2}
@@ -520,17 +560,18 @@ For $q\in \overline{V}$ we define
 \end{alignat*}
 We say that $\mathcal{D}_K(q)$ is the \emph{direction set} of $q$ and $\mathcal{D}^{reg}_K(q)$ is the \emph{regular direction set} of $q$.
 
-Let $\mc{E}_K(q) := \pi(\mathcal{D}_K(q))$ and $\mc{E}^{reg}_K(q) := \pi(\mathcal{D}^{reg}_K(q))$, where $\pi:TM\to M$ is the canonical projection. We say that $\mc{E}_K(q)$ is the \emph{set of earliest observations} and $\mc{E}^{reg}_K(q)$ is the \emph{set of earliest regular observations} of $q$ in $K$. We denote the collection of earliest observation sets by $\mc{E}_K(V) = \{ \mc{E}_K(q) \mid q\in V\}$.
+Let $\mc{E}_K(q) \coloneqq  \pi(\mathcal{D}_K(q))$ and $\mc{E}^{reg}_K(q) \coloneqq  \pi(\mathcal{D}^{reg}_K(q))$, where $\pi:TM\to M$ is the canonical projection. We say that $\mc{E}_K(q)$ is the \emph{set of earliest observations} and $\mc{E}^{reg}_K(q)$ is the \emph{set of earliest regular observations} of $q$ in $K$. We denote the collection of earliest observation sets by $\mc{E}_K(V) = \{ \mc{E}_K(q) \mid q\in V\}$.
 \end{definition}
 Note that $\mc{E}_K(q) = \{ \mc{E}_a(q) \mid a\in \sn \}$, and thus is really the set of all earliest observation points of $q$. The intuition for the direction set $\mc{D}_K(q)$ is that they contain all points $p\in \ee(q)$ together with the directions of the corresponding null geodesics going from $q$ to $p$, at $p$.
 
 
-\begin{figure}\label{fig:EKDef}
+\begin{figure}
     \centering
     \input{graphics/EKDef.tex}
     \caption{
-        Illustration of the \emph{set of earliest observations} $\ee(q)$; we can see that at points $p\in K$ where $pq$ fails to be a submanifold, $\ee(q)$ incurrs a \enquote{sharp edge}.
+        Illustration of the \emph{set of earliest observations} $\ee(q)$; we can see that at points $p\in K$ where $pq$ fails to be a submanifold, $\ee(q)$ must have a \enquote{sharp edge}.
     }
+    \label{fig:EKDef}
 \end{figure}
 
 We can now characterize these observation sets and see that regular points in $\er(q)$ resp. $\mc{D}^{reg}_K(q)$ correspond to regular observation points $p\in \mc{P}^{reg}_K(q)$:
@@ -548,7 +589,7 @@ For any $q\in V$ it holds that
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-Let $q\in V$. We first look at a useful relation of the exponential map to cut points: We define $\mc{V}:=\{w\in L^+_qM \mid \rho(q,w)>1\}$. By \ref{prop:rhosemicont}, $\rho(q,w)$ is lower semicontinuous and $\mc{V}$ is thus open. Furthermore, by the definition of cut points, $\mc{V}$ is star-shaped around $0\in L^+_qM$. Because by \ref{thm:cutpointcharact} cut points are exactly the points where $\exp_q$ first fails to be a diffeomorphism, $\exp_q:\mc{V}\to \mc{W}:=\exp_q(\mc{V})$ is a diffeomorphism. Furthermore by the invarance of domain theorem we get that $\mc{W}\subset \mc{L}^+_q$ is relatively open. Note that this implies that for any $p\in \mc{W}$, there exists a $p\in U\subset M$ open such that $p\in\mc{L}^+_q\cap U$ is a $n$-dimensional submanifold of $M$.
+Let $q\in V$. We first look at a useful relation of the exponential map to cut points: We define $\mc{V}\coloneqq \{w\in L^+_qM \mid \rho(q,w)>1\}$. By \ref{prop:rhosemicont}, $\rho(q,w)$ is lower semicontinuous and $\mc{V}$ is thus open. Furthermore, by the definition of cut points, $\mc{V}$ is star-shaped around $0\in L^+_qM$. Because by \ref{thm:cutpointcharact} cut points are exactly the points where $\exp_q$ first fails to be a diffeomorphism, $\exp_q:\mc{V}\to \mc{W}\coloneqq \exp_q(\mc{V})$ is a diffeomorphism. Furthermore by the invarance of domain theorem we get that $\mc{W}\subset \mc{L}^+_q$ is relatively open. Note that this implies that for any $p\in \mc{W}$, there exists a $p\in U\subset M$ open such that $p\in\mc{L}^+_q\cap U$ is a $n$-dimensional submanifold of $M$.
 
 We can now move on to proving (1): $p\in \mc{E}_K(q) \iff p\in \mc{P}_K(q) \cap T$ follows immediately from lemma \ref{lem:observationtime}(3).
 
@@ -565,11 +606,11 @@ We now move on to (2): To prove that $\mc{E}^{reg}_K(q)$ is open in $\mc{P}^{reg
 Proposition \ref{prop:unionmanif} implies that $\mc{P}^{reg}_K(q)$ is a $n-1$ dimensional spacelike submanifold of $M$. Because $\mc{W}\subset \mc{L}^+_q$ is open and $\mc{P}^{reg}_K(q)\subset \mc{L}^+_q$, $\mc{E}^{reg}_K(q)$ is a relatively open subset of $\mc{P}^{reg}_K(q)$, as desired. This also means that as an open subset of a submanifold, $\mc{E}^{reg}_K(q)$ is a $n-1$-dimensional spacelike submanifold of $K$ as well.
 
 We can now tackle (3): 
-Let $p\in \mc{E}_K(q)$ be a cut point, then by proposition \ref{prop:unionmanif}, there exists an open neighborhood $p\in U \subset M$ and $N$ codimension 1 pairwise transversal manifolds $\U_i\subset K$ such that $\mc{P}_K(q)\cap U = \bigcup_{i=1}^N \; \U_i$. Because $\tau(q,p)=0$ and the manifolds are pairwise transversal and intersect at $p$ ((SEE FIGURE)), $\mc{E}_K(q)$ must have a sharp edge at $p$ and cannot be a submanifold. For the other direction we assume that $p\in \mc{E}_K(q)$ is not a cut point. Then, by definition we have $p\in \mc{E}^{reg}_K(q)$ which is a submanifold.
+Let $p\in \mc{E}_K(q)$ be a cut point, then by proposition \ref{prop:unionmanif}, there exists an open neighborhood $p\in U \subset M$ and $N$ codimension 1 pairwise transversal manifolds $\U_i\subset K$ such that $\mc{P}_K(q)\cap U = \bigcup_{i=1}^N \; \U_i$. Because $\tau(q,p)=0$ and the manifolds are pairwise transversal and intersect at $p$ (see figure \ref{fig:EKDef}), $\mc{E}_K(q)$ must have a sharp edge at $p$ and cannot be a submanifold. For the other direction we assume that $p\in \mc{E}_K(q)$ is not a cut point. Then, by definition we have $p\in \mc{E}^{reg}_K(q)$ which is a submanifold.
 
 Moving on to (4), the fact fact that $\mc{E}^{reg}_K(q)$ is dense in  $\mc{E}_K(q)$ follows by an argument which is analogous to the one used in the proof of corollary \ref{cor:opendense}. To show that it is relatively open in $\mc{E}_K(q)$ we use that $\mc{E}^{reg}_K(q) = \mc{E}_K(q) \cap \mc{W}$ with $\mc{W}$ open in $\mc{L}^+_q$.
 
-Finally the proof of (5) is analogous to (2) with the difference in submanifold dimension originating from the face that for any $(p,v)\in \mc{D}^{reg}_K(q)$ we also have $(p,cv)\in \mc{D}^{reg}_K(q)$ for all $c\in \R_+$ ((explain more)).
+Finally the proof of (5) is analogous to (2) with the difference in submanifold dimension originating from the face that for any $(p,v)\in \mc{D}^{reg}_K(q)$ we also have $(p,cv)\in \mc{D}^{reg}_K(q)$ for all $c\in \R_+$.
 \end{proof}
 
 Note that since $\mc{E}^{reg}_K(q)$ is exactly $\mc{E}_K(q)$ without the cut points, (3) implies that it is also the collection of all points where $\mc{E}_K(q)$ is locally a submanifold.
@@ -593,9 +634,9 @@ Crucially all observation sets defined in the previous sections can be fully det
     Given the data outlined in remark \ref{rmk:data} we can uniquely determine $\mc{E}_K(q)$ and $\mc{E}^{reg}_K(q)$, as well as $\mc{D}_K(q)$ and $\mc{D}^{reg}_K(q)$.
 \end{proposition}
 \begin{proof}
-    What we want to show is that given $K$, the conformal class of $g\rvert_{K}$ and the set $\{\pq \mid q\in V\}$ we can reconstruct the sets stated above. Note that as described in proposition \ref{prop:thetaconstr} ((Move to own remark?)) this data allows us to construct $\Theta:\mc{S}\to K$ and $\mu_a$.
+    What we want to show is that given $K$, the conformal class of $g\rvert_{K}$ and the set $\{\pq \mid q\in V\}$ we can reconstruct the sets stated above. Note that as described in proposition \ref{prop:thetaconstr} this data allows us to construct $\Theta:\mc{S}\to K$ and $\mu_a$.
 
-    We first show that for a given $\mc{P}_K(q)$ we can determine $\mc{E}_K(q)$: By equation \ref{eq:observationtimerestated}, for any $a\in \sn$ we can determine $f_a(q)$ and thus $\mc{E}_a(q)=\mu_a(f_a(q))$ using only $\pq$. We can then construct $\mc{E}_K(q) = \bigcup_{a\in \sn} \mc{E}_a(q)$. Furthermore, by proposition \ref{prop:submanifolds}, $\er(q)$ contains exactly the points $p\in \ee(q)$ where $\ee(q)$ is locally a submanifold of $M$ and thus $K$. But because we know $K$ we can determine all points where this is the case and reconstruct $\er(q)$. 
+    We first show that for a given $\mc{P}_K(q)$ we can determine $\mc{E}_K(q)$: By equation \eqref{eq:observationtimerestated}, for any $a\in \sn$ we can determine $f_a(q)$ and thus $\mc{E}_a(q)=\mu_a(f_a(q))$ using only $\pq$. We can then construct $\mc{E}_K(q) = \bigcup_{a\in \sn} \mc{E}_a(q)$. Furthermore, by proposition \ref{prop:submanifolds}, $\er(q)$ contains exactly the points $p\in \ee(q)$ where $\ee(q)$ is locally a submanifold of $M$ and thus $K$. But because we know $K$ we can determine all points where this is the case and reconstruct $\er(q)$. 
 
     To reconstruct the direction set we first note that by lemma \ref{prop:unionmanif} for any $p\in \pq$ such that $\exp_q^{-1}(p)=\{w_1,\dots,w_N\}\subset L^K_qM$, we have $\pq \cap U = \bigcup_{i=1}^N\; \U_i$ where $p\in U\subset M$ open and $p\in \U_i$ are pairwise transversal spacelike hypersurfaces of $K$. For each $w_i$ we let $v_i=\gamma'_{q,w_i}(1)$ be the outbound velocity vector of the null geodesic which starts at $q$ with velocity $w_i$, once it hits $K$. To find $\mc{D}_K(q)$ we must reconstruct all such $v_i$.
     
@@ -603,7 +644,7 @@ Crucially all observation sets defined in the previous sections can be fully det
 
    Now by definition for any $p\in \ee(q)$, we have 
     \[
-        \mc{D}_p := \pi^{-1}(p)\cap \mc{D}_K(q) = \{(p,\R_+v_1), \dots, (p,\R_+v_N)\}
+        \mc{D}_p \coloneqq  \pi^{-1}(p)\cap \mc{D}_K(q) = \{(p,\R_+v_1), \dots, (p,\R_+v_N)\}
     \]
     where $\pi:TM\to M$ is the canonical projection. As we saw for any $p\in \ee(q)\subset \pq$ we can reconstruct $\mc{D}_p$ which allows us to reconstruct $\mc{D}_K(q) = \bigcup_{p\in \ee(q)} \mc{D}_p$.
 
@@ -648,8 +689,7 @@ To prepare we look at tuples $(q,p)$ of the form $q\in V, p\in \er(q)$ and show 
 \end{definition}
 
 This lemma will be useful because it will allow us to show that $\Omega$ is bounded
-\begin{lemma}\label{lem:Tprop}
-    ((Move to appendix?))The function
+\begin{lemma}\label{lem:Tprop}The function
     \begin{align*}
         T_+:L^+\jp&\to \R \\
         (q,w)&\mapsto \sup \{ t\ge 0 \mid \gamma_{q,w}(t)\in J^-(p^+)\}
@@ -678,7 +718,7 @@ is open and defines a diffeomorphism $X:\mc{W}_\varepsilon(q_0,w_0)\to \U_\varep
 
     First of all we aim to show that the sequence $(q_n,w_n)$ is bounded and thus has a convergent subsequence: Because $q_n\to q_0$ we only need to show that $w_n$ is bounded. To that end we introduce an arbitrary riemannian metric consistent with the topology on $M$ and can write $w_n = t_n \overline{w_n}$ where $\lVert \overline{w_n} \rVert_{g^+}=1$. To show that $t_n$ is bounded we first define 
     \[
-        C:=\{(q,w)\in L^+M \mid q\in \jp \text{ and } \lVert w \rVert_{g^+}=1\}
+        C\coloneqq \{(q,w)\in L^+M \mid q\in \jp \text{ and } \lVert w \rVert_{g^+}=1\}
     \]
     and $C$ is compact and because $T_+$ is upper semicontinuous on $C$, there exists a $c_0>0$ such that $T_+(q,w)\leq c_0$ for all $(q,w)\in C$.
     Recall that we have $\gamma_{q_n,\overline{w_n}}(t_n)=\exp_{q_n}(w_n)=p_n \in K \subset \jp$. Together with $(q_n,\overline{w_n}) \in C$ this yields 
@@ -693,7 +733,7 @@ is open and defines a diffeomorphism $X:\mc{W}_\varepsilon(q_0,w_0)\to \U_\varep
     
     Next we use the fact that $\Omega$ is continuous and get $\Omega^{-1}(\mc{W}_{\varepsilon}(q_0,w_0)) \subset \mc{Z}$ is open. We can thus find a $\varepsilon_1\in (0,\varepsilon)$ such that for the open ball $\mc{U}_{\varepsilon_1}(q_0,w_0)\subset M$ we have 
     \[
-        \mc{Y}_{\varepsilon_1}:=\mc{U}_{\varepsilon_1}(q_0,w_0) \cap \mc{Z} \subset \Omega^{-1}(\mc{W}_{\varepsilon}(q_0,w_0))
+        \mc{Y}_{\varepsilon_1}\coloneqq \mc{U}_{\varepsilon_1}(q_0,w_0) \cap \mc{Z} \subset \Omega^{-1}(\mc{W}_{\varepsilon}(q_0,w_0))
     \] implying $\Omega(\mc{Y}_{\varepsilon_1}) \subset \mc{W}_{\varepsilon}(q_0,w_0)$. Then for $(q,p)\in \mc{Y}_{\varepsilon_1}$ and $(q,w) = \Omega(q,p)\in \mc{W}_\varepsilon(p_0,w_0)$ we have $\exp_q(w) = p$. Hence $X(\Omega(q,p))=(q,p)$. But now since $(q,p)\in \U_\varepsilon(p_0,q_0)$ we can apply $X^{-1}$ to both sides and get $\Omega(q,p)=X^{-1}(q,p)$. Thus on $\mc{Y}_{\varepsilon_1}$ the function $\Omega:\mc{Y}_{\varepsilon_1}\to TM$ coincides with the smooth function $X^{-1}:\mc{Y}_{\varepsilon_1}\to TM$, which implies that $\Omega$ is smooth with full rank differential on $\mc{Y}_{\varepsilon_1}$ as well.
     
     Now since $(q_0,p_0)\in \mc{Z}$ was arbitrary we get that $\Theta:\mc{Z}\to L^+V$ is smooth everywhere, injective and locally diffeomorphic with full rank. Thus $\mc{Z}$ diffeomorphic to an open subset of $L^KV$. This makes it a manifold with dimension $(n+1)+(n-1)=2n$.
@@ -721,9 +761,9 @@ define smooth coordinates on $V_1$. Moreover $\nabla f_{a_j}\rvert_{q_0}$, i.e. 
     
     Let $V_0\subset V$ be an open neighborhood of $q_0$ and $t_1,t_2\in (-T_a,0), t_1<s_0<t_2$, such that $V_0\times\mu_a([t_1,t_2])\subset \U$, which exist because $\U$ is open. Then for any $q\in V_0, s\in (t_1,t_2)$ the function $\mathbf{E}_a(q,s)\coloneqq E(q,\mu_a(s))$ is well defined and smooth.
     
-    We want to use first variation formula for $\mathbf{E}_a(q,s)$ ((E Reference)) to calculate $\left.\frac{\partial\mathbf{E}_a(q_0,s)}{\partial s}\right\rvert_{s=s_0}$ and $\left.\nabla_q\mathbf{E}_a(q,s_0)\right\rvert_{q=q_0}$.
+    We want to use first variation formula (equation \ref{prop:Evariation}) for $\mathbf{E}_a(q,s)$ to calculate $\left.\frac{\partial\mathbf{E}_a(q_0,s)}{\partial s}\right\rvert_{s=s_0}$ and $\left.\nabla_q\mathbf{E}_a(q,s_0)\right\rvert_{q=q_0}$.
     
-    For the first part we define the variation $\x(t,s) = \gamma_{q_0,w(s)}(t), t\in [0,1]$ where $w(s):= w(q_0,\mu_a(s+s_0)), s\in [t_1-s_0,t_2-s_0]$. Note that $\x(t,0)=\gamma_{q_0,w_0}(t)$. We can then use the equation from proposition \ref{prop:Evariation} to get
+    For the first part we define the variation $\x(t,s) = \gamma_{q_0,w(s)}(t), t\in [0,1]$ where $w(s)\coloneqq  w(q_0,\mu_a(s+s_0)), s\in [t_1-s_0,t_2-s_0]$. Note that $\x(t,0)=\gamma_{q_0,w_0}(t)$. We can then use the equation from proposition \ref{prop:Evariation} to get
     \begin{align*}
         \left.\frac{\partial\mathbf{E}_a(q_0,s)}{\partial s}\right\rvert_{s=s_0} = E'_{\x}(0) =  \left.g(V,\gamma_{q_0,w_0}')\right\rvert^1_0
     \end{align*}
@@ -737,7 +777,7 @@ define smooth coordinates on $V_1$. Moreover $\nabla f_{a_j}\rvert_{q_0}$, i.e. 
     \[
         \left.\nabla_q\mathbf{E}_a(q,s_0)\right\rvert_{q=q_0} = g^{ij}\left.\frac{\partial\mathbf{E}_a(q,s_0)}{\partial q_i}\right\rvert_{q=q_0}\partial_j.
     \]
-    To calculate $\left.\frac{\partial\mathbf{E}_a(q,s_0)}{\partial q_i}\right\rvert_{q=q_0}$ we now introduce variations $\x_i(t,s) = \gamma_{q(s),w(s)}(t)$ where $w(s):=w(q(s),\mu_a(s_0))$ and $q(s):=q^{-1}(q_0(q_0),\dots, q_i(q_0)+s, \dots q_n(q_0))$ is obtained by increasing the $i$-th coordinate by $s$. Note that these variations all have $\x_i(t,0) = \gamma_{q_0,w_0}(t)$, $\x_i(1,s) = \mu_a(s_0)$ thus $V_{\x_i}(1)=0$ and $V_{\x_i}(0) = \frac{\partial}{\partial s}\x_i(0,s)\rvert_{s=0} = \partial_i$.
+    To calculate $\left.\frac{\partial\mathbf{E}_a(q,s_0)}{\partial q_i}\right\rvert_{q=q_0}$ we now introduce variations $\x_i(t,s) = \gamma_{q(s),w(s)}(t)$ where $w(s)\coloneqq w(q(s),\mu_a(s_0))$ and $q(s)\coloneqq q^{-1}(q_0(q_0),\dots, q_i(q_0)+s, \dots q_n(q_0))$ is obtained by increasing the $i$-th coordinate by $s$. Note that these variations all have $\x_i(t,0) = \gamma_{q_0,w_0}(t)$, $\x_i(1,s) = \mu_a(s_0)$ thus $V_{\x_i}(1)=0$ and $V_{\x_i}(0) = \frac{\partial}{\partial s}\x_i(0,s)\rvert_{s=0} = \partial_i$.
     After again applying proposition \ref{prop:Evariation}
     \[
         \left.\frac{\partial\mathbf{E}_a(q,s_0)}{\partial q_i}\right\rvert_{q=q_0} = E'_{\x_i}(0) =  -g(V(0),\gamma'_{q_0,w_0}(0)) = -g(\partial_i,w_0).
@@ -755,7 +795,7 @@ define smooth coordinates on $V_1$. Moreover $\nabla f_{a_j}\rvert_{q_0}$, i.e. 
     \end{equation}
     where $w_0=w(q_0,p_0)$ and $v=\gamma'_{q_0,w_0}(1)$. Since $\mu'_a(f_a(q_0))$ and $v$ are both future-pointing null vectors, which by lemma \ref{lem:transversality} must be transversal we have $\left.\frac{\partial\mathbf{E}_a(q_0,s)}{\partial s}\right\rvert_{s=s_0}=g(v,\mu_a'(f_a(q)))<0$.
 
-    We can now use the implicit function theorem on $V_0\times [t_1,t_2]$ with equation $E_a(q,s)=0$ and single solution $E_a(q_0,s_0)=0$. This yields an open neighborhood $V_a\subset V_0$ and a smooth function $q\mapsto s_a(q)$ such that $E_a(q,s_a(q)) = 0$ for all $q \in V_a$. Now $E_a(q,s_a(q)) = E(q,\mu_a(s_a(q)))=0$, implies $\mu_a(s_a(q))\in \pq$. This together with $(q,s_a(q))\in \U$ implies that $\mu_a(s_a(q))\in \er(q)$ and thus $s_a(q) = f_a(q)$ on $V_a$. Hence we have $\left.\nabla f_a(q)\right\rvert_{q=q_0} = \left.\nabla s_a(q)\right\rvert_{q=q_0}$ and from equation \ref{eq:dEsummary} together with the implicit function theorem it follows that 
+    We can now use the implicit function theorem on $V_0\times [t_1,t_2]$ with equation $E_a(q,s)=0$ and single solution $E_a(q_0,s_0)=0$. This yields an open neighborhood $V_a\subset V_0$ and a smooth function $q\mapsto s_a(q)$ such that $E_a(q,s_a(q)) = 0$ for all $q \in V_a$. Now $E_a(q,s_a(q)) = E(q,\mu_a(s_a(q)))=0$, implies $\mu_a(s_a(q))\in \pq$. This together with $(q,s_a(q))\in \U$ implies that $\mu_a(s_a(q))\in \er(q)$ and thus $s_a(q) = f_a(q)$ on $V_a$. Hence we have $\left.\nabla f_a(q)\right\rvert_{q=q_0} = \left.\nabla s_a(q)\right\rvert_{q=q_0}$ and from equation \eqref{eq:dEsummary} together with the implicit function theorem it follows that 
     \begin{equation}\label{eq:fgradient}
         \left.\nabla f_a(q)\right\rvert_{q=q_0}  = \frac{1}{c(q_0,a)}w_0, \quad 
         c(q_0,a) = \left.\frac{\partial\mathbf{E}_a(q_0,s)}{\partial s}\right\rvert_{s=s_0} < 0,
@@ -770,7 +810,7 @@ define smooth coordinates on $V_1$. Moreover $\nabla f_{a_j}\rvert_{q_0}$, i.e. 
         \mathbf{f}_{\overrightarrow{a}}:V_{\overrightarrow{a}}&\to \R^n\\
         q&\mapsto (f_{a_1}(q),\dots,f_{a_n}(q)).
     \end{align*}
-    Because all of its components are smooth, $\mathbf{f}_{\overrightarrow{a}}$ itself is smooth as well. By equation \ref{eq:fgradient} each component has gradient $\left.\nabla f_{a_j}(q)\right\rvert_{q=q_0} = \frac{1}{c(q_0,a_j)}w_i$ with $c(q_0,a_j)\neq 0$. Since we assumed that $w_0,\dots,w_n$ be independent, $\mathbf{f}_{\overrightarrow{a}}$ is non-degenerate at $q_0$ and thus defines a smooth coordinate system in some neighborhood $V_1$  of $q_0$.
+    Because all of its components are smooth, $\mathbf{f}_{\overrightarrow{a}}$ itself is smooth as well. By equation \eqref{eq:fgradient} each component has gradient $\left.\nabla f_{a_j}(q)\right\rvert_{q=q_0} = \frac{1}{c(q_0,a_j)}w_i$ with $c(q_0,a_j)\neq 0$. Since we assumed that $w_0,\dots,w_n$ be independent, $\mathbf{f}_{\overrightarrow{a}}$ is non-degenerate at $q_0$ and thus defines a smooth coordinate system in some neighborhood $V_1$  of $q_0$.
 \end{proof}
 The results from this subsection will form the main prerequesites for the reconstruction of the differential structure of $V$ because they allow us to understand $\mc{Z}$ in terms of $L^KV$ and to construct local coordinates from observation times.
 
@@ -779,7 +819,7 @@ Now we show that the observation time function varies smoothly in the observer $
 \begin{definition}[Regular Observer]
     Let $q\in V$ we call $a\in \sn$ a \emph{regular observer} of $q$ if $\mc{E}_{a}(q)\in \er(q)$ and write 
     \[
-        \mc{A}^{reg}(q) := \{ a\in \sn \mid \mc{E}_{a}(q)\in \er(q) \} \subset \sn
+        \mc{A}^{reg}(q) \coloneqq  \{ a\in \sn \mid \mc{E}_{a}(q)\in \er(q) \} \subset \sn
     \] for the set of regular observers. Note that because $\er(q)$ open and dense in $\ee(q)$, $\areg(q)$ is open and dense in $\sn$
 \end{definition}
 
@@ -796,9 +836,9 @@ the implicit function theorem in a very similar fashion to proposition \ref{prop
         Y:\mc{W}_\delta(q_0,w_0) \cap L^KM&\to M\times \sn \times [0,1]\\
         (q,w) &\mapsto (q,\Theta^{-1}(X(q,w)))
     \end{align*} 
-    is a diffeomorphism onto its image $\mc{V}_\delta:=Y(\mc{W}_\delta(q_0,w_0))$  which is an open neighborhood of $(q_0,a_0,t_0)$ in $M\times \sn \times [0,1]$. There thus exists a $\delta > \lambda>0$ such that $\overline{B_\lambda(q_0)}\times\overline{B_\lambda(a_0)} \times\overline{B_\lambda(t_0)} \subset \mc{V}_\delta$.
+    is a diffeomorphism onto its image $\mc{V}_\delta\coloneqq Y(\mc{W}_\delta(q_0,w_0))$  which is an open neighborhood of $(q_0,a_0,t_0)$ in $M\times \sn \times [0,1]$. There thus exists a $\delta > \lambda>0$ such that $\overline{B_\lambda(q_0)}\times\overline{B_\lambda(a_0)} \times\overline{B_\lambda(t_0)} \subset \mc{V}_\delta$.
 
-    On this space we can then define the function $\mathbf{E}(q,a,s):=E(q,\Theta(a,s))$ with $E(q,p)$ as in the previous lemma. This function is well defined and smooth with $E(q_0,a_0,t_0)=0$ and $\left.\frac{\partial\mathbf{E}(q_0,a_0,t)}{\partial s}\right\rvert_{t=t_0} < 0$ by the same argument as in the previous proof. We can thus apply the implicit function theorem to get a $\varepsilon>0$ and a smooth function 
+    On this space we can then define the function $\mathbf{E}(q,a,s)\coloneqq E(q,\Theta(a,s))$ with $E(q,p)$ as in the previous lemma. This function is well defined and smooth with $E(q_0,a_0,t_0)=0$ and $\left.\frac{\partial\mathbf{E}(q_0,a_0,t)}{\partial s}\right\rvert_{t=t_0} < 0$ by the same argument as in the previous proof. We can thus apply the implicit function theorem to get a $\varepsilon>0$ and a smooth function 
     \begin{align*}
         s:\overline{B_\varepsilon(q_0)}\times\overline{B_\varepsilon(a_0)} &\to \overline{B_\lambda(t_0)}\\
         (q,a)&\mapsto (t)
@@ -817,7 +857,7 @@ Because this implies that also the derivative is a smooth function we can apply 
     Let $q_n\to q_0\in V$ and $A\subset \sn$ open, such $\cl{A}\subset \areg(q_0)$. Then for all $\varepsilon>0$ there exists a $N\in \N$ such that for all $n \ge N$,  $\left.F_{q_n}\right.\rvert_\cl{A}$ is smooth and $\left\lVert dF_{q_n}\rvert_{a} - dF_{q_0}\rvert_{a}\right\rVert_{g_{\sn}}<\varepsilon$ for all $a\in \cl{A}$.
 \end{proposition}
 \begin{proof}
-    By the previous proposition for all $a\in \cl{A}$ there exists a $\varepsilon_a>0$ such that $f:\overline{B_{\varepsilon_a}(q_0)}\times\overline{B_{\varepsilon_a}(a)}\to [0,1]$ is smooth. Then $\bigcup_{a\in \cl{A}} B_{\varepsilon_a}(a)$ is an open cover of the compact $\cl{A}\subset \sn$. Hence there exist $(a_1,\varepsilon_1),\dots (a_N,\varepsilon_N)$ such that $\bigcup_{j=1}^N B_{\varepsilon_j}(a_j) \supset \cl{A}$. We then let $\varepsilon_0 := \min_{j=1,\dots, N} \varepsilon_j$ and get $B_{\varepsilon_0}(q_0) = \bigcap_{j=1}^N B_{\varepsilon_j}(q_0)$ is open. 
+    By the previous proposition for all $a\in \cl{A}$ there exists a $\varepsilon_a>0$ such that $f:\overline{B_{\varepsilon_a}(q_0)}\times\overline{B_{\varepsilon_a}(a)}\to [0,1]$ is smooth. Then $\bigcup_{a\in \cl{A}} B_{\varepsilon_a}(a)$ is an open cover of the compact $\cl{A}\subset \sn$. Hence there exist $(a_1,\varepsilon_1),\dots (a_N,\varepsilon_N)$ such that $\bigcup_{j=1}^N B_{\varepsilon_j}(a_j) \supset \cl{A}$. We then let $\varepsilon_0 \coloneqq  \min_{j=1,\dots, N} \varepsilon_j$ and get $B_{\varepsilon_0}(q_0) = \bigcap_{j=1}^N B_{\varepsilon_j}(q_0)$ is open. 
 
     Let now $(q,a) \in B_{\varepsilon_0}(q_0)\times\cl{A}$ then there exists a $j\in {1,\dots N}$ such that $a\in B_{\varepsilon_j}(a_j)$ and we have $q\in B_{\varepsilon_0}(q_0)\subset B_{\varepsilon_j}(q_0)$. Thus by construction, $f$ is smooth at $(q,a)$. As the choice $(q,a)$ was arbitrary $f$ is smooth on $B_{\varepsilon_0}(q_0)\times\cl{A}$. Because $q_n\to q_0$ there exists a $N_1\in \N$ such that $n\ge N$ implies $q_n\in B_{\varepsilon_0}(q_0)$ and we have $F_{q_n}\rvert_{\cl{A}}$ is smooth.
 
@@ -837,11 +877,12 @@ Because this implies that also the derivative is a smooth function we can apply 
 
 
 
-In the following we will for any $(q,p)\in \mc{Z}$ denote $v(q,p):=\gamma'_{q,w(q,p)}(1)$, i.e. the velocity vector of the unique geodesic from $q$ to $p$ at $p$. Sometimes we can only recover the direction of $v(q,p)$ and will denote $\cl{v}(q,p) = \frac{v(q,p)}{\lVert v(q,p) \rVert}$.
+In the following we will for any $(q,p)\in \mc{Z}$ denote $v(q,p)\coloneqq \gamma'_{q,w(q,p)}(1)$, i.e. the velocity vector of the unique geodesic from $q$ to $p$ at $p$. Sometimes we can only recover the direction of $v(q,p)$ and will denote $\cl{v}(q,p) = \frac{v(q,p)}{\lVert v(q,p) \rVert}$.
 
-This corollary follows from lemma \ref{lem:dirreconstr} ((extended to show that it is homeo))
+((\ref{lem:dirreconstr} is also homeomorphism))
+This corollary follows from lemma \ref{lem:dirreconstr}:
 \begin{corollary}\label{cor:dfconvimplpliesvconv}
-    Let $(q_n)_{n=1}^\infty, q_0\in V$ and $a_0\in \areg(q_0)$ such that $dF_{q_n}\rvert_{a_0} \to dF_{q_0}\rvert_{a_0}$. Then $\cl{v}_n:=\cl{v}(q_n,\mc{E}_{a_0}(q_n))\to \cl{v}_0:=\cl{v}(q_0,\mc{E}_{a_0}(q_0))$.
+    Let $(q_n)_{n=1}^\infty, q_0\in V$ and $a_0\in \areg(q_0)$ such that $dF_{q_n}\rvert_{a_0} \to dF_{q_0}\rvert_{a_0}$. Then $\cl{v}_n\coloneqq \cl{v}(q_n,\mc{E}_{a_0}(q_n))\to \cl{v}_0\coloneqq \cl{v}(q_0,\mc{E}_{a_0}(q_0))$.
 \end{corollary}
 
 We can now prove that convergence in $F_q$ implies convergence in $q$ as desired:
@@ -850,7 +891,7 @@ We can now prove that convergence in $F_q$ implies convergence in $q$ as desired
 \end{proposition}
 \begin{proof}
     We denote $p_n^i = \mc{E}_{a_i}(q_n)$ and $p_0^i = \mc{E}_{a_i}(q_0)$.
-    By the previous corollary we have $\cl{v}^i_n:=\cl{v}(q_n,p_n^i)\to \cl{v}^i_0:=\cl{v}(q_0,p_0^i)$ for $i=1,2$ in $CTM=\{(p,v)\in TM \mid g^+(v,v)=1\}$.
+    By the previous corollary we have $\cl{v}^i_n\coloneqq \cl{v}(q_n,p_n^i)\to \cl{v}^i_0\coloneqq \cl{v}(q_0,p_0^i)$ for $i=1,2$ in $CTM=\{(p,v)\in TM \mid g^+(v,v)=1\}$.
     Note that by definition there exist $t^i_n, t^i_0 \in \R_+$ such that 
     \[
         q_0 = \gamma_{p^i_0,v^i_0}(-t^i_0) \quad \text{and} \quad q_n = \gamma_{p^i_n,v^i_n}(-t^i_n) \quad \text{for }i = 1,2.
@@ -859,14 +900,14 @@ We can now prove that convergence in $F_q$ implies convergence in $q$ as desired
     We now want to show that $t^i_n\to t^i_0$. By contradiction we assume that $t^i_n$ does not converge to $t^i_0$. By a similar argument to the one employed in the proof of lemma \ref{lem:omegacoords} we find that $t^i_n$ must be bounded. $t^i_n$ has thus a convergent subsequence $t^i_j\to t^i_\times \neq t^i_0$ for $i=1,2$. Now we let $d$ be a metric on $M$ compatible with the topology and note that because $(q,w,t)\mapsto \gamma_{q,w}(t)$ is continuous we have
     \[
         0 = \lim_{n\to \infty} d(\gamma_{p^1_j,v^1_j}(-t^1_j),\gamma_{p^2_j,v^2_j}(-t^2_j)) = d(\gamma_{p^1_0,v^1_0}(-t^1_\times),\gamma_{p^2_0,v^2_0}(-t^2_\times)),
-    \]i.e. $q_\times:=\gamma_{p^i_0,v^i_0}(-t^i_\times)$ for $i=1,2$. But this is a contradiction because $p^1_0$ and $p^2_0$ are in $\er(q_0)$ and thus cannot be cut points of $q_0$.
+    \]i.e. $q_\times\coloneqq \gamma_{p^i_0,v^i_0}(-t^i_\times)$ for $i=1,2$. But this is a contradiction because $p^1_0$ and $p^2_0$ are in $\er(q_0)$ and thus cannot be cut points of $q_0$.
 \end{proof}
 
 And lastly we show that $F$ also has bounded derivatives.
 \begin{proposition}\label{prop:dfbounded}
     Let $q_0\in V$, $\varepsilon>0$ such that $\cl{B_\varepsilon(q_0)}\subset V$ and define 
     \[
-        D_\varepsilon:=\{(q,a)\in V\times \sn \mid q\in \cl{B_\varepsilon(q_0)}, a\in \areg(q)\}.
+        D_\varepsilon\coloneqq \{(q,a)\in V\times \sn \mid q\in \cl{B_\varepsilon(q_0)}, a\in \areg(q)\}.
     \]
     Then 
     \begin{align*}
@@ -876,7 +917,7 @@ And lastly we show that $F$ also has bounded derivatives.
     is bounded.
 \end{proposition}
 \begin{proof}
-    ((Make more rigorous / shorter / more understandable. The main idea here is that $dF$ must be bounded because at the points where it is not defined i.e. points where $\mc{E}_a(q)\notin \er(q)$, $dF$ does not go to infinity but has multiple conflicting values (see prop \ref{prop:unionmanif}), we try to show that by expressing $dF$ as in terms of $dh$ and $dY$ which are well defined at the points where $dF$ fails to be so))
+    %((Make more rigorous / shorter / more understandable. The main idea here is that $dF$ must be bounded because at the points where it is not defined i.e. points where $\mc{E}_a(q)\notin \er(q)$, $dF$ does not go to infinity but has multiple conflicting values (see prop \ref{prop:unionmanif}), we try to show that by expressing $dF$ as in terms of $dh$ and $dY$ which are well defined at the points where $dF$ fails to be so))
 
     We begin by defining the map
     \begin{align*}
@@ -892,7 +933,7 @@ And lastly we show that $F$ also has bounded derivatives.
 
     We then define 
     \begin{align*}
-        P:=& \{(q,w)\in L^K\cl{B_\varepsilon(q_0)} \mid \rho(q,w)\ge 1\}\\
+        P\coloneqq & \{(q,w)\in L^K\cl{B_\varepsilon(q_0)} \mid \rho(q,w)\ge 1\}\\
         =& \{(q,w)\in L^K\cl{B_\varepsilon(q_0)} \mid \exp_q(w)\in \ee(q)\}
     \end{align*} which is closed by the lower semicontinuity of $\rho$ and thus compact.
     Now the following diagramm commutes:
@@ -904,7 +945,7 @@ And lastly we show that $F$ also has bounded derivatives.
         \arrow["f"', from=2-1, to=1-2]
     \end{tikzcd}\]
 
-    Let now $g^+$ be the Riemannian metric induced on $M$ by the splitting and $\widehat{g}^+$ the corresponding Sasaki metric induced on $TM$. Let also $g^\times:=g^+ \oplus g_\sn$ be the product metric on $M\times \sn$ with $g_\sn$ the standard Riemannian metric on $\sn$.
+    Let now $g^+$ be the Riemannian metric induced on $M$ by the splitting and $\widehat{g}^+$ the corresponding Sasaki metric induced on $TM$. Let also $g^\times\coloneqq g^+ \oplus g_\sn$ be the product metric on $M\times \sn$ with $g_\sn$ the standard Riemannian metric on $\sn$.
     Because $h:P\to [-T_\sn,0]$ is smooth, $dh:TP\to \R$ is smooth as well. Furthermore because $P$ is compact and $dh_{(q,w)}$ is linear for all $(q,w)\in P$ we get that $dh$ is bounded on $TP$, i.e. 
     there exists a $c_1>0$ such that for all $(q,w)\in P$ and $(q',w')\in T_{(q,w)}P$ we have
     \[
@@ -918,7 +959,7 @@ And lastly we show that $F$ also has bounded derivatives.
 
     We now define 
     \begin{align*}
-        P^{reg}:=& \{(q,w)\in L^K\cl{B_\varepsilon(q_0)} \mid \rho(q,w) > 1\}\\
+        P^{reg}\coloneqq & \{(q,w)\in L^K\cl{B_\varepsilon(q_0)} \mid \rho(q,w) > 1\}\\
         =& \{(q,w)\in L^K\cl{B_\varepsilon(q_0)} \mid \exp_q(w)\in \er(q)\} \text{ and }
     \end{align*} and the following again diagramm commutes:
 

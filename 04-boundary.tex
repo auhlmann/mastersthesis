@@ -16,7 +16,7 @@ We first need to introduce some new concepts:
 \begin{definition}[Unique minimum domain]\label{def:uniquemindomain}
     We define the \emph{unique minimum domain} $D\subset \jp$ to be 
     \begin{equation}
-        D:=\{q\in \interior{\jp} \cup K \mid F_q\text{ has a unique minimum}\}.
+        D\coloneqq \{q\in \interior{\jp} \cup K \mid F_q\text{ has a unique minimum}\}.
     \end{equation}
 
     We will often describe this minimum with 
@@ -30,7 +30,7 @@ We will see that $D$ an open neighborhood of $K \setminus \{p^+\}$ allowing us t
 \begin{equation}
     T_{t_0} = \{p\in K \mid p=\mu_a(t_0), a\in \sn\} = K \cap \mc{T}^{-1}(\mc{T}(p^+)+t_0) \subset K.
 \end{equation} 
-Where the second characterization follows from equation \ref{eq:Teq}. Because $\mc{T}^{-1}(\mc{T}(p^+)+t_0)$ is a cauchy hypersurface and thus a spacelike submanifold, $T_{t_0}$ is a $n-1$ dimensional spacelike submanifold of $K$ (away from its boundary).
+Where the second characterization follows from equation \eqref{eq:Teq}. Because $\mc{T}^{-1}(\mc{T}(p^+)+t_0)$ is a cauchy hypersurface and thus a spacelike submanifold, $T_{t_0}$ is a $n-1$ dimensional spacelike submanifold of $K$ (away from its boundary).
 Thus for every $a\in \sn$ such that $T_a>t_0$ we can use lemma \ref{lem:dirreconstr} to find the unique future-pointing outward null ray $\R_+\nu_{a,t_0}\in L^+_{\Theta(a,t_0)}M$ such that $T_{\Theta(a,t_0)}T_{t_0} = \nu_{a,t_0}^\perp \cap T_{\Theta(a,t_0)}K$.
 
 Note that for every $q\in \interior{\jp}$ and $p=\Theta(a,t)\in \mc{P}_K(q)$ we have $t>-T_a$ which implies that $p$ is in the relative interior of $T_{t}$, i.e. there exists an open neighborhood $p\in U \subset M$ such that $T_t\cap U$ is a submanifold.
@@ -38,7 +38,7 @@ Note that for every $q\in \interior{\jp}$ and $p=\Theta(a,t)\in \mc{P}_K(q)$ we 
 
 This lemma is often useful because is shows that for $F_q$ with $q\in \interior{\jp}$ local minima must be regular points and the unique null geodesic from $q$ to the minimum must have a specific direction at the minimum related to the constant observation time domain:
 \begin{lemma}\label{lem:amin}
-    Let $q\in \interior{\jp}$ with $(a_q,t_q)$ a local minimum of $F_q$ and $p_q:=\mu_{a_q}(t_q)$. Then we have $p_q\in \er(q)$ and $v(q,p_q)\in \R_+\nu_{a_q,t_q}$, i.e. if $w_q\in L^K_qM$ is the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)\in \R_+\nu_{a_q,t_q}$.
+    Let $q\in \interior{\jp}$ with $(a_q,t_q)$ a local minimum of $F_q$ and $p_q\coloneqq \mu_{a_q}(t_q)$. Then we have $p_q\in \er(q)$ and $v(q,p_q)\in \R_+\nu_{a_q,t_q}$, i.e. if $w_q\in L^K_qM$ is the unique null vector such that $\gamma_{q,w_q}(1)=p$ we have $\gamma'_{q,w_q}(1)\in \R_+\nu_{a_q,t_q}$.
 \end{lemma}
 \begin{proof}
     Note that we have $t_q = f_{a_q}(q)$ and thus 
@@ -67,7 +67,7 @@ We can explicitly characterize observation time functions at the boundary.
     \end{equation*}
 \end{lemma}
 \begin{proof}
-    We begin with the case $a=a_0$ then $F_{q_0}(a_0)=t_0$ follows immediately from the definition of $f_{a_0}(q_0)$. Note that this also covers the case where $q_0=p^+$. For the case where $a\neq a_0$ and $q_0\neq p^+$ we suppose that $F_{q_0}(a)=f_a(q_0)<0$ by contradiction. Then we have $\tau(q_0,\mc{E}_a(q_0))=0$ which implies that there exists a null geodesic $\gamma$ with $\gamma(0)=q_0$ and $p:=\mc{E}_a(q_0)=\gamma(1)$. If $\gamma'(1)=\mu'_a(f_a(q_n))$ we would have $q_0\in \mu_a([0,1)) \cap \mu_{a_0}([0,1))$ which is a contradiction to lemma \ref{lem:Kcharact}. We must thus have $\gamma'(1)\neq\mu'_a(f_a(q_n))$ but this means there exists a broken null geodesic from $q_0$ to $p^+$ which is also a contradiction because $q_0\in K$ by assumption and $K\cap I^-(p^+)=\emptyset$ by lemma \ref{lem:Kcharact}.
+    We begin with the case $a=a_0$ then $F_{q_0}(a_0)=t_0$ follows immediately from the definition of $f_{a_0}(q_0)$. Note that this also covers the case where $q_0=p^+$. For the case where $a\neq a_0$ and $q_0\neq p^+$ we suppose that $F_{q_0}(a)=f_a(q_0)<0$ by contradiction. Then we have $\tau(q_0,\mc{E}_a(q_0))=0$ which implies that there exists a null geodesic $\gamma$ with $\gamma(0)=q_0$ and $p\coloneqq \mc{E}_a(q_0)=\gamma(1)$. If $\gamma'(1)=\mu'_a(f_a(q_n))$ we would have $q_0\in \mu_a([0,1)) \cap \mu_{a_0}([0,1))$ which is a contradiction to lemma \ref{lem:Kcharact}. We must thus have $\gamma'(1)\neq\mu'_a(f_a(q_n))$ but this means there exists a broken null geodesic from $q_0$ to $p^+$ which is also a contradiction because $q_0\in K$ by assumption and $K\cap I^-(p^+)=\emptyset$ by lemma \ref{lem:Kcharact}.
 \end{proof}
 \begin{remark}
     The previous lemma shows that the observation time functions $F_q$ for $q\in K$ lose many nice properties they had when $q\neq K$. In particular if $q\in K$, then $F_q$ is not continuous at $a_0$. Furthermore let $q_n=\Theta(a_n,t_0)\to q_0=\Theta(a_0,t_0)$ with $a_n \notin a_0$, then $F_{q_0}(a_0)=t_0$ but $F_{q_n}(a_0)=0$ for all $n\in \N$, implying $F_{q_n}$ fails to even converge pointwise to $F_{q_0}$. Later on we will fix some of these issues by multiplying $F_q$ with a smoothing bump function.
@@ -83,11 +83,11 @@ This lemma shows that even though obervation time functions dont retain many of 
     Hence let now $q_n \to q_0\in K\setminus p^+$ with $q_n=\mu_{a_n}(t_n) \in K\setminus p^+$. We then have $a_n\to a_0$ and thus $a_n \in A$ for all $n\ge N$ for some $N\in \N$. But by the previous lemma this implies that $F_{q_n}\rvert_{\sn\setminus A} = F_{q_0}\rvert_{\sn\setminus A} = 0$ and we are done.
 
     For the other part $q_n \to q_0\in K\setminus p^+$ with $q_n \in \interior{\jp}$.
-    We suppose by contradiction that there exists a $\varepsilon>0$ such that for all $N\in \N$ there exists a $n\ge N$ and a $a\in \sn\setminus A$ such that $f_a(q_n)<-\varepsilon$. We can thus construct a sequence $(a_k, q_k)$ such that $f_{a_k}(q_k)<-\varepsilon$ for all $k\in \N$. Because $f$ is bounded and $\sn$ compact there exists a convergent subsequence $(a_j,q_j)$ such that $t_j:=f_{a_j}(q_j)\to t'\leq -\varepsilon$, $a_j \to a'\in \sn\A$ and $q_j\to q_0$. Now we have $\mu_{a_j}(t_j) = \Theta(a_j,t_j) \to \Theta(a',t')=\mu_{a'}(t')$ and 
+    We suppose by contradiction that there exists a $\varepsilon>0$ such that for all $N\in \N$ there exists a $n\ge N$ and a $a\in \sn\setminus A$ such that $f_a(q_n)<-\varepsilon$. We can thus construct a sequence $(a_k, q_k)$ such that $f_{a_k}(q_k)<-\varepsilon$ for all $k\in \N$. Because $f$ is bounded and $\sn$ compact there exists a convergent subsequence $(a_j,q_j)$ such that $t_j\coloneqq f_{a_j}(q_j)\to t'\leq -\varepsilon$, $a_j \to a'\in \sn\A$ and $q_j\to q_0$. Now we have $\mu_{a_j}(t_j) = \Theta(a_j,t_j) \to \Theta(a',t')=\mu_{a'}(t')$ and 
     \[
         0 = \lim_{j\to \infty}\tau(q_j,\mc{E}_{a_j}(q_j)) = \lim_{j\to \infty}\tau(q_j,\mu_{a_j}(t_j)) = \tau(q_0,\mu_{a'}(t')).
     \]
-    Furthermore because $\mu_{a_j}(t_j)=\mc{E}_{a_j}(q_j)$ we have $\mu_{a_j}(t_j)\in J^+(q_j)$. By ((REF)) this implies $\mu_{a'}(t')\in J^+(q_0)$. But this together with $\tau(q_0,\mu_{a'}(t'))$ implies that $\mu_{a'}(t')=\mc{E}_{a'}(q_0)$ and $f_{a'}(q_0)=t'<-\varepsilon$. Finally because $a_0\in A$ and $a'\in \sn\setminus A$ we have $a'\neq a_0$ and $f_{a'}(q_0) <  0$, a contradiction to the previous lemma.
+    Furthermore because $\mu_{a_j}(t_j)=\mc{E}_{a_j}(q_j)$ we have $\mu_{a_j}(t_j)\in J^+(q_j)$. By lemma \ref{lem:Jclosed} this implies $\mu_{a'}(t')\in J^+(q_0)$. But this together with $\tau(q_0,\mu_{a'}(t'))$ implies that $\mu_{a'}(t')=\mc{E}_{a'}(q_0)$ and $f_{a'}(q_0)=t'<-\varepsilon$. Finally because $a_0\in A$ and $a'\in \sn\setminus A$ we have $a'\neq a_0$ and $f_{a'}(q_0) <  0$, a contradiction to the previous lemma.
 \end{proof}
 
 \begin{lemma}
@@ -97,7 +97,7 @@ This lemma shows that even though obervation time functions dont retain many of 
     \]
 \end{lemma}
 \begin{proof}
-    Suppose by contradiction that there exists a convergent subsequence $q_k$ of $q_n$ such that $\min_{a \in \sn} F_{q_k}(a)\to t'<t_0$. There thus exists a sequence of $a_k$ such that $F_{q_k}(a_k)\to t'<t_0$. Taking subsequences again we get $a_j\to a'$ and $t_j:=F_{q_j}(a_j)\to t'<t_0$. Then we have 
+    Suppose by contradiction that there exists a convergent subsequence $q_k$ of $q_n$ such that $\min_{a \in \sn} F_{q_k}(a)\to t'<t_0$. There thus exists a sequence of $a_k$ such that $F_{q_k}(a_k)\to t'<t_0$. Taking subsequences again we get $a_j\to a'$ and $t_j\coloneqq F_{q_j}(a_j)\to t'<t_0$. Then we have 
     \[
         J^+(q_j)\ni \mu_{a_j}(F_{q_j}(a_j)) \to \mu_{a'}(t') \in J^+(q_0)
     \] by continuity of $\mu$ and lemma \ref{lem:Jclosed}. We also have 
@@ -106,7 +106,7 @@ This lemma shows that even though obervation time functions dont retain many of 
     \] which implies $\mu_{a'}(t')=\mc{E}_{a'}(q_0)$ and $F_{q_0}(a')=t'<t_0$. A contradiction because $F_{q_0}\ge t_0$ by lemma \ref{lem:boundaryF}.
 \end{proof}
 
-This proposition is important because it shows that $D$ is an open neighborhood of the boundary, which means a reconstruction on $D$ is also a reconstruction of the boundary. The key idea here is that as $q_n \to q_0=\mu_{a_0}(t_0)\in K \setminus \{p^+\}$ we can use lemma \ref{lem:convto1} to control the converge away from the minimum $a_0$ and to introduce local coordinates around $a_0\in \sn$ to study the behavior close to $a_0$
+This proposition is important because it shows that $D$ is an open neighborhood of the boundary, which means a reconstruction on $D$ is also a reconstruction of the boundary. The key idea here is that as $q_n \to q_0=\mu_{a_0}(t_0)\in K \setminus \{p^+\}$ we can use lemma \ref{lem:convto1} to control the convergence away from the minimum $a_0$ and to introduce local coordinates around $a_0\in \sn$ to study the behavior close to $a_0$
 \begin{proposition}\label{prop:boundarymin}
     Let $q_n\in V\to q_0=\mu_{a_0}(t_0)\in K\setminus p^+$ then there exists a $\varepsilon>0$ and a $N\in \N$ such that for all $n\ge N$, $F_{q_n}$ has a unique minimum $(a_n,t_n)$ and $(a_n,t_n)\to (a_0,t_0)$.
 \end{proposition}
@@ -115,7 +115,7 @@ This proposition is important because it shows that $D$ is an open neighborhood 
 
     First of all we let $O\subset M$ be a open convex neighborhood of $q_0$. Because $q_n \to q_0$ there exists a $N_1$ such that $n\ge N$ implies $q_n \in O$.
 
-    Recall that the Lorentzian splitting induced a Riemannian metric $g^+$ on $M$. For $a\in \sn, t\in [-T_a,0]$ let $\nu_{a,t}\in CL^+_{\Theta(a,t)}M$ be the unique outward future pointing null vector orthogonal to $T_t$ at $a$ with $\lVert \nu_{a,t} \rVert_{g^+}=1$, as in definition \ref{def:constobstime}. We define the map 
+    Recall that the [[Lorentzian]] splitting induced a Riemannian metric $g^+$ on $M$. For $a\in \sn, t\in [-T_a,0]$ let $\nu_{a,t}\in CL^+_{\Theta(a,t)}M$ be the unique outward future pointing null vector orthogonal to $T_t$ at $a$ with $\lVert \nu_{a,t} \rVert_{g^+}=1$, as in definition \ref{def:constobstime}. We define the map 
     \begin{align*}
         X:\R_+\times \mc{S} &\to M \\
         (c,a,t)&\mapsto \exp_{\Theta(a,t)}(-c\nu_{a,t})
@@ -126,7 +126,7 @@ This proposition is important because it shows that $D$ is an open neighborhood 
     Finally we can reduce $\varepsilon>0$ to get $O_\varepsilon\subset O$.
     
     Because $O_\varepsilon$ is open there exists a $N_2\in \N$ such that $n\ge N_2$ implies $q_n\in O_\varepsilon\subset O$.
-    In this case we can write $q_n = X(c_n,a_n,t_n)$. We want to show that there exists a $N_3\ge N_2$ such that for all $n\ge N_3$, $F_{q_n}$ must have a global minimum in $B_\varepsilon(a_0)$. First of all because $q_n \in \interior{\jp}$, $F_{q_n}$ is a continuous function an a compact set. There must thus exists at least one $a'_n\in \sn$ such that $t'_n := F_{q_n}(a'_n) \leq F_{q_n}(a)$ for all $a\in \sn$. Note that because $t'_n$ is a minimum, the same argument as in lemma \ref{lem:amin} yields that $\Theta(a'_n,t_n')\in \er(q_n)$ and $v(q_n,\Theta(a'_n,t_n')) \in \R_+\nu_{a_n',t_n'}$.
+    In this case we can write $q_n = X(c_n,a_n,t_n)$. We want to show that there exists a $N_3\ge N_2$ such that for all $n\ge N_3$, $F_{q_n}$ must have a global minimum in $B_\varepsilon(a_0)$. First of all because $q_n \in \interior{\jp}$, $F_{q_n}$ is a continuous function an a compact set. There must thus exists at least one $a'_n\in \sn$ such that $t'_n \coloneqq  F_{q_n}(a'_n) \leq F_{q_n}(a)$ for all $a\in \sn$. Note that because $t'_n$ is a minimum, the same argument as in lemma \ref{lem:amin} yields that $\Theta(a'_n,t_n')\in \er(q_n)$ and $v(q_n,\Theta(a'_n,t_n')) \in \R_+\nu_{a_n',t_n'}$.
     
     Next we want to show that if $n$ is big enough, any such $a_n'$ must lie in $B_\varepsilon(a_0)$. 
     To that end we first note that  $\Theta(a_n,t_n)\in \er(q_n)\subset \mc{P}_K(q_n)$ because $q_n$ and $\Theta(a_n,t_n)$ both lie in the convex neighborhood $O$. 
@@ -158,7 +158,7 @@ We can now show that $D$ is an open subset of $\jp$:
     
     Next we prove that $F_{q_n}$ must have all its minima in $B_{\frac{\delta}{2}}(a_0)$. We first note that because $a_0$ is the unique minimum of $F_{q_0}$ we have $F_{q_0}(a)-F_{q_0}(a_0)>0$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. Because $F_{q_0}$ is continuous and $\sn\setminus B_{\frac{\delta}{2}}(a_0)$ compact there exists a $c_1>0$ such that $F_{q_0}(a)> F_{q_0}(a_0) + c_1$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. By proposition \ref{prop:funif}, $F_{q_n}\to F_{q_0}$ uniformly. Hence there exists a $N_2\ge N_1$ such that $F_{q_n}(a_0)\leq F_{q_0}(a_0)+\frac{c_1}{2}$. Thus we have $\min_{a\in \sn}F_{q_n}(a) \leq F_{q_n}(a_0) \leq F_{q_0}(a_0)+\frac{c_1}{2}$ for all $n\ge N_3$. But again by uniform convergence there exists a $N_3\ge N_2$ such that $F_{q_n}(a) > F_{q_0}(a_0)+\frac{c_1}{2}$ for all $a\in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. Hence $F_{q_n}$ has no global minima in $\sn\setminus B_{\frac{\delta}{2}}(a_0)$ for all $n\ge N_3$.
 
-    But because $F_{q_n}$ is a continuous function on a compact space there must exist a minimum $a_n\in \sn$ such that $t_n:=F_{q_n}(a_n)\leq F_{q_n}(a')$ for all $a'\in \sn$. As we just saw we must have $a_n \in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. But we also proved that $F_{q_n}$ is convex on $B_\delta(a_0)$ which means that $a_0$ must be the unique minimum of $F_{q_n}$ on $B_\delta(a_0)$. Because $F_{q_n}$ cannot have another minimum outside of $B_{\frac{\delta}{2}}(a_0)$, $a_0$ must be the unique minimum of $F_{q_n}$ and thus $q_n \in D$.
+    But because $F_{q_n}$ is a continuous function on a compact space there must exist a minimum $a_n\in \sn$ such that $t_n\coloneqq F_{q_n}(a_n)\leq F_{q_n}(a')$ for all $a'\in \sn$. As we just saw we must have $a_n \in \sn\setminus B_{\frac{\delta}{2}}(a_0)$. But we also proved that $F_{q_n}$ is convex on $B_\delta(a_0)$ which means that $a_0$ must be the unique minimum of $F_{q_n}$ on $B_\delta(a_0)$. Because $F_{q_n}$ cannot have another minimum outside of $B_{\frac{\delta}{2}}(a_0)$, $a_0$ must be the unique minimum of $F_{q_n}$ and thus $q_n \in D$.
 
     Finally we prove that $a_n\to a_0$. We suppose by contradiction that $a_n$ does not converge to $a_0$. Because $\sn$ is compact there exists a convergent subsequence $q_j$ such that $a_j \to a' \neq a_0$ and $q_j \in D$ for all $j\in \N$. Because $q_0,q_j\in \interior{\jp}$, we have $F_{q_j}(a_j) \to F_{q_0}(a')$. Furthermore we have $F_{q_j}(a_j)= \min_{a\in \sn}F_{q_j} \to \min_{a\in \sn}F_{q_0}$ because $F_{q_j}\to F_{q_0}$ uniformly. But this implies $F_{q_0}(a') = \min_{a\in \sn}F_{q_0}=F_{q_0}(a_0)$, a contradiction because $F_{q_0}$ was assumed to have a unique minimum. Note that because $f$ is continuous on $\interior{\jp}\times \sn$ this implies $t_n=f(q_n,a_n)\to t_0 = f(q_0,a_0)$ as well.
 \end{proof}
@@ -173,7 +173,7 @@ To that end we define
 
     To that end, for a fixed $a_0\in \sn$ we introduce local radial coordinates $a\in B_1(a_0)\mapsto (r(a),\omega(a))\in [0,1]\times S^{n-2}$ such that $r(a_0)=0$. For $a \in \sn$ we then define 
     \begin{equation*}
-        \chi_{a_0}(a) := 
+        \chi_{a_0}(a) \coloneqq  
         \begin{cases*}
             1-\exp(-\frac{r(a)^2}{1-r(a)^2}) & if $a\in B_1(a_0)$ \\
             1 & otherwise
@@ -186,7 +186,7 @@ To that end we define
     \centering
     \input{graphics/SmoothedObsTime.tex}
     \caption{
-        Plots of $F_q$ and $H_q$ in the Minkowski case; we can see that multiplying $F_q$ by $\chi_{a_q}$ reduces its diminishes its spike at $a_q$.
+        Plots of $F_q$ and $H_q$ in the Minkowski case; $a_q$ and $t_q$ are location and value of the unique minimum of $F_q$. We can see that multiplying $F_q$ by $\chi_{a_q}$ diminishes its spike at $a_q$.
     }
 \end{figure}
 
@@ -198,7 +198,7 @@ Equipped with these functions we can now define the
         (q,a)&\mapsto \chi_{a_q}(a)f(q,a)
     \end{align*}
     where $a_q$ is the location of the unique minimum of $F_q$. Note that $h$ is well defined because $\chi_{a_q}(a)\in [0,1]$ for all $a\in \sn$. 
-    Analogous to the previous observation time functions we define $h_a(q):=h(q,a)$ and $H_q(a):=h(q,a)$.
+    Analogous to the previous observation time functions we define $h_a(q)\coloneqq h(q,a)$ and $H_q(a)\coloneqq h(q,a)$.
 \end{definition}
 \begin{remark}
     Note that for $q\in K$ we have $H_q(a)=0$ for all $a\in \sn$. Furthermore, because $\chi_{a_q}$ is smooth and by proposition \ref{prop:fsmooth} we get that for any $q\in D$, $H_q$ is continuous on $\sn$ and smooth on $\areg(q)$ (where for any $q\in K$ we define $\areg(q)=\sn$).
@@ -216,12 +216,12 @@ First of all it converges uniformly for any limit point $q_0\in D$.
 
     Now we treat the case $q_0\in K$. We can again split up $q_n$ into two subsequences $q_{i_n}\in \interior{\jp}$ and $q_{j_n}\in K$. Since we have $H_{q_{j_n}}(a)=0$ for all $a\in \sn$, $H_{q_{j_n}}\to H_{q_0}$ follows immediately since we have $H_{q_0}(a)=0$ for all $a\in \sn$.
 
-    It remains to prove that $H_{q_{i_n}}\to H_{q_0}$ uniformly. To simplify notation we will denote $q_k:=q_{i_n}$, and $a_k$ for the location of the unique minimum of $F_{q_k}$. We want to show that for every $\varepsilon>0$ there exists a $N\in \N$ such that $H_{a_k}(a)>-\varepsilon$ for all $a\in \sn$:
+    It remains to prove that $H_{q_{i_n}}\to H_{q_0}$ uniformly. To simplify notation we will denote $q_k\coloneqq q_{i_n}$, and $a_k$ for the location of the unique minimum of $F_{q_k}$. We want to show that for every $\varepsilon>0$ there exists a $N\in \N$ such that $H_{a_k}(a)>-\varepsilon$ for all $a\in \sn$:
 
     To that end let $\varepsilon>0$. Because $q_k\to q_0$ implies $a_k\to a_0$ by proposition \ref{prop:boundarymin}, there exists a $N_1\in \N$ such that $a_k\in B_\frac{\varepsilon}{2}(a_0)$ for all $k\ge N_1$. Hence we have $B_\frac{\varepsilon}{2}(a_0)\subset B_\varepsilon(a_k)$ and we have $\chi_{a_k}(a)<\varepsilon$ for all $a\in B_\frac{\varepsilon}{2}(a_0)\subset B_\varepsilon(a_n)$.
     For any $a\in B_\frac{\varepsilon}{2}(a_0)$ we thus have $H_{q_k}(a) = \chi_{a_k}(a)f(q_k,a) > -\varepsilon$ because $f(q_k,a)\in [-T_\sn,0]$.
 
-    It remains to show that there exists a $N_2\in \N$ such that $H_{q_k}(a) > -\varepsilon$ for all $a\in \sn\setminus B_\frac{\varepsilon}{2}(a_0)$ and $n\ge N_2$. Because $B_\frac{\varepsilon}{2}(a_0)$ is an open neighborhood of we can apply \ref{lem:convto1} to find a $N_2\in \N$ with $F_{q_k}(a) > -\varepsilon$ for all $q\in \sn \setminus B_\frac{\varepsilon}{2}(a_0)$ and $n \ge N_2$. Because $\chi_{a}<1$ this implies $H_{q_k}(a) > -\varepsilon$ and we are done after setting $N:= \max \{N_1,N_2\}$.
+    It remains to show that there exists a $N_2\in \N$ such that $H_{q_k}(a) > -\varepsilon$ for all $a\in \sn\setminus B_\frac{\varepsilon}{2}(a_0)$ and $n\ge N_2$. Because $B_\frac{\varepsilon}{2}(a_0)$ is an open neighborhood of we can apply \ref{lem:convto1} to find a $N_2\in \N$ with $F_{q_k}(a) > -\varepsilon$ for all $q\in \sn \setminus B_\frac{\varepsilon}{2}(a_0)$ and $n \ge N_2$. Because $\chi_{a}<1$ this implies $H_{q_k}(a) > -\varepsilon$ and we are done after setting $N\coloneqq  \max \{N_1,N_2\}$.
 \end{proof}
 
 \begin{corollary}
@@ -252,7 +252,7 @@ We now want to show that $h$ is even smooth on a suitable subset of $D\times \sn
 
 
 \begin{corollary}\label{cor:hsmooth}
-    Let $\mc{C}:=\{(q,a)\in V\times \sn \mid q \in D\cap \interior{\jp}, a\in \areg(q)\}$ then $h:\mc{C}\to [-T_\sn,0]$ is a smooth and $dH_q\rvert(a)$ is bounded for all $(q,a)\in \mc{C}$.
+    Let $\mc{C}\coloneqq \{(q,a)\in V\times \sn \mid q \in D\cap \interior{\jp}, a\in \areg(q)\}$ then $h:\mc{C}\to [-T_\sn,0]$ is a smooth and $dH_q\rvert(a)$ is bounded for all $(q,a)\in \mc{C}$.
 \end{corollary}
 \begin{proof}
     As shown in proposition \ref{prop:fsmooth}, $f$ is smooth on $\mc{C}$. By the previous lemma $q\in D\cap \interior{\jp}\mapsto a(q)$ is smooth as well.
@@ -268,7 +268,7 @@ We now want to show that $h$ is even smooth on a suitable subset of $D\times \sn
     \]
 \end{lemma}
 \begin{proof}
-    ((Todo split up in close to $q_0$ and far away use that $dF$ grows at most polynomially maybe also prove that $q\mapsto a(q)$ is smooth at boundary as well))
+    ((Todo use that no cut on $K$ to find tube around $\pq$ which is approx conformal to Minkowski and solve there))
 \end{proof}
 
 \section{Reconstruction}
@@ -276,8 +276,8 @@ We can now reconstruct the topological structure of $V$
 
 Analogous to the reconstruction in the previous chapter we let $\mc{C}^{\infty}(\sn)$ be the space of continuous functions $H:\sn \to [-T_\sn,0]$ which are smooth on a dense open set in $\sn$. We again endow this space with the metric 
 \[
-    d(H_1,H_2):= d_\infty(H_1,H_2) + \int_{\sn} \lVert dH_1\rvert_a - dH_2\rvert_a \rVert_{g_\sn}da,
-\] where $d_\infty(H_1,H_2):=\max_{a\in \sn}\lvert H_1(a)-H_2(a)\rvert$.
+    d(H_1,H_2)\coloneqq  d_\infty(H_1,H_2) + \int_{\sn} \lVert dH_1\rvert_a - dH_2\rvert_a \rVert_{g_\sn}da,
+\] where $d_\infty(H_1,H_2)\coloneqq \max_{a\in \sn}\lvert H_1(a)-H_2(a)\rvert$.
 Note that by definition of $\mc{C}^\infty(\sn)$ the subset of $\sn$ where $H_1$ or $H_2$ are not smooth is a null set, making the integral well-defined.
 
 For $q\in D$ with minimum $t_q\in [-T_{a_q},0]$ at $a_q\in \sn$ we define
@@ -296,9 +296,9 @@ The follow lemma assures that no information is lost when passing from $F_q$ to 
     Now for the case where $q\in \interior{\jp}$: We have $H_q(a)=\chi_{a_q}(a)F_q(a)$ and thus $F_q(a) = \frac{1}{\chi_{a_q}(a)}H_q(a)$. This allows us to reconstruct $F_q(a)$ for all $a\neq a_q$ because $\chi_{a_q}(a)\neq 0$ for all $a\neq a_q$. But by definition we have $F_q(a_q)=t_q$ and we have fully  reconstructed $F_q$.
 \end{proof}
 
-We denote $V_1:=V\cap D$
+We denote $V_1\coloneqq V\cap D$
 \begin{lemma}
-    $\mc{H}:V_1\to \widehat{V_1}:=\mc{H}(V_1)\subset \mc{S}\times(\mc{C}^\infty, d)$ is well-defined, continuous and bijective.
+    $\mc{H}:V_1\to \widehat{V_1}\coloneqq \mc{H}(V_1)\subset \mc{S}\times(\mc{C}^\infty, d)$ is well-defined, continuous and bijective.
 \end{lemma}
 \begin{proof}
     We begin by proving that $\mc{H}$ is well-defined. Because $\mc{H}$ is defined on $D$, any $q\in D$ must have a unique minimum making $q\mapsto(a_q,t_q,H_q)$ well-defined. Furthermore we have $H_q\in \mc{C}^\infty(\sn)$ by corollary \ref{cor:hsmooth}, together with the fact that $H_q=1$ is also smooth for $q\in K$.
@@ -323,22 +323,30 @@ We denote $V_1:=V\cap D$
     By definition we have $\mc{H}(q_n) = (a_n,t_n,H_{q_n}) \to (a_0,t_0,H_{q_0}) = \mc{H}(q_0)$. Because we can determine from $\mc{H}(q_0)$ whether $q_0\in K$ or $q_0\in \interior{\jp}$ we can treat the two cases seperately. 
     If $q_0\in \interior{\jp}$ we have $\min_{a\in \sn} H_{q_0}(a) < 1$, then by uniform convergence there exists a $N_1\in \N$ such that $\min_{a\in \sn} H_{q_n}(a)<0$, implying $q_n\in \interior{\jp}$ for all $n \ge N_0$. We can then apply an analogous argument to the one used in lemma \ref{lem:frevcont} to get $q_n \to q_0$.
 
-    For the case $q_0\in K$ we can again split up $\mc{H}(q_n)$ into two subsequences, $\mc{H}(q_{i_n})$ where $q_{i_n}\in K$ and $\mc{H}(q_{j_n})$ where $q_{j_n}\in \interior{\jp}$ for all $n\in \N$. We thus have $q_{i_n}=\Theta(a_{i_n},t_{i_n})$ which implies $q_{i_n}\to q_0$ because $(a_{i_n},t_{i_n}) \to (a_0,t_0)$. For the other case ((explain more in-depth)) we denote $q_k:=q_{j_n}\in \interior{\jp}$ and $(a_k,t_k):=(a_{j_n},t_{j_n})$ to simplify notation. Because $H_{q_k}\to H_{q_0}=0$ uniformly and there exists a $\varepsilon>0$ such that $H_{q_k}\rvert_{\sn\setminus B_\varepsilon(a_k)} = F_{q_k}\rvert_{\sn\setminus B_\varepsilon(a_k)}$ we also have $\max_{a\in \sn} F_{q_k}\to 0$. This implies that $d(q_k, K)\to 0$. Now we suppose by contradiction that $q_k$ does not converge to $q_0$. We thus have a convergent subsequence $q_j\to q'\neq q_0\in K$ and $a_j\to a_0, t_j\to t_0$. We can the apply proposition \ref{prop:globalminconv} to $q_j$ and $q'$ to find that $(a_0,t_0)$ is also the unique minimum of $F_{q'}$. But because $q'\in K$ we have $q' = \Theta(a_0,t_0) = q_0$, a contradiction.
+    For the case $q_0\in K$ we can again split up $\mc{H}(q_n)$ into two subsequences, $\mc{H}(q_{i_n})$ where $q_{i_n}\in K$ and $\mc{H}(q_{j_n})$ where $q_{j_n}\in \interior{\jp}$ for all $n\in \N$. We thus have $q_{i_n}=\Theta(a_{i_n},t_{i_n})$ which implies $q_{i_n}\to q_0$ because $(a_{i_n},t_{i_n}) \to (a_0,t_0)$. For the other case we denote $q_k\coloneqq q_{j_n}\in \interior{\jp}$ and $(a_k,t_k)\coloneqq (a_{j_n},t_{j_n})$ to simplify notation. Because $H_{q_k}\to H_{q_0}=0$ uniformly and there exists a $\varepsilon>0$ such that $H_{q_k}\rvert_{\sn\setminus B_\varepsilon(a_k)} = F_{q_k}\rvert_{\sn\setminus B_\varepsilon(a_k)}$ we also have $\max_{a\in \sn} F_{q_k}\to 0$. This implies that $d(q_k, K)\to 0$. Now we suppose by contradiction that $q_k$ does not converge to $q_0$. We thus have a convergent subsequence $q_j\to q'\neq q_0\in K$ and $a_j\to a_0, t_j\to t_0$. We can the apply proposition \ref{prop:globalminconv} to $q_j$ and $q'$ to find that $(a_0,t_0)$ is also the unique minimum of $F_{q'}$. But because $q'\in K$ we have $q' = \Theta(a_0,t_0) = q_0$, a contradiction.
 \end{proof}
 
 \begin{corollary}\label{cor:Hhomeo}
     $\mc{H}:V_1 \to \widehat{V_1}$ is a homeomorphism.
 \end{corollary}
 
+\subsection{Combining boundary and interior reconstruction}
+Now that we have shown how we can reconstruct the topology close to and at the observation set $K$, i.e. on $V_1\coloneqq V\cap D$, we now aim to show how we can reconstruct it away from the observation set, i.e. on $V_2\coloneqq V \setminus K$. Finally we then will recombine the two procedures to reconstruct the topology on all of $V$.
+
 \begin{remark}
-    Note that we can use \ref{cor:Fhomeo} on $V_2:=V\cap (\jp\setminus K)$ to get a homeomorphism $\F:V_2\to \widehat{V_2}:=\F(V_2)$. By proposition \ref{prop:globalminconv} we know that $D$ is an open neighborhood of $K\setminus \{p^+\}$. Therefore $V_1=D\cap V$ and $V_2=(\jp\setminus K) \cap V$ are both open subsets of $\jp$ and we have $V_1 \cup V_2 = V$ because $V\subset \jp \setminus\{p^+\}$.
+    To reconstruct $V_2=V \setminus K$ we simply reuse the procedure developed in the previous chapter.
+    As noted in remark \ref{rmk:ReconstrPastBoundary}, we can use corollary \ref{cor:Fhomeo} on $V_2=V\cap (\jp\setminus K)$ to get a homeomorphism $\F:V_2\to \widehat{V_2}\coloneqq \F(V_2)$.
 \end{remark}
-((TODO: Explain more and include $V_1$ $V_2$ properties overview and that we given $\mc{H}(q_1)$ and $\F(q_2)$ we can determine if $q_1=q_2$))
-((TODO: Include past boundary of $\jp$ for now we assume $V\cap \partial\jp^-=\emptyset$))
-We can now reconstruct the topology on $V$:
-\begin{proposition}
+
+We now highlight the following important properties of $V_1,V_2$:
+\begin{remark}
+    By proposition \ref{prop:globalminconv} we know that $D$ is an open neighborhood of $K\setminus \{p^+\}$. Therefore $V_1=D\cap V$ and $V_2=(\jp\setminus K) \cap V$ are both open subsets of $\jp$ and we have $V_1 \cup V_2 = V$ because $V\subset \jp \setminus\{p^+\}$.
+\end{remark}
+
+Thanks to these properties can now reconstruct the topology on $V$:
+\begin{lemma}
     A set $O\subset V$ is open if and only if $\mc{H}(O\cap V_1)\subset \widehat{V_1}$ and $\F(O\cap V_2)\subset \widehat{V_2}$ is open.
-\end{proposition}
+\end{lemma}
 \begin{proof}
     For the first direction we suppose that $O\subset V$ is open. Because $V_1$ and $V_2$ are open so are $O\cap V_1$ and $O\cap V_2$. But because both $\mc{H}$ and $\F$ are homeomorphisms and thus open maps, $\mc{H}(O\cap V_1)$ and $\mc{F}(O\cap V_2)$ must be open as well.
 
@@ -348,10 +356,10 @@ We can now reconstruct the topology on $V$:
     \] must be open, as desired.
 \end{proof}
 
-\begin{corollary}
-    Given data \ref{rmk:data} we can determine if a set is open ((TODO))
-\end{corollary}
-\begin{proof}Suppose we are given the data from \ref{rmk:data} and the light observation set $\mc{P}_K(\mc{O})=\{\mc{P}_K(q)\mid q\in \mc{O}\}$ of a subset $\mc{O}\subset V$. For any $\mc{P}_K(q)\in \mc{P}_K(\mc{O})$ we can first evaluate if $q\in V\setminus K$ and $q\in D$ by checking if $F_q$ is continuous in $a$ and if it has a unique minimum. If $q\in D$ we can construct $H_q$; note that $F_q$ and $H_q$ are completely determined by $\mc{P}_K(q)$ and the data. This allows us to construct $\mc{H}(\mc{O}\cap V_1)=\{H_q \mid q\in V \cap D\}$ and $\mc{F}(\mc{O}\cap V_2)=\{F_q \mid q\in V \cap (\jp\setminus K)\}$. Because we know the topology on $\widehat{V_1}$ and $\widehat{V_2}$ we can determine if $\mc{H}(\mc{O}\cap V_1)\subset \widehat{V_1}$ and $\mc{F}(\mc{O}\cap V_2)\subset\widehat{V_2}$ are open. By the previous proposition this allows us to determine whether $\mc{O}$ was open. Therefore we know all open subsets of $V$ and with it the topology of $V$.
+\begin{proposition}
+    Given data \ref{rmk:data} we can determine the topology on $V$, i.e. for a subset $\mc{O}\subset V$ we can determine whether it is open, given the set $\mc{P}_K(O)$.
+\end{proposition}
+\begin{proof}Suppose we are given the data from \ref{rmk:data} and the light observation set $\mc{P}_K(\mc{O})=\{\mc{P}_K(q)\mid q\in \mc{O}\}$ of a subset $\mc{O}\subset V$. For any $\mc{P}_K(q)\in \mc{P}_K(\mc{O})$ we can first evaluate if $q\in V\setminus K$ and $q\in D$ by checking if $F_q$ is continuous in $a$ and if it has a unique minimum. If $q\in D$ we can construct $H_q$; note that $F_q$ and $H_q$ are completely determined by $\mc{P}_K(q)$ and the data. This allows us to construct $\mc{H}(\mc{O}\cap V_1)=\{H_q \mid q\in V \cap D\}$ and $\mc{F}(\mc{O}\cap V_2)=\{F_q \mid q\in V \cap (\jp\setminus K)\}$. Because we know the topology on $\widehat{V_1}$ and $\widehat{V_2}$ we can determine if $\mc{H}(\mc{O}\cap V_1)\subset \widehat{V_1}$ and $\mc{F}(\mc{O}\cap V_2)\subset\widehat{V_2}$ are open. By the previous lemma this allows us to determine whether $\mc{O}$ was open. Therefore we know all open subsets of $V$ and with it the topology of $V$.
 \end{proof}
 
 \section{Smooth and Conformal Reconstruction}
@@ -376,7 +384,7 @@ As in the topology reconstruction the recovery of the differential structure on 
 
 To solve this issue we introduce a proxy for the distance which should work if $q\in V$ is close enough to the boundary: For $q\in D$ with unique minimum at $(a_q,t_q)\in \mc{S}$ we define the map
 \[
-    d(q):= \frac{1}{\det \mc{H}_{F_q}(a_q)} \text{ if }q\in \interior{\jp} \text{ and }d(q):=0 \text{ if }q\in K
+    d(q)\coloneqq  \frac{1}{\det \mc{H}_{F_q}(a_q)} \text{ if }q\in \interior{\jp} \text{ and }d(q)\coloneqq 0 \text{ if }q\in K
 \] where $\mc{H}_{F_q}$ again is the hessian of $F_q$.
 This map is well-defined because $a_q$ must be a regular point ensuring $F_q$ is smooth at $a_q$ and in the proof of proposition \ref{prop:globalminconv} we saw that $\mc{H}_{F_q}(a_q)$ must be positive definite making $\frac{1}{\det \mc{H}_{F_q}(a_q)}$ positive and finite. Furthermore we note that this definition is coordinate independent. Importantly, because we know $F_q$ we can determine $d(q)$ from the light observation sets as desired. We now conjecture that 
 \begin{conjecture}
