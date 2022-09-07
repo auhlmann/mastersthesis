@@ -2,7 +2,7 @@
 In this chapter we will examine some useful applications of the results proven in the previous chapters. We first show that the suitability conditions required in theorems \ref{thm:intreconstr} and \ref{thm:bdreconstr} are somewhat generic as they are preserved by small perturbations. Then we will use a conformal embedding of Minkowski space into the Einstein universe to show that theorem \ref{thm:intreconstr} also allows us to reconstruct the complete spacetime from observations at future null infinity.
 
 \section{Stability Results}
-The following lemma guarantees that theorem \ref{thm:intreconstr} still applies even if we deviate the metric slightly:
+The following lemma guarantees that theorem \ref{thm:intreconstr} still applies even if we perturb the metric slightly:
 \begin{lemma}
     Let $(M,g)$ be a globally hyperbolic manifold with $p^-,p^+\in M$ \emph{suitable}. Furthermore let $V\in \interior{\jp}$ such for any $q\in \cl{V}$, no null geodesic starting at $q$ has a conjugate point in $K$.
 
@@ -10,7 +10,7 @@ The following lemma guarantees that theorem \ref{thm:intreconstr} still applies 
     \[
         \lvert h_{ij}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha}\rvert_q \rvert <\varepsilon, \quad \lvert h_{ij,\alpha,\beta}\rvert_q \rvert <\varepsilon \quad \text{for }i,j,\alpha,\beta\in \{1,\dots, 1+n\}
     \]
-    and $\widetilde{g}$ is smooth and has $h_q=0$ for all $q\in M\setminus V$. Then if $\varepsilon>0$ is small enough, $(M,\widetilde{g})$ is globally hyperbolic and $p^-,p^+,V$ are still \emph{suitable}
+    and $\widetilde{g}$ is smooth and has $h_q=0$ for all $q\in M\setminus V$; then if $\varepsilon>0$ is small enough, $(M,\widetilde{g})$ is globally hyperbolic and $p^-,p^+,V$ are still \emph{suitable}
 \end{lemma}
 \begin{proof}
     To distinguish between objects defined in terms of $g$ or $\widetilde{g}$ we will add a prescript of the respective metric, for example $\psg{\exp}_q$ is the exponential map defined with respect to $g$ and $\psgt{\exp}_q$ with respect to $\widetilde{g}$. We begin by mentioning that for $\varepsilon_1>0$, small enough, $(M,\widetilde{g})$ still globally hyperbolic. This follows from theorem 12 in \cite{gerochdomain}.
@@ -40,12 +40,12 @@ We can extend the previous result slightly to show that if also the past boundar
 \end{proof}
 
 \begin{example}
-    Because Minkowski space $(\R^{1+n}, g_M\coloneqq -dt^2 + \sum dx^2)$ has no cut points. We can pick any $p^-,p^+,V$ \emph{suitable} such that $V\in \interior{\jp}$ using the previous lemma we can see that for small deviatations from $g_M$ with support on $V$, theorem \ref{thm:intreconstr} still applies and we can reconstruct $V$ from the light cone observations on $K$.
+    Because Minkowski space $(\R^{1+n}, g_M\coloneqq -dt^2 + \sum dx^2)$ has no cut points, all $p^-,p^+,V$ such that $V\in \interior{\jp}$ are suitable. Using the previous lemma we can see that for small perturbations of $g_M$ with support on $V$, theorem \ref{thm:intreconstr} still applies and we can reconstruct $V$ from the light cone observations on $K$.
 \end{example}
 
 
 
-However this example is somewhat limited in scope because such a deviation cannot be physical. To get a physical example we will use the reconstruction result on the Einstein universe:
+However this example is somewhat limited in scope because such a perturbation cannot be physical, i.e. cannot have Ricci-tensor zero. To get a physical example we will use the reconstruction result on the Einstein universe.
 % \begin{proposition}
 % Let $K\subset\R^n_1$ be a compact subset of the $1+n$-dimensional minkovsky space with metric $g=-dt^2+\sum_{i=1}^n dx_i^2$. And let $\widetilde{g}$ be a slightly disturbed metric $\widetilde{g}=g+\varepsilon h$ where $\varepsilon>0$ and $h$ is another metric.
 
@@ -68,10 +68,10 @@ However this example is somewhat limited in scope because such a deviation canno
 \section{Einstein Universe}
 
 \begin{definition}[Einstein Universe]
-Let $(\R,-dt^2)$ be the real line with negative definite metric $-dt^2$ and $(S^n,h)$ the $n$-sphere with the canonical Riemannian metric. The $1+n$ dimensional \emph{Einstein universe} is then defined as the product $(\R\times S^n, -dt^2 \oplus h)$. Note that by construction is a Lorentzian globally hyperbolic manifold.
+Let $(\R,-dt^2)$ be the real line with negative definite metric $-dt^2$ and $(S^n,h)$ the $n$-sphere with the canonical Riemannian metric. The $1+n$ dimensional \emph{Einstein universe} is then defined as the product $(\R\times S^n, -dt^2 \oplus h)$. Note that this is a Lorentzian globally hyperbolic manifold.
 \end{definition}
 
-To better describe the Einstein universe the following remark is very useful
+To better describe the Einstein universe the following is very useful:
 \begin{remark}\label{rmk:alphadef}
 We can parameterize $S^n$ by an angle $\alpha\in [0,\pi]$ and a point $\omega\in S^{n-1}$ via the map 
 
@@ -87,7 +87,7 @@ If for a $X\in S^n$ we write $X=(X_0,\overrightarrow{X}), X_0\in \R, \overrighta
 
 $S$ is surjective and smooth but we have 
 \[(1,0,\dots, 0) = S(0,\omega) \quad \text{and} \quad (-1,0,\dots,0)=S(\pi,\omega) \quad \text{for all }\omega\in \sn,\]
-which means $S$ fails to be injective if $\alpha = \{0,\pi\}$. Nontheless for every $X\in S^n$, $X\mapsto \alpha$ is well defined and smooth.
+which means $S$ fails to be injective if $\alpha = \{0,\pi\}$. Nonetheless, for every $X\in S^n$, $X\mapsto \alpha$ is well defined and smooth.
 \end{remark}
 
 \subsection{Conformal Embedding}

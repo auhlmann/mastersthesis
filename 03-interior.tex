@@ -2,25 +2,25 @@
 In this chapter we will use the observation time functions to reconstruct the topological, differential and conformal data of $V$.
 
 \section{Construction of the topology}
-The central idea in this section is to find a subspace of the space of all functions from $\sn$ to $\R$, $\R^\sn$ such that for all $q\in V$, $F_q$ is contained in this subspace and convergence in this subspace is equivalent to convergenge in $V$.
-A suitable space for this task turns out to be $\mc{C}^\infty(\sn)$, the space of continuous function $F:\sn\to [-T_\sn,0]$ which are smooth on a dense open set in $\sn$ and bounded derivative, endowed with the metric
+The central idea in this section is to find a subspace of the space of all functions from $\sn$ to $\R$, $\R^\sn$ such that for all $q\in V$, $F_q$ is contained in this subspace and convergence in this subspace is equivalent to convergence in $V$.
+A suitable space for this task turns out to be $\mc{K}(\sn)$, the space of continuous function $F:\sn\to [-T_\sn,0]$ which are smooth on a dense open set in $\sn$ and bounded derivative, endowed with the metric
 \[
     d(F,G)\coloneqq  d_\infty(F,G) + \int_{\sn} \lVert dF_a - dG_a \rVert_{g_\sn}da,
 \] where $d_\infty(F,G)\coloneqq \max_{a\in \sn}\lvert F(a)-G(a)\rvert$.
-Note that by definition of $\mc{C}^\infty(\sn)$ the subset of $\sn$ where $F$ or $G$ are not smooth is a null set, making the integral well-defined.
+Note that by definition of $\mc{K}(\sn)$ the subset of $\sn$ where $F$ or $G$ are not smooth is a null set, making the integral well-defined.
 
 We can then define the function 
 \begin{align*}
-    \mathcal{F}:V &\to (\mc{C}^\infty, d)\\
+    \mathcal{F}:V &\to (\mc{K}(\sn), d)\\
     q&\mapsto F_q
 \end{align*} mapping a $q\in V$ to the function $F_q:\sn\to\R$. 
 
-The following argument establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology with respect to the topology induced by $d$ on $\mc{C}^\infty$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
+The following argument establishes that the canonical topological structure on $\mc{F}(V)$, i.e. the topology obtained by taking the subspace topology with respect to the topology induced by $d$ on $\mc{K}(\sn)$, is the same as the pushforward under $\mc{F}$ of the topology on $V$, making $\mc{F}$ a homeomorphism.
 \begin{lemma}\label{lem:Fprop}
-The map $\mathcal{F}:V\to\widehat{V}\coloneqq \mathcal{F}(V)$ is a well-defined continuous and bijective.
+The map $\mathcal{F}:V\to\widehat{V}\coloneqq \mathcal{F}(V)$ is well-defined, continuous, and bijective.
 \end{lemma}
 \begin{proof}
-First of all we show that $\F:V\to (\mc{C}^\infty,d)$ is well-defined. Let $q\in V$, then $F_q$ is continuous by proposition \ref{prop:fcont}, smooth on a dense open set (namely $\areg(q)$) by proposition \ref{prop:fsmooth}, with bounded derivative by proposition \ref{prop:dfbounded}.
+First of all we show that $\F:V\to (\mc{K}(\sn),d)$ is well-defined. Let $q\in V$, then $F_q$ is continuous by proposition \ref{prop:fcont}, smooth on a dense open set (namely $\areg(q)$) by proposition \ref{prop:fsmooth}, with bounded derivative by proposition \ref{prop:dfbounded}.
 
 To prove that $\F$ is continuous we let $q_n\to q_0 \in V$. By proposition \ref{prop:funif} $F_{q_n}\to F_{q_0}$ uniformly and thus $d_\infty(F_{q_n},F_{q_0})\to 0$. Now we need to show that 
 \[
@@ -123,7 +123,7 @@ And we get:
     $\F:V\to \widehat{V}$ is a homeomorphism.
 \end{corollary}
 
-Note that because $\mc{P}_K(V)$ determines all $F_q$ and thus the set $\widehat{V}$, it is uniquely determined by the data \ref{rmk:data}. We can thus reconstruct the topology of $V$ because we can determine the topology of $(\mc{C}^\infty(\sn),d)$ and the subspace topology on $\widehat{V}$ which must be equivalent to the topology on $V$.
+Note that because $\mc{P}_K(V)$ determines all $F_q$ and thus the set $\widehat{V}$, it is uniquely determined by the data \ref{rmk:data}. We can thus reconstruct the topology of $V$ because we can determine the topology of $(\mc{K}(\sn),d)$ and the subspace topology on $\widehat{V}$ which must be equivalent to the topology on $V$.
 
 \section{Smooth Reconstruction}
 Having established the topological structure of $V$ we next aim to establish coordinates on $\F(V)$ near any $\F(q)$ that make $\F(V)$ diffeomorphic to $V$.
@@ -147,20 +147,20 @@ Let  $\widehat{q}\in \widehat{V}$ then the following holds:
 \begin{enumerate}[label={\textnormal{(\arabic*)}}]
     \item Given the data from \ref{rmk:data} we can determine all $C^0$-observation coordinates around $\widehat{q}$,
     \item there exist $C^\infty$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}$ and
-    \item given any $C^0$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}$, the data \ref{rmk:data}, allows us to determine whether they are $C^\infty$-observation coordinates around $\widehat{q}$.
+    \item given any $C^0$-observation coordinates $(W_\aa,\mathbf{s}_\aa)$ around $\widehat{q}$, the data \ref{rmk:data} allows us to determine whether they are $C^\infty$-observation coordinates around $\widehat{q}$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
     We begin with some setup: Let $q\in V$. We say that $p\in \er(q)$ and $a\in \sn$ are \emph{associated} with respect to $q$ if $p\in \mu_a$, i.e. $p=\mc{E}_a(q)$. 
     
-    To prove part (1), we let $\widehat{q}\in \widehat{V}$ with $\widehat{q}=\F(q)$. We want to show that for any choice of observers $\aa=(a_j)^n_{j=0}\in (\sn)^{n+1}$ we can determine if they form $C^0$-observation coordinates. First of all we need to check whether the associated $p_j=\mc{E}_{a_j}(q)$ are regular points, i.e. $p_j\in \er(q)$. But as $\widehat{q}=\F(q) = F_q$ we can recover $\ee{q}=\bigcup_{a\in \sn}\mu_a(F_q(a))$ and also the associated points $p_j = \mu_{a_j}(F_q(a_j))$. By proposition \ref{prop:obsreconstr} this allows us to determine $\er(q)$ and for all $p_j$ we can then simply check whether they lie in $\er(q)$.
+    To prove part (1), we let $\widehat{q}\in \widehat{V}$ with $\widehat{q}=\F(q)$. We want to show that for any choice of observers $\aa=(a_j)^n_{j=0}\in (\sn)^{n+1}$ we can determine if they form $C^0$-observation coordinates. First of all we need to check whether the associated $p_j=\mc{E}_{a_j}(q)$ are regular points, i.e. $p_j\in \er(q)$. But as $\widehat{q}=\F(q) = F_q$ we can recover $\ee(q)=\bigcup_{a\in \sn}\mu_a(F_q(a))$ and also the associated points $p_j = \mu_{a_j}(F_q(a_j))$. By proposition \ref{prop:obsreconstr} this allows us to determine $\er(q)$ and for all $p_j$ we can then simply check whether they lie in $\er(q)$.
     
     We now need to check whether there exists an open neighborhood $W$ of $\widehat{q}$ such that the map $\mathbf{s}_\aa:W\to\R^n$ is injective. 
     By definition we have 
     \[
     \mathbf{s}_\aa(\widehat{q}) = (\widehat{q}(a_1),\dots,\widehat{q}(a_n)) = (F_q(a_0), \dots ,F_q(a_n))
-    \] which means that the data allows us to fully determine $\mathbf{s}_\aa$ on $\widehat{V}$. But since by corollary \ref{cor:Fhomeo}, the data allows us do construct the topology on $\widehat{V}$ we can determine whether there exists an open neighborhood $W$ of $\widehat{q}$ such that $\mathbf{s}_\aa:W\to \R^n$ is injective and thus open by the invariance of domain theorem.
+    \] which means that the data allows us to fully determine $\mathbf{s}_\aa$ on $\widehat{V}$. But since by corollary \ref{cor:Fhomeo}, the data allows us to construct the topology on $\widehat{V}$ we can determine whether there exists an open neighborhood $W$ of $\widehat{q}$ such that $\mathbf{s}_\aa:W\to \R^n$ is injective and thus open by the invariance of domain theorem.
     
 
     To show (2) we let again $\widehat{q}\in \widehat{V}$ with $\widehat{q}=\F(q)$. 
@@ -182,7 +182,7 @@ Let  $\widehat{q}\in \widehat{V}$ then the following holds:
         (w_j)^n_{j=0}&\mapsto (\gamma_{q,w_j}(1))^n_{j=0}.
     \end{align*}
     We will denote $p_j = \gamma_{q,w_j}(1) = \exp_q(w_j)$. Then by definition $p_j\in \er(q)$ and $w_j = \Omega(q,p_j)$. As $\rho$ is lower semi-continuous, we see that $K(q)\subset (L_q^KM)^n$ is open by an analogous argument to the one in the proof of \ref{prop:submanifolds}. As the exponential map is continuous, $H$ is also continuous. Furthermore as $\Omega:\mc{Z}\to L^+V$ is continuous and injective, we can construct a continuous inverse to $H$, making $H:K(q) \to H(K(q)) = (\er(q))^{n+1}$ a homeomorphism.
-    We will denote $Y(q)\coloneqq(\varepsilon_U^{reg}(q))^{n+1}$.
+    We will denote $Y(q)\coloneqq(\er(q))^{n+1}$.
     Note that for all $\widehat{q}\in \widehat{V}$, the data \ref{rmk:data} determine $\er(q)$ and thus also the set $Y(q)\subset K^n$, where $q=\F^{-1}(\widehat{q})$.
     
     Let us now consider the set 
@@ -191,7 +191,7 @@ Let  $\widehat{q}\in \widehat{V}$ then the following holds:
     \]
     As linear independence is an open and non-degenerate property $K_0(q)$ is open and dense in $K(q)$. Since $H$ is a homeomorphism, $Y_0(q) = H(K_0(q))$ is open and dense in $Y(q)$ as well.
     
-    We can now prove the final part of the proposition: Recall that given $C^0$-observation coordinates around $\widehat{q}$, we want to determine if they are also $C^\infty$-observation coordinates $\widehat{q}$.
+    We can now prove the final part of the proposition: Recall that given $C^0$-observation coordinates around $\widehat{q}$, we want to determine if they are also $C^\infty$-observation coordinates around $\widehat{q}$.
     To that end, let $(W_\aa,\mathbf{s}_\aa)$ be $C^0$-observation coordinates around $\widehat{q}\in W_\aa$ with $q=\F^{-1}(\widehat{q})$. By definition we have $p_j\in \er(q)$ where $p_j=\mc{E}_{a_j}(q)$ are associated with $a_j$ and hence $(p_j)_{j=0}^n\subset Y(q)$. In the case where $(p_j)^n_{j=0}\in Y_0(q)$, by proposition \ref{prop:observationtimecoordinates}, $q$ has a neighborhood $V_1\subset M$ on which the function $\mathbf{f}_{\overrightarrow{a}}:V_1\to\R^n$ gives smooth local coordinates. Thus, after possibly restricting $W_{\overrightarrow{a}}$, $(W_{\overrightarrow{a}},\mathbf{s}_{\overrightarrow{a}})$ are $C^\infty$-observation coordinates around $\widehat{q}$. 
     We then let $(W_{\overrightarrow{b}},\mathbf{s}_{\overrightarrow{b}}), \overrightarrow{b}\in (\sn)^{n+1}$ be different $C^0$-observation coordinates around $\widehat{q}$ and let $(\widetilde{p}_j)^n_{j=0}\in Y(q)$ be such that $\widetilde{p}_j$ is associated to $b_j$.
     Since all smooth coordinates must be compatible, then $(\widetilde{p_j})^n_{j=0}\in Y_0(q)$ if and only if 
@@ -221,15 +221,17 @@ The data given in \ref{rmk:data} allows us to determine a metric $G$ on $\wideha
     
     The co-vector field $X=(-ds_{a_1})+(-ds_{a_2})$ is timelike and future-pointing and forms a local time-orientation on $W_\aa$. Using bump functions and a partition of unity we can then obtain a time-orientation on the whole of $\widehat{V}$ since all orientations agree where they overlap.
     
-    Now we turn our attention to the construction of a metric $G$ which is conformal to $\widehat{g}$: Let again $(W_\aa,\mathbf{s}_\aa)$ be $C^\infty$-observation coordinates on $\widehat{V}$ with $\widehat{q}_0\in W_\aa$ and $q_0\in V$ such that $\widehat{q}_0=\F(q_0)$. As in the previous proof, using the data given in $\ref{rmk:data}$ and the function $\widehat{q_0}=F_{q_0}$ we can determine $\ee(q_0), \er(q_0), \mc{D}_K(q_0)$ and $\mc{D}^{reg}_K(q_0)$ by \ref{prop:obsreconstr}.
+    Now we turn our attention to the construction of a metric $G$ which is conformal to $\widehat{g}$: Let again $(W_\aa,\mathbf{s}_\aa)$ be $C^\infty$-observation coordinates on $\widehat{V}$ with $\widehat{q}_0\in W_\aa$ and $q_0\in V$ such that $\widehat{q}_0=\F(q_0)$. As in the previous proof, using the data given in $\ref{rmk:data}$ and the function $\widehat{q_0}=F_{q_0}$ we can determine $\ee(q_0)$ and $\er(q_0$ by \ref{prop:obsreconstr}.
     
-    We then fix the point $\widehat{q_0}=\F(q_0)$ and the tuple $(p,v)\in \mc{D}^{reg}_K(q_0)$. Let $\widehat{t} >0$ be the largest number such that the geodesic $\gamma_{p,v}((-\widehat{t},0])\subset M$ is defined and has no cut point. For $q\in V$, we have that $q\in \gamma_{p,v}((-\widehat{t},0))$ if and only if $(p,v)\in \mc{D}^{reg}_K(q)$. Hence for a fixed $(p,v)\in \mc{D}^{reg}_K(q_0)$ the data allows us to whether some $\widehat{q}\in W_\aa$ has $q=\F^{-1}(\widehat{q}) \in \gamma_{p,v}((-\widehat{t},0))$ by checking if $(p,v)\in \mc{D}^{reg}(q)$. This allows us to determine
+    We then fix the point $\widehat{q_0}=\F(q_0)$ and a point $p_0=\mu_{a_0}(t_0)\in \er(q_0)$. Let now $q'\in V$ such that $p_0\in \er(q')$, recall that by lemma \ref{lem:dirreconstr} we have $\cl{v}(q_0,p_0)=\cl{v}(q',p_0)$ if and only if $dF_{q_0}\rvert_{a_0}=dF_{q'}\rvert_{a_0}$, i.e. the unique geodesics from $q_0$ resp. $q'$ to $p_0$ have the same directions at $p_0$ if and only if $F_q$ has the same differential as $F_q'$ at $a\in \sn$. Note that this is equivalent to the fact that $q'$ lies on the unique null geodesic from $q_0$ to $p_0$, although possibly in the past of $q_0$. We denote $v_0 \coloneqq \cl{v}(q_0,p_0)$.
+    
+    Let $\widehat{t} >0$ be the largest number such that the geodesic $\gamma_{p_0,v_0}((-\widehat{t},0])\subset M$ is well-defined and has no cut point. As discussed for $q\in V$, we have that $q\in \gamma_{p,v}((-\widehat{t},0))$ if and only if $p_0\in \er(q)$ and $dF_{q}\rvert_{a_0} = dF_{q_0}\rvert_{a_0}$. Hence for a fixed $(q_0,p_0)$ the data allows us to whether some $\widehat{q}\in W_\aa$ has $q=\F^{-1}(\widehat{q}) \in \gamma_{p_0,v_0}((-\widehat{t},0))$ by checking if $p_0\in \er(q)$ and $dF_{q}\rvert_{a_0} = dF_{q_0}\rvert_{a_0}$. This allows us to determine
         \[
-        \beta = \{ \widehat{q}\in W_\aa \mid \widehat{q}=\F(q), \mc{D}^{reg}_K(q) \ni (p,v)\} = \F(\gamma_{p,v}((-\widehat{t},0))) \cap W_\aa.
+        \beta = \{ \widehat{q}\in W_\aa \mid \widehat{q}=\F(q), p_0\in \er(q), dF_{q}\rvert_{a_0} = dF_{q_0}\rvert_{a_0}\} = \F(\gamma_{p,v}((-\widehat{t},0))) \cap W_\aa.
     \]
     Therefore, on $W_\aa\subset \widehat{V}$ we can find the image, under the map $\F$, of the light-like geodesic segment $\gamma_{p,v}((-\widehat{t},0))\cap \F^{-1}(W_\aa)$ that contains $q_0=\gamma_{p,v}(-t_1)$. Let $\alpha(s), s\in (-s_0,s_0)$ be a smooth path on $W_\aa$ such that $\partial_s\alpha(s)$ is never zero, $\alpha((-s_0,s_0))\subset \beta$ and $\alpha(0) = \widehat{q}_0$. Such a smooth path can, for example be obtained by endowing $\widehat{V}$ with some arbitrary Riemannian metric and parameterizing by arc-length. Then $\widehat{w}=\partial_s\alpha(s)\rvert_{s=0}\in T_{\widehat{q}_0}\widehat{V}$ has the form $\widehat{w}=c\F(\gamma'_{p,v}(-t_1))$ where $c\neq 0$. 
     
-    Since we can do the above construction for all points $(p,v)\in \mc{D}^{reg}_U(q_0)$, we can determine in the tangent space $T_{\widehat{q}_0}\widehat{V}$ the set 
+    Since we can do the above construction for all points $p_0\in \er(q_0)$, we can determine in the tangent space $T_{\widehat{q}_0}\widehat{V}$ the set 
     \[
     \Gamma = \F_*(\{cw\in L_{q_0}M \mid \exp_{q_0}(w) \in \er(q_0), c\in \R\setminus \{0\}\}) 
     \]
@@ -246,8 +248,8 @@ As mentioned in remark \ref{rmk:data} we want to prove the following theorem whi
     Let $(M,g)$ be a globally hyperbolic Lorentzian manifold and $p^+,p^-\in M, V\subset \jp$ suitable such that $V$ is an open subset of $\interior{\jp}$. Then given 
     \begin{enumerate}[label={\textnormal{(\arabic*)}}]
         \item The smooth manifold $K$,
-        \item the conformal class of $g\rvert_K$ and
-        \item the set of light cone observations $\mc{P}_K(V)$
+        \item the conformal class of the degenerate metric $g\rvert_K$ restricted to $T_pK$ for $p\in K$ and
+        \item the set of light cone observations $\mc{P}_K(V)$,
     \end{enumerate}
     we can construct a globally hyperbolic Lorentzian manifold $\widehat{V}$ such that there exists a conformal diffeomorphism $\F:V\to \widehat{V}$, which preserves causality.
 \end{theorem}
@@ -256,11 +258,12 @@ As mentioned in remark \ref{rmk:data} we want to prove the following theorem whi
     
     To construct the space $\widehat{V}$ which is conformally diffeomorphic to $V$ we follow these steps:
     \begin{itemize}
+        \item As $g\rvert_K$ restricted to $T_pK$ where $p\in K$ determines all nullpregeodesics on $K$ we can construct the observers $\mu_a$ moving along these pregeodesics.
         \item As $f_a(q) = \min \{s\in [-T_a,0] \mid \mu_a(s) \in \mc{P}_K(q)\}$ we can determine $\mc{E}_K(V) = \{\ee(q) \mid q\in V\}$ from $\mc{P}_K(V)$.
-        \item Proposition \ref{prop:obsreconstr} then allows us to determine $\mc{D}^{reg}_K(q)$, $\mc{D}_K(q)$ and $\er(q)$ for a given $\ee(q)\in \ee(V)$. We can thus construct $\mc{D}^{reg}_K(V)$, $\mc{D}_K(V)$ and $\er(V)$.
+        \item Proposition \ref{prop:obsreconstr} then allows us to determine $\er(q)$ for a given $\ee(q)\in \ee(V)$. We can thus construct $\er(V)$.
         \item We define the function 
         \begin{align*}
-            \F:V&\to \F(V) = \widehat{V} \subset (\mc{C}^\infty(\sn),d)\\
+            \F:V&\to \F(V) = \widehat{V} \subset (\mc{K}(\sn),d)\\
             q &\mapsto \widehat{q} = F_q = (a\mapsto f_a(q)).
         \end{align*}
         For a given $\ee(q)$ we can construct $\widehat{q}$ by $\widehat{q}(a) = f_a(q) = s$ such that $\mu_a(s) \in \ee(q)$.
@@ -271,7 +274,7 @@ As mentioned in remark \ref{rmk:data} we want to prove the following theorem whi
         \end{align*}
         And we can thus determine the set $\widehat{V} = \widetilde{\F}(\ee(V))$.
 
-        \item By taking the subspace topology with respect to the topology on $\mc{C}^\infty(\sn)$ induced by $d$ we can determine a topology on $\widehat{V}$. By corollary \ref{cor:Fhomeo} this topology is homeomorphic to the topology on $V$, making $\F$ a homeomorphism.
+        \item By taking the subspace topology with respect to the topology on $\mc{K}(\sn)$ induced by $d$ we can determine a topology on $\widehat{V}$. By corollary \ref{cor:Fhomeo} this topology is homeomorphic to the topology on $V$, making $\F$ a homeomorphism.
         
     %     Note that by the same procedure we can define the map
     %     \begin{align*}
@@ -300,7 +303,7 @@ As mentioned in remark \ref{rmk:data} we want to prove the following theorem whi
     \item For a given point $\widehat{q}\in \widehat{V}$ we can use proposition \ref{prop:findsmoothcoords} and the data to determine all $C^0$-observation coordinates around $\widehat{q}$. We can then determine for each of these coordinates if they are also $C^\infty$-observation coordinates, and find at least one such coordinate system since existence is guaranteed. We can repeat that step for each $\widehat{q}\in \widehat{V}$ to find smooth coordinates on $\widehat{V}$, making $\F$ a diffeomorphism. 
     
     \item Finally we can use lemma \ref{lem:constructmetric} to construct a metric $G$ and time-orientation $X$ on $\widehat{V}$ which is conformal to $\widehat{g}=\F_*g$ and makes $\F$ causal. 
-    $\F:(V,g\rvert_U)\to (\widehat{V},G)$ is thus a causal conformal diffeomorphism as desired.
+    $\F:(V,g\rvert_U)\to (\widehat{V},G)$ is thus a causal conformal diffeomorphism as desired.\qedhere
     \end{itemize}
 \end{proof}
 
